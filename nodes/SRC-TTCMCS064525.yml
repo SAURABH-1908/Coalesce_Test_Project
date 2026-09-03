@@ -1,0 +1,54 @@
+fileVersion: 1
+id: c4ac9752-4715-4f74-9f93-32eab3ead7c1
+name: TTCMCS064525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2beca4a6-9b14-456f-9d2b-906fcf100f66
+          stepCounter: c4ac9752-4715-4f74-9f93-32eab3ead7c1
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_CRAT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d419c501-c0ae-4a8f-b97a-18ee4b8f8efe
+          stepCounter: c4ac9752-4715-4f74-9f93-32eab3ead7c1
+        config: {}
+        dataType: NUMBER(10,0)
+        defaultValue: ""
+        description: ""
+        name: T_ACTN
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTCMCS064525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

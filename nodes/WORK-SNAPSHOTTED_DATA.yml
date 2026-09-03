@@ -1,0 +1,132 @@
+fileVersion: 1
+id: 5ccc9be1-ee58-4792-a1a2-3d728e0005de
+name: SNAPSHOTTED_DATA
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Latest current records from the ACCOUNT_CREDIT_DIM final table for this source system/instance, used as the merge target snapshot.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06663-7a4f-7198-a260-fc23f20a0c9f
+          stepCounter: 5ccc9be1-ee58-4792-a1a2-3d728e0005de
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_CREDIT_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"ACCOUNT_CREDIT_DIM\".\"ACCOUNT_CREDIT_INTG_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06663-7a4f-7198-a261-0129956a3f91
+          stepCounter: 5ccc9be1-ee58-4792-a1a2-3d728e0005de
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACCOUNT_CREDIT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"ACCOUNT_CREDIT_DIM\".\"ACCOUNT_CREDIT_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06663-7a4f-7198-a261-06de01c25365
+          stepCounter: 5ccc9be1-ee58-4792-a1a2-3d728e0005de
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"ACCOUNT_CREDIT_DIM\".\"CHKSUM_STR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06663-7a4f-7198-a261-08465446ed8b
+          stepCounter: 5ccc9be1-ee58-4792-a1a2-3d728e0005de
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"ACCOUNT_CREDIT_DIM\".\"LOAD_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06663-7a4f-7198-a261-0c83e937af1c
+          stepCounter: 5ccc9be1-ee58-4792-a1a2-3d728e0005de
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"ACCOUNT_CREDIT_DIM\".\"SYS_EFF_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06663-7a4f-7198-a261-1165a501b377
+          stepCounter: 5ccc9be1-ee58-4792-a1a2-3d728e0005de
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"ACCOUNT_CREDIT_DIM\".\"DBT_SCD_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06663-7a4f-7198-a261-142436fd7276
+          stepCounter: 5ccc9be1-ee58-4792-a1a2-3d728e0005de
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TARGET_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"ACCOUNT_CREDIT_DIM\".\"ACCOUNT_CREDIT_INTG_ID\""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          ACCOUNT_CREDIT_DIM: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: |-
+            FROM {{ ref_no_link('SRC', 'ACCOUNT_CREDIT_DIM') }} ACCOUNT_CREDIT_DIM
+            WHERE ACCOUNT_CREDIT_DIM.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_003'
+            AND ACCOUNT_CREDIT_DIM.INSTANCE_NM = 'INSTANCE_004'
+            AND ACCOUNT_CREDIT_DIM.CURR_FLG = 'Y'
+            AND ACCOUNT_CREDIT_DIM.SYS_EXP_TS IS NULL
+        name: SNAPSHOTTED_DATA
+        noLinkRefs:
+          - locationName: SRC
+            nodeName: ACCOUNT_CREDIT_DIM
+  name: SNAPSHOTTED_DATA
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

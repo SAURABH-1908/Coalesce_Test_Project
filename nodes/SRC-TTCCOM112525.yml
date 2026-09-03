@@ -1,0 +1,92 @@
+fileVersion: 1
+id: 9bc57b13-0ac9-4057-946c-a92627f9514d
+name: TTCCOM112525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9a89454f-f112-4d79-9930-f25a53738b6a
+          stepCounter: 9bc57b13-0ac9-4057-946c-a92627f9514d
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_ITBP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d6f29cb-81d8-4543-8474-7dc081d9e39d
+          stepCounter: 9bc57b13-0ac9-4057-946c-a92627f9514d
+        config: {}
+        dataType: VARCHAR(10)
+        defaultValue: ""
+        description: ""
+        name: T_CCUR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 90bc594a-ce7a-40fd-802b-3bf0b968dc34
+          stepCounter: 9bc57b13-0ac9-4057-946c-a92627f9514d
+        config: {}
+        dataType: NUMBER(18,2)
+        defaultValue: ""
+        description: ""
+        name: T_CRLR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2acc1c7e-ddc4-4b3e-b79c-0c26c1160897
+          stepCounter: 9bc57b13-0ac9-4057-946c-a92627f9514d
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_CRAT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTCCOM112525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
