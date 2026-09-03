@@ -1,0 +1,57 @@
+fileVersion: 1
+id: 28972d47-1d4c-4907-84e3-58f0f3a3deac
+name: STG_TTCCOM122525
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Pass-through stage for source TTCCOM122525.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e6-1443-77aa-a539-29333caaaccf
+          stepCounter: 28972d47-1d4c-4907-84e3-58f0f3a3deac
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: T_CADR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d73ae2ba-f450-4ec6-968e-e36fde71c374
+                stepCounter: 9e4d0c0c-4914-4f88-8a6d-058d14b75d77
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          TTCCOM122525: 9e4d0c0c-4914-4f88-8a6d-058d14b75d77
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: TTCCOM122525
+        join:
+          joinCondition: FROM {{ ref('SRC', 'TTCCOM122525') }} TTCCOM122525
+        name: STG_TTCCOM122525
+        noLinkRefs: []
+  name: STG_TTCCOM122525
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

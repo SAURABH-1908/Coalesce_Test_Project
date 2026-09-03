@@ -1,0 +1,183 @@
+fileVersion: 1
+id: 2e2ce6ab-9b15-4c64-9b02-db090bd5f004
+name: STG_TTCCOM130525
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Pass-through stage for source TTCCOM130525.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-a134-7750-9c0f-61e15c14d553
+          stepCounter: 2e2ce6ab-9b15-4c64-9b02-db090bd5f004
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: T_CADR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e6ec4500-b186-4c88-b96f-4cab17a5161f
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-a135-76ee-a1c3-bb6360561c53
+          stepCounter: 2e2ce6ab-9b15-4c64-9b02-db090bd5f004
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: T_CSTE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c6a3970b-fac6-4f41-8db8-61db2d066c59
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-a135-76ee-a1c3-bdf2b0b5b724
+          stepCounter: 2e2ce6ab-9b15-4c64-9b02-db090bd5f004
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: T_PSTC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24885acc-3997-44f5-8f3d-75b55a363002
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-a135-76ee-a1c3-c0ca4e4e218b
+          stepCounter: 2e2ce6ab-9b15-4c64-9b02-db090bd5f004
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: T_CCTY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4ab68b7f-66c2-4b9b-a7d4-5253501e9849
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-a135-76ee-a1c3-c57fe2657c96
+          stepCounter: 2e2ce6ab-9b15-4c64-9b02-db090bd5f004
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: T_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f1763e75-75ab-4723-ad91-228010a65777
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-a135-76ee-a1c3-c8c8dc5d8c98
+          stepCounter: 2e2ce6ab-9b15-4c64-9b02-db090bd5f004
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: T_NAMC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 687ba9a8-992e-491f-b5fb-32494fb880d6
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-a135-76ee-a1c3-cf421f47f610
+          stepCounter: 2e2ce6ab-9b15-4c64-9b02-db090bd5f004
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: T_HONO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a073ce8-9b1c-410a-9f5f-c978c7d382fd
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-a135-76ee-a1c3-d16db80e9358
+          stepCounter: 2e2ce6ab-9b15-4c64-9b02-db090bd5f004
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: T_NAMD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a4d65c67-c438-4755-90a7-252d3a37640a
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-a135-76ee-a1c3-d7ac18059312
+          stepCounter: 2e2ce6ab-9b15-4c64-9b02-db090bd5f004
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: T_POBN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3f67c2dd-2b2d-4b34-991e-26ec61317a70
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-a135-76ee-a1c3-dacc2a44f666
+          stepCounter: 2e2ce6ab-9b15-4c64-9b02-db090bd5f004
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: SNOWFLAKE_INGESTED_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 870ee68d-be7c-4cbe-8584-e03552271142
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          TTCCOM130525: 16af9719-d833-4715-a016-ef84f607088d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: TTCCOM130525
+        join:
+          joinCondition: FROM {{ ref('SRC', 'TTCCOM130525') }} TTCCOM130525
+        name: STG_TTCCOM130525
+        noLinkRefs: []
+  name: STG_TTCCOM130525
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

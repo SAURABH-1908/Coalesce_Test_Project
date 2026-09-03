@@ -1,0 +1,556 @@
+fileVersion: 1
+id: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+name: STG_GBL_ADDRESS_DIM
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Consolidated staging of BAAN V (525) address data for GBL_ADDRESS_DIM; joins the per-source stage nodes and derives the integration ID, address attributes, and change checksum.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-121c3065e7c3
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GBL_ADDRESS_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e6ec4500-b186-4c88-b96f-4cab17a5161f
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: CONCAT_WS('~',COALESCE(TRIM("TTCCOM130525"."T_CADR"),''),COALESCE(TRIM("TTCCOM130525"."T_NAME"),''),COALESCE(TRIM("TCMCS143"."T_DSCA"),''),'525','INSTANCE_004','SOURCE_SYSTEM_003')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-16a62d3684ae
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_ADDRESS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e6ec4500-b186-4c88-b96f-4cab17a5161f
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: TRIM("TTCCOM130525"."T_CADR")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-1b7e5e6571a6
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_LINE_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 687ba9a8-992e-491f-b5fb-32494fb880d6
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: TRIM("TTCCOM130525"."T_NAMC")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-1eccde6f52eb
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_LINE_2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a4d65c67-c438-4755-90a7-252d3a37640a
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: TRIM("TTCCOM130525"."T_NAMD")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-223c6e32834b
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_LINE_3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a073ce8-9b1c-410a-9f5f-c978c7d382fd
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: CONCAT("TTCCOM130525"."T_HONO",' ',"TTCCOM130525"."T_POBN")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-25ad05b0e478
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_AREA_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("TCCOM110"."T_CREG")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-2b1923cb1c7d
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_AREA_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("TCMCS045"."T_DSCA")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-2f65c7199ae6
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_DISTRICT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("TCCOM110"."T_CREG")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-3028f40a78f8
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_DISTRICT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("TCIBD902"."T_NAME")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-3620579497f6
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_CITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-38a9e2262831
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_CITY_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f1763e75-75ab-4723-ad91-228010a65777
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: TRIM("TTCCOM130525"."T_NAME")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-3f6caf4ce15c
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_STATE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c6a3970b-fac6-4f41-8db8-61db2d066c59
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: TRIM("TTCCOM130525"."T_CSTE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-4142bff87efa
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_STATE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("TCMCS143"."T_DSCA")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-47768370d147
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_COUNTRY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4ab68b7f-66c2-4b9b-a7d4-5253501e9849
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: TRIM("TTCCOM130525"."T_CCTY")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-49db14129b6d
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_COUNTRY_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("TCMCS010"."T_DSCA")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-4e5ef09a62b7
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_REGION_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("TCIBD902"."T_NREG")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-51373103ee06
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_REGION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("TCIBD902"."T_NRED")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-55b3e46b9225
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_POSTAL_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24885acc-3997-44f5-8f3d-75b55a363002
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: TRIM("TTCCOM130525"."T_PSTC")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-5bee119c1ac6
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ERP_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'525'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-5df4ba1acd0d
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_TYPE_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e6ec4500-b186-4c88-b96f-4cab17a5161f
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: CASE WHEN "TTCCOM130525"."T_CADR" = "TCCOM110"."T_CADR" THEN 'sold-to' WHEN "TTCCOM130525"."T_CADR" = "TCCOM111"."T_CADR" THEN 'ship-to' WHEN "TTCCOM130525"."T_CADR" = "TCCOM112"."T_CADR" THEN 'inv-to' WHEN "TTCCOM130525"."T_CADR" = "TCCOM114"."T_CADR" THEN 'pay-by' WHEN "TTCCOM130525"."T_CADR" = "TCCOM120"."T_CADR" THEN 'buy-from' WHEN "TTCCOM130525"."T_CADR" = "TCCOM121"."T_CADR" THEN 'ship-from' WHEN "TTCCOM130525"."T_CADR" = "TCCOM122"."T_CADR" THEN 'inv-from' WHEN "TTCCOM130525"."T_CADR" = "TCCOM124"."T_CADR" THEN 'pay-to' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-638196ebe081
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(TRIM("TCCOM110"."T_OFBP"),TRIM("TCCOM111"."T_STBP"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd44-7742-a223-649f0796ed50
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REFERENCE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(TRIM("TCCOM110"."T_OFBP"),TRIM("TCCOM111"."T_STBP"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd45-704e-a8b2-9388f2c77dbe
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REFERENCE_TYPE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CASE WHEN COALESCE(TRIM("TCCOM110"."T_OFBP"),TRIM("TCCOM111"."T_STBP")) IS NOT NULL THEN 'CUSTOMER' ELSE 'CONTRACT' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd45-704e-a8b2-941e3ab65be7
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e6ec4500-b186-4c88-b96f-4cab17a5161f
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: HASH(TRIM(LOWER("TTCCOM130525"."T_CADR")),TRIM(LOWER("TTCCOM130525"."T_NAMC")),TRIM(LOWER("TTCCOM130525"."T_NAMD")),TRIM(LOWER(CONCAT("TTCCOM130525"."T_HONO",' ',"TTCCOM130525"."T_POBN"))),TRIM(LOWER("TCCOM110"."T_CREG")),TRIM(LOWER("TCMCS045"."T_DSCA")),TRIM(LOWER("TCCOM110"."T_CREG")),TRIM(LOWER("TCIBD902"."T_NAME")),TRIM(LOWER("TTCCOM130525"."T_NAME")),TRIM(LOWER("TTCCOM130525"."T_CSTE")),TRIM(LOWER("TCMCS143"."T_DSCA")),TRIM(LOWER("TTCCOM130525"."T_CCTY")),TRIM(LOWER("TCMCS010"."T_DSCA")),TRIM(LOWER("TCIBD902"."T_NREG")),TRIM(LOWER("TCIBD902"."T_NRED")),TRIM(LOWER("TTCCOM130525"."T_PSTC")),TRIM(LOWER('525')),TRIM(LOWER(CASE WHEN "TTCCOM130525"."T_CADR" = "TCCOM110"."T_CADR" THEN 'sold-to' WHEN "TTCCOM130525"."T_CADR" = "TCCOM111"."T_CADR" THEN 'ship-to' WHEN "TTCCOM130525"."T_CADR" = "TCCOM112"."T_CADR" THEN 'inv-to' WHEN "TTCCOM130525"."T_CADR" = "TCCOM114"."T_CADR" THEN 'pay-by' WHEN "TTCCOM130525"."T_CADR" = "TCCOM120"."T_CADR" THEN 'buy-from' WHEN "TTCCOM130525"."T_CADR" = "TCCOM121"."T_CADR" THEN 'ship-from' WHEN "TTCCOM130525"."T_CADR" = "TCCOM122"."T_CADR" THEN 'inv-from' WHEN "TTCCOM130525"."T_CADR" = "TCCOM124"."T_CADR" THEN 'pay-to' END)),TRIM(LOWER(COALESCE("TCCOM110"."T_OFBP","TCCOM111"."T_STBP"))),TRIM(LOWER(COALESCE("TCCOM110"."T_OFBP","TCCOM111"."T_STBP"))),TRIM(LOWER(CASE WHEN COALESCE("TCCOM110"."T_OFBP","TCCOM111"."T_STBP") IS NOT NULL THEN 'CUSTOMER' ELSE 'CONTRACT' END)),TRIM(LOWER("SOURCE_SYSTEM_DIM"."SOURCE_SYSTEM_SK")))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd45-704e-a8b2-991111f80b99
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Americas'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd45-704e-a8b2-9d212d73fdd4
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7cb033fc-5b75-49a7-8c12-16946ee8852e
+                stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
+            transform: COALESCE("SOURCE_SYSTEM_DIM"."SOURCE_SYSTEM_SK",'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd45-704e-a8b2-a202b1b03d82
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd45-704e-a8b2-a46e23087379
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd45-704e-a8b2-a9a5c2c7e787
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 870ee68d-be7c-4cbe-8584-e03552271142
+                stepCounter: 16af9719-d833-4715-a016-ef84f607088d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd45-704e-a8b2-ad3fb71bcada
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd45-704e-a8b2-b20a01c3b4e5
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'SOURCE_SYSTEM_003'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd45-704e-a8b2-b6faa57bf121
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'INSTANCE_004'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd45-704e-a8b2-b88b59d8efef
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ROOT_EXECN_PID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd45-704e-a8b2-bce8f2ae11bf
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_PIPELINE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'PL_Trans_OTC_Finance_Main'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd45-704e-a8b2-c0284636bdd3
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_TRANSFORMATION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'adf-dev-edp-finance'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e7-dd45-704e-a8b2-c76d53c4ddc6
+          stepCounter: ee9c4d27-4d0b-4f2e-997d-6ac44f66e71d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_SCRIPT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'otc-finance/NA/BAAN_V_525/LOAD_FNL_BAAN_V_525_GBL_ADDRESS_DIM.sql'"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          SOURCE_SYSTEM_DIM: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: STG_TTCCOM110525
+          - locationName: SRC
+            nodeName: STG_TTCCOM111525
+          - locationName: SRC
+            nodeName: STG_TTCCOM112525
+          - locationName: SRC
+            nodeName: STG_TTCCOM114525
+          - locationName: SRC
+            nodeName: STG_TTCCOM120525
+          - locationName: SRC
+            nodeName: STG_TTCCOM121525
+          - locationName: SRC
+            nodeName: STG_TTCCOM122525
+          - locationName: SRC
+            nodeName: STG_TTCCOM124525
+          - locationName: SRC
+            nodeName: STG_TTCCOM130525
+          - locationName: SRC
+            nodeName: STG_TTCIBD902525
+          - locationName: SRC
+            nodeName: STG_TTCMCS010525
+          - locationName: SRC
+            nodeName: STG_TTCMCS045525
+          - locationName: SRC
+            nodeName: STG_TTCMCS143525
+          - locationName: TARGET
+            nodeName: SOURCE_SYSTEM_DIM
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'STG_TTCCOM130525') }} TTCCOM130525
+            LEFT OUTER JOIN {{ ref('SRC', 'STG_TTCMCS010525') }} TCMCS010
+                ON TTCCOM130525.T_CCTY = TCMCS010.T_CCTY
+            LEFT OUTER JOIN {{ ref('SRC', 'STG_TTCCOM110525') }} TCCOM110
+                ON TCCOM110.T_CADR = TTCCOM130525.T_CADR
+            LEFT OUTER JOIN {{ ref('SRC', 'STG_TTCMCS045525') }} TCMCS045
+                ON TCCOM110.T_CREG = TCMCS045.T_CREG
+            LEFT OUTER JOIN {{ ref('SRC', 'STG_TTCMCS143525') }} TCMCS143
+                ON TTCCOM130525.T_CSTE = TCMCS143.T_CSTE
+            LEFT OUTER JOIN {{ ref('SRC', 'STG_TTCIBD902525') }} TCIBD902
+                ON TCIBD902.T_BRCH = TCMCS045.T_CREG AND TCCOM110.T_CREG = TCIBD902.T_BRCH
+            LEFT OUTER JOIN {{ ref('SRC', 'STG_TTCCOM111525') }} TCCOM111
+                ON TTCCOM130525.T_CADR = TCCOM111.T_CADR
+            LEFT OUTER JOIN {{ ref('SRC', 'STG_TTCCOM112525') }} TCCOM112
+                ON TTCCOM130525.T_CADR = TCCOM112.T_CADR
+            LEFT OUTER JOIN {{ ref('SRC', 'STG_TTCCOM114525') }} TCCOM114
+                ON TTCCOM130525.T_CADR = TCCOM114.T_CADR
+            LEFT OUTER JOIN {{ ref('SRC', 'STG_TTCCOM120525') }} TCCOM120
+                ON TTCCOM130525.T_CADR = TCCOM120.T_CADR
+            LEFT OUTER JOIN {{ ref('SRC', 'STG_TTCCOM121525') }} TCCOM121
+                ON TTCCOM130525.T_CADR = TCCOM121.T_CADR
+            LEFT OUTER JOIN {{ ref('SRC', 'STG_TTCCOM122525') }} TCCOM122
+                ON TTCCOM130525.T_CADR = TCCOM122.T_CADR
+            LEFT OUTER JOIN {{ ref('SRC', 'STG_TTCCOM124525') }} TCCOM124
+                ON TTCCOM130525.T_CADR = TCCOM124.T_CADR
+            LEFT OUTER JOIN {{ ref('TARGET', 'SOURCE_SYSTEM_DIM') }} SOURCE_SYSTEM_DIM
+                ON SOURCE_SYSTEM_DIM.SOURCE_SYSTEM_CD = 'SOURCE_SYSTEM_003'
+                AND SOURCE_SYSTEM_DIM.SITE_REGION_CD = 'INSTANCE_004'
+                AND SOURCE_SYSTEM_DIM.SOURCE_COMPANY_CD = '525'
+        name: STG_GBL_ADDRESS_DIM
+        noLinkRefs: []
+  name: STG_GBL_ADDRESS_DIM
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

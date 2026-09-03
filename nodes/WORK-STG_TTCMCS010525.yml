@@ -1,0 +1,71 @@
+fileVersion: 1
+id: f45c7a5d-f39a-4679-8b6f-c737dabbd305
+name: STG_TTCMCS010525
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Pass-through stage for source TTCMCS010525.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-ac2f-75cd-b273-b987c05eea38
+          stepCounter: f45c7a5d-f39a-4679-8b6f-c737dabbd305
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: T_CCTY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e1783607-726f-41e2-bf77-a3fecfb530d4
+                stepCounter: 14e59d77-8760-4102-846c-48c2b0515b27
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-ac2f-75cd-b273-bd884b3fb639
+          stepCounter: f45c7a5d-f39a-4679-8b6f-c737dabbd305
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: T_DSCA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c4e2a7db-361a-463e-b8b0-5e6808f27cf1
+                stepCounter: 14e59d77-8760-4102-846c-48c2b0515b27
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          TTCMCS010525: 14e59d77-8760-4102-846c-48c2b0515b27
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: TTCMCS010525
+        join:
+          joinCondition: FROM {{ ref('SRC', 'TTCMCS010525') }} TTCMCS010525
+        name: STG_TTCMCS010525
+        noLinkRefs: []
+  name: STG_TTCMCS010525
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
