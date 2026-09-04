@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 78635e8c-898f-49e6-b223-a423c67660c3
+name: TTFGLD011525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6803a0cc-aa47-4684-a742-ebf08a3748a5
+          stepCounter: 78635e8c-898f-49e6-b223-a423c67660c3
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_TTYP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6bbcb6ea-0458-4562-b908-f159de88bc19
+          stepCounter: 78635e8c-898f-49e6-b223-a423c67660c3
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: T_DESC
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTFGLD011525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

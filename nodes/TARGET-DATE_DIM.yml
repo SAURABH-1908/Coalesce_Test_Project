@@ -1,0 +1,189 @@
+fileVersion: 1
+id: 7069c486-33c5-44f0-80a1-4e0487bc8769
+name: DATE_DIM
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Date dimension providing fiscal year and period attributes for the GL_DISTIBUTION_FACT load.
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b71-9725-7073-ac9f-49174759f9f0
+          stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: true
+        name: DATE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b71-9725-7073-ac9f-49174759f9f0
+                stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
+            transform: "\"DATE_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b71-9725-7073-ac9f-4fd31c4e7936
+          stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: FISCAL_YEAR_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b71-9725-7073-ac9f-4fd31c4e7936
+                stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
+            transform: "\"FISCAL_YEAR_NBR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b71-9725-7073-ac9f-5194ff58aac5
+          stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: FISCAL_PERIOD_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b71-9725-7073-ac9f-5194ff58aac5
+                stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
+            transform: "\"FISCAL_PERIOD_NBR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf6b125c-98c7-4b03-a7de-a632338cb56f
+          stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSurrogateKey: true
+        name: DIM_NODE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ae1eb2fb-0851-48b5-bd2e-db51f31b31f8
+          stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: de85ca09-b544-4463-a3fd-6d06bcc0472d
+          stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 33b5a97d-81e9-4ee2-86ad-2c5f01534bf0
+          stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 329ee4df-9e68-4f56-b3ff-9abe159e9163
+          stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e40a7f9a-31a7-4dc3-be16-41ae6b2e9302
+          stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a7f5cddd-b19e-421c-b375-930681d42bbd
+          stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          DATE_DIM: 7069c486-33c5-44f0-80a1-4e0487bc8769
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'DATE_DIM') }} AS DATE_DIM
+        name: DATE_DIM
+        noLinkRefs: []
+  name: DATE_DIM
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

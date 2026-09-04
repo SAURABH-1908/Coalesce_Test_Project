@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 82d67e14-471a-465a-b4b5-2f0835aae506
+name: TTPPDM600525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fcf786e8-5ade-4900-9f38-5801df359ce4
+          stepCounter: 82d67e14-471a-465a-b4b5-2f0835aae506
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_PADR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5316c6f7-960a-4f20-8fa6-59f6b774bc36
+          stepCounter: 82d67e14-471a-465a-b4b5-2f0835aae506
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_CPRJ
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 73aee786-5722-4278-8a47-e04fa85e0ecc
+          stepCounter: 82d67e14-471a-465a-b4b5-2f0835aae506
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SNOWFLAKE_INGESTED_TIME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTPPDM600525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

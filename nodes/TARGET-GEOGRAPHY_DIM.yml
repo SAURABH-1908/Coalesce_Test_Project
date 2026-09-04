@@ -1,0 +1,234 @@
+fileVersion: 1
+id: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+name: GEOGRAPHY_DIM
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Geography dimension mapping branch codes to geo surrogate keys for the GL_DISTIBUTION_FACT load.
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b72-2ae4-737c-acc4-a145a3b32a98
+          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: GEO_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b72-2ae4-737c-acc4-a145a3b32a98
+                stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+            transform: "\"GEO_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b72-2ae5-74db-881e-2de2dda4fc8d
+          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: true
+        name: BRANCH_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b72-2ae5-74db-881e-2de2dda4fc8d
+                stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+            transform: "\"BRANCH_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b72-2ae5-74db-881e-315371f2c3b6
+          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: COMPANY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b72-2ae5-74db-881e-315371f2c3b6
+                stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+            transform: "\"COMPANY_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b72-2ae5-74db-881e-34747162a110
+          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b72-2ae5-74db-881e-34747162a110
+                stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+            transform: "\"SOURCE_SYSTEM_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b72-2ae5-74db-881e-39743aa3ca40
+          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b72-2ae5-74db-881e-39743aa3ca40
+                stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+            transform: "\"INSTANCE_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b72-2ae5-74db-881e-3d6e65296600
+          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b72-2ae5-74db-881e-3d6e65296600
+                stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+            transform: "\"CURR_FLG\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 598081fa-2958-42ae-8972-8e1e92a66682
+          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSurrogateKey: true
+        name: DIM_NODE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7eca176e-a7b3-46b4-b5df-7c642ab25259
+          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d214d6bd-7160-4b93-ae34-1fb81a99a910
+          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 228c82cd-6245-4ad0-9cb3-a3dec2453d09
+          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bb72597d-a919-424a-8129-770b124d5108
+          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e2ff3972-b062-4a24-a5c8-fc257375f85c
+          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8fbc6885-dde0-4ed3-96f9-d8ef39d6f791
+          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          GEOGRAPHY_DIM: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'GEOGRAPHY_DIM') }} AS GEOGRAPHY_DIM
+        name: GEOGRAPHY_DIM
+        noLinkRefs: []
+  name: GEOGRAPHY_DIM
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node
