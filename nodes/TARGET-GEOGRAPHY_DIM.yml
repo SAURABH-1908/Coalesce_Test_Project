@@ -547,6 +547,138 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-74a9caa90d1d
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: NUMBER
+        description: Geography surrogate key.
+        name: GEO_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-788cba490da7
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-7d2df213f374
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-80f12b033c28
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-8499040c5f42
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-8b58c1e7f898
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-8d280b9506cf
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-937fe6271d52
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DML_ACTION_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-94a6b69a2663
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-9bc4d87faf70
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-9f5a9f7f2361
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ROOT_EXECN_PID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
     cteString: ""
     description: ""
     destinationName: ""

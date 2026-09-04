@@ -42,7 +42,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-7a4f-7198-a261-142436fd7276
                 stepCounter: 5ccc9be1-ee58-4792-a1a2-3d728e0005de
-            transform: ""
+            transform: "\"TARGET_PRIMARY_KEY\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a06748-613c-71c8-b509-26b74766f30e
@@ -488,7 +488,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-7a4f-7198-a261-08465446ed8b
                 stepCounter: 5ccc9be1-ee58-4792-a1a2-3d728e0005de
-            transform: ""
+            transform: "\"LOAD_TS\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a06748-613c-71c8-b509-b8b1ef7fde63
@@ -502,7 +502,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-7a4f-7198-a261-0c83e937af1c
                 stepCounter: 5ccc9be1-ee58-4792-a1a2-3d728e0005de
-            transform: ""
+            transform: "\"SYS_EFF_TS\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a06748-613c-71c8-b509-bc665961981b
@@ -540,7 +540,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-7a4f-7198-a261-1165a501b377
                 stepCounter: 5ccc9be1-ee58-4792-a1a2-3d728e0005de
-            transform: ""
+            transform: "\"DBT_SCD_ID\""
     cteString: ""
     description: ""
     destinationName: ""

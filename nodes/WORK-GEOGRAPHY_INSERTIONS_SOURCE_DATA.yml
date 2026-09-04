@@ -282,7 +282,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-5d37-70be-8c89-d76acae6adbd
                 stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
-            transform: ""
+            transform: "\"BUSINESS_SEGMENT_NM\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a0674a-55c3-76fa-b32e-d93810dc3fa8
@@ -296,7 +296,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-5d37-70be-8c89-a3adba4e0863
                 stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
-            transform: ""
+            transform: "\"SOURCE_SYSTEM_SK\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a0674a-55c3-76fa-b32e-dd523e6e1143
@@ -310,7 +310,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-5d37-70be-8c89-c801e3aa6168
                 stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
-            transform: ""
+            transform: "\"CREATE_TS\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a0674a-55c3-76fa-b32e-e07d98e268b4
@@ -324,7 +324,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-5d37-70be-8c89-ccee2896d78e
                 stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
-            transform: ""
+            transform: "\"LAST_UPDATE_TS\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a0674a-55c3-76fa-b32e-e71637903a99
@@ -338,7 +338,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-5d37-70be-8c89-c777edb4257c
                 stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
-            transform: ""
+            transform: "\"INGEST_TS\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a0674a-55c3-76fa-b32e-eb474dfb6cc7
@@ -352,7 +352,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-5d37-70be-8c89-d2d0450487d3
                 stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
-            transform: ""
+            transform: "\"DL_LAST_UPDATE_TS\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a0674a-55c3-76fa-b32e-efc13b1ac440
@@ -366,7 +366,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-5d37-70be-8c89-c05d49eb56a2
                 stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
-            transform: ""
+            transform: "\"CHKSUM_STR\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a0674a-55c3-76fa-b32e-f21265afa7bd
@@ -428,7 +428,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-5d37-70be-8c89-dada746fd2c8
                 stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
-            transform: ""
+            transform: "\"SOURCE_SYSTEM_NM\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a0674a-55c3-76fa-b32f-04a2ab119c3f
@@ -442,7 +442,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-5d37-70be-8c89-deb9b23b7032
                 stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
-            transform: ""
+            transform: "\"INSTANCE_NM\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a0674a-55c3-76fa-b32f-0a1529338bf0
