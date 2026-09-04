@@ -1,0 +1,54 @@
+fileVersion: 1
+id: ca72e51c-324c-48a7-982e-522ac95c8d86
+name: INST_CONTRACT_DIM
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 35167b8e-7b5c-4f3a-95af-8ecb5a6e5ec4
+          stepCounter: ca72e51c-324c-48a7-982e-522ac95c8d86
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: CONTRACT_SK
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2cd1a58-1b4e-4615-9f29-152e479e3cf4
+          stepCounter: ca72e51c-324c-48a7-982e-522ac95c8d86
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: CONTRACT_NBR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: INST_CONTRACT_DIM
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
