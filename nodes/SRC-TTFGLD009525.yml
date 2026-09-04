@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 395af002-aec7-4616-a82b-e0a4f053159c
-name: SOURCE_SYSTEM_DIM
+id: 98c553b3-9a49-46b7-8696-77695c67bec5
+name: TTFGLD009525
 operation:
   database: ""
   deployEnabled: true
@@ -13,32 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 1533e63b-3ec6-489f-85b1-f9a606ab0188
-          stepCounter: 395af002-aec7-4616-a82b-e0a4f053159c
-        config: {}
-        dataType: NUMBER(38,0)
-        defaultValue: ""
-        description: ""
-        name: SOURCE_SYSTEM_SK
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 555d862c-2f2e-46a7-ad49-5faf47481567
-          stepCounter: 395af002-aec7-4616-a82b-e0a4f053159c
+          columnCounter: fa6fe0fe-7af0-4197-9d5b-f68464f69325
+          stepCounter: 98c553b3-9a49-46b7-8696-77695c67bec5
         config: {}
         dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_CD
+        name: T_LEAC
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: ad542bb7-9ee5-4f5c-84b3-909532a8cb5a
-          stepCounter: 395af002-aec7-4616-a82b-e0a4f053159c
+          columnCounter: a8b7e09b-0ecd-4496-9fce-a348f5556d20
+          stepCounter: 98c553b3-9a49-46b7-8696-77695c67bec5
         config: {}
         dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: SITE_REGION_CD
+        name: T_DTYP
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 52dd8ad8-9038-41c0-aaea-883cc7bf54a1
-          stepCounter: 395af002-aec7-4616-a82b-e0a4f053159c
+          columnCounter: f3787c2c-f24e-4087-b447-5420d6ef241e
+          stepCounter: 98c553b3-9a49-46b7-8696-77695c67bec5
         config: {}
-        dataType: VARCHAR(20)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: SOURCE_COMPANY_CD
+        name: T_FDIM
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 4ef1ec72-b35d-4658-acfc-8a37bc2119ec
-          stepCounter: 395af002-aec7-4616-a82b-e0a4f053159c
+          columnCounter: cfbf8088-aa3b-4447-a9e0-374f3090f91b
+          stepCounter: 98c553b3-9a49-46b7-8696-77695c67bec5
         config: {}
-        dataType: VARCHAR(1)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: CURR_FLG
+        name: T_UDIM
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -103,7 +84,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: SOURCE_SYSTEM_DIM
+  name: TTFGLD009525
   schema: ""
   sqlType: Source
   type: sourceInput

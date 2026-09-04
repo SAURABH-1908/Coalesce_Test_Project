@@ -1,0 +1,97 @@
+fileVersion: 1
+id: 88d788b7-5075-4e80-998d-940a596d2737
+name: GL_TFGLD008525
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: BAAN V_525 GL account master (TTFGLD008525) filtered to the columns used by the GL_ACCOUNT_DIM load, with COUNTRY_CD literal added.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-4ba8-700a-9b35-92b907f94fb5
+          stepCounter: 88d788b7-5075-4e80-998d-940a596d2737
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_DESC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e1b08a32-e1e3-46a6-bba2-3009a2216dee
+                stepCounter: 04e1a80d-c03a-46ae-9830-9dbb808df685
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-4ba8-700a-9b35-9589baa3020f
+          stepCounter: 88d788b7-5075-4e80-998d-940a596d2737
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_LEAC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4200c6c4-d471-4587-95fe-ba5ba4f997c7
+                stepCounter: 04e1a80d-c03a-46ae-9830-9dbb808df685
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-4ba8-700a-9b35-a16d9aee8722
+          stepCounter: 88d788b7-5075-4e80-998d-940a596d2737
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_DBCR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f4ba578e-8905-461c-ba3b-e25451339ad7
+                stepCounter: 04e1a80d-c03a-46ae-9830-9dbb808df685
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-4ba8-700a-9b35-b06586888e0e
+          stepCounter: 88d788b7-5075-4e80-998d-940a596d2737
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COUNTRY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'525'"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          TTFGLD008525: 04e1a80d-c03a-46ae-9830-9dbb808df685
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: TTFGLD008525
+        join:
+          joinCondition: FROM {{ ref('SRC', 'TTFGLD008525') }} TTFGLD008525
+        name: GL_TFGLD008525
+        noLinkRefs: []
+  name: GL_TFGLD008525
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
