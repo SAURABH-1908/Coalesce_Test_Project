@@ -1,0 +1,92 @@
+fileVersion: 1
+id: b8ef9181-a7f2-45f0-b32e-d4cedaa2867b
+name: TTFGLD100525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 271eb128-cde6-4ea5-8515-f1b3ae2d2293
+          stepCounter: b8ef9181-a7f2-45f0-b32e-d4cedaa2867b
+        config: {}
+        dataType: VARCHAR(10)
+        defaultValue: ""
+        description: ""
+        name: T_YEAR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d66a10cd-3e93-4fd8-b6be-87456b05738c
+          stepCounter: b8ef9181-a7f2-45f0-b32e-d4cedaa2867b
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_BTNO
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a1a4b5e-fae1-4354-afce-9a208f7b5483
+          stepCounter: b8ef9181-a7f2-45f0-b32e-d4cedaa2867b
+        config: {}
+        dataType: VARCHAR(10)
+        defaultValue: ""
+        description: ""
+        name: T_STAT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 814b623b-43ee-4e23-99d9-885a2e57be9f
+          stepCounter: b8ef9181-a7f2-45f0-b32e-d4cedaa2867b
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_USER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTFGLD100525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
