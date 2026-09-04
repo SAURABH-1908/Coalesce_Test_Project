@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 14e59d77-8760-4102-846c-48c2b0515b27
+name: TTCMCS010525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e1783607-726f-41e2-bf77-a3fecfb530d4
+          stepCounter: 14e59d77-8760-4102-846c-48c2b0515b27
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_CCTY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c4e2a7db-361a-463e-b8b0-5e6808f27cf1
+          stepCounter: 14e59d77-8760-4102-846c-48c2b0515b27
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_DSCA
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTCMCS010525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
