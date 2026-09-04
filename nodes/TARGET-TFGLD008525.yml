@@ -1,0 +1,169 @@
+fileVersion: 1
+id: 34fe41d9-3eb5-4687-a699-7c3af42dac46
+name: TFGLD008525
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Trimmed/typed subset of TTFGLD008525 GL account master for BAAN V_525, with COUNTRY_CD literal.
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2b-ddc2-725a-a1e8-16fcf8d0bd7b
+          stepCounter: 34fe41d9-3eb5-4687-a699-7c3af42dac46
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_DESC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e1b08a32-e1e3-46a6-bba2-3009a2216dee
+                stepCounter: 04e1a80d-c03a-46ae-9830-9dbb808df685
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2b-ddc2-725a-a1e8-18215cab3a5f
+          stepCounter: 34fe41d9-3eb5-4687-a699-7c3af42dac46
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_LEAC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4200c6c4-d471-4587-95fe-ba5ba4f997c7
+                stepCounter: 04e1a80d-c03a-46ae-9830-9dbb808df685
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2b-ddc2-725a-a1e8-1fda0ed3e201
+          stepCounter: 34fe41d9-3eb5-4687-a699-7c3af42dac46
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_ATYP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"TTFGLD008525\".\"T_ATYP\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2b-ddc2-725a-a1e8-20e1661a8f06
+          stepCounter: 34fe41d9-3eb5-4687-a699-7c3af42dac46
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_BLOC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"TTFGLD008525\".\"T_BLOC\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2b-ddc2-725a-a1e8-27b64b2e4cb6
+          stepCounter: 34fe41d9-3eb5-4687-a699-7c3af42dac46
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_DBCR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f4ba578e-8905-461c-ba3b-e25451339ad7
+                stepCounter: 04e1a80d-c03a-46ae-9830-9dbb808df685
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2b-ddc2-725a-a1e8-29f105ddca62
+          stepCounter: 34fe41d9-3eb5-4687-a699-7c3af42dac46
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_LOCO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"TTFGLD008525\".\"T_LOCO\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2b-ddc2-725a-a1e8-2f88c822d195
+          stepCounter: 34fe41d9-3eb5-4687-a699-7c3af42dac46
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_PLAC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"TTFGLD008525\".\"T_PLAC\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2b-ddc2-725a-a1e8-32192d5e39a2
+          stepCounter: 34fe41d9-3eb5-4687-a699-7c3af42dac46
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_SUBL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"TTFGLD008525\".\"T_SUBL\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2b-ddc2-725a-a1e8-379a0cb8a0d1
+          stepCounter: 34fe41d9-3eb5-4687-a699-7c3af42dac46
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COUNTRY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'525'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2b-ddc2-725a-a1e8-393d1daf70c1
+          stepCounter: 34fe41d9-3eb5-4687-a699-7c3af42dac46
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SNOWFLAKE_INGESTED_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"TTFGLD008525\".\"SNOWFLAKE_INGESTED_TIME\""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          TTFGLD008525: 04e1a80d-c03a-46ae-9830-9dbb808df685
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: TTFGLD008525
+        join:
+          joinCondition: FROM {{ ref('SRC', 'TTFGLD008525') }} TTFGLD008525
+        name: STG_NODE
+        noLinkRefs: []
+  name: TFGLD008525
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

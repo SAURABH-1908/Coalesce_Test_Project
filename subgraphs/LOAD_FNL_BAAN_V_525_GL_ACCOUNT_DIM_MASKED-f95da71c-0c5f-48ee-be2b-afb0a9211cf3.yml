@@ -1,0 +1,18 @@
+fileVersion: 1
+id: f95da71c-0c5f-48ee-be2b-afb0a9211cf3
+name: LOAD_FNL_BAAN_V_525_GL_ACCOUNT_DIM_MASKED
+steps:
+  - 04e1a80d-c03a-46ae-9830-9dbb808df685
+  - 395af002-aec7-4616-a82b-e0a4f053159c
+  - 58145847-8eeb-4060-aa16-b86d69c805ea
+  - 67719b2d-6d42-4984-84fd-e5b3dff36310
+  - 69809422-0fa3-4a78-bf47-bd26a8ddc2cc
+  - 746bdef0-8917-4889-b24f-9da4ece78db2
+  - 784169cc-7ebd-4d5e-8955-597c4813b7ba
+  - 88d788b7-5075-4e80-998d-940a596d2737
+  - 98c553b3-9a49-46b7-8696-77695c67bec5
+  - bd93f0a3-20d9-4f61-aead-10d91b1400b6
+  - e02119f5-45d7-438b-b269-0880dc21f133
+  - e6ef035a-f7bd-4460-9467-b97cc599b93f
+  - e805d23f-ea89-4630-afe1-39d593663e03
+type: Subgraph
