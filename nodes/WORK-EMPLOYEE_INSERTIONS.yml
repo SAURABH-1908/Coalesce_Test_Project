@@ -42,7 +42,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-7a4f-7198-a261-142436fd7276
                 stepCounter: 5ccc9be1-ee58-4792-a1a2-3d728e0005de
-            transform: ""
+            transform: "\"SNAPSHOTTED_DATA\".\"TARGET_PRIMARY_KEY\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a06afa-6f7d-77a1-bf92-8d1991949690
