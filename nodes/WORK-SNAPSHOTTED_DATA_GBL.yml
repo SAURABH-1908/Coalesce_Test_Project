@@ -587,17 +587,17 @@ operation:
           GBL_ADDRESS_DIM: d82da4cc-8098-4a5d-b8ab-8a128a923b48
         customSQL:
           customSQL: ""
-        dependencies:
-          - locationName: TARGET
-            nodeName: GBL_ADDRESS_DIM
+        dependencies: []
         join:
           joinCondition: |-
-            FROM {{ ref('TARGET', 'GBL_ADDRESS_DIM') }} "GBL_ADDRESS_DIM"
+            FROM {{ ref_no_link('TARGET', 'GBL_ADDRESS_DIM') }} "GBL_ADDRESS_DIM"
             WHERE "GBL_ADDRESS_DIM"."SOURCE_SYSTEM_NM" = 'SOURCE_SYSTEM_003'
             AND "GBL_ADDRESS_DIM"."INSTANCE_NM" = 'INSTANCE_004'
             AND "GBL_ADDRESS_DIM"."SYSTEM_CURRENT_FLAG" = 'Y'
         name: SNAPSHOTTED_DATA_GBL
-        noLinkRefs: []
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: GBL_ADDRESS_DIM
   name: SNAPSHOTTED_DATA_GBL
   overrideSQL: false
   schema: ""

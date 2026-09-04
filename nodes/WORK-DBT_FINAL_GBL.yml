@@ -6,7 +6,7 @@ operation:
     insertStrategy: INSERT
     postSQL: |-
       MERGE INTO {{ ref('TARGET', 'GBL_ADDRESS_DIM') }} AS DBT_INTERNAL_DEST
-      USING {{ ref('TARGET', 'DBT_FINAL_GBL') }} AS DBT_INTERNAL_SOURCE
+      USING {{ ref('WORK', 'DBT_FINAL_GBL') }} AS DBT_INTERNAL_SOURCE
       ON TO_VARCHAR(DBT_INTERNAL_SOURCE.TARGET_PRIMARY_KEY) = TO_VARCHAR(DBT_INTERNAL_DEST.GBL_ADDRESS_INTG_ID)
       AND TO_VARCHAR(TO_NUMBER(DBT_INTERNAL_SOURCE.ADDRESS_SK)) = TO_VARCHAR(DBT_INTERNAL_DEST.DIM_NODE_KEY)
       AND DBT_INTERNAL_SOURCE.SYS_EFF_TS = DBT_INTERNAL_DEST.SYSTEM_START_DATE
@@ -98,7 +98,7 @@ operation:
   deployEnabled: true
   description: Final union of insertion, update and delete action rows for BAAN V_525 global address, merged into GBL_ADDRESS_DIM via post-SQL.
   isMultisource: false
-  locationName: TARGET
+  locationName: WORK
   materializationType: table
   metadata:
     appliedNodeTests: []
