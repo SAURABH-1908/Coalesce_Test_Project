@@ -1,0 +1,146 @@
+fileVersion: 1
+id: 66da66ff-82c5-4666-a62e-2d2675f5125c
+name: CTA_SNAPSHOTTED_DATA
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Latest current records from the CONTRACT_TO_ADDRESS_BRIDGE final table for this source system/instance, used as the merge target snapshot.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-2437-770d-a316-8f333856c109
+          stepCounter: 66da66ff-82c5-4666-a62e-2d2675f5125c
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: CONTRACT_TO_ADDRESS_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0ec60ad9-d4f1-4ecc-b18e-d7ca9e777fbb
+                stepCounter: cae2f555-bbe4-4064-96dc-708ceca31d1e
+            transform: "\"BRIDGE\".\"CONTRACT_TO_ADDRESS_INTG_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-2437-770d-a316-900705e959e8
+          stepCounter: 66da66ff-82c5-4666-a62e-2d2675f5125c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CONTRACT_TO_ADDRESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e2ed8625-ec49-4a4f-a4ea-de013136d976
+                stepCounter: cae2f555-bbe4-4064-96dc-708ceca31d1e
+            transform: "\"BRIDGE\".\"CONTRACT_TO_ADDRESS_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-2437-770d-a316-972500847dd7
+          stepCounter: 66da66ff-82c5-4666-a62e-2d2675f5125c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9f05af70-80d2-4906-a03b-c9d208851a37
+                stepCounter: cae2f555-bbe4-4064-96dc-708ceca31d1e
+            transform: "\"BRIDGE\".\"CHKSUM_STR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-2437-770d-a316-9a99e7c6aab6
+          stepCounter: 66da66ff-82c5-4666-a62e-2d2675f5125c
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 09d42a39-1968-481c-a93c-a6d181e956d6
+                stepCounter: cae2f555-bbe4-4064-96dc-708ceca31d1e
+            transform: "\"BRIDGE\".\"LOAD_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-2437-770d-a316-9dd759e89c6a
+          stepCounter: 66da66ff-82c5-4666-a62e-2d2675f5125c
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: baeb5696-5ef7-445b-9b98-46d1ca836c90
+                stepCounter: cae2f555-bbe4-4064-96dc-708ceca31d1e
+            transform: "\"BRIDGE\".\"SYS_EFF_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-2437-770d-a316-a266fa65c6f9
+          stepCounter: 66da66ff-82c5-4666-a62e-2d2675f5125c
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7fcc4478-9937-405a-ac06-efb290a43d22
+                stepCounter: cae2f555-bbe4-4064-96dc-708ceca31d1e
+            transform: "\"BRIDGE\".\"DBT_SCD_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-2437-770d-a316-a54698b3f431
+          stepCounter: 66da66ff-82c5-4666-a62e-2d2675f5125c
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: TARGET_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0ec60ad9-d4f1-4ecc-b18e-d7ca9e777fbb
+                stepCounter: cae2f555-bbe4-4064-96dc-708ceca31d1e
+            transform: "\"BRIDGE\".\"CONTRACT_TO_ADDRESS_INTG_ID\""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          BRIDGE: cae2f555-bbe4-4064-96dc-708ceca31d1e
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: |-
+            FROM {{ ref_no_link('SRC', 'CONTRACT_TO_ADDRESS_BRIDGE') }} BRIDGE
+            WHERE BRIDGE.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_003'
+            AND BRIDGE.INSTANCE_NM = 'INSTANCE_004'
+            AND BRIDGE.CURR_FLG = 'Y'
+            AND BRIDGE.SYS_EXP_TS IS NULL
+        name: CTA_SNAPSHOTTED_DATA
+        noLinkRefs:
+          - locationName: SRC
+            nodeName: CONTRACT_TO_ADDRESS_BRIDGE
+  name: CTA_SNAPSHOTTED_DATA
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
