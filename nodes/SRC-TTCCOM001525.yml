@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 477c1367-de00-469a-bdfc-28ab07e1f999
+name: TTCCOM001525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: dddb1b86-3f93-48d7-97a9-e1d6772fcb05
+          stepCounter: 477c1367-de00-469a-bdfc-28ab07e1f999
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_EMNO
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8776e50c-dccd-4972-84d2-4684301bbaf1
+          stepCounter: 477c1367-de00-469a-bdfc-28ab07e1f999
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: T_INFO
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32eeee56-cc8b-4991-aa6e-32bd3416ea4f
+          stepCounter: 477c1367-de00-469a-bdfc-28ab07e1f999
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: T_NAMA
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d088cc41-d91b-4eb1-8281-88dc04b8c9da
+          stepCounter: 477c1367-de00-469a-bdfc-28ab07e1f999
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: T_SDTE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bd8234f2-4693-45b4-baf0-f378fbd0223d
+          stepCounter: 477c1367-de00-469a-bdfc-28ab07e1f999
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: T_EDTE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTCCOM001525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
