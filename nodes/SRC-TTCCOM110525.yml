@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 16f90cc5-4386-4ac2-85ee-3232f20d13c4
+name: TTCCOM110525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c25476c5-938a-48d6-9880-1881fe836fa6
+          stepCounter: 16f90cc5-4386-4ac2-85ee-3232f20d13c4
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_CADR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7a7d5afb-325e-4108-b372-c00648a5b9a5
+          stepCounter: 16f90cc5-4386-4ac2-85ee-3232f20d13c4
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_BPID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d18e599f-4c75-46ae-a3fd-d7e4565d6718
+          stepCounter: 16f90cc5-4386-4ac2-85ee-3232f20d13c4
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: T_NAMA
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTCCOM110525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
