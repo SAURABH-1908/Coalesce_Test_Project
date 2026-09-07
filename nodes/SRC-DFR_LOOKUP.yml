@@ -1,0 +1,92 @@
+fileVersion: 1
+id: d9ceb0e3-f933-48a1-95c7-63ae2bd8fe28
+name: DFR_LOOKUP
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b907216-948e-47e6-ac14-c4e601adb65e
+          stepCounter: d9ceb0e3-f933-48a1-95c7-63ae2bd8fe28
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01d7731f-df13-476f-b61a-6260dc540fc5
+          stepCounter: d9ceb0e3-f933-48a1-95c7-63ae2bd8fe28
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_ENTITY_TYPE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c9613e4-dbef-4808-8c93-b14993023649
+          stepCounter: d9ceb0e3-f933-48a1-95c7-63ae2bd8fe28
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: TARGET_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b7f129ab-b060-46d2-a83b-f545e7b9e6ad
+          stepCounter: d9ceb0e3-f933-48a1-95c7-63ae2bd8fe28
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: BOS_DESCRIPTION
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: DFR_LOOKUP
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
