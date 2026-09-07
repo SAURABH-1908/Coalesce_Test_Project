@@ -1,0 +1,920 @@
+fileVersion: 1
+id: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+name: STG_RCF
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: "Revenue contract fact row builder: joins project master (TTPPDM600525) to cost/estimate/AR stages and conformed dimensions to assemble measures and surrogate keys for REVENUE_CONTRACT_FACT."
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-5067afcf7e87
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REVENUE_CONTRACT_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CONCAT_WS('~',COALESCE(TRIM(T600.T_CPRJ),''),COALESCE(TRIM(T740.T_OFBP),''),COALESCE(TRIM(TS5.SYS_ID),''),COALESCE(TRIM(TS5.CONTRACT_CHANGE_ORDER_NBR),''),'SOURCE_SYSTEM_002','INSTANCE_004')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-55238017dedc
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: DATE
+        description: ""
+        name: TRANSACTION_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-5a8dbd196084
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REVENUE_PERIOD_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-5c60c2fe4fc7
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T740.T_OFBP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-60082d538ed1
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTRACT_TYPE_DESC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T65.T_DESC)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-6633d0f71613
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURRENCY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T600.T_CCUR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-6b8609a7a56d
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(FLOOR(T600.T_NCMP))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-6e5bfff4effd
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(FLOOR(T600.T_NCMP))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-71ab5c92fccd
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TS2.T_SALR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-77e816b3cdb2
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T600.T_CPRJ)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-7a42b50b70fa
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PROJECT_TYPE_DESC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-7d095ee3909e
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PROJECT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T52.T_DSCA)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-80135b997a16
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PROJECT_MANAGER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T401.T_SAL2)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-873eb77a4222
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PROJECT_MANGER_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T401.T_SAN2)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-886ecd26531d
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SALES_PERSON_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T001.T_NAMA)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-8f154208f7dc
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RESP_SALE_REP2_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TS2.T_SALR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-93b33b2725bc
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTRACT_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CD.CONTRACT_STATUS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-96ad2825878c
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTRACT_CHANGE_ORDER_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CONCAT_WS('|',TS5.SYS_ID,TS5.CONTRACT_CHANGE_ORDER_NBR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-9ad29a3b25ef
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CONTRACT_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS NUMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-9c92521bcf6a
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EXECUTED_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TS5.EXECUTED_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-a17254028975
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: BACKLOG_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS NUMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-a48dffa5cb5b
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: REVENUE_MTD_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TS5.REVENUE_MTD_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-aa48ed8b43a6
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: MATERIAL_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: T441.MATERIAL_COST_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-af6e445a2f1e
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: LABOR_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: T441.LABOR_COST_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-b0e09377de72
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SUBCONTRACT_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: T441.SUBCONTRACT_COST_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-b70cb26aa31e
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: OTHER_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: T441.OTHER_COST_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-b834b78b5164
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: TOT_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: T441.TOT_COST_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-bed81def82da
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: MARGIN_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TS5.MARGIN_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-c19417b9c66c
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EST_MATERIAL_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TS5.EST_MATERIAL_COST_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-c5acb7b3f204
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EST_LABOR_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TS5.EST_LABOR_COST_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-cb4ed3db59e9
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EST_SUBCONTRACT_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TS5.EST_SUBCONTRACT_COST_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-cdffd10993c3
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EST_OTHER_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TS5.EST_OTHER_COST_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-d06585ef98de
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EST_TOT_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: (TS5.EST_MATERIAL_COST_AMT+TS5.EST_LABOR_COST_AMT+TS5.EST_SUBCONTRACT_COST_AMT+TS5.EST_OTHER_COST_AMT)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-d7606b05e44b
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EST_MARGIN_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TS5.EST_MARGIN_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-db577f585673
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACTUAL_CTD_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TS5.ACTUAL_CTD_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-dce2a5c13538
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: AR_BILLED_CTD_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T235.T_AMTI)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-e16da3a909b7
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: REVENUE_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T235.T_AMTI)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-e4605931bfc3
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: DATE
+        description: ""
+        name: BOOKING_END_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: T600.T_FDDT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-ebe3e38eb19c
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: FISCAL_PERIOD_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS NUMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-ecbd2d8deba4
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: FISCAL_YEAR_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS NUMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-f063655dd2a3
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_TYPE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T65.T_DESC)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-f754472e056b
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SFDC_QUOTE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-fbf1e925910c
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PROJECT_LINE_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(FLOOR(T600.T_PSTS))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb3-fc635941f9a8
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: DATE
+        description: ""
+        name: REV_RECOGN_START_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T600.T_STDT::DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-01fbb27c9241
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: DATE
+        description: ""
+        name: REV_RECOGN_END_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T600.T_FDDT::DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-047623d0c8c8
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DOMAIN_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'FIRE'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-0ba291f168df
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: JOB_TYPE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'INSTALL'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-0ca92cdc7f3e
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINE_OF_BUSINESS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'FIRE'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-135989337391
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOB_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'FIRE'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-16c3c99a68b4
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(CUD.CUSTOMER_SK,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-1b0a4588b669
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GEO_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(GD.GEO_SK,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-1fafb8ec6526
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTRACT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(CD.CONTRACT_SK,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-229e07d9d3ae
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ENTITY_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(ED.ENTITY_SK,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-27e98b9257c6
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(SD.SOURCE_SYSTEM_SK,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-29539c007c24
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOB_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(LOB.LINE_OF_BUSINESS_SK,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-2e977d6d717f
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYEE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(EMP_DIM.EMPLOYEE_SK,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-32e9caa29a4c
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURRENCY_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(C_DIM.CURRENCY_SK,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-350f9743ddbd
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: WARRANTY_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-3a8251ef0b90
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REVENUE_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-3d0e444808bf
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: DATE
+        description: ""
+        name: GL_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-40c0b6ed656a
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ASSOCIATED_ORG_SFDC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-46884fe41449
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: AR_COLLECTED_CTD_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07abb-8a5d-73d5-9fb4-4b25ca3e359c
+          stepCounter: 1ab9a4cb-eacd-4fe9-8743-7a864e9d3f77
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: T600.SNOWFLAKE_INGESTED_TIME
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          CUD: 481ec2d9-b643-430c-8e03-71ffe3c2f0a3
+          C_DIM: 7e25e97c-ae46-4e74-95e3-4067037de6b1
+          ED: c6a6a561-8c09-445d-93ef-2a5c1a2ea496
+          EMP_DIM: dae93bb8-797e-49d0-a7d4-97f901b4bc56
+          GD: 24b736d1-7443-427f-8415-704dd7d36018
+          LOB: bce8d2f5-5ea6-4579-a84a-346dbf4e1b0c
+          SD: 5913a350-2990-4a9f-a82d-7b2bdef2576e
+          T001: f32c9fa5-f185-47d2-ac08-4fb74b38fb6a
+          T235: 9e569015-f075-4861-9df1-882f95c203b4
+          T441: aa015677-743c-4bd8-a655-69c42d035e65
+          T52: 72eed8c1-de24-4765-99ae-e75d225f53e4
+          T600: 59b746f0-dfad-4fee-bc67-b0e08f5695f3
+          T65: 7d0ddebb-d0d3-474b-93d3-440f12944964
+          T740: 8f6b35ba-8695-48df-8dbf-25ccc4909648
+          TS2: 2dca72fb-e0a0-43f5-be12-c425a5d4c0ed
+          TS5: f5fe3fe0-e45b-424f-bd6c-1c84a56d62c4
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: TSICDB002525
+          - locationName: SRC
+            nodeName: TSICDB401525
+          - locationName: SRC
+            nodeName: TTCCOM001525
+          - locationName: SRC
+            nodeName: TTCMCS052525
+          - locationName: SRC
+            nodeName: TTPPDM065525
+          - locationName: SRC
+            nodeName: TTPPDM600525
+          - locationName: SRC
+            nodeName: TTPPDM740525
+          - locationName: TARGET
+            nodeName: CURRENCY_DIM
+          - locationName: TARGET
+            nodeName: CUSTOMER_DIM
+          - locationName: TARGET
+            nodeName: EMPLOYEE_DIM
+          - locationName: TARGET
+            nodeName: ENTITY_DIM
+          - locationName: TARGET
+            nodeName: GEOGRAPHY_DIM
+          - locationName: TARGET
+            nodeName: INST_CONTRACT_DIM
+          - locationName: TARGET
+            nodeName: LINE_OF_BUSINESS_DIM
+          - locationName: TARGET
+            nodeName: SOURCE_SYSTEM_DIM
+          - locationName: WORK
+            nodeName: STG_TCISLI235525
+          - locationName: WORK
+            nodeName: STG_TSICDB005525
+          - locationName: WORK
+            nodeName: STG_TTPPPC441525
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'TTPPDM600525') }} T600
+
+                LEFT OUTER JOIN {{ ref('SRC', 'TTPPDM065525') }} T65
+                ON CAST(NULL AS VARCHAR) = TRIM(T65.T_CCOT)
+
+                LEFT OUTER JOIN {{ ref('SRC', 'TSICDB002525') }} TS2
+                ON TRIM(T600.T_CPRJ) = TRIM(TS2.T_PROJ)
+
+                LEFT OUTER JOIN {{ ref('SRC', 'TTCMCS052525') }} T52
+                ON TRIM(T600.T_CPRJ) = TRIM(T52.T_CPRJ)
+
+                LEFT OUTER JOIN {{ ref('SRC', 'TTPPDM740525') }} T740
+                ON TRIM(T600.T_CPRJ) = TRIM(T740.T_CPRJ)
+
+                LEFT OUTER JOIN {{ ref('WORK', 'STG_TTPPPC441525') }} T441
+                ON TRIM(T600.T_CPRJ) = TRIM(T441.PROJ_ID)
+
+                LEFT OUTER JOIN {{ ref('WORK', 'STG_TCISLI235525') }} T235
+                ON TRIM(T600.T_CPRJ) = TRIM(T235.PROJ_ID)
+
+                LEFT OUTER JOIN {{ ref('WORK', 'STG_TSICDB005525') }} TS5
+                ON TRIM(T600.T_CPRJ) = TRIM(TS5.PROJ_ID)
+
+                LEFT OUTER JOIN (
+                    SELECT DISTINCT T_SAL2, T_SAN2, T_CPRJ
+                    FROM {{ ref('SRC', 'TSICDB401525') }}
+                ) T401
+                ON TRIM(T600.T_CPRJ) = TRIM(T401.T_CPRJ)
+
+                LEFT OUTER JOIN {{ ref('SRC', 'TTCCOM001525') }} T001
+                ON TRIM(TS2.T_SALR) = TRIM(T001.T_EMNO)
+
+                LEFT OUTER JOIN {{ ref('TARGET', 'LINE_OF_BUSINESS_DIM') }} LOB
+                ON TRIM(FLOOR(T600.T_NCMP)) = LOB.ERP_ENTITY_CD
+                AND LOB.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_002' AND LOB.INSTANCE_NM = 'INSTANCE_004'
+                AND LOB.CURR_FLG = 'Y'
+
+                LEFT OUTER JOIN (
+                    SELECT * FROM {{ ref('TARGET', 'INST_CONTRACT_DIM') }}
+                    WHERE SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_001' AND INSTANCE_NM = 'INSTANCE_001'
+                    AND CURR_FLG = 'Y' AND INTERCOMPANY_CD = '525'
+                ) CD
+                ON CONCAT_WS('-', TRIM(T600.T_CPRJ), NVL(TRIM(TS5.T_FAMI), '')) = TRIM(CD.CONTRACT_NBR)
+
+                LEFT OUTER JOIN {{ ref('TARGET', 'GEOGRAPHY_DIM') }} GD
+                ON CAST(NULL AS VARCHAR) = GD.BRANCH_CD
+                AND GD.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_002' AND GD.INSTANCE_NM = 'INSTANCE_004'
+                AND GD.CURR_FLG = 'Y' AND GD.COMPANY_CD = '525'
+
+                LEFT OUTER JOIN {{ ref('TARGET', 'ENTITY_DIM') }} ED
+                ON TRIM(T600.T_NCMP) = ED.ENTITY_CD
+                AND ED.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_002' AND ED.INSTANCE_NM = 'INSTANCE_004'
+                AND ED.CURR_FLG = 'Y'
+
+                LEFT OUTER JOIN {{ ref('TARGET', 'SOURCE_SYSTEM_DIM') }} SD
+                ON '525' = SD.SOURCE_COMPANY_CD
+                AND SD.SOURCE_SYSTEM_CD = 'SOURCE_SYSTEM_002' AND SD.SITE_REGION_CD = 'INSTANCE_004'
+                AND SD.CURR_FLG = 'Y'
+
+                LEFT OUTER JOIN {{ ref('TARGET', 'CUSTOMER_DIM') }} CUD
+                ON TRIM(T740.T_OFBP) = CUD.CUSTOMER_NUMBER
+                AND CUD.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_001' AND CUD.INSTANCE_NM = 'INSTANCE_001'
+                AND CUD.CURR_FLG = 'Y' AND CUD.COMPANY_CD = '525'
+
+                LEFT OUTER JOIN {{ ref('TARGET', 'CURRENCY_DIM') }} C_DIM
+                ON TRIM(T600.T_CCUR) = C_DIM.SOURCE_CURRENCY_CD
+                AND C_DIM.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_005' AND C_DIM.INSTANCE_NM = 'INSTANCE_002' AND C_DIM.CURR_FLG = 'Y'
+
+                LEFT OUTER JOIN {{ ref('TARGET', 'EMPLOYEE_DIM') }} EMP_DIM
+                ON TRIM(TS2.T_SALR) = EMP_DIM.EMPLOYEE_ID
+                AND EMP_DIM.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_002' AND EMP_DIM.INSTANCE_NM = 'INSTANCE_004'
+                AND EMP_DIM.CURR_FLG = 'Y'
+        name: STG_RCF
+        noLinkRefs: []
+  name: STG_RCF
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,92 @@
+fileVersion: 1
+id: 2dca72fb-e0a0-43f5-be12-c425a5d4c0ed
+name: TSICDB002525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d6082c45-657a-4d7c-a5e4-35d874623851
+          stepCounter: 2dca72fb-e0a0-43f5-be12-c425a5d4c0ed
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_PROJ
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 039a1479-b241-4969-a0d0-f93c94a35192
+          stepCounter: 2dca72fb-e0a0-43f5-be12-c425a5d4c0ed
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: T_BDTE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 320d93ff-6293-479c-8b97-f43b898bf948
+          stepCounter: 2dca72fb-e0a0-43f5-be12-c425a5d4c0ed
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_SALR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ff3cffc6-5b1a-40cd-a7cd-0d4a1811fba6
+          stepCounter: 2dca72fb-e0a0-43f5-be12-c425a5d4c0ed
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SNOWFLAKE_INGESTED_TIME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TSICDB002525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

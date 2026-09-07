@@ -1,0 +1,69 @@
+fileVersion: 1
+id: 9e569015-f075-4861-9df1-882f95c203b4
+name: STG_TCISLI235525
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Project-level AR billed / invoiced amount aggregated from TCISLI235525. Feeds REVENUE_CONTRACT_FACT.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-cb94-77f2-8d26-b13dfaef4ae7
+          stepCounter: 9e569015-f075-4861-9df1-882f95c203b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PROJ_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: T235.T_CPRJ
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-cb94-77f2-8d26-b6b11db31895
+          stepCounter: 9e569015-f075-4861-9df1-882f95c203b4
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: T_AMTI
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS NUMBER)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: TCISLI235525
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'TCISLI235525') }} T235
+
+            GROUP BY 1
+        name: STG_TCISLI235525
+        noLinkRefs: []
+  name: STG_TCISLI235525
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
