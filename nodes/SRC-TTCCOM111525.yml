@@ -1,0 +1,35 @@
+fileVersion: 1
+id: a0d81d30-5f29-499a-87a3-91c68a145e6f
+name: TTCCOM111525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 64ec1bb9-ef7a-4f2d-9110-c444c525ca8c
+          stepCounter: a0d81d30-5f29-499a-87a3-91c68a145e6f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_STBP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTCCOM111525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

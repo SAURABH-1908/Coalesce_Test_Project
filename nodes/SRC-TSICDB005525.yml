@@ -1,0 +1,225 @@
+fileVersion: 1
+id: 15521861-92fd-4aed-8034-f75d49aa80f7
+name: TSICDB005525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 081bc882-3a64-4d0b-8f31-05882aa729af
+          stepCounter: 15521861-92fd-4aed-8034-f75d49aa80f7
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_PROJ
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ac8867ec-7468-4c7e-af23-3f17bdbc96f9
+          stepCounter: 15521861-92fd-4aed-8034-f75d49aa80f7
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: T_SYS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5efed245-90a5-460c-aebf-25a7eef756f4
+          stepCounter: 15521861-92fd-4aed-8034-f75d49aa80f7
+        config: {}
+        dataType: NUMBER(38,10)
+        defaultValue: ""
+        description: ""
+        name: T_TOTT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4cb4ef7b-8495-4a3a-a4ac-ad25b50fce13
+          stepCounter: 15521861-92fd-4aed-8034-f75d49aa80f7
+        config: {}
+        dataType: NUMBER(38,10)
+        defaultValue: ""
+        description: ""
+        name: T_PCST
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a6a43d5e-e39c-4de1-b398-0c74b6dcd1fb
+          stepCounter: 15521861-92fd-4aed-8034-f75d49aa80f7
+        config: {}
+        dataType: NUMBER(38,10)
+        defaultValue: ""
+        description: ""
+        name: T_PCSC
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 90b370ce-2d19-4fef-acd7-80335b5c5806
+          stepCounter: 15521861-92fd-4aed-8034-f75d49aa80f7
+        config: {}
+        dataType: NUMBER(38,10)
+        defaultValue: ""
+        description: ""
+        name: T_PRVT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d4f21aa-9c4b-466e-b146-3e4db3267e03
+          stepCounter: 15521861-92fd-4aed-8034-f75d49aa80f7
+        config: {}
+        dataType: NUMBER(38,10)
+        defaultValue: ""
+        description: ""
+        name: T_PRVC
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 614fa115-2775-405c-99c5-2cc396cc50c2
+          stepCounter: 15521861-92fd-4aed-8034-f75d49aa80f7
+        config: {}
+        dataType: NUMBER(38,10)
+        defaultValue: ""
+        description: ""
+        name: T_CEST
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4db4e55e-60b2-4526-a145-9bdbefe9a608
+          stepCounter: 15521861-92fd-4aed-8034-f75d49aa80f7
+        config: {}
+        dataType: NUMBER(38,10)
+        defaultValue: ""
+        description: ""
+        name: T_CES2
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf3dc73a-65c9-41ba-b5e3-5594dd93b6f1
+          stepCounter: 15521861-92fd-4aed-8034-f75d49aa80f7
+        config: {}
+        dataType: NUMBER(38,10)
+        defaultValue: ""
+        description: ""
+        name: T_CES3
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2a3859e7-df29-43d9-9ed9-ce1d6668e18e
+          stepCounter: 15521861-92fd-4aed-8034-f75d49aa80f7
+        config: {}
+        dataType: NUMBER(38,10)
+        defaultValue: ""
+        description: ""
+        name: T_CES4
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TSICDB005525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

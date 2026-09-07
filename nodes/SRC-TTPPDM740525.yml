@@ -1,0 +1,92 @@
+fileVersion: 1
+id: 9c7a39b2-3c57-4118-8572-e4431f3a4bfd
+name: TTPPDM740525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2ace545e-bf7c-46bd-a6f7-886013ca0c6e
+          stepCounter: 9c7a39b2-3c57-4118-8572-e4431f3a4bfd
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_CPRJ
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5b6b40a-0286-4cff-bc70-02dd0dfc73ba
+          stepCounter: 9c7a39b2-3c57-4118-8572-e4431f3a4bfd
+        config: {}
+        dataType: VARCHAR(20)
+        defaultValue: ""
+        description: ""
+        name: T_CPAY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8feb0c7b-9f44-4551-8bc7-6299f3be5124
+          stepCounter: 9c7a39b2-3c57-4118-8572-e4431f3a4bfd
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_OFBP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5cb2f8ed-436c-4ed0-9136-5d28e8901c09
+          stepCounter: 9c7a39b2-3c57-4118-8572-e4431f3a4bfd
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SNOWFLAKE_INGESTED_TIME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTPPDM740525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

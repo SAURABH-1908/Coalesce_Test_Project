@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 07367d8a-e3f4-49ce-8f1b-f12f73cff395
+name: EMPLOYEE_DIM
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: TARGET
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 679d39b2-f550-451f-bc6c-bdbda9715a40
+          stepCounter: 07367d8a-e3f4-49ce-8f1b-f12f73cff395
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: EMPLOYEE_SK
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7adb80bd-946f-4b5d-af0e-5310eb3508bb
+          stepCounter: 07367d8a-e3f4-49ce-8f1b-f12f73cff395
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: EMPLOYEE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 44a64415-ae95-439b-9517-d5628eda16c0
+          stepCounter: 07367d8a-e3f4-49ce-8f1b-f12f73cff395
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a8786c26-f3f1-4679-a5b0-59744b2c0216
+          stepCounter: 07367d8a-e3f4-49ce-8f1b-f12f73cff395
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 83cf3929-1027-44a2-8abc-e96bd89c319c
+          stepCounter: 07367d8a-e3f4-49ce-8f1b-f12f73cff395
+        config: {}
+        dataType: VARCHAR(1)
+        defaultValue: ""
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: EMPLOYEE_DIM
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

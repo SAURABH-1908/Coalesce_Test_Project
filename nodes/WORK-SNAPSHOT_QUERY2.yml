@@ -1,0 +1,1040 @@
+fileVersion: 1
+id: 5b666fe0-c3aa-458e-86ee-9486200655b5
+name: SNAPSHOT_QUERY2
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Secured order fact snapshot grain assembled from BAAN project order sources joined to conformed dimensions.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b661-eee520c59499
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SECURE_ORDER_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CONCAT_ws('~',COALESCE(trim(tppdm600.t_cprj),''),COALESCE(trim(tppdm740.t_refe),''),COALESCE(trim(tsicdb005.t_sys),''),COALESCE(CONCAT_WS('-',trim(tsicdb015.t_proj),trim(tsicdb015.t_sys),trim(tsicdb015.t_grup),trim(tsicdb015.t_blin),trim(tsicdb015.t_cost)),''),'525','SOURCE_SYSTEM_003','INSTANCE_004')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b661-f0c09aa16f19
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SECURED_ORDER_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tppdm600.t_cprj)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b661-f480e4940ea9
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SECURED_ORDER_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: case when to_decimal(tppdm600.t_kopr)= '2' then trim(tppdm600.t_cprj) end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b661-f96ff7907a69
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SECURED_ORDER_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tcmcs052.t_dsca)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b661-fedd6361766a
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SECURED_ORDER_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: case when to_decimal(tppdm600.t_psts)='1' then 'Free' when to_decimal(tppdm600.t_psts)='2' then 'Construction' when to_decimal(tppdm600.t_psts)='3' then 'Finished' when to_decimal(tppdm600.t_psts)='4' then 'Closed' when to_decimal(tppdm600.t_psts)='5' then 'Archived' end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-017a7d52afc0
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CHANGE_ORDER_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: t960.CHANGE_ORDER_NBR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-07b5cd611bd2
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_ORDERED_DATE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tsicdb002.t_bdte
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-0a3bc5e4877c
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_PLACED_DATE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tsicdb002.t_bdte
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-0c384c906134
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_REVISION_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "null"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-1203cb0a2480
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SECURED_ORDER_LINE_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CONCAT_WS('-',trim(tsicdb015.t_proj),trim(tsicdb015.t_sys),trim(tsicdb015.t_grup),trim(tsicdb015.t_blin),trim(tsicdb015.t_cost))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-170f9df4f10a
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_ORDER_LINE_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb015.t_blin)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-19f4504a91b8
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_LINE_CREATION_DATE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tppdm600.t_btdt)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-1eb67be904bc
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_LINE_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "null"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-23116e2d5e0d
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PRODUCT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb015.t_cost)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-24dc019cadaf
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_LINE_ORDERED_QTY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb015.t_quan)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-2b64db0e724d
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_LINE_QUANTITY_UOM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'EACH'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-2cfd261fc0db
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_LINE_CANCELLED_QTY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: case when trim(tsicdb015.t_quan) = '0.0000000000' then tsicdb015.t_quan else null end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-309fdfd0d2db
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIT_SELLING_PRICE_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CASE WHEN TRIM(TSICDB015.T_QUAN) = '0.0000000000' THEN '0' ELSE ABS(TRIM(TSICDB015.T_ESPR)) / ABS(TRIM(TSICDB015.T_QUAN)) END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-354b438dc3c4
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINE_ITEM_DESCRIPTION_TXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb015.t_cost)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-3b812d8753d1
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACTUAL_SHIPMENT_DATE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "null"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-3f6e23eafa06
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SCHEDULED_DELIVERY_DATE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb015.t_rdte)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-41dd836b561c
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTRACT_BOOKED_DATE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb002.t_bdte)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-44c3c0a64b07
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTRACT_SECURED_PRICE_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tppdm600.t_copr)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-4b19030f9fa7
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTRACT_ORIG_ESTIMATED_PRICE_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: t955.CONTRACT_ORIG_ESTIMATED_PRICE_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-4fb516accd3f
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ESTIMATED_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb005.t_tott)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-53bf59d42e08
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACTUAL_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb005.t_pcst+tsicdb005.t_pcsc)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-55b44ef4cbda
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_TYPE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(TTPPDM065.t_desc)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-582d965fe6f2
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORIGINAL_ORDER_BOOKED_DATE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb002.t_bdte)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-5f6b612652e0
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORIGINAL_OL_PROMISE_DATE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb015.t_rdte)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-6327ecdef667
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_LINE_FULFILLED_QTY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb015.t_squa)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-67546e076fd0
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GEO_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06ab6-af2b-725c-8203-74a9caa90d1d
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: COALESCE(trim(geography_dim.GEO_SK),'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-6bbce3cde151
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_START_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb002.t_bdte)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-6ef48317ad3d
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_END_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tppdm600.t_dldt)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-7361cf8432ea
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REVENUE_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb005.t_prvt+tsicdb005.t_prvc)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-759b47ba389c
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINE_OF_BUSINESS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'FIRE'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-7873b384a11b
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURRENCY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tppdm600.t_ccur)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-7cedd3f2e53d
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LEGAL_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'525'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-832adf6e31df
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LEGAL_ENTITY_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Simplex Grinnell/Tyco Integrated Fire and Security'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-854d08c240e1
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ERP_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'525'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-8afc639e9457
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ENTITY_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8ec0adf5-6f0f-46f1-b9dc-c19307965b93
+                stepCounter: f63fa5bc-e64d-4eaf-8c7a-e9fe7308e6a9
+            transform: COALESCE(trim(entity_dim.entity_sk),'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-8d3398266224
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAYMENT_TERM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tcmcs013.t_dsca)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-9152a3e145ab
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYEE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 679d39b2-f550-451f-bc6c-bdbda9715a40
+                stepCounter: 07367d8a-e3f4-49ce-8f1b-f12f73cff395
+            transform: COALESCE(trim(EMPLOYEE_DIM.EMPLOYEE_SK),'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-9411a89113ec
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SHIP_TO_ACCOUNT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fbf3a31b-d9ee-4d12-9d31-4525b434e46d
+                stepCounter: fb9b7d32-dd1c-4776-96e3-8a2d8d70d089
+            transform: COALESCE(TRIM(CUSTOMER_DIM.CUSTOMER_SK),'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-98ef49cf5f47
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EST_MATERIAL_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb005.t_cest)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-9fabd5595742
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EST_LABOR_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb005.t_ces2)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-a10984d81140
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EST_SUBCONTRACT_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb005.t_ces3)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-a6435c6d0c90
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EST_OTHER_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tsicdb005.t_ces4)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-ababe1a5a124
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINE_OF_BUSINESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bae8b4cc-6409-4a21-a7a9-b71bfd0da0d6
+                stepCounter: 6e618e26-fa91-4f6a-a464-a862e8d7c98a
+            transform: COALESCE(trim(LINE_OF_BUSINESS_DIM.LINE_OF_BUSINESS_SK),'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-addf13749fd4
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COST_CENTER_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tppdm600.t_creg)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-b0ea34f302c6
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_QTY_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "null"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-b627732ddaa1
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAYMENT_TERM_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tppdm740.t_cpay)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-b98b2e9557e2
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ITEM_NBR_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(trim(ITEM_DIM.ITEM_NBR_SK),'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-bcdfe4865bb2
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_PO_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tppdm740.t_refe)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-c1b58f1ff018
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_PO_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(try_to_date(tppdm740.t_refb))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-c54939a46910
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fbf3a31b-d9ee-4d12-9d31-4525b434e46d
+                stepCounter: fb9b7d32-dd1c-4776-96e3-8a2d8d70d089
+            transform: COALESCE(TRIM(CUSTOMER_DIM.CUSTOMER_SK),'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-c9874cda3d1f
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOCAL_COORDINATOR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(TSICDB002.t_salr)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-cc19b6124fc0
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOCAL_COORDINATOR_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(TTCCOM001.T_NAMA)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-d36c930e6e02
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-d61f84c956a3
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Americas'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-db971a850a07
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: da2bd9aa-cbc1-46f3-9f1c-5a0a3aef52bf
+                stepCounter: 928d799e-a8af-4d32-b154-7953f6a87726
+            transform: COALESCE(SOURCE_SYSTEM_DIM.SOURCE_SYSTEM_SK,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-dc4e95eb2443
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'to_timestamp_ntz(convert_timezone(UTC,current_timestamp()))'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-e134958a92ad
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'to_timestamp_ntz(convert_timezone(UTC,current_timestamp()))'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-e6b6317c3f4e
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tppdm600.SNOWFLAKE_INGESTED_TIME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-e8cff4aeadba
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'to_timestamp_ntz(convert_timezone(UTC,current_timestamp()))'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-eee32de4e494
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'to_timestamp_ntz(convert_timezone(UTC,current_timestamp()))'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-f3252552c16b
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP('99990101000000','yyyyMMddHHmiss')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-f7ba988fd4e1
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'to_timestamp_ntz(convert_timezone(UTC,current_timestamp()))'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-fbba824f9231
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: MD5(COALESCE(cast(trim(tppdm600.t_cprj) as varchar ),'') || '|' || COALESCE(cast(to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as varchar ), ''))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b662-fdcd02bc4d43
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Y'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b663-0048f9ba78a3
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'SOURCE_SYSTEM_003'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b663-061137dbe7e3
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'INSTANCE_004'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b663-0a73b68b05d5
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ROOT_EXECN_PID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b663-0db192a04630
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DML_ACTION_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'I'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b663-1040c5004f78
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_PIPELINE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "''"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b663-16cbb64edeec
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_TRANSFORMATION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "''"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07b2d-b2d0-7467-b663-181239408145
+          stepCounter: 5b666fe0-c3aa-458e-86ee-9486200655b5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_SCRIPT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "''"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          CUSTOMER_DIM: fb9b7d32-dd1c-4776-96e3-8a2d8d70d089
+          EMPLOYEE_DIM: 07367d8a-e3f4-49ce-8f1b-f12f73cff395
+          ENTITY_DIM: f63fa5bc-e64d-4eaf-8c7a-e9fe7308e6a9
+          GEOGRAPHY_DIM: 24b736d1-7443-427f-8415-704dd7d36018
+          LINE_OF_BUSINESS_DIM: 6e618e26-fa91-4f6a-a464-a862e8d7c98a
+          T955: 7ed6122b-e43c-44da-8584-375968d37bb0
+          T960: 11eaf7e4-8fe5-4abe-80a6-5ae0b95c3dcf
+          TCMCS013: d02ceede-d17a-4926-99a5-5ee9868ec0be
+          TCMCS052: f1431fcb-59b5-4f7d-b259-9d22cf9430f0
+          TPPDM600: 5d5d92eb-4288-4a1a-8895-82f423ef3aca
+          TPPDM740: 9c7a39b2-3c57-4118-8572-e4431f3a4bfd
+          TSICDB002: 49265f8c-4ff6-409e-b5dd-9d42bf023e47
+          TSICDB005: c89d9468-7eb1-4edb-bf37-4db595ea2f7a
+          TSICDB015: 8fc1c32b-215a-44a9-9f7b-0a25d863b023
+          TTCCOM001: 1cf3abd8-1c7a-4cb3-840a-efefb4debc62
+          TTCCOM111: 2a642a29-173a-42b4-9ded-2ac254efc58e
+          TTPPDM065: 8546d2cb-c296-4a22-8f37-4f7fb4923489
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: CUSTOMER_DIM
+          - locationName: SRC
+            nodeName: TSICDB002525
+          - locationName: SRC
+            nodeName: TSICDB005525
+          - locationName: SRC
+            nodeName: TSICDB015525
+          - locationName: SRC
+            nodeName: TTCCOM001525
+          - locationName: SRC
+            nodeName: TTCCOM111525
+          - locationName: SRC
+            nodeName: TTCMCS013525
+          - locationName: SRC
+            nodeName: TTCMCS052525
+          - locationName: SRC
+            nodeName: TTPPDM065525
+          - locationName: SRC
+            nodeName: TTPPDM740525
+          - locationName: TARGET
+            nodeName: EMPLOYEE_DIM
+          - locationName: TARGET
+            nodeName: ENTITY_DIM
+          - locationName: TARGET
+            nodeName: GEOGRAPHY_DIM
+          - locationName: TARGET
+            nodeName: ITEM_DIM
+          - locationName: TARGET
+            nodeName: LINE_OF_BUSINESS_DIM
+          - locationName: TARGET
+            nodeName: SOURCE_SYSTEM_DIM
+          - locationName: WORK
+            nodeName: STG_T9552
+          - locationName: WORK
+            nodeName: STG_T9602
+          - locationName: WORK
+            nodeName: STG_TTPPDM600525
+        join:
+          joinCondition: |-
+            FROM {{ ref('WORK', 'STG_TTPPDM600525') }} tppdm600
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCMCS052525') }} tcmcs052 ON trim(tcmcs052.t_cprj) = trim(tppdm600.t_cprj)
+            LEFT OUTER JOIN {{ ref('WORK', 'STG_T9602') }} t960 ON trim(tppdm600.t_cprj) = trim(t960.proj_id)
+            LEFT OUTER JOIN {{ ref('SRC', 'TSICDB002525') }} tsicdb002 ON trim(tppdm600.t_cprj) = trim(tsicdb002.t_proj)
+            LEFT OUTER JOIN {{ ref('SRC', 'TSICDB005525') }} tsicdb005 ON trim(tsicdb005.t_proj) = trim(tppdm600.t_cprj) and trim(tsicdb005.t_sys) <> 'Branch Labor'
+            LEFT OUTER JOIN {{ ref('SRC', 'TSICDB015525') }} tsicdb015 ON trim(tsicdb005.t_proj) = trim(tsicdb015.t_proj) and trim(tsicdb005.t_sys) = trim(tsicdb015.t_sys) and trim(tsicdb015.t_sys) <> 'Branch Labor'
+            LEFT OUTER JOIN {{ ref('WORK', 'STG_T9552') }} t955 ON trim(tppdm600.t_cprj) = trim(t955.proj_id)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTPPDM065525') }} ttppdm065 ON trim(tppdm600.t_ccot) = trim(ttppdm065.t_ccot)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTPPDM740525') }} tppdm740 ON trim(tppdm740.t_cprj) = trim(tppdm600.t_cprj)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCMCS013525') }} tcmcs013 ON trim(tcmcs013.t_cpay) = trim(tppdm740.t_cpay)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCCOM111525') }} TTCCOM111 ON trim(TTCCOM111.T_STBP) = trim(TSICDB015.T_STBP)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCCOM001525') }} TTCCOM001 ON TRIM(TTCCOM001.T_EMNO) = TRIM(TSICDB002.T_SALR)
+            LEFT OUTER JOIN {{ ref('SRC', 'CUSTOMER_DIM') }} CUSTOMER_DIM ON TRIM(CUSTOMER_DIM.CUSTOMER_NUMBER) = TRIM(TTCCOM111.T_STBP) and TRIM(CUSTOMER_DIM.CUSTOMER_NUMBER) = TRIM(tppdm740.T_OFBP) and CUSTOMER_DIM.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_002' AND CUSTOMER_DIM.INSTANCE_NM = 'INSTANCE_004' AND CUSTOMER_DIM.CURR_FLG = 'Y' and CUSTOMER_DIM.company_cd = '525'
+            LEFT OUTER JOIN {{ ref('TARGET', 'LINE_OF_BUSINESS_DIM') }} line_of_business_dim ON trim(line_of_business_dim.ERP_ENTITY_CD) = trim(floor(tppdm600.T_NCMP)) and line_of_business_dim.source_system_nm = 'SOURCE_SYSTEM_002' and line_of_business_dim.instance_nm = 'INSTANCE_004' and line_of_business_dim.CURR_FLG = 'Y'
+            LEFT OUTER JOIN {{ ref('TARGET', 'GEOGRAPHY_DIM') }} Geography_dim ON trim(tppdm600.t_creg) = trim(Geography_dim.BRANCH_CD) and Geography_dim.source_system_nm = 'SOURCE_SYSTEM_002' and Geography_dim.instance_nm = 'INSTANCE_004' and Geography_dim.CURR_FLG = 'Y' and trim(Geography_dim.company_cd) = '525'
+            LEFT OUTER JOIN {{ ref('TARGET', 'ENTITY_DIM') }} entity_dim ON trim(tppdm600.T_NCMP) = trim(entity_dim.entity_cd) and entity_dim.source_system_nm = 'SOURCE_SYSTEM_002' and entity_dim.instance_nm = 'INSTANCE_004' and entity_dim.CURR_FLG = 'Y'
+            LEFT OUTER JOIN {{ ref('TARGET', 'ITEM_DIM') }} Item_dim ON trim(tsicdb015.t_cost) = trim(Item_dim.source_item_nbr) and Item_dim.source_system_nm = 'SOURCE_SYSTEM_004' and Item_dim.instance_nm = 'INSTANCE_003' and Item_dim.CURR_FLG = 'Y'
+            LEFT OUTER JOIN {{ ref('TARGET', 'EMPLOYEE_DIM') }} EMPLOYEE_DIM ON trim(EMPLOYEE_DIM.Employee_id) = trim(tsicdb002.T_SALR) and EMPLOYEE_DIM.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_002' AND EMPLOYEE_DIM.INSTANCE_NM = 'INSTANCE_004' AND EMPLOYEE_DIM.CURR_FLG = 'Y'
+            LEFT OUTER JOIN {{ ref('TARGET', 'SOURCE_SYSTEM_DIM') }} source_system_dim ON trim(SOURCE_SYSTEM_DIM.SOURCE_COMPANY_CD) = trim(tppdm600.COUNTRY_CD) and SOURCE_SYSTEM_DIM.SOURCE_SYSTEM_CD = 'SOURCE_SYSTEM_002' AND SOURCE_SYSTEM_DIM.SITE_REGION_CD = 'INSTANCE_004' and SOURCE_SYSTEM_DIM.CURR_FLG = 'Y'
+        name: SNAPSHOT_QUERY2
+        noLinkRefs: []
+  name: SNAPSHOT_QUERY2
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

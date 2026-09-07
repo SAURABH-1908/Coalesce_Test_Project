@@ -1,0 +1,168 @@
+fileVersion: 1
+id: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+name: TTPPDM600525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 57365e73-c47c-41e4-ac5e-07a8be988add
+          stepCounter: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_CPRJ
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 662a795b-7e58-4603-a85b-fb6043c5df45
+          stepCounter: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: T_STDT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c25d40dd-355b-4a41-9053-a12d0c83cd2d
+          stepCounter: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: T_DLDT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9390492e-e76d-4b4e-9d04-29b83f534174
+          stepCounter: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: T_FDDT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2fa292df-81c7-4f1b-8516-661c88cda559
+          stepCounter: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+        config: {}
+        dataType: NUMBER(2,0)
+        defaultValue: ""
+        description: ""
+        name: T_PSTS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 697005ce-1cec-4f76-bea8-7167609a07dc
+          stepCounter: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+        config: {}
+        dataType: VARCHAR(10)
+        defaultValue: ""
+        description: ""
+        name: T_CCUR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 41b58d89-4dbf-4178-baa5-2ebf18bec084
+          stepCounter: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+        config: {}
+        dataType: VARCHAR(20)
+        defaultValue: ""
+        description: ""
+        name: T_NCMP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5688c155-9411-42bb-bd3c-9ea0d1e15f74
+          stepCounter: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SNOWFLAKE_INGESTED_TIME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTPPDM600525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

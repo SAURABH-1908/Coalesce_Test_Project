@@ -1,0 +1,73 @@
+fileVersion: 1
+id: a73e3393-164d-49c9-b619-944907db80a3
+name: TSIPDM960525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d9605b12-e0bc-413d-8531-d360c92f02cd
+          stepCounter: a73e3393-164d-49c9-b619-944907db80a3
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_PROJ
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f28e77b3-c6de-465b-b4fa-ab75fedf37d7
+          stepCounter: a73e3393-164d-49c9-b619-944907db80a3
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_SYS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 13dba31e-bfbc-4a8e-af00-aa499d700c9f
+          stepCounter: a73e3393-164d-49c9-b619-944907db80a3
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: T_SEQN
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TSIPDM960525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

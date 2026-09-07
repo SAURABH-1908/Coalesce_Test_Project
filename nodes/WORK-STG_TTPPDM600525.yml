@@ -1,0 +1,199 @@
+fileVersion: 1
+id: 5d5d92eb-4288-4a1a-8895-82f423ef3aca
+name: STG_TTPPDM600525
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Project order header attributes from TTPPDM600525 with country code.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-3390-7508-b782-9b919f23442e
+          stepCounter: 5d5d92eb-4288-4a1a-8895-82f423ef3aca
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_CPRJ
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 57365e73-c47c-41e4-ac5e-07a8be988add
+                stepCounter: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-3390-7508-b782-9f0ea5764b69
+          stepCounter: 5d5d92eb-4288-4a1a-8895-82f423ef3aca
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_KOPR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"TTPPDM600525\".\"T_KOPR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-3390-7508-b782-a1f5e716c98c
+          stepCounter: 5d5d92eb-4288-4a1a-8895-82f423ef3aca
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_PSTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2fa292df-81c7-4f1b-8516-661c88cda559
+                stepCounter: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-3390-7508-b782-a6c7614aec0e
+          stepCounter: 5d5d92eb-4288-4a1a-8895-82f423ef3aca
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_COPR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"TTPPDM600525\".\"T_COPR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-3390-7508-b782-ab7aa88c8b97
+          stepCounter: 5d5d92eb-4288-4a1a-8895-82f423ef3aca
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_DLDT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c25d40dd-355b-4a41-9053-a12d0c83cd2d
+                stepCounter: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-3390-7508-b782-af27eeba8841
+          stepCounter: 5d5d92eb-4288-4a1a-8895-82f423ef3aca
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_BTDT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"TTPPDM600525\".\"T_BTDT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-3390-7508-b782-b3af9bd57f83
+          stepCounter: 5d5d92eb-4288-4a1a-8895-82f423ef3aca
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_NCMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 41b58d89-4dbf-4178-baa5-2ebf18bec084
+                stepCounter: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-3390-7508-b782-b4802eee69ad
+          stepCounter: 5d5d92eb-4288-4a1a-8895-82f423ef3aca
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_CCOT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"TTPPDM600525\".\"T_CCOT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-3390-7508-b782-b8e179fb2a2d
+          stepCounter: 5d5d92eb-4288-4a1a-8895-82f423ef3aca
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_CCUR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 697005ce-1cec-4f76-bea8-7167609a07dc
+                stepCounter: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-3390-7508-b782-bc9c0321eaa7
+          stepCounter: 5d5d92eb-4288-4a1a-8895-82f423ef3aca
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_CREG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"TTPPDM600525\".\"T_CREG\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-3390-7508-b782-c27e8ec35899
+          stepCounter: 5d5d92eb-4288-4a1a-8895-82f423ef3aca
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COUNTRY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'525'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-3390-7508-b782-c7ff846b8cd3
+          stepCounter: 5d5d92eb-4288-4a1a-8895-82f423ef3aca
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SNOWFLAKE_INGESTED_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5688c155-9411-42bb-bd3c-9ea0d1e15f74
+                stepCounter: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          TTPPDM600525: d395ac3c-3d09-40c4-9d0b-f72aaaf2907a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: TTPPDM600525
+        join:
+          joinCondition: FROM {{ ref('SRC', 'TTPPDM600525') }} "TTPPDM600525"
+        name: STG_TTPPDM600525
+        noLinkRefs: []
+  name: STG_TTPPDM600525
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

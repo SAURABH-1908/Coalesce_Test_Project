@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 7ed6122b-e43c-44da-8584-375968d37bb0
+name: STG_T9552
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Original estimated contract price per project from TSIPDM955525.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-4b59-711e-bd2e-76ccb659f60d
+          stepCounter: 7ed6122b-e43c-44da-8584-375968d37bb0
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PROJ_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ba0e5fb1-5b77-4a3c-a149-8f6dfaa15310
+                stepCounter: f1dabbe1-16b1-4c31-b214-752762b5cc76
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-4b59-711e-bd2e-7b82b3ca14f2
+          stepCounter: 7ed6122b-e43c-44da-8584-375968d37bb0
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CONTRACT_ORIG_ESTIMATED_PRICE_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a2613498-2f8f-4446-aa49-2caf38228c49
+                stepCounter: f1dabbe1-16b1-4c31-b214-752762b5cc76
+            transform: SUM("TSIPDM955525"."T_TOTS")
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          TSIPDM955525: f1dabbe1-16b1-4c31-b214-752762b5cc76
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: TSIPDM955525
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'TSIPDM955525') }} "TSIPDM955525"
+            GROUP BY "TSIPDM955525"."T_PROJ"
+        name: STG_T9552
+        noLinkRefs: []
+  name: STG_T9552
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
