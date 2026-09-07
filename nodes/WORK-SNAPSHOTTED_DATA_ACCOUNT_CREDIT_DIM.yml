@@ -1,0 +1,146 @@
+fileVersion: 1
+id: 59124514-34e6-40d2-8b8c-949548b90a0e
+name: SNAPSHOTTED_DATA_ACCOUNT_CREDIT_DIM
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Latest current records from the ACCOUNT_CREDIT_DIM final table for this source system/instance, used as the merge target snapshot.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a66-e9d0-76c4-9e38-6308cde3ac7d
+          stepCounter: 59124514-34e6-40d2-8b8c-949548b90a0e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_CREDIT_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06669-82d1-71aa-9ea6-5157aeac7aa6
+                stepCounter: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a66-e9d0-76c4-9e38-67c29afdee2b
+          stepCounter: 59124514-34e6-40d2-8b8c-949548b90a0e
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACCOUNT_CREDIT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06669-82d1-71aa-9ea6-4ee4ed4547b5
+                stepCounter: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a66-e9d0-76c4-9e38-69aa71552509
+          stepCounter: 59124514-34e6-40d2-8b8c-949548b90a0e
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06669-82d1-71aa-9ea6-910580983444
+                stepCounter: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a66-e9d0-76c4-9e38-6e1729503a25
+          stepCounter: 59124514-34e6-40d2-8b8c-949548b90a0e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06669-82d1-71aa-9ea6-970fcc20be90
+                stepCounter: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a66-e9d0-76c4-9e38-717b37ecc69f
+          stepCounter: 59124514-34e6-40d2-8b8c-949548b90a0e
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06669-82d1-71aa-9ea6-814c4884d6ff
+                stepCounter: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a66-e9d0-76c4-9e38-7569d9484bfc
+          stepCounter: 59124514-34e6-40d2-8b8c-949548b90a0e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06669-82d1-71aa-9ea6-9f0e5749753d
+                stepCounter: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a66-e9d0-76c4-9e38-7a406fa418ae
+          stepCounter: 59124514-34e6-40d2-8b8c-949548b90a0e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TARGET_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06669-82d1-71aa-9ea6-5157aeac7aa6
+                stepCounter: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          ACCOUNT_CREDIT_DIM: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: ACCOUNT_CREDIT_DIM
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'ACCOUNT_CREDIT_DIM') }} ACCOUNT_CREDIT_DIM
+            WHERE ACCOUNT_CREDIT_DIM.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_003'
+            AND ACCOUNT_CREDIT_DIM.INSTANCE_NM = 'INSTANCE_004'
+            AND ACCOUNT_CREDIT_DIM.CURR_FLG = 'Y'
+            AND ACCOUNT_CREDIT_DIM.SYS_EXP_TS IS NULL
+        name: SNAPSHOTTED_DATA_ACCOUNT_CREDIT_DIM
+        noLinkRefs: []
+  name: SNAPSHOTTED_DATA_ACCOUNT_CREDIT_DIM
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,289 @@
+fileVersion: 1
+id: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+name: SNAPSHOT_QUERY_ACCOUNT_CREDIT_DIM
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Snapshot of BAAN V_535 account credit source data joined across TTCCOM100535, TTCCOM112535, TTCMCS064535, SOURCE_SYSTEM_DIM and CUSTOMER_DIM.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f2-e34d02653567
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_CREDIT_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CONCAT_WS('~', TRIM(T100.T_BPID), '535', 'SOURCE_SYSTEM_003', 'INSTANCE_004')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f2-e530296dd6c2
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'SOURCE_SYSTEM_002'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f2-e88dc6dd8a26
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SD.SOURCE_SYSTEM_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f2-ee9de7f25fdd
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T100.T_BPID)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f2-f11cc3217ba8
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T100.T_NAMA)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f2-f449ab24dda9
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GLOBAL_DUNS_NBR_TXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T100.T_CMID)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f2-f9ec625870c3
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURRENCY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(T112.T_CCUR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f2-fec22dd79d4d
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CREDIT_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CASE WHEN TRIM(T64.T_ACTN) = 1 THEN 'Always hold (Credit)' WHEN TRIM(T64.T_ACTN) = 2 THEN 'Never Credit Hold' WHEN TRIM(T64.T_ACTN) = 3 THEN 'Check Credit' WHEN TRIM(T64.T_ACTN) = 4 THEN 'Always Hold (Overdue Inv)' ELSE NULL END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f3-0377f28a4df2
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CREDIT_LIMIT_LC_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(ROUND(T112.T_CRLR, 2))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f3-061c7ad80ac8
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(CUD.CUSTOMER_SK, '99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f3-094e73a1bbf4
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: HASH(TRIM(T100.T_BPID), TRIM(T100.T_NAMA), TRIM(T100.T_CMID), TRIM(T112.T_CCUR), TRIM(ROUND(T112.T_CRLR, 2)))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f3-0fa888a593d1
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: T100.SNOWFLAKE_INGESTED_TIME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f3-11c08fe20ae7
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f3-15ede1559df6
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f3-1a99658c40ab
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f3-1e506d4f9167
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Americas'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f3-21d6564ab750
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'SOURCE_SYSTEM_003'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a63-206c-73b1-93f3-2692601fc271
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'INSTANCE_004'"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: CUSTOMER_DIM
+          - locationName: SRC
+            nodeName: SOURCE_SYSTEM_DIM
+          - locationName: SRC
+            nodeName: TTCCOM100535
+          - locationName: SRC
+            nodeName: TTCCOM112535
+          - locationName: SRC
+            nodeName: TTCMCS064535
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'TTCCOM100535') }} T100
+
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCCOM112535') }} T112
+            ON TRIM(T100.T_BPID) = TRIM(T112.T_ITBP)
+
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCMCS064535') }} T64
+            ON TRIM(T112.T_CRAT) = TRIM(T64.T_CRAT)
+
+            LEFT OUTER JOIN {{ ref('SRC', 'SOURCE_SYSTEM_DIM') }} SD
+            ON SD.SOURCE_COMPANY_CD = '535'
+            AND SD.SOURCE_SYSTEM_CD = 'SOURCE_SYSTEM_002'
+            AND SD.SITE_REGION_CD = 'INSTANCE_004'
+            AND SD.CURR_FLG = 'Y'
+
+            LEFT OUTER JOIN (
+              SELECT CUSTOMER_SK, CUSTOMER_ID, COMPANY_CD
+              FROM {{ ref('SRC', 'CUSTOMER_DIM') }}
+              WHERE SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_001'
+              AND INSTANCE_NM = 'INSTANCE_001'
+              AND CURR_FLG = 'Y'
+            ) CUD
+            ON TRIM(T100.T_BPID) = CUD.CUSTOMER_ID
+            AND CUD.COMPANY_CD = '535'
+        name: SNAPSHOT_QUERY_ACCOUNT_CREDIT_DIM
+        noLinkRefs: []
+  name: SNAPSHOT_QUERY_ACCOUNT_CREDIT_DIM
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

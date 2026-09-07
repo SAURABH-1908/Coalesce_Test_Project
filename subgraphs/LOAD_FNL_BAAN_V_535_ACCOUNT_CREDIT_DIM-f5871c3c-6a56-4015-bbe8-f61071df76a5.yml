@@ -1,0 +1,19 @@
+fileVersion: 1
+id: f5871c3c-6a56-4015-bbe8-f61071df76a5
+name: LOAD_FNL_BAAN_V_535_ACCOUNT_CREDIT_DIM
+steps:
+  - 04cf1899-13e4-481e-9bda-52b561b98ae6
+  - 15b10303-cd20-4877-87ab-4681db5a14cf
+  - 1eb1818d-636c-4510-a68f-b13ad8d76c7b
+  - 2ca1da63-7d33-48d7-9b07-00a49bf0b826
+  - 415f1e6d-447c-4a4a-8834-824bf99535a3
+  - 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+  - 50983f7d-9900-48eb-9899-468a9757bbbb
+  - 59124514-34e6-40d2-8b8c-949548b90a0e
+  - 5be05c61-7d1e-4676-8bf3-658006c08271
+  - 879cae06-8720-4ec3-ba3f-f5c75dfc0498
+  - 928d799e-a8af-4d32-b154-7953f6a87726
+  - e5838730-ebde-441c-b530-f1d03b2a188a
+  - efbb90ee-f8da-4432-b83d-fb91fb43d177
+  - fb9b7d32-dd1c-4776-96e3-8a2d8d70d089
+type: Subgraph
