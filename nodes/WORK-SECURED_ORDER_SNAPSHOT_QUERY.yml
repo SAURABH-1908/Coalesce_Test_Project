@@ -1,0 +1,511 @@
+fileVersion: 1
+id: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+name: SECURED_ORDER_SNAPSHOT_QUERY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Snapshot query joining BAAN project/order sources for the Secured Order dimension load.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-5a296929499e
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SECURED_ORDER_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d9c7236-b19c-4098-87ec-f4aa428eecfa
+                stepCounter: 2e363b05-37c0-4c0a-9c85-c2baba835118
+            transform: CONCAT_WS('~',COALESCE(TRIM("TTPPDM600525"."T_CPRJ"),''),COALESCE(TRIM("TTPPDM740525"."T_OFBP"),''),'525','SOURCE_SYSTEM_002','INSTANCE_004')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-5f4f91d1e78f
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_NBR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d9c7236-b19c-4098-87ec-f4aa428eecfa
+                stepCounter: 2e363b05-37c0-4c0a-9c85-c2baba835118
+            transform: TRIM("TTPPDM600525"."T_CPRJ")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-63484cd86685
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_START_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("TTPPDM600525"."T_STDT")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-67cab4d14aea
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_END_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("TTPPDM600525"."T_DLDT")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-6a4e7c247957
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_CLOSED_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("TTPPDM600525"."T_FDDT")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-6ed700ce447f
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("TTPPDM600525"."T_PSTS")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-71ba1fbb34e7
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_STATUS_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CASE WHEN TRIM("TTPPDM600525"."T_PSTS")=1 THEN 'Free' WHEN TRIM("TTPPDM600525"."T_PSTS")=2 THEN 'Construction' WHEN TRIM("TTPPDM600525"."T_PSTS")=3 THEN 'Finished' WHEN TRIM("TTPPDM600525"."T_PSTS")=4 THEN 'Closed' WHEN TRIM("TTPPDM600525"."T_PSTS")=5 THEN 'Archived' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-76bfdfca00d5
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURRENCY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("TTPPDM600525"."T_CCUR")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-780608e50e87
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOCAL_CURRENCY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'CAD'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-7e203058022d
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("TTPPDM600525"."T_NCMP")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-82ea11e640b1
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_CREATION_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 15923b06-2316-4288-83a1-8f88feaf0efa
+                stepCounter: 67e10f78-9868-49d0-a424-959cc5924312
+            transform: TRIM("TSICDB002525"."T_BDTE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-848c9d100e35
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SALES_REP_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8f904d2b-f77c-4eee-9ad6-cc98b42392ed
+                stepCounter: 512b200d-0edd-46ef-8747-2e51bd96a5c7
+            transform: TRIM("TTCCOM001525"."T_NAMA")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-88383d22a357
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_TERM_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9369f1c3-6c89-4a66-a8a2-5ed6f0a7127c
+                stepCounter: 795c4c7f-294b-496a-8145-d24ebd01caf9
+            transform: TRIM("TTPPDM740525"."T_CPAY")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-8d2c4f7815c5
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 73595432-de31-4411-ac9f-ed723bceed01
+                stepCounter: 795c4c7f-294b-496a-8145-d24ebd01caf9
+            transform: TRIM("TTPPDM740525"."T_OFBP")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-9273f87e81b2
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ORDER_TERM_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 365e222c-de7e-496f-a29f-6813b9284e1e
+                stepCounter: f8717162-a292-4594-9f16-8f23b5acfa38
+            transform: TRIM("TTCMCS013525"."T_DSCA")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-97ac4692fdcb
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ORDER_QUANTITY_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-9a6f69dae52c
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAYMENT_METHOD_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-9c6e7905a6f2
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAYMENT_METHOD_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-a281ed800d6b
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: MARKET_CHANNEL_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-a6fc3028f742
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BOOKING_PERSON_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-abf99b83250b
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESSUNIT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'FIRE'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-afca30752e78
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RELEASE_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 15923b06-2316-4288-83a1-8f88feaf0efa
+                stepCounter: 67e10f78-9868-49d0-a424-959cc5924312
+            transform: TRIM("TSICDB002525"."T_BDTE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-b2b08889b7e6
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"TTPPDM600525\".\"SNOWFLAKE_INGESTED_TIME\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-b5b5f7687a29
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8d9c7236-b19c-4098-87ec-f4aa428eecfa
+                stepCounter: 2e363b05-37c0-4c0a-9c85-c2baba835118
+            transform: HASH(TRIM(LOWER("TTPPDM600525"."T_CPRJ")),TRIM(LOWER("TTPPDM600525"."T_STDT")),TRIM(LOWER("TTPPDM600525"."T_DLDT")),TRIM(LOWER("TTPPDM600525"."T_FDDT")),TRIM(LOWER("TTPPDM600525"."T_CCUR")),TRIM(LOWER("TTPPDM600525"."T_NCMP")),TRIM(LOWER("TSICDB002525"."T_BDTE")),TRIM(LOWER("TTCCOM001525"."T_NAMA")),TRIM(LOWER("TTPPDM740525"."T_CPAY")),TRIM(LOWER("TTPPDM740525"."T_OFBP")),TRIM(LOWER("TTCMCS013525"."T_DSCA")),TRIM(LOWER("TTPPDM600525"."T_PSTS")),TRIM(LOWER("SOURCE_SYSTEM_DIM"."SOURCE_SYSTEM_SK")))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-b8965f32d36f
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Americas'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-bcc1e349e1cc
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: da2bd9aa-cbc1-46f3-9f1c-5a0a3aef52bf
+                stepCounter: 928d799e-a8af-4d32-b154-7953f6a87726
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-c399f5448804
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-c71b253c05b0
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-cb869c571dd2
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-ccc95b8a9a86
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ROOT_EXECN_PID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-d20f48547d8d
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_PIPELINE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "''"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-d564eff634f2
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_TRANSFORMATION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "''"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-da3d68b043ca
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_SCRIPT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "''"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-de541c3cfb39
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'SOURCE_SYSTEM_003'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06bc7-d8e8-709b-97bd-e31ae0001497
+          stepCounter: e5b9dd1b-c011-42a5-8a9c-e76b7e4a20f8
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'INSTANCE_004'"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          SOURCE_SYSTEM_DIM: 928d799e-a8af-4d32-b154-7953f6a87726
+          TSICDB002525: 67e10f78-9868-49d0-a424-959cc5924312
+          TTCCOM001525: 512b200d-0edd-46ef-8747-2e51bd96a5c7
+          TTCMCS013525: f8717162-a292-4594-9f16-8f23b5acfa38
+          TTPPDM600525: 2e363b05-37c0-4c0a-9c85-c2baba835118
+          TTPPDM740525: 795c4c7f-294b-496a-8145-d24ebd01caf9
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: SOURCE_SYSTEM_DIM
+          - locationName: SRC
+            nodeName: TSICDB002525
+          - locationName: SRC
+            nodeName: TTCCOM001525
+          - locationName: SRC
+            nodeName: TTCMCS013525
+          - locationName: SRC
+            nodeName: TTPPDM600525
+          - locationName: SRC
+            nodeName: TTPPDM740525
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'TTPPDM600525') }}  TTPPDM600525
+            LEFT OUTER JOIN {{ ref('SRC', 'TSICDB002525') }}  TSICDB002525
+              ON trim(TTPPDM600525.t_cprj) = trim(TSICDB002525.t_proj)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCCOM001525') }}  TTCCOM001525
+              ON trim(TSICDB002525.t_salr) = trim(TTCCOM001525.t_emno)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTPPDM740525') }} TTPPDM740525
+              ON trim(TTPPDM600525.t_cprj) = trim(TTPPDM740525.t_cprj)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCMCS013525') }}  TTCMCS013525
+              ON trim(TTPPDM740525.t_cpay) = trim(TTCMCS013525.t_cpay)
+            LEFT OUTER JOIN {{ ref('SRC', 'SOURCE_SYSTEM_DIM') }}  SOURCE_SYSTEM_DIM
+              ON SOURCE_SYSTEM_DIM.SOURCE_SYSTEM_CD = 'SOURCE_SYSTEM_003'
+              AND SOURCE_SYSTEM_DIM.SITE_REGION_CD = 'INSTANCE_004'
+              AND SOURCE_SYSTEM_DIM.SOURCE_COMPANY_CD = '525'
+        name: SECURED_ORDER_SNAPSHOT_QUERY
+        noLinkRefs: []
+  name: SECURED_ORDER_SNAPSHOT_QUERY
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

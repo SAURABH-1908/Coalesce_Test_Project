@@ -1,0 +1,206 @@
+fileVersion: 1
+id: 5f8412cf-9c61-4930-b48b-292a9df90624
+name: STG_TTCCOM001525
+operation:
+  database: ""
+  deployEnabled: true
+  description: Employee staging from BAAN TTCCOM001525 (entity 525), enriched with source system surrogate key.
+  locationName: WORK
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d0f60e3-bdde-444f-9b1e-10de14e48259
+          stepCounter: 5f8412cf-9c61-4930-b48b-292a9df90624
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: EMPLOYEE_INTG_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3dfdeb35-d917-4d6c-8c4e-873c068e5ef5
+          stepCounter: 5f8412cf-9c61-4930-b48b-292a9df90624
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: EMPLOYEE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4309035e-91ae-4d74-b7c0-66f49b73a607
+          stepCounter: 5f8412cf-9c61-4930-b48b-292a9df90624
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: OFFICIAL_EMAIL_TXT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 34e66113-c08f-4ab5-bebc-a4d7d7834a0f
+          stepCounter: 5f8412cf-9c61-4930-b48b-292a9df90624
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d707c7f2-c382-4246-adef-417ca05094ef
+          stepCounter: 5f8412cf-9c61-4930-b48b-292a9df90624
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: EMPLOYEE_NM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6f362a59-c7e0-4401-9403-ff6aeeb827a0
+          stepCounter: 5f8412cf-9c61-4930-b48b-292a9df90624
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: UTILIZATION_START_DT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4bf4ce11-8702-4b5f-94b6-6adbb20e84c6
+          stepCounter: 5f8412cf-9c61-4930-b48b-292a9df90624
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: UTILIZATION_END_DT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a573b2ba-6be5-41ac-ae39-462db59361ff
+          stepCounter: 5f8412cf-9c61-4930-b48b-292a9df90624
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: START_DATE_IN_CURRENT_JOB_CODE_DT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f271e735-5eb0-411c-8b54-2274f2e4bc99
+          stepCounter: 5f8412cf-9c61-4930-b48b-292a9df90624
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: END_DATE_IN_CURRENT_FUNCTION_DT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 50a8ac95-3696-4eab-b260-66fa37b8d6b9
+          stepCounter: 5f8412cf-9c61-4930-b48b-292a9df90624
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ERP_ENTITY_CD
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: STG_TTCCOM001525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

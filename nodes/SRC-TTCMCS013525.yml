@@ -1,0 +1,54 @@
+fileVersion: 1
+id: f8717162-a292-4594-9f16-8f23b5acfa38
+name: TTCMCS013525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2569f557-f0f0-4966-a055-04aa499b6c7f
+          stepCounter: f8717162-a292-4594-9f16-8f23b5acfa38
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_CPAY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 365e222c-de7e-496f-a29f-6813b9284e1e
+          stepCounter: f8717162-a292-4594-9f16-8f23b5acfa38
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_DSCA
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTCMCS013525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

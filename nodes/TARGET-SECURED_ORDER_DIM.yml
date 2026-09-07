@@ -1,0 +1,694 @@
+fileVersion: 1
+id: 4d272933-cb27-44c4-b5a4-25159cb684b4
+name: SECURED_ORDER_DIM
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Secured Order dimension for BAAN V_525, loaded via SCD merge of insert/update/delete action rows.
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-6a64ff9e5a05
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: SECURED_ORDER_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_NUMBER("LOAD_FNL"."SECURED_ORDER_SK")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-6cf4f0594b60
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: true
+        name: SECURED_ORDER_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"SECURED_ORDER_INTG_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-715e9ac894bc
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ORDER_NBR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"ORDER_NBR_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-74eb7e472df3
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ORDER_START_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"ORDER_START_DT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-7b209ade8b91
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ORDER_END_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"ORDER_END_DT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-7c6de175f1a9
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ORDER_CLOSED_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"ORDER_CLOSED_DT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-815f0fff374e
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ORDER_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"ORDER_STATUS_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-849e4f36c31c
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ORDER_STATUS_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"ORDER_STATUS_DSC\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-89e2935de360
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CURRENCY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"CURRENCY_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-8d2061781b9c
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: LOCAL_CURRENCY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"LOCAL_CURRENCY_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-937cb33415fe
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"ENTITY_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-97d204be0792
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ORDER_CREATION_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"ORDER_CREATION_DT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-9888346f68d2
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SALES_REP_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"SALES_REP_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-9d0f500c1ced
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ORDER_TERM_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"ORDER_TERM_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-a294b2ca6c4b
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CUSTOMER_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"CUSTOMER_NBR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-a5d1c39a2c7c
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ORDER_TERM_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"ORDER_TERM_DSC\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-ab61a0654d2e
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: ORDER_QUANTITY_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"ORDER_QUANTITY_NBR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-ad28fd615e6b
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: PAYMENT_METHOD_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"PAYMENT_METHOD_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-b2547fd215e4
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: PAYMENT_METHOD_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"PAYMENT_METHOD_DSC\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-b5ed920a758f
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: MARKET_CHANNEL_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"MARKET_CHANNEL_DSC\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-b9a9778dbebf
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: BOOKING_PERSON_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"BOOKING_PERSON_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-bcc4ebcda41d
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: BUSINESSUNIT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"BUSINESSUNIT_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-c242389d6ed4
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: RELEASE_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"RELEASE_DT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-c43ec79a8c03
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        isBusinessKey: false
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"INGEST_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-c831d4895976
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"CHKSUM_STR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-cdf5041b680f
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"BUSINESS_SEGMENT_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-d3c1fe4514d6
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"SOURCE_SYSTEM_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-d46706eaaa34
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"CREATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-d9bd9c47fede
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"LAST_UPDATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-dda4b66b4486
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"DL_LAST_UPDATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-e0123ddc6e55
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"SYS_EFF_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-e683b240ee80
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"SYS_EXP_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-ea8a3214c44b
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"LOAD_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-ef9cce17c268
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"CURR_FLG\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-f0e3036504ae
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"DBT_SCD_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-f4641e43c538
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: DML_ACTION_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"DML_ACTION_TYPE_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-f95f31aa485b
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"SOURCE_SYSTEM_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9691-ffb512ff6671
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"INSTANCE_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9692-020cc27aec69
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ADF_PIPELINE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'${adf_pipeline_nm}'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9692-06f89777333f
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ADF_TRANSFORMATION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'${adf_datafactory_nm}'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9692-0b3811240d03
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ADF_SCRIPT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'otc-finance/NA/BAAN_V_525/LOAD_FNL_BAAN_V_SECURED_ORDER_DIM.sql'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06c0b-4157-719f-9692-0d834bb0d908
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ROOT_EXECN_PID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: af64c1d9-749e-4437-9135-6841724425d1
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSurrogateKey: true
+        name: DIM_NODE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 668fadd8-e42a-4b57-81af-5c4932a2fbd2
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 798bdd16-d7d4-4bf1-84fd-fad4f06b3802
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e4444ed2-5f17-42ee-a404-df5c15335164
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ee062e59-c6cb-41e0-b3b0-7a6a3fb8cc6c
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cdb33962-20a5-41b1-8ae6-8b68d85a5157
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8db9cfb7-3c96-4465-93b6-4948608eb89a
+          stepCounter: 4d272933-cb27-44c4-b5a4-25159cb684b4
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          LOAD_FNL: 26373f6c-3f69-4c2e-8325-7043bae9bc5c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: DBT_FINAL1
+        join:
+          joinCondition: |-
+            FROM {{ ref('WORK', 'DBT_FINAL1') }} LOAD_FNL
+            WHERE LOAD_FNL.DML_ACTION_TYPE_CD = 'I'
+        name: SECURED_ORDER_DIM
+        noLinkRefs: []
+  name: SECURED_ORDER_DIM
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

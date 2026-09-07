@@ -347,25 +347,22 @@ operation:
     enabledColumnTestIDs: []
     materializationOption: ""
     sourceMapping:
-      - aliases:
-          SNAP: 5ccc9be1-ee58-4792-a1a2-3d728e0005de
-          SRCD: eede5310-dc59-4ffa-b8cf-41c26400b97b
+      - aliases: {}
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: WORK
+          - locationName: TARGET
             nodeName: INSERTIONS_SOURCE_DATA
-          - locationName: WORK
-            nodeName: SNAPSHOTTED_DATA
+          - locationName: TARGET
+            nodeName: SECURED_ORDER_SNAPSHOTTED_DATA
         join:
           joinCondition: |-
-            FROM {{ ref('WORK', 'INSERTIONS_SOURCE_DATA') }} SRCD
-
-            LEFT OUTER JOIN {{ ref('WORK', 'SNAPSHOTTED_DATA') }} SNAP
-            ON SNAP.TARGET_PRIMARY_KEY = SRCD.SOURCE_PRIMARY_KEY
-
-            WHERE SNAP.TARGET_PRIMARY_KEY IS NULL
-            OR (SNAP.TARGET_PRIMARY_KEY IS NOT NULL AND SNAP.CHKSUM_STR <> SRCD.CHKSUM_STR)
+            FROM {{ ref('TARGET', 'INSERTIONS_SOURCE_DATA') }} AS SOURCE_DATA
+            LEFT OUTER JOIN {{ ref('TARGET', 'SECURED_ORDER_SNAPSHOTTED_DATA') }} AS SNAPSHOTTED_DATA
+              ON SNAPSHOTTED_DATA.TARGET_PRIMARY_KEY = SOURCE_DATA.SOURCE_PRIMARY_KEY
+            WHERE (SNAPSHOTTED_DATA.TARGET_PRIMARY_KEY IS NULL)
+               OR (SNAPSHOTTED_DATA.TARGET_PRIMARY_KEY IS NOT NULL
+                   AND (SNAPSHOTTED_DATA.CHKSUM_STR <> SOURCE_DATA.CHKSUM_STR))
         name: INSERTIONS
         noLinkRefs: []
   name: INSERTIONS

@@ -347,24 +347,20 @@ operation:
     enabledColumnTestIDs: []
     materializationOption: ""
     sourceMapping:
-      - aliases:
-          SNAP: 5ccc9be1-ee58-4792-a1a2-3d728e0005de
-          SRCD: 01d25303-0c5c-4d61-8475-0892e5677bfc
+      - aliases: {}
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: WORK
-            nodeName: SNAPSHOTTED_DATA
-          - locationName: WORK
+          - locationName: TARGET
+            nodeName: SECURED_ORDER_SNAPSHOTTED_DATA
+          - locationName: TARGET
             nodeName: UPDATES_SOURCE_DATA
         join:
           joinCondition: |-
-            FROM {{ ref('WORK', 'SNAPSHOTTED_DATA') }} SNAP
-
-            LEFT JOIN {{ ref('WORK', 'UPDATES_SOURCE_DATA') }} SRCD
-            ON SNAP.TARGET_PRIMARY_KEY = SRCD.SOURCE_PRIMARY_KEY
-
-            WHERE SRCD.SOURCE_PRIMARY_KEY IS NULL
+            FROM {{ ref('TARGET', 'SECURED_ORDER_SNAPSHOTTED_DATA') }} AS SNAPSHOTTED_DATA
+            LEFT JOIN {{ ref('TARGET', 'UPDATES_SOURCE_DATA') }} AS SOURCE_DATA
+              ON SNAPSHOTTED_DATA.TARGET_PRIMARY_KEY = SOURCE_DATA.SOURCE_PRIMARY_KEY
+            WHERE SOURCE_DATA.SOURCE_PRIMARY_KEY IS NULL
         name: DELETES
         noLinkRefs: []
   name: DELETES

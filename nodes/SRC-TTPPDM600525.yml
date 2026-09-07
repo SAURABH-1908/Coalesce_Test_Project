@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 2e363b05-37c0-4c0a-9c85-c2baba835118
+name: TTPPDM600525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d9c7236-b19c-4098-87ec-f4aa428eecfa
+          stepCounter: 2e363b05-37c0-4c0a-9c85-c2baba835118
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_CPRJ
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 17d6795e-8b30-4945-822f-67a7031057f6
+          stepCounter: 2e363b05-37c0-4c0a-9c85-c2baba835118
+        config: {}
+        dataType: VARCHAR(30)
+        defaultValue: ""
+        description: ""
+        name: T_CREG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTPPDM600525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
