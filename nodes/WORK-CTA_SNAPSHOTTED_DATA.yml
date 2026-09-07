@@ -121,22 +121,19 @@ operation:
     enabledColumnTestIDs: []
     materializationOption: ""
     sourceMapping:
-      - aliases:
-          BRIDGE: cae2f555-bbe4-4064-96dc-708ceca31d1e
+      - aliases: {}
         customSQL:
           customSQL: ""
         dependencies: []
         join:
           joinCondition: |-
-            FROM {{ ref_no_link('SRC', 'CONTRACT_TO_ADDRESS_BRIDGE') }} BRIDGE
+            FROM {{ ref_no_link('Target', 'CONTRACT_TO_ADDRESS_BRIDGE') }} BRIDGE
             WHERE BRIDGE.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_003'
             AND BRIDGE.INSTANCE_NM = 'INSTANCE_004'
             AND BRIDGE.CURR_FLG = 'Y'
             AND BRIDGE.SYS_EXP_TS IS NULL
         name: CTA_SNAPSHOTTED_DATA
-        noLinkRefs:
-          - locationName: SRC
-            nodeName: CONTRACT_TO_ADDRESS_BRIDGE
+        noLinkRefs: []
   name: CTA_SNAPSHOTTED_DATA
   overrideSQL: false
   schema: ""
