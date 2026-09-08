@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 76ae7b9a-eac7-4941-b90e-fc6a2794f919
+name: TTPPDM600535
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e859e23e-3e18-4c84-ba23-f2bacb12f5b5
+          stepCounter: 76ae7b9a-eac7-4941-b90e-fc6a2794f919
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_PADR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a760dacf-ce87-4a31-93f8-c67b601d51b1
+          stepCounter: 76ae7b9a-eac7-4941-b90e-fc6a2794f919
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_CPRJ
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 46b94a40-1e34-47c8-9fbc-545f0d917a9b
+          stepCounter: 76ae7b9a-eac7-4941-b90e-fc6a2794f919
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SNOWFLAKE_INGESTED_TIME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTPPDM600535
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
