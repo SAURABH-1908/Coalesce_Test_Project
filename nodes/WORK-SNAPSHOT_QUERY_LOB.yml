@@ -1,0 +1,215 @@
+fileVersion: 1
+id: 6af0041c-99ca-4dea-b8d2-946a47aa8937
+name: SNAPSHOT_QUERY_LOB
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Snapshot of BAAN V_525 line of business source data (hardcoded 'Fire' LOB) joined to SOURCE_SYSTEM_DIM for the source system surrogate key.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-a51e-7089-a2f6-057aa09674c5
+          stepCounter: 6af0041c-99ca-4dea-b8d2-946a47aa8937
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_LINE_OF_BUSINESS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Fire'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-a51e-7089-a2f6-0913e1526d21
+          stepCounter: 6af0041c-99ca-4dea-b8d2-946a47aa8937
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINE_OF_BUSINESS_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Fire'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-a51e-7089-a2f6-0ec192d1ef39
+          stepCounter: 6af0041c-99ca-4dea-b8d2-946a47aa8937
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINE_OF_BUSINESS_TYPE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Fire Install'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-a51e-7089-a2f6-108b059b1029
+          stepCounter: 6af0041c-99ca-4dea-b8d2-946a47aa8937
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ERP_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'525'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-a51e-7089-a2f6-1662194c3b10
+          stepCounter: 6af0041c-99ca-4dea-b8d2-946a47aa8937
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SD.SOURCE_SYSTEM_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-a51e-7089-a2f6-183790c010c0
+          stepCounter: 6af0041c-99ca-4dea-b8d2-946a47aa8937
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINE_OF_BUSINESS_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CONCAT_WS('~', 'Fire', '525', 'SOURCE_SYSTEM_003', 'INSTANCE_004')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-a51e-7089-a2f6-1c3aff805cc7
+          stepCounter: 6af0041c-99ca-4dea-b8d2-946a47aa8937
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: HASH('Fire', 'Fire', 'Fire Install', '525', SD.SOURCE_SYSTEM_SK)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-a51e-7089-a2f6-2238675f1709
+          stepCounter: 6af0041c-99ca-4dea-b8d2-946a47aa8937
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-a51e-7089-a2f6-27ce0c265dc3
+          stepCounter: 6af0041c-99ca-4dea-b8d2-946a47aa8937
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-a51e-7089-a2f6-2af3b33b2649
+          stepCounter: 6af0041c-99ca-4dea-b8d2-946a47aa8937
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-a51e-7089-a2f6-2dfdbf6f5c5b
+          stepCounter: 6af0041c-99ca-4dea-b8d2-946a47aa8937
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Americas'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-a51e-7089-a2f6-30174af74e56
+          stepCounter: 6af0041c-99ca-4dea-b8d2-946a47aa8937
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-a51e-7089-a2f6-341ef619ca6b
+          stepCounter: 6af0041c-99ca-4dea-b8d2-946a47aa8937
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'SOURCE_SYSTEM_003'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-a51e-7089-a2f6-3978675d8afe
+          stepCounter: 6af0041c-99ca-4dea-b8d2-946a47aa8937
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'INSTANCE_004'"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          SD: 928d799e-a8af-4d32-b154-7953f6a87726
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: SOURCE_SYSTEM_DIM
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'SOURCE_SYSTEM_DIM') }} SD
+            WHERE SD.SOURCE_SYSTEM_CD = 'SOURCE_SYSTEM_003'
+            AND SD.SITE_REGION_CD = 'INSTANCE_004'
+            AND SD.CURR_FLG = 'Y'
+        name: SNAPSHOT_QUERY_LOB
+        noLinkRefs: []
+  name: SNAPSHOT_QUERY_LOB
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
