@@ -554,15 +554,13 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          LOAD_FNL: 7e526e0d-3d5d-448f-982b-d27567914294
+          LOAD_FNL: 415f1e6d-447c-4a4a-8834-824bf99535a3
         customSQL:
           customSQL: ""
-        dependencies:
-          - locationName: WORK
-            nodeName: DBT_FINAL
+        dependencies: []
         join:
           joinCondition: |-
-            FROM {{ ref('WORK', 'DBT_FINAL') }} LOAD_FNL
+            FROM {{ ref('WORK', 'DBT_FINAL_ACCOUNT') }} LOAD_FNL
             WHERE LOAD_FNL.DML_ACTION_TYPE_CD = 'I'
         name: ACCOUNT_CREDIT_DIM
         noLinkRefs: []

@@ -240,6 +240,7 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
+          SD: 928d799e-a8af-4d32-b154-7953f6a87726
           T100: 5b27c73b-0769-46b8-8265-857c20007df8
           T112: 9bc57b13-0ac9-4057-946c-a92627f9514d
           T64: c4ac9752-4715-4f74-9f93-32eab3ead7c1
@@ -247,15 +248,15 @@ operation:
           customSQL: ""
         dependencies:
           - locationName: SRC
-            nodeName: CUSTOMER_DIM
-          - locationName: SRC
-            nodeName: SOURCE_SYSTEM_DIM
-          - locationName: SRC
             nodeName: TTCCOM100525
           - locationName: SRC
             nodeName: TTCCOM112525
           - locationName: SRC
             nodeName: TTCMCS064525
+          - locationName: TARGET
+            nodeName: CUSTOMER_DIM
+          - locationName: TARGET
+            nodeName: SOURCE_SYSTEM_DIM
         join:
           joinCondition: |-
             FROM {{ ref('SRC', 'TTCCOM100525') }} T100
@@ -266,7 +267,7 @@ operation:
             LEFT OUTER JOIN {{ ref('SRC', 'TTCMCS064525') }} T64
             ON TRIM(T112.T_CRAT) = TRIM(T64.T_CRAT)
 
-            LEFT OUTER JOIN {{ ref('SRC', 'SOURCE_SYSTEM_DIM') }} SD
+            LEFT OUTER JOIN {{ ref('TARGET', 'SOURCE_SYSTEM_DIM') }} SD
             ON SD.SOURCE_COMPANY_CD = '525'
             AND SD.SOURCE_SYSTEM_CD = 'SOURCE_SYSTEM_002'
             AND SD.SITE_REGION_CD = 'INSTANCE_004'
@@ -274,7 +275,7 @@ operation:
 
             LEFT OUTER JOIN (
               SELECT CUSTOMER_SK, CUSTOMER_ID, COMPANY_CD
-              FROM {{ ref('SRC', 'CUSTOMER_DIM') }}
+              FROM {{ ref('TARGET', 'CUSTOMER_DIM') }}
               WHERE SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_001'
               AND INSTANCE_NM = 'INSTANCE_001'
               AND CURR_FLG = 'Y'
