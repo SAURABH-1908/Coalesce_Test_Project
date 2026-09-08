@@ -608,15 +608,18 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          LOAD_FNL: e6ef035a-f7bd-4460-9467-b97cc599b93f
+          LOAD_FNL: 2b9d0023-e055-4d9c-b947-da5fba739944
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: WORK
             nodeName: GL_DBT_FINAL
+          - locationName: WORK
+            nodeName: GL_DBT_FINAL_535
         join:
-          joinCondition: |
-            FROM {{ ref('WORK', 'GL_DBT_FINAL') }} LOAD_FNL
+          joinCondition: |-
+            --FROM {{ ref('WORK', 'GL_DBT_FINAL') }} LOAD_FNL
+            FROM {{ ref('WORK', 'GL_DBT_FINAL_535') }}LOAD_FNL
         name: GL_ACCOUNT_DIM
         noLinkRefs: []
   name: GL_ACCOUNT_DIM
