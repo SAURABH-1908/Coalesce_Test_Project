@@ -1,0 +1,402 @@
+fileVersion: 1
+id: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+name: CTA_DBT_FINAL
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: |-
+      MERGE INTO {{ ref('TARGET', 'CONTRACT_TO_ADDRESS_BRIDGE') }} AS target
+      USING (
+        SELECT * FROM {{ ref('WORK', 'CTA_DBT_FINAL') }}
+      ) SOURCE
+      ON TO_VARCHAR(SOURCE.TARGET_PRIMARY_KEY) = TO_VARCHAR(target.CONTRACT_TO_ADDRESS_INTG_ID)
+      AND TO_NUMBER(SOURCE.CONTRACT_TO_ADDRESS_SK) = TO_NUMBER(target.CONTRACT_TO_ADDRESS_SK)
+      AND SOURCE.SYS_EFF_TS = target.SYS_EFF_TS
+      WHEN MATCHED AND target.SYS_EXP_TS IS NULL AND SOURCE.DML_ACTION_TYPE_CD IN ('D','U')
+      THEN UPDATE SET
+        SYS_EXP_TS = TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP())),
+        CURR_FLG = SOURCE.CURR_FLG,
+        DML_ACTION_TYPE_CD = SOURCE.DML_ACTION_TYPE_CD
+      WHEN NOT MATCHED AND SOURCE.DML_ACTION_TYPE_CD = 'I'
+      THEN INSERT (
+        CONTRACT_TO_ADDRESS_SK,
+        CONTRACT_TO_ADDRESS_INTG_ID,
+        ADDRESS_SK,
+        CONTRACT_SK,
+        BUSINESS_SEGMENT_NM,
+        CREATE_TS,
+        LAST_UPDATE_TS,
+        SYS_EFF_TS,
+        SYS_EXP_TS,
+        INGEST_TS,
+        DL_LAST_UPDATE_TS,
+        CHKSUM_STR,
+        LOAD_TS,
+        DML_ACTION_TYPE_CD,
+        DBT_SCD_ID,
+        CURR_FLG,
+        SOURCE_SYSTEM_NM,
+        INSTANCE_NM,
+        ROOT_EXECN_PID,
+        ADF_PIPELINE_NM,
+        ADF_TRANSFORMATION_NM,
+        ADF_SCRIPT_NM
+      )
+      VALUES (
+        TO_NUMBER(SOURCE.CONTRACT_TO_ADDRESS_SK),
+        SOURCE.CONTRACT_TO_ADDRESS_INTG_ID,
+        SOURCE.ADDRESS_SK,
+        SOURCE.CONTRACT_SK,
+        SOURCE.BUSINESS_SEGMENT_NM,
+        SOURCE.CREATE_TS,
+        SOURCE.LAST_UPDATE_TS,
+        SOURCE.SYS_EFF_TS,
+        SOURCE.SYS_EXP_TS,
+        SOURCE.INGEST_TS,
+        SOURCE.DL_LAST_UPDATE_TS,
+        SOURCE.CHKSUM_STR,
+        SOURCE.LOAD_TS,
+        SOURCE.DML_ACTION_TYPE_CD,
+        SOURCE.DBT_SCD_ID,
+        SOURCE.CURR_FLG,
+        SOURCE.SOURCE_SYSTEM_NM,
+        SOURCE.INSTANCE_NM,
+        SOURCE.ROOT_EXECN_PID,
+        SOURCE.ADF_PIPELINE_NM,
+        SOURCE.ADF_TRANSFORMATION_NM,
+        SOURCE.ADF_SCRIPT_NM
+      );
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Final union of insertion, update and delete action rows for BAAN V_525 contract-to-address bridge, merged into CONTRACT_TO_ADDRESS_BRIDGE via the dimension merge.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-13f2ecc441a9
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        name: DML_ACTION_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"DML_ACTION_TYPE_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-16d71cf2d49b
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: TARGET_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"TARGET_PRIMARY_KEY\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-1b41c6efdbda
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CONTRACT_TO_ADDRESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"CONTRACT_TO_ADDRESS_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-1c3f1c1569d2
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: CONTRACT_TO_ADDRESS_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"CONTRACT_TO_ADDRESS_INTG_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-208dfc322c17
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ADDRESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"ADDRESS_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-2634fc5e4c7b
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CONTRACT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"CONTRACT_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-2a8746886e5f
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"BUSINESS_SEGMENT_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-2c90fc33cb06
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"CREATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-33f212523aae
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"LAST_UPDATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-34c8b263aea4
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"INGEST_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-39f1fa4c0cf3
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"DL_LAST_UPDATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-3dd39fc16d43
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"CHKSUM_STR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-40207ecaa385
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: ROOT_EXECN_PID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"ROOT_EXECN_PID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-4418fdf3f050
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: ADF_PIPELINE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"ADF_PIPELINE_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-49f69481250b
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: ADF_TRANSFORMATION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"ADF_TRANSFORMATION_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-4dfe59f88870
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: ADF_SCRIPT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"ADF_SCRIPT_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-5013c382007e
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"SOURCE_SYSTEM_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-569778494394
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"INSTANCE_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-5bc47ffec5da
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: SOURCE_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"SOURCE_PRIMARY_KEY\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-5ccefa339e6e
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"LOAD_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-600e7dc252c5
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"SYS_EFF_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-65da61285415
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"SYS_EXP_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-686880f0b14d
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"CURR_FLG\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b29-0847-755f-beae-6d82d7685e82
+          stepCounter: 7d69cac4-8fc2-40a7-9335-9390bf4156ad
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"DBT_SCD_ID\""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: CTA_DELETES
+          - locationName: WORK
+            nodeName: CTA_INSERTIONS
+          - locationName: WORK
+            nodeName: CTA_UPDATES
+        join:
+          joinCondition: |-
+            FROM (
+              SELECT * FROM {{ ref('WORK', 'CTA_INSERTIONS') }}
+              UNION ALL
+              SELECT * FROM {{ ref('WORK', 'CTA_UPDATES') }}
+              UNION ALL
+              SELECT * FROM {{ ref('WORK', 'CTA_DELETES') }}
+            ) DBT_INTERNAL_SOURCE
+        name: CTA_DBT_FINAL
+        noLinkRefs: []
+  name: CTA_DBT_FINAL
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
