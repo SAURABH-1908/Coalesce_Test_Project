@@ -27,7 +27,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: SCHEMA_003.GL_DISTIBUTION_FACT_SEQ.NEXTVAL
+            transform: "{{ ref('TARGET', 'GL_DISTIBUTION_FACT_SEQ') }}.NEXTVAL"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a06b51-9d32-72c8-a20a-84acc03aaa1e

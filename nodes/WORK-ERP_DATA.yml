@@ -138,7 +138,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06b71-9725-7073-ac9f-4fd31c4e7936
                 stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
-            transform: ""
+            transform: TRIM("date_dim"."FISCAL_YEAR_NBR")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a06b4c-7f34-761b-af4b-78adafdcf1e8
@@ -839,7 +839,7 @@ operation:
               AND TRIM("src_sys_dim".CURR_FLG) = 'Y'
 
             LEFT JOIN {{ ref('TARGET', 'DATE_DIM') }} AS "date_dim"
-              ON "tfgld106".T_DCDT = TO_DATE("date_dim".DATE_SK, 'YYYYMMDD')
+              ON "tfgld106".T_DCDT = TO_DATE(TO_CHAR("date_dim".DATE_SK), 'YYYYMMDD')
 
             LEFT JOIN {{ ref('SRC', 'TTFGLD011525') }} AS "tfgld011"
               ON TRIM("tfgld106".T_OTYP) = TRIM("tfgld011".T_TTYP)
@@ -867,12 +867,11 @@ operation:
               AND "c".ERP_ENTITY_CD = '525'
 
             LEFT JOIN (
-              SELECT DISTINCT T_ITYP, T_IDOC, T_SFCP, T_CPRJ
+              SELECT DISTINCT T_ITYP, T_IDOC, T_CPRJ
               FROM {{ ref('SRC', 'TCISLI235525') }}
             ) AS "cisli235"
               ON TRIM("tfgld106".T_OTYP) = TRIM("cisli235".T_ITYP)
               AND FLOOR(TRIM("tfgld106".T_ODOC)) = FLOOR(TRIM("cisli235".T_IDOC))
-              AND FLOOR(TRIM("tfgld106".T_OCMP)) = FLOOR(TRIM("cisli235".T_SFCP))
 
             LEFT JOIN {{ ref('SRC', 'TTPPDM600525') }} AS "tppdm600"
               ON TRIM("cisli235".T_CPRJ) = TRIM("tppdm600".T_CPRJ)
