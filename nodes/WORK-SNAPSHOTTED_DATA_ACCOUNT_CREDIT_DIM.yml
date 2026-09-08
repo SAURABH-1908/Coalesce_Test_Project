@@ -30,7 +30,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06669-82d1-71aa-9ea6-5157aeac7aa6
                 stepCounter: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
-            transform: ""
+            transform: "\"ACCOUNT_CREDIT_INTG_ID\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a66-e9d0-76c4-9e38-67c29afdee2b
@@ -44,7 +44,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06669-82d1-71aa-9ea6-4ee4ed4547b5
                 stepCounter: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
-            transform: ""
+            transform: "\"ACCOUNT_CREDIT_SK\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a66-e9d0-76c4-9e38-69aa71552509
@@ -58,7 +58,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06669-82d1-71aa-9ea6-910580983444
                 stepCounter: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
-            transform: ""
+            transform: "\"CHKSUM_STR\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a66-e9d0-76c4-9e38-6e1729503a25
@@ -72,7 +72,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06669-82d1-71aa-9ea6-970fcc20be90
                 stepCounter: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
-            transform: ""
+            transform: "\"LOAD_TS\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a66-e9d0-76c4-9e38-717b37ecc69f
@@ -86,7 +86,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06669-82d1-71aa-9ea6-814c4884d6ff
                 stepCounter: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
-            transform: ""
+            transform: "\"SYS_EFF_TS\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a66-e9d0-76c4-9e38-7569d9484bfc
@@ -100,7 +100,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06669-82d1-71aa-9ea6-9f0e5749753d
                 stepCounter: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
-            transform: ""
+            transform: "\"DBT_SCD_ID\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a66-e9d0-76c4-9e38-7a406fa418ae
@@ -114,7 +114,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06669-82d1-71aa-9ea6-5157aeac7aa6
                 stepCounter: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
-            transform: ""
+            transform: "\"TARGET_PRIMARY_KEY\""
     cteString: ""
     description: ""
     destinationName: ""
