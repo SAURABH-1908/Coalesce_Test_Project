@@ -1,0 +1,281 @@
+fileVersion: 1
+id: d15ba86b-3c02-4ab1-b3d9-28657d556157
+name: SNAPSHOT_QUERY_1
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Employee snapshot rows with change-detection checksum, load metadata timestamps, and source system/instance attributes.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-7bc5ee2563e7
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYEE_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08062-34a1-716c-91d3-736bda14ee99
+                stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-7e07b3a5d4b8
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08062-34a1-716c-91d3-7691a1e0032c
+                stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-810b486cbc3c
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OFFICIAL_EMAIL_TXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08062-34a1-716c-91d3-794879044dfd
+                stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-8522efde0708
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08062-34a1-716c-91d3-7f64f477bb96
+                stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-89e4747d3e81
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYEE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08062-34a1-716c-91d3-827ef1a3c8a3
+                stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-8f9996b0b734
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UTILIZATION_START_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08062-34a1-716c-91d3-8691bad0c6ab
+                stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-902b294a9aeb
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UTILIZATION_END_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08062-34a1-716c-91d3-89df4915e9c7
+                stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-964fa4f8d21a
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: START_DATE_IN_CURRENT_JOB_CODE_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08062-34a1-716c-91d3-8db98878a9e6
+                stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-9b59431eae4c
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: END_DATE_IN_CURRENT_FUNCTION_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08062-34a1-716c-91d3-918f5662bf54
+                stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-9e5862029d33
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ERP_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08062-34a1-716c-91d3-941829a15f1a
+                stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-a36f9b01048b
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08062-34a1-716c-91d3-7691a1e0032c
+                stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+            transform: HASH("T001535"."EMPLOYEE_ID", "T001535"."OFFICIAL_EMAIL_TXT", "T001535"."EMPLOYEE_NM", "T001535"."UTILIZATION_START_DT", "T001535"."UTILIZATION_END_DT", "T001535"."SOURCE_SYSTEM_SK")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-a5e009468a0b
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-aaaa0790c19a
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-aff13ba48681
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-b1740552a13e
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DL_LAST_UPDT_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-b7356f79b6b1
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Americas'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-b935f0bffd3b
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'SOURCE_SYSTEM_003'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-9aca-74a0-a439-be5333185560
+          stepCounter: d15ba86b-3c02-4ab1-b3d9-28657d556157
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'INSTANCE_004'"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          T001535: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: T001535
+        join:
+          joinCondition: FROM {{ ref('WORK', 'T001535') }} T001535
+        name: SNAPSHOT_QUERY_1
+        noLinkRefs: []
+  name: SNAPSHOT_QUERY_1
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
