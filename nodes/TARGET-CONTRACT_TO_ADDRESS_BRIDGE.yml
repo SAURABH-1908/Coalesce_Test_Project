@@ -412,14 +412,19 @@ operation:
     enabledColumnTestIDs: []
     materializationOption: ""
     sourceMapping:
-      - aliases: {}
+      - aliases:
+          LOAD_FNL: 1bcbf4d4-d84f-49f9-9302-0621ab93132e
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: WORK
             nodeName: CTA_DBT_FINAL
+          - locationName: WORK
+            nodeName: CTA_DBT_FINAL_535
         join:
-          joinCondition: FROM {{ ref('WORK', 'CTA_DBT_FINAL') }} "LOAD_FNL"
+          joinCondition: |
+            FROM{{ ref('WORK', 'CTA_DBT_FINAL_535') }} "LOAD_FNL"
+            --{{ ref('WORK', 'CTA_DBT_FINAL') }}
         name: CONTRACT_TO_ADDRESS_BRIDGE
         noLinkRefs: []
   name: CONTRACT_TO_ADDRESS_BRIDGE
