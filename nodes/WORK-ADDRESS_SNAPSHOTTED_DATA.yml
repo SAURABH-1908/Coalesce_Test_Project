@@ -1,0 +1,160 @@
+fileVersion: 1
+id: 78abb5d8-c451-461c-bf35-7d65fb992c88
+name: ADDRESS_SNAPSHOTTED_DATA
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Latest current records from GBL_ADDRESS_DIM for SOURCE_SYSTEM_003/INSTANCE_004, keyed by Target_Primary_Key, used for change detection.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fe6-6dff-718c-af2c-7a476d8ee8cb
+          stepCounter: 78abb5d8-c451-461c-bf35-7d65fb992c88
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: GBL_ADDRESS_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GBL_ADDRESS_DIM.GBL_ADDRESS_INTG_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fe6-6dff-718c-af2c-7c7a40c65eaa
+          stepCounter: 78abb5d8-c451-461c-bf35-7d65fb992c88
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GBL_ADDRESS_DIM.CHKSUM_STR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fe6-6dff-718c-af2c-83554451836f
+          stepCounter: 78abb5d8-c451-461c-bf35-7d65fb992c88
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: TARGET_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GBL_ADDRESS_DIM.GBL_ADDRESS_INTG_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fe6-6dff-718c-af2c-87e3c2657d65
+          stepCounter: 78abb5d8-c451-461c-bf35-7d65fb992c88
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ADDRESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 23693968-78e1-4568-b2a3-bee6e16c6531
+                stepCounter: 6306db80-1423-4714-add0-3cefe56abf1b
+            transform: GBL_ADDRESS_DIM.a
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fe6-6dff-718c-af2c-8a67ce29209b
+          stepCounter: 78abb5d8-c451-461c-bf35-7d65fb992c88
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GBL_ADDRESS_DIM.SYS_EFF_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fe6-6dff-718c-af2c-8e52fe66d6b3
+          stepCounter: 78abb5d8-c451-461c-bf35-7d65fb992c88
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GBL_ADDRESS_DIM.SYS_EXP_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fe6-6dff-718c-af2c-9162d9b59ef0
+          stepCounter: 78abb5d8-c451-461c-bf35-7d65fb992c88
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d64af7cf-67c3-423e-ba49-01d2524fcf1c
+                stepCounter: 6306db80-1423-4714-add0-3cefe56abf1b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fe6-6dff-718c-af2c-94c44d95e49c
+          stepCounter: 78abb5d8-c451-461c-bf35-7d65fb992c88
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fed-b799-723f-a04c-7f1a6d7bdbc6
+          stepCounter: 78abb5d8-c451-461c-bf35-7d65fb992c88
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GBL_ADDRESS_DIM.LOAD_TS
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          GBL_ADDRESS_DIM: 8761570d-0c26-4cd6-b484-2a358e929971
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: |-
+            FROM {{ ref_no_link('TARGET', 'GBL_ADDRESS_DIM') }} GBL_ADDRESS_DIM
+            WHERE SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_003'
+              AND INSTANCE_NM = 'INSTANCE_004'
+              AND CURR_FLG = 'Y'
+              AND SYS_EXP_TS IS NULL
+        name: ADDRESS_SNAPSHOTTED_DATA
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: GBL_ADDRESS_DIM
+  name: ADDRESS_SNAPSHOTTED_DATA
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
