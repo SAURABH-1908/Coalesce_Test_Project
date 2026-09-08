@@ -1,0 +1,172 @@
+fileVersion: 1
+id: c1931078-682d-4b42-82c8-45d4e95d67c4
+name: GEOGRAPHY_535_SNAPSHOTTED_DATA
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Latest current records from GEOGRAPHY_DIM for SOURCE_SYSTEM_003/INSTANCE_004, keyed by Target_Primary_Key, used for change detection (BAAN V 535).
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fd5-8c5c-75e9-a329-8fac6a56b255
+          stepCounter: c1931078-682d-4b42-82c8-45d4e95d67c4
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: GEOGRAPHY_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a066ba-3c1f-7713-b143-4ddd2b8d9764
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fd5-8c5c-75e9-a329-9358bad40773
+          stepCounter: c1931078-682d-4b42-82c8-45d4e95d67c4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a066ba-3c20-7128-914e-fce5dac6c91c
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fd5-8c5c-75e9-a329-97df47c2839e
+          stepCounter: c1931078-682d-4b42-82c8-45d4e95d67c4
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: TARGET_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a066ba-3c1f-7713-b143-4ddd2b8d9764
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fd5-8c5c-75e9-a329-98f25a688861
+          stepCounter: c1931078-682d-4b42-82c8-45d4e95d67c4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: GEO_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06ab6-af2b-725c-8203-74a9caa90d1d
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fd5-8c5c-75e9-a329-9c6860639387
+          stepCounter: c1931078-682d-4b42-82c8-45d4e95d67c4
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06ab6-af2b-725c-8203-8d280b9506cf
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fd5-8c5c-75e9-a329-a0408a91f246
+          stepCounter: c1931078-682d-4b42-82c8-45d4e95d67c4
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06ab6-af2b-725c-8203-80f12b033c28
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fd5-8c5c-75e9-a329-a66a8a2fb057
+          stepCounter: c1931078-682d-4b42-82c8-45d4e95d67c4
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06ab6-af2b-725c-8203-8499040c5f42
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fd5-8c5c-75e9-a329-a921b504d05c
+          stepCounter: c1931078-682d-4b42-82c8-45d4e95d67c4
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06ab6-af2b-725c-8203-9bc4d87faf70
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fd5-8c5c-75e9-a329-ac16440cd26f
+          stepCounter: c1931078-682d-4b42-82c8-45d4e95d67c4
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          GEOGRAPHY_DIM: 24b736d1-7443-427f-8415-704dd7d36018
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: |-
+            FROM {{ ref_no_link('TARGET', 'GEOGRAPHY_DIM') }} GEOGRAPHY_DIM
+            WHERE SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_003'
+              AND INSTANCE_NM = 'INSTANCE_004'
+              AND SYSTEM_CURRENT_FLAG = 'Y'
+              AND SYSTEM_END_DATE IS NULL
+        name: GEOGRAPHY_535_SNAPSHOTTED_DATA
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: GEOGRAPHY_DIM
+  name: GEOGRAPHY_535_SNAPSHOTTED_DATA
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

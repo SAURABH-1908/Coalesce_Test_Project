@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 18bacb04-d7ec-449d-9abb-4046d65df32e
+name: TTCIBD901535
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c467996d-296e-4f7b-ae3d-53edcad0cf81
+          stepCounter: 18bacb04-d7ec-449d-9abb-4046d65df32e
+        config: {}
+        dataType: VARCHAR(20)
+        defaultValue: ""
+        description: ""
+        name: T_REGN
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 44a8be91-91ea-42f5-afea-4c9953043d5b
+          stepCounter: 18bacb04-d7ec-449d-9abb-4046d65df32e
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: T_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTCIBD901535
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
