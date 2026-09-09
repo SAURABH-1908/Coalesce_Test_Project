@@ -273,7 +273,7 @@ operation:
             nodeName: STG_CUSTOMER
         join:
           joinCondition: FROM {{ ref('TARGET', 'STG_CUSTOMER') }} STG_CUSTOMER
-        name: DIM_NODE
+        name: CUSTOMER_DIM
         noLinkRefs: []
   name: CUSTOMER_DIM
   overrideSQL: false
