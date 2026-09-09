@@ -1,0 +1,554 @@
+fileVersion: 1
+id: 78120fb7-0485-409e-a071-5681af853a17
+name: ADDRESS_SNAPSHOT_QUERY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Global address snapshot query joining BAAN address/business-partner tables for the 535 entity.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4c-70cd-8762-f89ddba09b26
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GBL_ADDRESS_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a07fd9-cbef-7796-9e33-4ee3be2a2967
+                stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
+            transform: CONCAT_WS('~',trim(TTCCOM130535.T_CADR),COALESCE(trim(upper(TTCCOM130535.T_NAME)),''),COALESCE(trim(TCMCS143.T_DSCA),''),'535','INSTANCE_004','SOURCE_SYSTEM_003')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-1d84de945507
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_ADDRESS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a07fd9-cbef-7796-9e33-4ee3be2a2967
+                stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
+            transform: trim(TTCCOM130535.T_CADR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-220be23c84c8
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_LINE_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a07fd9-cbef-7796-9e33-6374abfe9ad8
+                stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
+            transform: trim(TTCCOM130535.T_NAMC)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-27c318c7201f
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_LINE_2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a07fd9-cbef-7796-9e33-6b2d00151a30
+                stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
+            transform: trim(TTCCOM130535.T_NAMD)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-29ed63c47da4
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_LINE_3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a07fd9-cbef-7796-9e33-674ba53cd463
+                stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
+            transform: CONCAT(TTCCOM130535.T_HONO,' ',TTCCOM130535.T_POBN)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-2fbda6c85ca8
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_AREA_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tccom110.t_creg)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-330e699dcf68
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_AREA_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tcmcs045.t_dsca)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-356e53b0f36f
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_DISTRICT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tccom110.t_creg)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-397d74e6c832
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_DISTRICT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tcibd902.t_name)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-3fca9150b99a
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_CITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-41f5f56f3b75
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_CITY_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a07fd9-cbef-7796-9e33-5cbf246e2ef3
+                stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
+            transform: trim(upper(TTCCOM130535.T_NAME))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-47741f3b5042
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_STATE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a07fd9-cbef-7796-9e33-512a1b59e9c5
+                stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
+            transform: trim(TTCCOM130535.t_cste)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-4842a7ba20c1
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_STATE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TCMCS143.t_dsca)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-4e9e9ff768b0
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_COUNTRY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a07fd9-cbef-7796-9e33-5a2292ac8560
+                stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
+            transform: TRIM(TTCCOM130535.t_ccty)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-51bfb87f3645
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_COUNTRY_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TCMCS010.t_dsca)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-5428b874b41a
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_REGION_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tcibd902.t_nreg)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-5b74defd9b12
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_REGION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: trim(tcibd902.t_nred)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-5f8719f9f0b5
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_POSTAL_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a07fd9-cbef-7796-9e33-57dd2d582eab
+                stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
+            transform: trim(TTCCOM130535.t_pstc)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-607ea25dcc7b
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ERP_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'535'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-65bcd4b8ae9f
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_TYPE_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a07fd9-cbef-7796-9e33-4ee3be2a2967
+                stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
+            transform: CASE when TTCCOM130535.t_cadr = tccom110.t_cadr then 'sold-to' when TTCCOM130535.t_cadr = tccom111.t_cadr then 'ship-to' when TTCCOM130535.t_cadr = tccom112.t_cadr then 'inv-to' when TTCCOM130535.t_cadr = tccom114.t_cadr then 'pay-by' when TTCCOM130535.t_cadr = tccom120.t_cadr then 'buy-from' when TTCCOM130535.t_cadr = tccom121.t_cadr then 'ship-from' when TTCCOM130535.t_cadr = tccom122.t_cadr then 'inv-from' when TTCCOM130535.t_cadr = tccom124.t_cadr then 'pay-to' end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-6b75e63ea610
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(trim(tccom110.T_OFBP),trim(tccom111.T_STBP))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-6cd8977c56ac
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REFERENCE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(trim(tccom110.T_OFBP),trim(tccom111.T_STBP))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-73e7cc74166f
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REFERENCE_TYPE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CASE WHEN COALESCE(trim(tccom110.T_OFBP),trim(tccom111.T_STBP)) is not null then 'CUSTOMER' ELSE 'CONTRACT' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-74a40ab3cbfc
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a07fd9-cbef-7796-9e33-4ee3be2a2967
+                stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
+            transform: HASH(TRIM(LOWER(TTCCOM130535.T_CADR)),TRIM(LOWER(TTCCOM130535.T_NAMC)),TRIM(LOWER(TTCCOM130535.T_NAMD)),TRIM(LOWER(CONCAT(TTCCOM130535.T_HONO,' ',TTCCOM130535.T_POBN))),TRIM(LOWER(tccom110.t_creg)),TRIM(LOWER(tcmcs045.t_dsca)),TRIM(LOWER(tccom110.t_creg)),TRIM(LOWER(tcibd902.t_name)),TRIM(LOWER(TTCCOM130535.T_NAME)),TRIM(LOWER(TTCCOM130535.t_cste)),TRIM(LOWER(TCMCS143.t_dsca)),TRIM(LOWER(TTCCOM130535.t_ccty)),TRIM(LOWER(TCMCS010.t_dsca)),TRIM(LOWER(tcibd902.t_nreg)),TRIM(LOWER(tcibd902.t_nred)),TRIM(LOWER(TTCCOM130535.t_pstc)),TRIM(LOWER('535')),TRIM(LOWER(CASE WHEN TTCCOM130535.t_cadr = tccom110.t_cadr THEN 'sold-to' WHEN TTCCOM130535.t_cadr = tccom111.t_cadr THEN 'ship-to' WHEN TTCCOM130535.t_cadr = tccom112.t_cadr THEN 'inv-to' WHEN TTCCOM130535.t_cadr = tccom114.t_cadr THEN 'pay-by' WHEN TTCCOM130535.t_cadr = tccom120.t_cadr THEN 'buy-from' WHEN TTCCOM130535.t_cadr = tccom121.t_cadr THEN 'ship-from' WHEN TTCCOM130535.t_cadr = tccom122.t_cadr THEN 'inv-from' WHEN TTCCOM130535.t_cadr = tccom124.t_cadr THEN 'pay-to' ELSE NULL END)),TRIM(LOWER(COALESCE(tccom110.T_OFBP,tccom111.T_STBP))),TRIM(LOWER(COALESCE(tccom110.T_OFBP,tccom111.T_STBP))),TRIM(LOWER(CASE WHEN COALESCE(tccom110.T_OFBP,tccom111.T_STBP) IS NOT NULL THEN 'CUSTOMER' ELSE 'CONTRACT' END)),TRIM(LOWER(SOURCE_SYSTEM_DIM.SOURCE_SYSTEM_SK)))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-7ae874ba9900
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Americas'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-7ff0d5e9da22
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24291e00-eb56-4fab-bec3-8a843471ec46
+                stepCounter: 9a9fbff6-7788-46fa-bfe2-08f4193b67d7
+            transform: COALESCE(SOURCE_SYSTEM_DIM.SOURCE_SYSTEM_SK,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-82d9b7501dd8
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'to_timestamp_ntz(convert_timezone(UTC,current_timestamp()))'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-84d805d8fba3
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'to_timestamp_ntz(convert_timezone(UTC,current_timestamp()))'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-8b7058f0c765
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a07fd9-cbef-7796-9e33-76d266f3e368
+                stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-8f07c24cee3f
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'to_timestamp_ntz(convert_timezone(UTC,current_timestamp()))'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-93f26b0c3efc
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'SOURCE_SYSTEM_003'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-971ea3792feb
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'INSTANCE_004'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-998f1046b034
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ROOT_EXECN_PID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-9f700d00565c
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_PIPELINE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "''"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-a3a75d97930a
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_TRANSFORMATION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "''"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07fdb-6e4d-707d-833d-a5d676e6bf61
+          stepCounter: 78120fb7-0485-409e-a071-5681af853a17
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_SCRIPT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "''"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          SOURCE_SYSTEM_DIM: 9a9fbff6-7788-46fa-bfe2-08f4193b67d7
+          TCCOM110: d8b15236-4394-46cb-8efb-a6a72394e3f2
+          TCCOM111: b62533e9-98b6-4633-890d-4f21f99dcacb
+          TCCOM112: 1638d328-b5f2-4a50-bfa8-9e1f86b72b07
+          TCCOM114: ede8be8d-af6e-449a-8516-2a16892520b5
+          TCCOM120: 052a2f8d-7a77-45c1-8cd5-dd1da927ed95
+          TCCOM121: a81e0da4-906b-4d86-a0af-ab53edd5fc01
+          TCCOM122: ca123ab6-7398-4d4f-8dc2-0b961ac31b09
+          TCCOM124: f7f34cc1-32b3-47a6-b142-ea0dc0b90e4a
+          TCIBD902: 77c348c5-7a58-4ad1-8434-c7f91d185d93
+          TCMCS010: 7a3dec2d-7bd5-4139-889a-a1cb192227cf
+          TCMCS045: e2c68eae-b8f7-4079-9013-5c415dbced4b
+          TCMCS143: 1cadb405-01d0-42f0-9d8f-9c47364ea3cb
+          TTCCOM130535: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: TTCCOM110535
+          - locationName: SRC
+            nodeName: TTCCOM111535
+          - locationName: SRC
+            nodeName: TTCCOM112535
+          - locationName: SRC
+            nodeName: TTCCOM114535
+          - locationName: SRC
+            nodeName: TTCCOM120535
+          - locationName: SRC
+            nodeName: TTCCOM121535
+          - locationName: SRC
+            nodeName: TTCCOM122535
+          - locationName: SRC
+            nodeName: TTCCOM124535
+          - locationName: SRC
+            nodeName: TTCIBD902535
+          - locationName: SRC
+            nodeName: TTCMCS010535
+          - locationName: SRC
+            nodeName: TTCMCS045535
+          - locationName: SRC
+            nodeName: TTCMCS143535
+          - locationName: TARGET
+            nodeName: SOURCE_SYSTEM_DIM
+          - locationName: WORK
+            nodeName: TTCCOM130535
+        join:
+          joinCondition: |-
+            FROM {{ ref('WORK', 'TTCCOM130535') }} TTCCOM130535
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCMCS010535') }} TCMCS010 ON Trim(TTCCOM130535.T_CCTY) = Trim(TCMCS010.T_CCTY)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCCOM110535') }} tccom110 ON Trim(tccom110.t_cadr) = Trim(TTCCOM130535.t_cadr)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCMCS045535') }} tcmcs045 ON Trim(tccom110.t_creg) = Trim(tcmcs045.t_creg)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCMCS143535') }} TCMCS143 ON Trim(TTCCOM130535.T_CSTE) = Trim(TCMCS143.T_CSTE)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCIBD902535') }} tcibd902 ON Trim(tcibd902.t_brch) = Trim(tcmcs045.t_creg) AND Trim(tccom110.t_creg) = Trim(tcibd902.t_brch)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCCOM111535') }} tccom111 ON Trim(TTCCOM130535.t_cadr) = Trim(tccom111.t_cadr)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCCOM112535') }} tccom112 ON Trim(TTCCOM130535.t_cadr) = Trim(tccom112.t_cadr)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCCOM114535') }} tccom114 ON Trim(TTCCOM130535.t_cadr) = Trim(tccom114.t_cadr)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCCOM120535') }} tccom120 ON Trim(TTCCOM130535.t_cadr) = Trim(tccom120.t_cadr)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCCOM121535') }} tccom121 ON Trim(TTCCOM130535.t_cadr) = Trim(tccom121.t_cadr)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCCOM122535') }} tccom122 ON Trim(TTCCOM130535.t_cadr) = Trim(tccom122.t_cadr)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCCOM124535') }} tccom124 ON Trim(TTCCOM130535.t_cadr) = Trim(tccom124.t_cadr)
+            LEFT OUTER JOIN {{ ref('TARGET', 'SOURCE_SYSTEM_DIM') }} SOURCE_SYSTEM_DIM ON SOURCE_SYSTEM_DIM.SOURCE_SYSTEM_CD = 'SOURCE_SYSTEM_003' AND SOURCE_SYSTEM_DIM.SITE_REGION_CD = 'INSTANCE_004' AND SOURCE_SYSTEM_DIM.SOURCE_COMPANY_CD = TTCCOM130535.COUNTRY_CD
+        name: ADDRESS_SNAPSHOT_QUERY
+        noLinkRefs: []
+  name: ADDRESS_SNAPSHOT_QUERY
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

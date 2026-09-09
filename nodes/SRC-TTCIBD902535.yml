@@ -1,0 +1,92 @@
+fileVersion: 1
+id: cec3b67b-e6fb-4ab8-81ca-79fc065dd3bd
+name: TTCIBD902535
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: cb8c5ce7-dcf1-48f6-92f1-b4eeb0eae1d2
+          stepCounter: cec3b67b-e6fb-4ab8-81ca-79fc065dd3bd
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_BRCH
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4b769dfe-941e-42c7-914c-8eb86471823a
+          stepCounter: cec3b67b-e6fb-4ab8-81ca-79fc065dd3bd
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: T_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb60a9c6-78e0-4ec4-81a9-5265db0d9695
+          stepCounter: cec3b67b-e6fb-4ab8-81ca-79fc065dd3bd
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_NREG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4b4bf133-e442-497d-a8d4-1a8cf7443986
+          stepCounter: cec3b67b-e6fb-4ab8-81ca-79fc065dd3bd
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: T_NRED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTCIBD902535
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
