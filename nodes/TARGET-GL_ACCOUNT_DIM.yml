@@ -607,15 +607,14 @@ operation:
     enabledColumnTestIDs: []
     materializationOption: ""
     sourceMapping:
-      - aliases: {}
+      - aliases:
+          LOAD_FNL: 67719b2d-6d42-4984-84fd-e5b3dff36310
         customSQL:
           customSQL: ""
-        dependencies:
-          - locationName: WORK
-            nodeName: GL_DBT_FINAL
+        dependencies: []
         join:
           joinCondition: |
-            FROM {{ ref('WORK', 'GL_DBT_FINAL') }} LOAD_FNL
+            FROM {{ ref('TARGET', 'GL_ACCOUNT_DIM') }} LOAD_FNL
         name: GL_ACCOUNT_DIM
         noLinkRefs: []
   name: GL_ACCOUNT_DIM
