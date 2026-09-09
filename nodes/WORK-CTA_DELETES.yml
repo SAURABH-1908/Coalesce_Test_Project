@@ -1,0 +1,339 @@
+fileVersion: 1
+id: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+name: CTA_DELETES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Rows flagged for logical delete ('D') - current snapshot records with no matching source key; expires the current record.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-3fc9b3f66e28
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        name: DML_ACTION_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'D'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-40a0937147f2
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: TARGET_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SNAP.TARGET_PRIMARY_KEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-4603f778d7a5
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CONTRACT_TO_ADDRESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SNAP.CONTRACT_TO_ADDRESS_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-4b994f57bab3
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: CONTRACT_TO_ADDRESS_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.CONTRACT_TO_ADDRESS_INTG_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-4f8c7d799721
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ADDRESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.ADDRESS_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-51e47a450172
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CONTRACT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.CONTRACT_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-551fb1ebaf22
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.BUSINESS_SEGMENT_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-59763b2457fc
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.CREATE_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-5d92397a8c68
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.LAST_UPDATE_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-614fd53a1d16
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.INGEST_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-643a089d6b18
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.DL_LAST_UPDATE_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-685e2fa2bc7a
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.CHKSUM_STR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-6ecf0ba52a8d
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: ROOT_EXECN_PID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.ROOT_EXECN_PID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-7348abfeb85a
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: ADF_PIPELINE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.ADF_PIPELINE_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-75a8180f1a7e
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: ADF_TRANSFORMATION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.ADF_TRANSFORMATION_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-7ae3bdd59b20
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: ADF_SCRIPT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.ADF_SCRIPT_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-7fb4f63c2873
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.SOURCE_SYSTEM_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-8240ea1d4897
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.INSTANCE_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-84ba71942703
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: SOURCE_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SRCD.SOURCE_PRIMARY_KEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-8812a309f701
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SNAP.LOAD_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-8de146c9eec1
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SNAP.SYS_EFF_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-93bbe64243dc
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-966d07a8e0e7
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'N'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afb-aad8-72fb-8a68-9964d9ece898
+          stepCounter: 8a69b1d1-86d5-497d-8e94-9d824e4784b4
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SNAP.DBT_SCD_ID
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          SNAP: 66da66ff-82c5-4666-a62e-2d2675f5125c
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: CTA_SNAPSHOTTED_DATA
+          - locationName: WORK
+            nodeName: CTA_UPDATES_SOURCE_DATA
+        join:
+          joinCondition: |-
+            FROM {{ ref('WORK', 'CTA_SNAPSHOTTED_DATA') }} SNAP
+
+            LEFT JOIN {{ ref('WORK', 'CTA_UPDATES_SOURCE_DATA') }} SRCD
+            ON SNAP.TARGET_PRIMARY_KEY = SRCD.SOURCE_PRIMARY_KEY
+
+            WHERE SRCD.SOURCE_PRIMARY_KEY IS NULL
+        name: CTA_DELETES
+        noLinkRefs: []
+  name: CTA_DELETES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

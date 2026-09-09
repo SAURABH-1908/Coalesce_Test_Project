@@ -1,0 +1,382 @@
+fileVersion: 1
+id: 58145847-8eeb-4060-aa16-b86d69c805ea
+name: GL_SNAPSHOT_QUERY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Snapshot of BAAN V_525 GL account source data joined across TTFGLD008525, aggregated TTFGLD009525 cost centers and SOURCE_SYSTEM_DIM.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43d-75c9-9712-ae9a373e2799
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CONCAT_WS('~', COALESCE(TRIM(TFGLD008.T_LEAC), ''), '525', 'INSTANCE_004', 'SOURCE_SYSTEM_003')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-4ce7b0ac3650
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SRC_ACCOUNT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TFGLD008.T_LEAC)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-52ef797fa576
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SRC_ACCOUNT_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TFGLD008.T_DESC)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-57428d940cb8
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TFGLD008.T_LEAC)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-5b53926c1ce5
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TFGLD008.T_DESC)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-5fb3bff8548d
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_TYPE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-62475a0c0206
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ENABLED_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-65fceee7370d
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REVENUE_COST_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-694d28246c2d
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ERP_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'525'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-6caba4ba9e98
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: THIRD_PARTY_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-728ab5967375
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COST_CENTER_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TFGLD009.COST_CENTER_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-7654fce3edac
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESS_UNIT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'FIRE'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-787e4ac4c663
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DEBIT_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CASE WHEN UPPER(TRIM(TFGLD008.T_DBCR)) = 'D' THEN 'Y' WHEN UPPER(TRIM(TFGLD008.T_DBCR)) = 'C' THEN 'N' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-7e2d14e428be
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-8069c1988b9a
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PARENT_ACCOUNT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-868815bd50d2
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-8bc0b6bb1a9d
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: STATUS_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-8e016415bf9d
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(SD.SOURCE_SYSTEM_SK, '99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-90e16bb13657
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: HASH(TRIM(LOWER(TFGLD008.T_LEAC)), TRIM(LOWER(TFGLD008.T_DESC)), TRIM(LOWER(TFGLD008.T_DBCR)), TFGLD009.COST_CENTER_CD, TRIM(LOWER(SD.SOURCE_SYSTEM_SK)))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-966286408b89
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-9a07f6e0633c
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-9edbda207dd2
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-a238ac5cdd5a
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-a5f715122512
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Americas'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-abaa3ae69298
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'SOURCE_SYSTEM_003'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-b43e-722e-9fc4-aeb9e31aef29
+          stepCounter: 58145847-8eeb-4060-aa16-b86d69c805ea
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'INSTANCE_004'"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          SD: 928d799e-a8af-4d32-b154-7953f6a87726
+          TFGLD008: 88d788b7-5075-4e80-998d-940a596d2737
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: SOURCE_SYSTEM_DIM
+          - locationName: SRC
+            nodeName: TTFGLD009525
+          - locationName: WORK
+            nodeName: GL_TFGLD008525
+        join:
+          joinCondition: |-
+            FROM {{ ref('WORK', 'GL_TFGLD008525') }} TFGLD008
+
+            LEFT OUTER JOIN (
+              SELECT DISTINCT
+                LISTAGG(CONCAT_WS('-', TRIM(T_FDIM), TRIM(T_UDIM)), ',') AS COST_CENTER_CD,
+                T_LEAC
+              FROM {{ ref('SRC', 'TTFGLD009525') }}
+              WHERE TRIM(T_DTYP) = '1.0000000000'
+              GROUP BY T_LEAC
+            ) TFGLD009
+            ON TRIM(TFGLD008.T_LEAC) = TRIM(TFGLD009.T_LEAC)
+
+            LEFT OUTER JOIN {{ ref('SRC', 'SOURCE_SYSTEM_DIM') }} SD
+            ON SD.SOURCE_SYSTEM_CD = 'SOURCE_SYSTEM_003'
+            AND SD.SITE_REGION_CD = 'INSTANCE_004'
+            AND SD.CURR_FLG = 'Y'
+            AND TRIM(SD.SOURCE_COMPANY_CD) = TRIM(TFGLD008.COUNTRY_CD)
+
+            QUALIFY ROW_NUMBER() OVER (
+              PARTITION BY CONCAT_WS('~', COALESCE(TRIM(TFGLD008.T_LEAC), ''), '525', 'INSTANCE_004', 'SOURCE_SYSTEM_003')
+              ORDER BY TFGLD008.T_LEAC
+            ) = 1
+        name: GL_SNAPSHOT_QUERY
+        noLinkRefs: []
+  name: GL_SNAPSHOT_QUERY
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
