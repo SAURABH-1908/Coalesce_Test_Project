@@ -1,5 +1,5 @@
 fileVersion: 1
-id: 82d67e14-471a-465a-b4b5-2f0835aae506
+id: 7d473915-ed4a-4e26-85a1-a42546b84abc
 name: TTPPDM600525
 operation:
   database: ""
@@ -13,8 +13,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: fcf786e8-5ade-4900-9f38-5801df359ce4
-          stepCounter: 82d67e14-471a-465a-b4b5-2f0835aae506
+          columnCounter: b5bbeaa3-9286-4186-ad1c-01d3c8eeacf9
+          stepCounter: 7d473915-ed4a-4e26-85a1-a42546b84abc
         config: {}
         dataType: VARCHAR(50)
         defaultValue: ""
@@ -32,8 +32,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 5316c6f7-960a-4f20-8fa6-59f6b774bc36
-          stepCounter: 82d67e14-471a-465a-b4b5-2f0835aae506
+          columnCounter: 44fbb60f-9aa4-470e-b51c-c0a1ae3a8467
+          stepCounter: 7d473915-ed4a-4e26-85a1-a42546b84abc
         config: {}
         dataType: VARCHAR(50)
         defaultValue: ""
@@ -51,8 +51,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 73aee786-5722-4278-8a47-e04fa85e0ecc
-          stepCounter: 82d67e14-471a-465a-b4b5-2f0835aae506
+          columnCounter: 77ebadfd-3bbd-47f2-ac5f-06b59c037190
+          stepCounter: 7d473915-ed4a-4e26-85a1-a42546b84abc
         config: {}
         dataType: TIMESTAMP_NTZ(9)
         defaultValue: ""

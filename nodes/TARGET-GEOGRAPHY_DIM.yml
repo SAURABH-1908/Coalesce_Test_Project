@@ -1,5 +1,5 @@
 fileVersion: 1
-id: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+id: 24b736d1-7443-427f-8415-704dd7d36018
 name: GEOGRAPHY_DIM
 operation:
   config:
@@ -8,7 +8,7 @@ operation:
     testsEnabled: true
   database: ""
   deployEnabled: true
-  description: Geography dimension mapping branch codes to geo surrogate keys for the GL_DISTIBUTION_FACT load.
+  description: Geography dimension (BAAN V 525) with SCD Type-2 history, keyed on GEOGRAPHY_INTG_ID and change-tracked on CHKSUM_STR.
   isMultisource: false
   locationName: TARGET
   materializationType: table
@@ -17,103 +17,434 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b72-2ae4-737c-acc4-a145a3b32a98
-          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+          columnCounter: 01a066ba-3c1f-7713-b143-4ddd2b8d9764
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
         config: {}
-        dataType: NUMBER
-        description: ""
-        isBusinessKey: false
-        name: GEO_SK
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 01a06b72-2ae4-737c-acc4-a145a3b32a98
-                stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
-            transform: "\"GEO_SK\""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b72-2ae5-74db-881e-2de2dda4fc8d
-          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
-        config: {}
-        dataType: VARCHAR
+        dataType: VARCHAR(500)
         description: ""
         isBusinessKey: true
+        isChangeTracking: false
+        name: GEOGRAPHY_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"GEOGRAPHY_INTG_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c1f-7713-b143-528c1635de05
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: COUNTRY_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"COUNTRY_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c1f-7713-b143-575201ab9428
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
         name: BRANCH_CD
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 01a06b72-2ae5-74db-881e-2de2dda4fc8d
-                stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
-            transform: "\"BRANCH_CD\""
+          - columnReferences: []
+            transform: "\"STG\".\"BRANCH_CD\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b72-2ae5-74db-881e-315371f2c3b6
-          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+          columnCounter: 01a066ba-3c1f-7713-b143-5a151cd247b0
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
         config: {}
-        dataType: VARCHAR
+        dataType: VARCHAR(200)
         description: ""
         isBusinessKey: false
+        isChangeTracking: false
+        name: BRANCH_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"BRANCH_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c1f-7713-b143-5d4481477732
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: REGION_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"REGION_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c1f-7713-b143-62e41faccfdf
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(200)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: REGION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"REGION_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c1f-7713-b143-65d7c85cf92f
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(20)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: COUNTRY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"COUNTRY_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c1f-7713-b143-6aa57438748f
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: DISTRICT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"DISTRICT_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c1f-7713-b143-6d2ed30b6dcf
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(200)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: DISTRICT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"DISTRICT_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c1f-7713-b143-7324b96cc95d
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: DOMAIN_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"DOMAIN_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c1f-7713-b143-7416cf1ba499
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
         name: COMPANY_CD
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 01a06b72-2ae5-74db-881e-315371f2c3b6
-                stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
-            transform: "\"COMPANY_CD\""
+          - columnReferences: []
+            transform: "\"STG\".\"COMPANY_CD\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b72-2ae5-74db-881e-34747162a110
-          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+          columnCounter: 01a066ba-3c1f-7713-b143-78d600192548
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
         config: {}
-        dataType: VARCHAR
+        dataType: VARCHAR(200)
         description: ""
         isBusinessKey: false
+        isChangeTracking: false
+        name: CITY_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"CITY_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c1f-7713-b143-7c6c16794441
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: STATE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"STATE_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c1f-7713-b143-811268df1db0
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: ZIP_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"ZIP_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c1f-7713-b143-84dd468522a3
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(20)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: INSTALL_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"INSTALL_FLG\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c1f-7713-b143-8a363c771fde
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(20)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: SERVICE_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"SERVICE_FLG\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c1f-7713-b143-8e39a283c16f
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: BRANCH_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"BRANCH_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c20-7128-914e-e3255b675095
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(200)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: COMPANY_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"COMPANY_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c20-7128-914e-e78f2a552d20
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: BRANCH_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"BRANCH_STATUS_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c20-7128-914e-eb84a7f0de3e
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: BUS_UNIT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"BUS_UNIT_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c20-7128-914e-ef8f6714a92b
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: BUS_UNIT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"BUS_UNIT_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c20-7128-914e-f107e100f6c7
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"BUSINESS_SEGMENT_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c20-7128-914e-f4b633746dd6
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"SOURCE_SYSTEM_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c20-7128-914e-fbcdb968d2ca
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"INGEST_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c20-7128-914e-fce5dac6c91c
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: true
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"CHKSUM_STR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c20-7128-914f-0166a030d8b5
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
         name: SOURCE_SYSTEM_NM
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 01a06b72-2ae5-74db-881e-34747162a110
-                stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
-            transform: "\"SOURCE_SYSTEM_NM\""
+          - columnReferences: []
+            transform: "\"STG\".\"SOURCE_SYSTEM_NM\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b72-2ae5-74db-881e-39743aa3ca40
-          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+          columnCounter: 01a066ba-3c20-7128-914f-0543ee8f760f
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
         config: {}
-        dataType: VARCHAR
+        dataType: VARCHAR(50)
         description: ""
         isBusinessKey: false
+        isChangeTracking: false
         name: INSTANCE_NM
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 01a06b72-2ae5-74db-881e-39743aa3ca40
-                stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
-            transform: "\"INSTANCE_NM\""
+          - columnReferences: []
+            transform: "\"STG\".\"INSTANCE_NM\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b72-2ae5-74db-881e-3d6e65296600
-          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+          columnCounter: 01a066ba-3c20-7128-914f-0920fbb6b392
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
         config: {}
-        dataType: VARCHAR
+        dataType: VARCHAR(200)
         description: ""
         isBusinessKey: false
-        name: CURR_FLG
+        isChangeTracking: false
+        name: ADF_PIPELINE_NM
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 01a06b72-2ae5-74db-881e-3d6e65296600
-                stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
-            transform: "\"CURR_FLG\""
+          - columnReferences: []
+            transform: "\"STG\".\"ADF_PIPELINE_NM\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 598081fa-2958-42ae-8972-8e1e92a66682
-          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+          columnCounter: 01a066ba-3c20-7128-914f-0e90d42a96ce
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(200)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: ADF_TRANSFORMATION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"ADF_TRANSFORMATION_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066ba-3c20-7128-914f-1271cca1a0ab
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        isBusinessKey: false
+        isChangeTracking: false
+        name: ADF_SCRIPT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"STG\".\"ADF_SCRIPT_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 811ef205-5362-46d1-a179-eb4770b34693
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
         config: {}
         dataType: NUMBER
         defaultValue: ""
         description: ""
         isBusinessKey: false
+        isChangeTracking: false
         isSurrogateKey: true
         name: DIM_NODE_KEY
         nullable: true
@@ -122,13 +453,14 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 7eca176e-a7b3-46b4-b5df-7c642ab25259
-          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+          columnCounter: 62c45784-f9ce-4a86-b516-243d77176aac
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
         config: {}
         dataType: NUMBER
         defaultValue: ""
         description: ""
         isBusinessKey: false
+        isChangeTracking: false
         isSystemVersion: true
         name: SYSTEM_VERSION
         nullable: true
@@ -137,13 +469,14 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: d214d6bd-7160-4b93-ae34-1fb81a99a910
-          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+          columnCounter: 701d3488-7eaf-4342-95ed-4a1c8f225cc8
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
         config: {}
         dataType: VARCHAR
         defaultValue: ""
         description: ""
         isBusinessKey: false
+        isChangeTracking: false
         isSystemCurrentFlag: true
         name: SYSTEM_CURRENT_FLAG
         nullable: true
@@ -152,13 +485,14 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 228c82cd-6245-4ad0-9cb3-a3dec2453d09
-          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+          columnCounter: 164cdb86-3475-4940-8d24-e7a1cab63ea4
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
         description: ""
         isBusinessKey: false
+        isChangeTracking: false
         isSystemStartDate: true
         name: SYSTEM_START_DATE
         nullable: true
@@ -167,13 +501,14 @@ operation:
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: bb72597d-a919-424a-8129-770b124d5108
-          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+          columnCounter: 52527f7b-6d5c-4480-b883-cd614c707527
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
         description: ""
         isBusinessKey: false
+        isChangeTracking: false
         isSystemEndDate: true
         name: SYSTEM_END_DATE
         nullable: true
@@ -182,13 +517,14 @@ operation:
             transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: e2ff3972-b062-4a24-a5c8-fc257375f85c
-          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+          columnCounter: 1df7fb46-3469-40e8-831f-3e8925d2d6ed
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
         description: ""
         isBusinessKey: false
+        isChangeTracking: false
         isSystemCreateDate: true
         name: SYSTEM_CREATE_DATE
         nullable: true
@@ -197,19 +533,152 @@ operation:
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 8fbc6885-dde0-4ed3-96f9-d8ef39d6f791
-          stepCounter: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+          columnCounter: 2317f2b9-ed0d-4a7e-a4f4-9cc1dd45575c
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
         description: ""
         isBusinessKey: false
+        isChangeTracking: false
         isSystemUpdateDate: true
         name: SYSTEM_UPDATE_DATE
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-74a9caa90d1d
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: NUMBER
+        description: Geography surrogate key.
+        name: GEO_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-788cba490da7
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-7d2df213f374
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-80f12b033c28
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-8499040c5f42
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-8b58c1e7f898
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-8d280b9506cf
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-937fe6271d52
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DML_ACTION_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-94a6b69a2663
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-9bc4d87faf70
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06ab6-af2b-725c-8203-9f5a9f7f2361
+          stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ROOT_EXECN_PID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
     cteString: ""
     description: ""
     destinationName: ""
@@ -217,12 +686,12 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          GEOGRAPHY_DIM: 9a0e5eb3-0833-4201-9886-54ccd9d00812
+          STG: 24b736d1-7443-427f-8415-704dd7d36018
         customSQL:
           customSQL: ""
         dependencies: []
         join:
-          joinCondition: FROM {{ ref('TARGET', 'GEOGRAPHY_DIM') }} AS GEOGRAPHY_DIM
+          joinCondition: FROM {{ ref('TARGET', 'GEOGRAPHY_DIM') }} STG
         name: GEOGRAPHY_DIM
         noLinkRefs: []
   name: GEOGRAPHY_DIM
