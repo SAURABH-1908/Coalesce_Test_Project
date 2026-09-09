@@ -1,5 +1,5 @@
 fileVersion: 1
-id: 516f2964-32ae-43b0-87a3-fcc87ce5ba84
+id: bfc36539-da24-4b07-89f2-faed03d39f71
 name: TSICDB005525
 operation:
   database: ""
@@ -13,10 +13,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 48ef6e77-4a31-4949-a121-8f3fdbc95613
-          stepCounter: 516f2964-32ae-43b0-87a3-fcc87ce5ba84
+          columnCounter: bd09fe5d-b1ad-477a-924d-14d6ef5e278c
+          stepCounter: bfc36539-da24-4b07-89f2-faed03d39f71
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
         name: T_PROJ
@@ -32,10 +32,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 0ed209be-aa65-4c6e-bb9c-9d90a8dc5a3b
-          stepCounter: 516f2964-32ae-43b0-87a3-fcc87ce5ba84
+          columnCounter: 9ff690cb-5b16-4320-8912-379d6bb79665
+          stepCounter: bfc36539-da24-4b07-89f2-faed03d39f71
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
         name: T_FAMI
@@ -51,10 +51,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 27fa7d82-ad42-42e6-b9b1-19910a605498
-          stepCounter: 516f2964-32ae-43b0-87a3-fcc87ce5ba84
+          columnCounter: 2ebdada4-3488-48db-acdf-115b49748c46
+          stepCounter: bfc36539-da24-4b07-89f2-faed03d39f71
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
         name: T_SSDT
@@ -70,10 +70,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 2b4f759e-582f-4b44-8ef0-40e11125b47f
-          stepCounter: 516f2964-32ae-43b0-87a3-fcc87ce5ba84
+          columnCounter: e18c5d86-c195-4e27-a7c8-af6a3966afed
+          stepCounter: bfc36539-da24-4b07-89f2-faed03d39f71
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
         name: T_SYS
@@ -89,10 +89,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 03960e80-9aec-40a7-a231-15821db089f8
-          stepCounter: 516f2964-32ae-43b0-87a3-fcc87ce5ba84
+          columnCounter: 6f9bd1c6-b516-4928-a71e-764cbf3d2859
+          stepCounter: bfc36539-da24-4b07-89f2-faed03d39f71
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(200)
         defaultValue: ""
         description: ""
         name: T_DSCA
@@ -108,10 +108,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 2ab42a05-651b-42b2-bc33-c29cfd69ddc0
-          stepCounter: 516f2964-32ae-43b0-87a3-fcc87ce5ba84
+          columnCounter: 577f1f1b-3215-4e11-a462-97f27503b08c
+          stepCounter: bfc36539-da24-4b07-89f2-faed03d39f71
         config: {}
-        dataType: NUMBER(38,0)
+        dataType: NUMBER(18,2)
         defaultValue: ""
         description: ""
         name: T_TOTS
