@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 57e92d1f-2390-42d1-a5b4-d718b05693ca
+name: TCISLI230535
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fd103e15-5ca8-4413-99e0-c5f7a30c70db
+          stepCounter: 57e92d1f-2390-42d1-a5b4-d718b05693ca
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_CPRJ
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6cfc7fac-7b48-4a63-a5d5-26c225881dd2
+          stepCounter: 57e92d1f-2390-42d1-a5b4-d718b05693ca
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_REFA
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TCISLI230535
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

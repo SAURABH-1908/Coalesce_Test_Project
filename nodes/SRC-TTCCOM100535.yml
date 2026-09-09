@@ -1,0 +1,92 @@
+fileVersion: 1
+id: 416b5eec-4787-41ad-88b5-9bb7937d5979
+name: TTCCOM100535
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a7a2d391-ba26-4a17-94e0-790d1ba0b177
+          stepCounter: 416b5eec-4787-41ad-88b5-9bb7937d5979
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_BPID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 13755641-95cc-4885-858a-30eb2f13b96b
+          stepCounter: 416b5eec-4787-41ad-88b5-9bb7937d5979
+        config: {}
+        dataType: VARCHAR(200)
+        defaultValue: ""
+        description: ""
+        name: T_NAMA
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 55d0f935-9b42-48b2-92f6-cb726edc3cc6
+          stepCounter: 416b5eec-4787-41ad-88b5-9bb7937d5979
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: T_CMID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3f945dd7-a545-4f48-a529-f3c18faf8db4
+          stepCounter: 416b5eec-4787-41ad-88b5-9bb7937d5979
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SNOWFLAKE_INGESTED_TIME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTCCOM100535
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

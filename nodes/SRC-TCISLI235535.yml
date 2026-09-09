@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 5c3744b4-74c7-4806-a92d-a2a3578ade25
+name: TCISLI235535
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 72e6e773-0ca3-43cb-8334-27f0b9190a9a
+          stepCounter: 5c3744b4-74c7-4806-a92d-a2a3578ade25
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_ITYP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8fb6075e-1fc2-432f-b2bf-7e009e2af3ef
+          stepCounter: 5c3744b4-74c7-4806-a92d-a2a3578ade25
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: T_IDOC
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a61f3a3f-9278-4cb5-ba91-f7f5c29c90a4
+          stepCounter: 5c3744b4-74c7-4806-a92d-a2a3578ade25
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: T_SFCP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c59454bf-5c51-4ebf-9200-176bc6464e7c
+          stepCounter: 5c3744b4-74c7-4806-a92d-a2a3578ade25
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_CPRJ
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16889c3d-0392-4dea-8aed-f04525d51e52
+          stepCounter: 5c3744b4-74c7-4806-a92d-a2a3578ade25
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SNOWFLAKE_INGESTED_TIME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TCISLI235535
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

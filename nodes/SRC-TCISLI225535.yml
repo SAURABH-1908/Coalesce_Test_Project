@@ -1,0 +1,92 @@
+fileVersion: 1
+id: cd132b5b-4180-4e14-870e-3c66582fc9dc
+name: TCISLI225535
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 335a0304-194d-4c72-84d9-32b0fc1d844f
+          stepCounter: cd132b5b-4180-4e14-870e-3c66582fc9dc
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_ITYP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 24721824-8495-4c41-8d20-71a0dd4d0c0c
+          stepCounter: cd132b5b-4180-4e14-870e-3c66582fc9dc
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_IDOC
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1683ebe-3538-4596-b35c-6d7b6432f22d
+          stepCounter: cd132b5b-4180-4e14-870e-3c66582fc9dc
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_AMTH_1
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ec06b69f-7a3e-4f81-ab1b-ca1baa60eeaf
+          stepCounter: cd132b5b-4180-4e14-870e-3c66582fc9dc
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_QUAN
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TCISLI225535
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

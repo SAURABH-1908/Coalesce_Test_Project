@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 4a25d3eb-68b4-4cb6-9228-8dce2b235886
+name: TSICOM100535
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 052e42d3-6b90-4d22-8598-4976b8e83c71
+          stepCounter: 4a25d3eb-68b4-4cb6-9228-8dce2b235886
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_BPID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 061c0555-2ea8-4bdc-bdb8-d9eb0f9c1bb1
+          stepCounter: 4a25d3eb-68b4-4cb6-9228-8dce2b235886
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_CTCD
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 86ed11ab-4878-4702-bdb9-2cd146b6bd5c
+          stepCounter: 4a25d3eb-68b4-4cb6-9228-8dce2b235886
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_CATG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TSICOM100535
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

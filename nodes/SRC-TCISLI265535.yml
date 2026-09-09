@@ -1,0 +1,73 @@
+fileVersion: 1
+id: b5d70d33-0fd7-42bb-90e1-522588cfb97f
+name: TCISLI265535
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8a4e6e10-91bf-461b-b129-bdab0f9bb741
+          stepCounter: b5d70d33-0fd7-42bb-90e1-522588cfb97f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_ITYP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fc222268-57a5-43a0-ab8a-375bf6a27283
+          stepCounter: b5d70d33-0fd7-42bb-90e1-522588cfb97f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_IDOC
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 94d14303-8d46-4d9e-95cb-189035fd509e
+          stepCounter: b5d70d33-0fd7-42bb-90e1-522588cfb97f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_AMTH_1
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TCISLI265535
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

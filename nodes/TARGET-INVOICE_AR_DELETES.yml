@@ -1,0 +1,1083 @@
+fileVersion: 1
+id: b0738782-74e2-4e6b-9755-e597db549ca2
+name: INVOICE_AR_DELETES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: "Deletes CTE for INVOICE_AR_FACT: current target rows whose INVOICE_AR_INTG_ID is absent from the current snapshot, flagged with 'D' action and CURR_FLG 'N' for logical delete."
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8475-d71e0ed58dba
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_AR_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INVOICE_AR_INTG_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8475-d9544ed4ddb0
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_NUMBER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INVOICE_NUMBER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8475-dfe704570db5
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: INVOICE_LINE_ITEM_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INVOICE_LINE_ITEM_NBR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8475-e14683d14043
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: INVOICE_TOTAL_AMOUNT_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INVOICE_TOTAL_AMOUNT_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8475-e62dd18e518f
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: INVOICE_TAX_AMOUNT_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INVOICE_TAX_AMOUNT_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8475-e940cb56655a
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: LOCAL_CURR_TO_DOLLAR_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.LOCAL_CURR_TO_DOLLAR_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8475-ee3bf75e5b91
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: DOLLAR_TO_LOCAL_CURR_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.DOLLAR_TO_LOCAL_CURR_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8475-f1681b48994b
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_NUMBER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.CUSTOMER_NUMBER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8475-f48c3c800f98
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INVOICE_DT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8475-f9166e4db803
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNTING_DATE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.ACCOUNTING_DATE_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8475-fc53c5aeefb6
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TRANSACTION_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.TRANSACTION_NBR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-0230d33067bb
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAYMENT_TERM_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.PAYMENT_TERM_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-057d7c13d665
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: TRANSACTIONAL_NET_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.TRANSACTIONAL_NET_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-096d7ca4a98c
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: TRANSACTIONAL_TAX_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.TRANSACTIONAL_TAX_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-0e0da1f6554f
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_DUE_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INVOICE_DUE_DT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-124fd4ea2abe
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: INVOICE_GROSS_LC_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INVOICE_GROSS_LC_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-163650c8cc58
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TRANS_CURRENCY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.TRANS_CURRENCY_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-1b605a0b357b
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TRANSACTION_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.TRANSACTION_TYPE_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-1f74b90ddcb8
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: PARENT_INVOICE_NBR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.PARENT_INVOICE_NBR_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-214e88518423
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REFERENCE_TXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.REFERENCE_TXT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-265942340b2e
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POSTING_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.POSTING_DT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-28de9d3e2910
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RELEASE_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.RELEASE_DT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-2fc95eeabac2
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LAST_BILLING_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.LAST_BILLING_DT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-3202e3ebc9d5
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_TYPE_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INVOICE_TYPE_FLG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-37161341be9e
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REVENUE_RECOGNITION_DT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.REVENUE_RECOGNITION_DT_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-3a87d8e37b59
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_CREATION_DT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INVOICE_CREATION_DT_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-3db51884e3ef
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INVOICE_STATUS_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-402cc0ce73e8
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_STATUS_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INVOICE_STATUS_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-45028300f52f
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INVOICE_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-499953d7808f
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BILLTO_CUST_NUMBER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.BILLTO_CUST_NUMBER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-4fd1378c8fe7
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SHIPTO_CUST_NUMBER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.SHIPTO_CUST_NUMBER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-53ca0698abc6
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOLDTO_CUST_NUMBER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.SOLDTO_CUST_NUMBER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-56b97ce6a66a
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BILL_TO_ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.BILL_TO_ADDRESS_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-5b54f1ecdf60
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SHIP_TO_ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.SHIP_TO_ADDRESS_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-5f76458d1e96
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_TYPE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INVOICE_TYPE_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-638deed038ea
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ERP_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.ERP_ENTITY_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-674f6d5e2873
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: ITEM_LINE_AMOUNT_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.ITEM_LINE_AMOUNT_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-6add0471efae
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ITEM_QUANTITY_ORDERED_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.ITEM_QUANTITY_ORDERED_NBR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-6f8c3ed022b4
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PURCHASE_ORDER_NO_TXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.PURCHASE_ORDER_NO_TXT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-7298e3b1efa0
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ITEM_QUANTITY_INVOICED_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.ITEM_QUANTITY_INVOICED_NBR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-76b9ae7f4158
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAYMENT_METHOD_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.PAYMENT_METHOD_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-78b83efc0abe
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAYMENT_METHOD_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.PAYMENT_METHOD_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-7faf8079fa16
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.CUSTOMER_TYPE_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-808b7cfde70a
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_TYPE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.CUSTOMER_TYPE_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-856013bd852a
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BILLER_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.BILLER_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-894a706c2d66
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COST_CENTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.COST_CENTER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-8d6ea4991a67
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ITEM_LOCAL_CURRENCY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.ITEM_LOCAL_CURRENCY_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-91aa46e23a34
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAYMENT_TERM_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.PAYMENT_TERM_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-9599210263c4
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURRENCY_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.CURRENCY_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-998a40b954ad
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOLD_TO_CUSTOMER_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.SOLD_TO_CUSTOMER_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-9d294e41911c
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.CUSTOMER_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-a11a0a676cf3
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SHIP_TO_CUSTOMER_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.SHIP_TO_CUSTOMER_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-a5791b1250ee
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BILL_TO_CUSTOMER_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.BILL_TO_CUSTOMER_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-ab1b32b9d3ff
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ENTITY_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.ENTITY_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-ac09c2c6f3d0
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BILL_TO_ADDRESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.BILL_TO_ADDRESS_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-b34fc7e62464
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SHIP_TO_ADDRESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.SHIP_TO_ADDRESS_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-b62079bc1f79
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOLD_TO_ADDRESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.SOLD_TO_ADDRESS_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-ba96fa8c21ed
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GEO_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.GEO_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-bdc79f3a6ba5
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ITEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.ITEM_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-c1ccb576dc15
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GL_ACCOUNT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.GL_ACCOUNT_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-c5ab061eb622
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTRACT_DIM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.CONTRACT_DIM_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-cbf625c9a289
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OS_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.OS_ENTITY_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-cf96d9e9f519
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OS_ENTITY_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.OS_ENTITY_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-d1176f039ad1
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OS_PRODUCT_FAMILY_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.OS_PRODUCT_FAMILY_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-d765ddbef40a
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OS_PRODUCT_FAMILY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.OS_PRODUCT_FAMILY_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-d97fdbb9eecb
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OS_CONTRACT_TYPE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.OS_CONTRACT_TYPE_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-df147e1eae10
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OS_CONTRACT_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.OS_CONTRACT_TYPE_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-e2724517a0d1
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.BUSINESS_SEGMENT_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-e61f12d7fa69
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.SOURCE_SYSTEM_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-eba39fdd2336
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.CREATE_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-ef174c1ed842
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LAST_UPDT_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.LAST_UPDT_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-f09b52df642d
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.SYS_EFF_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-f6aadf532dd7
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'to_timestamp_ntz(convert_timezone(UTC,current_timestamp()))'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-f901d3c3f525
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INGEST_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8476-ffd064928b59
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.DL_LAST_UPDATE_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8477-03298abc19f4
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.CHKSUM_STR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8477-05eae2c5489c
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.LOAD_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8477-08fd3b48b9b1
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ROOT_EXECN_PID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.ROOT_EXECN_PID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8477-0cc3ecd4a2e4
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DML_ACTION_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'D'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8477-10b71278011b
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'N'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8477-15d594001330
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_PIPELINE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.ADF_PIPELINE_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8477-1b6007f324df
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_TRANSFORMATION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.ADF_TRANSFORMATION_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8477-1d7a4d3e2c42
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_SCRIPT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.ADF_SCRIPT_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8477-20de06d5768d
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.SOURCE_SYSTEM_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8477-2672c9c1c8fe
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.INSTANCE_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08103-2a3b-76e5-8477-2be709209c7b
+          stepCounter: b0738782-74e2-4e6b-9755-e597db549ca2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tar.DBT_SCD_ID
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: INVOICE_AR_FACT
+          - locationName: TARGET
+            nodeName: INVOICE_AR_SNAPSHOT
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'INVOICE_AR_FACT') }} AS tar
+            LEFT OUTER JOIN {{ ref('TARGET', 'INVOICE_AR_SNAPSHOT') }} AS sp
+              ON tar.INVOICE_AR_INTG_ID = sp.INVOICE_AR_INTG_ID
+            WHERE tar.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_003'
+              AND tar.INSTANCE_NM = 'INSTANCE_004'
+              AND sp.INVOICE_AR_INTG_ID IS NULL
+              AND tar.CURR_FLG = 'Y'
+        name: STG_NODE
+        noLinkRefs: []
+  name: INVOICE_AR_DELETES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
