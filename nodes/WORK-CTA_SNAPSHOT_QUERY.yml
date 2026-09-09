@@ -1,0 +1,252 @@
+fileVersion: 1
+id: df091ca3-a13e-47c8-9d13-da71609e25b2
+name: CTA_SNAPSHOT_QUERY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Snapshot of BAAN V_525 contract-to-address source data joined across TTPPDM600525, TTCCOM130525, GBL_ADDRESS_DIM, TSICDB005525 and INST_CONTRACT_DIM.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-66c9-75cc-9dd8-9a4f25f301b2
+          stepCounter: df091ca3-a13e-47c8-9d13-da71609e25b2
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: CONTRACT_TO_ADDRESS_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CONCAT_WS('~', D.CONTRACT_SK, C.ADDRESS_SK, 'SOURCE_SYSTEM_002', 'INSTANCE_004')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-66c9-75cc-9dd8-9cb66fbb6e7c
+          stepCounter: df091ca3-a13e-47c8-9d13-da71609e25b2
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ADDRESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: C.ADDRESS_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-66c9-75cc-9dd8-a16c14607f50
+          stepCounter: df091ca3-a13e-47c8-9d13-da71609e25b2
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CONTRACT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.CONTRACT_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-66c9-75cc-9dd8-a5be9433042a
+          stepCounter: df091ca3-a13e-47c8-9d13-da71609e25b2
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Americas'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-66c9-75cc-9dd8-aaf6447e16a3
+          stepCounter: df091ca3-a13e-47c8-9d13-da71609e25b2
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-66c9-75cc-9dd8-ae01fb3c7b60
+          stepCounter: df091ca3-a13e-47c8-9d13-da71609e25b2
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-66c9-75cc-9dd8-b10032005ebc
+          stepCounter: df091ca3-a13e-47c8-9d13-da71609e25b2
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: A.SNOWFLAKE_INGESTED_TIME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-66c9-75cc-9dd8-b7ba739c5a37
+          stepCounter: df091ca3-a13e-47c8-9d13-da71609e25b2
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-66c9-75cc-9dd8-baa48c8dbf2c
+          stepCounter: df091ca3-a13e-47c8-9d13-da71609e25b2
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: HASH(TRIM(LOWER(C.ADDRESS_SK)), TRIM(LOWER(D.CONTRACT_SK)))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-66c9-75cc-9dd8-bc15e0649de1
+          stepCounter: df091ca3-a13e-47c8-9d13-da71609e25b2
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: ROOT_EXECN_PID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-66c9-75cc-9dd8-c343f2a1317b
+          stepCounter: df091ca3-a13e-47c8-9d13-da71609e25b2
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: ADF_PIPELINE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'PL_Trans_OTC_Finance_Main'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-66c9-75cc-9dd8-c5ab3b1b9785
+          stepCounter: df091ca3-a13e-47c8-9d13-da71609e25b2
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: ADF_TRANSFORMATION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'adf-dev-edp-finance'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-66c9-75cc-9dd8-c8a95681e5bc
+          stepCounter: df091ca3-a13e-47c8-9d13-da71609e25b2
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: ADF_SCRIPT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'otc-finance/NA/BAAN_V_525/LOAD_FNL_BAAN_V_525_CONTRACT_TO_ADDRESS_BRIDGE.sql'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-66c9-75cc-9dd8-cf6f48914314
+          stepCounter: df091ca3-a13e-47c8-9d13-da71609e25b2
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'SOURCE_SYSTEM_003'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06afa-66c9-75cc-9dd8-d17829ecdffc
+          stepCounter: df091ca3-a13e-47c8-9d13-da71609e25b2
+        config: {}
+        dataType: VARCHAR(100)
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'INSTANCE_004'"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          A: 7d473915-ed4a-4e26-85a1-a42546b84abc
+          B: 78cb25ee-4abe-43ab-8d84-4298fa1d5328
+          C: 6306db80-1423-4714-add0-3cefe56abf1b
+          D: ca72e51c-324c-48a7-982e-522ac95c8d86
+          E: 5a49f417-11e4-4b70-a2f2-b222b4e46f69
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: GBL_ADDRESS_DIM
+          - locationName: SRC
+            nodeName: INST_CONTRACT_DIM
+          - locationName: SRC
+            nodeName: TTCCOM130525
+          - locationName: SRC
+            nodeName: TTPPDM600525
+          - locationName: WORK
+            nodeName: CTA_TSICDB005525
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'TTPPDM600525') }} A
+
+            JOIN {{ ref('SRC', 'TTCCOM130525') }} B
+            ON TRIM(A.T_PADR) = TRIM(B.T_CADR)
+
+            JOIN {{ ref('SRC', 'GBL_ADDRESS_DIM') }} C
+            ON TRIM(A.T_PADR) = TRIM(C.SOURCE_ADDRESS_CD)
+
+            JOIN {{ ref('WORK', 'CTA_TSICDB005525') }} E
+            ON TRIM(A.T_CPRJ) = TRIM(E.T_PROJ)
+
+            JOIN {{ ref('SRC', 'INST_CONTRACT_DIM') }} D
+            ON CONCAT(TRIM(A.T_CPRJ), '-', COALESCE(TRIM(E.T_FAMI), '')) = D.CONTRACT_NBR
+
+            WHERE C.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_002'
+            AND C.INSTANCE_NM = 'INSTANCE_004'
+            AND C.CURR_FLG = 'Y'
+        name: CTA_SNAPSHOT_QUERY
+        noLinkRefs: []
+  name: CTA_SNAPSHOT_QUERY
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

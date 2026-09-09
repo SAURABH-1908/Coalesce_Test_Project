@@ -1,0 +1,172 @@
+fileVersion: 1
+id: 90a07fc4-3bdf-4ba5-a0c6-13dd7293f80e
+name: GEOGRAPHY_SNAPSHOTTED_DATA
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Latest current records from GEOGRAPHY_DIM for SOURCE_SYSTEM_003/INSTANCE_004, keyed by Target_Primary_Key, used for change detection. SCD columns mapped from the dimension's SYSTEM_* fields.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06758-9d5b-74fe-a9ef-f21db576825d
+          stepCounter: 90a07fc4-3bdf-4ba5-a0c6-13dd7293f80e
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: GEOGRAPHY_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a066ba-3c1f-7713-b143-4ddd2b8d9764
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06758-9d5b-74fe-a9ef-f48cf4750e6d
+          stepCounter: 90a07fc4-3bdf-4ba5-a0c6-13dd7293f80e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a066ba-3c20-7128-914e-fce5dac6c91c
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06758-9d5b-74fe-a9ef-fbe37c70e6e7
+          stepCounter: 90a07fc4-3bdf-4ba5-a0c6-13dd7293f80e
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: TARGET_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a066ba-3c1f-7713-b143-4ddd2b8d9764
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06758-9d5b-74fe-a9ef-fd26ce10c60c
+          stepCounter: 90a07fc4-3bdf-4ba5-a0c6-13dd7293f80e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: GEO_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 811ef205-5362-46d1-a179-eb4770b34693
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06758-9d5b-74fe-a9f0-02689bffa298
+          stepCounter: 90a07fc4-3bdf-4ba5-a0c6-13dd7293f80e
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1df7fb46-3469-40e8-831f-3e8925d2d6ed
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06758-9d5b-74fe-a9f0-06476c57632a
+          stepCounter: 90a07fc4-3bdf-4ba5-a0c6-13dd7293f80e
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 164cdb86-3475-4940-8d24-e7a1cab63ea4
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06758-9d5b-74fe-a9f0-0a5c665cbfa9
+          stepCounter: 90a07fc4-3bdf-4ba5-a0c6-13dd7293f80e
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 52527f7b-6d5c-4480-b883-cd614c707527
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06758-9d5b-74fe-a9f0-0daa99fda502
+          stepCounter: 90a07fc4-3bdf-4ba5-a0c6-13dd7293f80e
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 701d3488-7eaf-4342-95ed-4a1c8f225cc8
+                stepCounter: 24b736d1-7443-427f-8415-704dd7d36018
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06758-9d5b-74fe-a9f0-110eade4f135
+          stepCounter: 90a07fc4-3bdf-4ba5-a0c6-13dd7293f80e
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          GEOGRAPHY_DIM: 24b736d1-7443-427f-8415-704dd7d36018
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: |-
+            FROM {{ ref_no_link('TARGET', 'GEOGRAPHY_DIM') }} GEOGRAPHY_DIM
+            WHERE SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_003'
+              AND INSTANCE_NM = 'INSTANCE_004'
+              AND SYSTEM_CURRENT_FLAG = 'Y'
+              AND SYSTEM_END_DATE IS NULL
+        name: GEOGRAPHY_SNAPSHOTTED_DATA
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: GEOGRAPHY_DIM
+  name: GEOGRAPHY_SNAPSHOTTED_DATA
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

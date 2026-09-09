@@ -1,0 +1,132 @@
+fileVersion: 1
+id: 746bdef0-8917-4889-b24f-9da4ece78db2
+name: GL_SNAPSHOTTED_DATA
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Latest current records from the GL_ACCOUNT_DIM final table for this source system/instance, used as the merge target snapshot.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-e195-729d-89a7-88308194f60b
+          stepCounter: 746bdef0-8917-4889-b24f-9da4ece78db2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"GL_ACCOUNT_DIM\".\"ACCOUNT_INTG_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-e195-729d-89a7-8c273efdacea
+          stepCounter: 746bdef0-8917-4889-b24f-9da4ece78db2
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: GL_ACCOUNT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"GL_ACCOUNT_DIM\".\"GL_ACCOUNT_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-e195-729d-89a7-9340fc9dc2f6
+          stepCounter: 746bdef0-8917-4889-b24f-9da4ece78db2
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"GL_ACCOUNT_DIM\".\"CHKSUM_STR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-e195-729d-89a7-97be4fe9c6ac
+          stepCounter: 746bdef0-8917-4889-b24f-9da4ece78db2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"GL_ACCOUNT_DIM\".\"LOAD_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-e195-729d-89a7-9847c5ac77ee
+          stepCounter: 746bdef0-8917-4889-b24f-9da4ece78db2
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"GL_ACCOUNT_DIM\".\"SYS_EFF_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-e195-729d-89a7-9e0f9c758ce9
+          stepCounter: 746bdef0-8917-4889-b24f-9da4ece78db2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"GL_ACCOUNT_DIM\".\"DBT_SCD_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06b2e-e195-729d-89a7-a2dafe3a7785
+          stepCounter: 746bdef0-8917-4889-b24f-9da4ece78db2
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TARGET_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"GL_ACCOUNT_DIM\".\"ACCOUNT_INTG_ID\""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          GL_ACCOUNT_DIM: 67719b2d-6d42-4984-84fd-e5b3dff36310
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: |-
+            FROM {{ ref_no_link('TARGET', 'GL_ACCOUNT_DIM') }} GL_ACCOUNT_DIM
+            WHERE GL_ACCOUNT_DIM.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_003'
+            AND GL_ACCOUNT_DIM.INSTANCE_NM = 'INSTANCE_004'
+            AND GL_ACCOUNT_DIM.CURR_FLG = 'Y'
+            AND GL_ACCOUNT_DIM.SYS_EXP_TS IS NULL
+        name: GL_SNAPSHOTTED_DATA
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: GL_ACCOUNT_DIM
+  name: GL_SNAPSHOTTED_DATA
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
