@@ -1,0 +1,92 @@
+fileVersion: 1
+id: 98c553b3-9a49-46b7-8696-77695c67bec5
+name: TTFGLD009525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fa6fe0fe-7af0-4197-9d5b-f68464f69325
+          stepCounter: 98c553b3-9a49-46b7-8696-77695c67bec5
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_LEAC
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a8b7e09b-0ecd-4496-9fce-a348f5556d20
+          stepCounter: 98c553b3-9a49-46b7-8696-77695c67bec5
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_DTYP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f3787c2c-f24e-4087-b447-5420d6ef241e
+          stepCounter: 98c553b3-9a49-46b7-8696-77695c67bec5
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_FDIM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: cfbf8088-aa3b-4447-a9e0-374f3090f91b
+          stepCounter: 98c553b3-9a49-46b7-8696-77695c67bec5
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_UDIM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTFGLD009525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
