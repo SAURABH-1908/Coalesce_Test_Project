@@ -685,13 +685,14 @@ operation:
     enabledColumnTestIDs: []
     materializationOption: ""
     sourceMapping:
-      - aliases:
-          STG: 24b736d1-7443-427f-8415-704dd7d36018
+      - aliases: {}
         customSQL:
           customSQL: ""
-        dependencies: []
+        dependencies:
+          - locationName: WORK
+            nodeName: GEOGRAPHY_DBT_FINAL
         join:
-          joinCondition: FROM {{ ref('TARGET', 'GEOGRAPHY_DIM') }} STG
+          joinCondition: FROM {{ ref('WORK', 'GEOGRAPHY_DBT_FINAL') }} STG
         name: GEOGRAPHY_DIM
         noLinkRefs: []
   name: GEOGRAPHY_DIM
