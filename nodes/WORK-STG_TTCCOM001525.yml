@@ -17,18 +17,26 @@ operation:
   metadata:
     appliedNodeTests: []
     columns:
-      - appliedColumnTests: {}
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06add-40a5-760d-989f-4efd5a21edd5
+          columnCounter: dc094bc7-3825-4d5b-bf94-af23d943f3ad
           stepCounter: b1d17d2c-9298-4def-a0f5-641e662f316b
         config: {}
         dataType: VARCHAR
+        defaultValue: ""
         description: ""
+        keyColumnType: None
         name: EMPLOYEE_INTG_ID
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
             transform: CONCAT_WS('~', COALESCE(TRIM("a"."T_EMNO"),''), '525', 'SOURCE_SYSTEM_002', 'INSTANCE_004')
+        systemColumnType: None
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a06add-40a5-760d-989f-505cf3eff06c
