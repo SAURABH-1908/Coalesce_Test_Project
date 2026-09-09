@@ -1,5 +1,5 @@
 fileVersion: 1
-id: 9c7a39b2-3c57-4118-8572-e4431f3a4bfd
+id: 500a00c3-79b3-49da-97ab-bf7dd32a60f4
 name: TTPPDM740525
 operation:
   database: ""
@@ -13,8 +13,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 2ace545e-bf7c-46bd-a6f7-886013ca0c6e
-          stepCounter: 9c7a39b2-3c57-4118-8572-e4431f3a4bfd
+          columnCounter: 5294add4-4df1-4560-b31f-b834380736af
+          stepCounter: 500a00c3-79b3-49da-97ab-bf7dd32a60f4
         config: {}
         dataType: VARCHAR(50)
         defaultValue: ""
@@ -32,10 +32,29 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f5b6b40a-0286-4cff-bc70-02dd0dfc73ba
-          stepCounter: 9c7a39b2-3c57-4118-8572-e4431f3a4bfd
+          columnCounter: 911cbae3-c3da-4047-a7bd-96f974e56155
+          stepCounter: 500a00c3-79b3-49da-97ab-bf7dd32a60f4
         config: {}
-        dataType: VARCHAR(20)
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: T_REFE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59ce2ac1-7e9c-4397-a2cd-a2e849462ee9
+          stepCounter: 500a00c3-79b3-49da-97ab-bf7dd32a60f4
+        config: {}
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
         name: T_CPAY
@@ -51,8 +70,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 8feb0c7b-9f44-4551-8bc7-6299f3be5124
-          stepCounter: 9c7a39b2-3c57-4118-8572-e4431f3a4bfd
+          columnCounter: 7fa8669a-8052-4d31-812b-8ca8c7f163f1
+          stepCounter: 500a00c3-79b3-49da-97ab-bf7dd32a60f4
         config: {}
         dataType: VARCHAR(50)
         defaultValue: ""
@@ -70,8 +89,27 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 5cb2f8ed-436c-4ed0-9136-5d28e8901c09
-          stepCounter: 9c7a39b2-3c57-4118-8572-e4431f3a4bfd
+          columnCounter: 07141319-37fd-4f91-887a-440c485f1aea
+          stepCounter: 500a00c3-79b3-49da-97ab-bf7dd32a60f4
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: T_REFB
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b440a85-27ac-4402-b92f-d3c89e71a3f0
+          stepCounter: 500a00c3-79b3-49da-97ab-bf7dd32a60f4
         config: {}
         dataType: TIMESTAMP_NTZ(9)
         defaultValue: ""

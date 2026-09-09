@@ -52,7 +52,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: case when to_decimal(tppdm600.t_kopr)= '2' then trim(tppdm600.t_cprj) end
+            transform: case when try_to_decimal(tppdm600.t_kopr) = 2 then trim(tppdm600.t_cprj) end
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07b2d-b2d0-7467-b661-f96ff7907a69
@@ -538,8 +538,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: fbf3a31b-d9ee-4d12-9d31-4525b434e46d
-                stepCounter: fb9b7d32-dd1c-4776-96e3-8a2d8d70d089
+              - columnCounter: bcaa2600-a262-4af6-be4c-c75d5088d20c
+                stepCounter: fe844967-fa97-4b6c-a886-7addbea5e445
             transform: COALESCE(TRIM(CUSTOMER_DIM.CUSTOMER_SK),'99999')
       - appliedColumnTests: {}
         columnReference:
@@ -649,7 +649,9 @@ operation:
         name: ITEM_NBR_SK
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
+          - columnReferences:
+              - columnCounter: e0080895-d067-40cf-8097-0896c9ce18f9
+                stepCounter: 30ba35aa-6928-419f-9f2d-022f2b854834
             transform: COALESCE(trim(ITEM_DIM.ITEM_NBR_SK),'99999')
       - appliedColumnTests: {}
         columnReference:
@@ -686,8 +688,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: fbf3a31b-d9ee-4d12-9d31-4525b434e46d
-                stepCounter: fb9b7d32-dd1c-4776-96e3-8a2d8d70d089
+              - columnCounter: bcaa2600-a262-4af6-be4c-c75d5088d20c
+                stepCounter: fe844967-fa97-4b6c-a886-7addbea5e445
             transform: COALESCE(TRIM(CUSTOMER_DIM.CUSTOMER_SK),'99999')
       - appliedColumnTests: {}
         columnReference:

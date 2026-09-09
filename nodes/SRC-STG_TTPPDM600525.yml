@@ -1,6 +1,6 @@
 fileVersion: 1
-id: fe844967-fa97-4b6c-a886-7addbea5e445
-name: CUSTOMER_DIM
+id: ba33af13-deb2-46f0-bef9-ec4215de2cd3
+name: STG_TTPPDM600525
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: bcaa2600-a262-4af6-be4c-c75d5088d20c
-          stepCounter: fe844967-fa97-4b6c-a886-7addbea5e445
+          columnCounter: 6b08f67b-72b4-42a2-b5ed-ec7a37c2611a
+          stepCounter: ba33af13-deb2-46f0-bef9-ec4215de2cd3
         config: {}
-        dataType: NUMBER(38,0)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: CUSTOMER_SK
+        name: T_CPRJ
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,108 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 4574757c-431a-4637-a993-85f3da564b45
-          stepCounter: fe844967-fa97-4b6c-a886-7addbea5e445
+          columnCounter: 1544444b-c40d-4428-9d94-cc7bfc01ec3b
+          stepCounter: ba33af13-deb2-46f0-bef9-ec4215de2cd3
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_KOPR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f2a8b817-5a3b-43ca-bae7-a4d73d9d1d7e
+          stepCounter: ba33af13-deb2-46f0-bef9-ec4215de2cd3
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_PSTS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ba176649-b8ce-4131-a947-79505ff7cf90
+          stepCounter: ba33af13-deb2-46f0-bef9-ec4215de2cd3
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_COPR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fad47a0d-449b-4b26-9d47-a21a70d5032d
+          stepCounter: ba33af13-deb2-46f0-bef9-ec4215de2cd3
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: T_DLDT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63cc6b3c-d7f0-4666-9bf2-a91be5b28d85
+          stepCounter: ba33af13-deb2-46f0-bef9-ec4215de2cd3
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: T_BTDT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c7a18f92-7e93-46fa-b0f6-d98dd9c55115
+          stepCounter: ba33af13-deb2-46f0-bef9-ec4215de2cd3
         config: {}
         dataType: VARCHAR(100)
         defaultValue: ""
         description: ""
-        name: CUSTOMER_INTG_ID
+        name: T_NCMP
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +146,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: a4234d4b-23b5-4351-baf7-332e3d0247f3
-          stepCounter: fe844967-fa97-4b6c-a886-7addbea5e445
+          columnCounter: 8d7bc7ba-c0f3-4eaa-aeac-cccb4f8847d0
+          stepCounter: ba33af13-deb2-46f0-bef9-ec4215de2cd3
         config: {}
-        dataType: VARCHAR(100)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: CUSTOMER_NUMBER
+        name: T_CCOT
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,89 +165,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: c26f8ff6-1055-4ebf-857e-b4e1dcd81855
-          stepCounter: fe844967-fa97-4b6c-a886-7addbea5e445
-        config: {}
-        dataType: VARCHAR(100)
-        defaultValue: ""
-        description: ""
-        name: CUSTOMER_ID
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 7bfcea46-7733-46cd-8eb4-88bbdc055b49
-          stepCounter: fe844967-fa97-4b6c-a886-7addbea5e445
-        config: {}
-        dataType: VARCHAR(255)
-        defaultValue: ""
-        description: ""
-        name: CUSTOMER_NAME
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 9ce7ca50-d563-437f-98bd-2992fc8830dd
-          stepCounter: fe844967-fa97-4b6c-a886-7addbea5e445
-        config: {}
-        dataType: VARCHAR(100)
-        defaultValue: ""
-        description: ""
-        name: CUSTOMER_TYPE
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 28007d58-280e-4237-b61b-cb22e7589325
-          stepCounter: fe844967-fa97-4b6c-a886-7addbea5e445
-        config: {}
-        dataType: VARCHAR(100)
-        defaultValue: ""
-        description: ""
-        name: ADDRESS_ID
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 38d284e5-9860-47be-a543-7463ba65a0a1
-          stepCounter: fe844967-fa97-4b6c-a886-7addbea5e445
+          columnCounter: 0365dae0-8a2a-42a3-bccd-cecd69d1fd3c
+          stepCounter: ba33af13-deb2-46f0-bef9-ec4215de2cd3
         config: {}
         dataType: VARCHAR(20)
         defaultValue: ""
         description: ""
-        name: COUNTRY_CD
+        name: T_CCUR
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -165,13 +184,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 801b21a6-70be-4143-8520-22070f132c72
-          stepCounter: fe844967-fa97-4b6c-a886-7addbea5e445
+          columnCounter: 05c61d21-17fa-4286-b6f0-0da3fc6719e6
+          stepCounter: ba33af13-deb2-46f0-bef9-ec4215de2cd3
         config: {}
-        dataType: VARCHAR(10)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: ACTIVE_FLAG
+        name: T_CREG
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -184,65 +203,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 5603b697-cf3c-4453-97c7-d698a5ca249d
-          stepCounter: fe844967-fa97-4b6c-a886-7addbea5e445
-        config: {}
-        dataType: VARCHAR(100)
-        defaultValue: ""
-        description: ""
-        name: SOURCE_SYSTEM_CD
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: f796cda1-9e6e-462a-bf88-b7fecffca61a
-          stepCounter: fe844967-fa97-4b6c-a886-7addbea5e445
-        config: {}
-        dataType: DATE
-        defaultValue: ""
-        description: ""
-        name: EFFECTIVE_START_DT
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: b5361638-ce0c-4739-996f-392f2295c7f1
-          stepCounter: fe844967-fa97-4b6c-a886-7addbea5e445
-        config: {}
-        dataType: DATE
-        defaultValue: ""
-        description: ""
-        name: EFFECTIVE_END_DT
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: cdae42f0-68eb-47f9-92f9-c9aec504b1b9
-          stepCounter: fe844967-fa97-4b6c-a886-7addbea5e445
+          columnCounter: c8599b8b-3acb-4925-a657-59417415151e
+          stepCounter: ba33af13-deb2-46f0-bef9-ec4215de2cd3
         config: {}
         dataType: TIMESTAMP_NTZ(9)
         defaultValue: ""
@@ -255,7 +217,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: CUSTOMER_DIM
+  name: STG_TTPPDM600525
   schema: ""
   sqlType: Source
   type: sourceInput
