@@ -157,6 +157,18 @@ operation:
               - columnCounter: 870ee68d-be7c-4cbe-8584-e03552271142
                 stepCounter: 16af9719-d833-4715-a016-ef84f607088d
             transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0865b-670f-744d-b30c-a4a9d62764be
+          stepCounter: 2e2ce6ab-9b15-4c64-9b02-db090bd5f004
+        config: {}
+        dataType: VARCHAR
+        description: ERP country code literal.
+        name: COUNTRY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'525'"
     cteString: ""
     description: ""
     destinationName: ""
