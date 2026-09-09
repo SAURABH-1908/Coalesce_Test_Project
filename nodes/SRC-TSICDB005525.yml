@@ -1,11 +1,11 @@
 fileVersion: 1
-id: 2d4e9bf8-098d-4e80-8684-20b0f5fc7d6b
-name: GEOGRAPHY_DIM
+id: 244305c1-36df-43ac-ad44-01065c77080d
+name: TSICDB005525
 operation:
   database: ""
   deployEnabled: true
   description: ""
-  locationName: TARGET
+  locationName: SRC
   metadata:
     columns:
       - acceptedValues:
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 2aea48b1-2fdb-482f-8b33-956793b15d48
-          stepCounter: 2d4e9bf8-098d-4e80-8684-20b0f5fc7d6b
+          columnCounter: 2dbdebec-3ac9-439b-bebe-b5d500113a73
+          stepCounter: 244305c1-36df-43ac-ad44-01065c77080d
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: GEO_SK
+        name: T_PROJ
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 312527bd-84fe-489d-90ec-793163c5f861
-          stepCounter: 2d4e9bf8-098d-4e80-8684-20b0f5fc7d6b
+          columnCounter: 7c8e4c53-5c51-4e09-964c-1059644619b7
+          stepCounter: 244305c1-36df-43ac-ad44-01065c77080d
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: BRANCH_CD
+        name: T_FAMI
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: ce51da16-63de-41c5-b7b2-cfbb15cbc731
-          stepCounter: 2d4e9bf8-098d-4e80-8684-20b0f5fc7d6b
+          columnCounter: 14c8c4c6-368f-417e-9fd1-577ceb814430
+          stepCounter: 244305c1-36df-43ac-ad44-01065c77080d
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_NM
+        name: T_SSDT
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: b82fa197-417b-49c4-bc28-8048e2b9f3f3
-          stepCounter: 2d4e9bf8-098d-4e80-8684-20b0f5fc7d6b
+          columnCounter: 963846a2-dedd-4fde-b430-7442703edc0f
+          stepCounter: 244305c1-36df-43ac-ad44-01065c77080d
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: INSTANCE_NM
+        name: T_SYS
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,13 +89,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9d9d1769-30a2-445f-bef8-aeeaf6af68cc
-          stepCounter: 2d4e9bf8-098d-4e80-8684-20b0f5fc7d6b
+          columnCounter: bde76f91-b3ad-4eb7-a462-dd79253df079
+          stepCounter: 244305c1-36df-43ac-ad44-01065c77080d
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: CURR_FLG
+        name: T_DSCA
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -108,13 +108,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 62c23d4d-f0d0-495d-86b7-17995e16f7b9
-          stepCounter: 2d4e9bf8-098d-4e80-8684-20b0f5fc7d6b
+          columnCounter: 1dbafafb-43c9-4d0d-a48a-facfd079b58d
+          stepCounter: 244305c1-36df-43ac-ad44-01065c77080d
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
-        name: COMPANY_CD
+        name: T_TOTS
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -122,7 +122,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: GEOGRAPHY_DIM
+  name: TSICDB005525
   schema: ""
   sqlType: Source
   type: sourceInput

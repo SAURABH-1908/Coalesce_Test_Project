@@ -520,7 +520,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM(tcmcs055.T_dsca)
+            transform: CAST(NULL AS VARCHAR)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a12-e952-7270-a9f8-0bd53a332c21
@@ -736,7 +736,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: coalesce(item.item_sk,'99999')
+            transform: coalesce(item.ITEM_SK,'99999')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a12-e952-7270-a9f8-52a90e5e3425
@@ -772,7 +772,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CAST(NULL AS VARCHAR)
+            transform: OS.OS_ENTITY_CD
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a12-e952-7270-a9f8-5d0076c3d143
@@ -784,7 +784,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CAST(NULL AS VARCHAR)
+            transform: OS.OS_ENTITY_DSC
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a12-e952-7270-a9f8-60855c0b5f56
@@ -796,7 +796,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CAST(NULL AS VARCHAR)
+            transform: OS.OS_PRODUCT_FAMILY_DSC
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a12-e952-7270-a9f8-6417772c12bf
@@ -808,7 +808,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CAST(NULL AS VARCHAR)
+            transform: OS.OS_PRODUCT_FAMILY_CD
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a12-e952-7270-a9f8-689ab17edf09
@@ -820,7 +820,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CAST(NULL AS VARCHAR)
+            transform: OS.OS_CONTRACT_TYPE_DSC
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a12-e952-7270-a9f8-6d244d3b8950
@@ -832,7 +832,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CAST(NULL AS VARCHAR)
+            transform: OS.OS_CONTRACT_TYPE_CD
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a12-e952-7270-a9f8-735c6fd8997f
@@ -1087,13 +1087,21 @@ operation:
           - locationName: SRC
             nodeName: CURRENCY_DIM
           - locationName: SRC
+            nodeName: CUSTOMER_DIM
+          - locationName: SRC
+            nodeName: DFR_LOOKUP
+          - locationName: SRC
             nodeName: ENTITY_DIM
           - locationName: SRC
             nodeName: GBL_ADDRESS_DIM
           - locationName: SRC
+            nodeName: GEOGRAPHY_DIM
+          - locationName: SRC
             nodeName: GL_ACCOUNT_DIM
           - locationName: SRC
             nodeName: INST_CONTRACT_DIM
+          - locationName: SRC
+            nodeName: ITEM_DIM
           - locationName: SRC
             nodeName: SOURCE_SYSTEM_DIM
           - locationName: SRC
@@ -1113,9 +1121,15 @@ operation:
           - locationName: SRC
             nodeName: TCISLI265525
           - locationName: SRC
+            nodeName: TSICDB005525
+          - locationName: SRC
             nodeName: TSICOM100525
           - locationName: SRC
             nodeName: TTCCOM100525
+          - locationName: SRC
+            nodeName: TTCCOM110525
+          - locationName: SRC
+            nodeName: TTCCOM111525
           - locationName: SRC
             nodeName: TTCCOM112525
           - locationName: SRC
@@ -1135,96 +1149,140 @@ operation:
         join:
           joinCondition: |-
             FROM {{ ref('SRC', 'TTFACR200525') }} AS tfacr200
-                LEFT JOIN {{ ref('SRC', 'TCISLI205525') }} AS cisli205
-                  ON TRIM(tfacr200.T_ttyp) = TRIM(cisli205.T_ityp)
-                  AND floor(TRIM(tfacr200.T_ninv)) = TRIM(cisli205.T_IDOC)
-                  AND trim(tfacr200.T_lino) = 0
-                LEFT OUTER JOIN {{ ref('SRC', 'CURRENCY_DIM') }} cur
-                  ON trim(tfacr200.T_CCUR) = trim(cur.source_currency_cd)
-                  AND cur.source_system_nm = 'SOURCE_SYSTEM_005'
-                  AND cur.instance_nm = 'INSTANCE_002' AND cur.curr_flg = 'Y'
-                LEFT JOIN {{ ref('SRC', 'SOURCE_SYSTEM_DIM') }} AS src_sys_dim
-                  ON TRIM(src_sys_dim.SOURCE_COMPANY_CD) = '525'
-                  AND TRIM(src_sys_dim.SOURCE_SYSTEM_CD) = 'SOURCE_SYSTEM_002'
-                  AND TRIM(src_sys_dim.SITE_REGION_CD) = 'INSTANCE_004'
-                  AND TRIM(src_sys_dim.CURR_FLG) = 'Y'
-                LEFT JOIN {{ ref('SRC', 'TCISLI210525') }} as cisli210
-                  ON trim(cisli205.T_ityp) = trim(cisli210.T_ityp)
-                  AND trim(cisli205.T_idoc) = trim(cisli210.T_idoc)
-                LEFT JOIN {{ ref('SRC', 'TCISLI225525') }} as cisli225
-                  ON trim(cisli205.T_ityp) = trim(cisli225.T_ityp)
-                  AND trim(cisli205.T_idoc) = trim(cisli225.T_idoc)
-                LEFT JOIN {{ ref('SRC', 'TCISLI265525') }} as cisli265
-                  ON trim(cisli205.T_ityp) = trim(cisli265.T_ityp)
-                  AND trim(cisli205.T_idoc) = trim(cisli265.T_idoc)
-                LEFT OUTER JOIN {{ ref('SRC', 'TTCMCS013525') }} as tcmcs013
-                  ON trim(tfacr200.t_cpay) = trim(tcmcs013.T_cpay)
-                LEFT JOIN (
-                  select distinct '99999' AS ITEM_SK, cisli205.T_ityp, cisli205.T_IDOC
-                  from {{ ref('SRC', 'TCISLI205525') }} AS cisli205
-                ) item ON TRIM(item.T_ityp) = TRIM(cisli205.T_ityp) AND TRIM(item.T_IDOC) = TRIM(cisli205.T_IDOC)
-                LEFT JOIN {{ ref('SRC', 'TCISLI245525') }} AS cisli245
-                  ON TRIM(cisli205.T_ityp) = TRIM(cisli245.T_ityp) AND TRIM(cisli205.T_idoc) = TRIM(cisli245.T_idoc)
-                LEFT JOIN {{ ref('SRC', 'TCISLI235525') }} AS cisli235
-                  ON TRIM(cisli205.T_ityp) = TRIM(cisli235.T_ityp) AND TRIM(cisli205.T_idoc) = TRIM(cisli235.T_idoc)
-                LEFT OUTER JOIN {{ ref('SRC', 'TTPPDM600525') }} as TTPPDM600 ON cisli235.T_cprj = TTPPDM600.T_cprj
-                LEFT JOIN {{ ref('SRC', 'TCISLI230525') }} AS cisli230
-                  ON TRIM(cisli235.T_cprj) = TRIM(cisli230.T_cprj) and cisli230.T_refa != '                              '
-                LEFT JOIN {{ ref('SRC', 'TCISLI255525') }} AS cisli255
-                  ON TRIM(cisli205.T_ityp) = TRIM(cisli255.T_ityp) AND TRIM(cisli205.T_idoc) = TRIM(cisli255.T_idoc)
-                LEFT JOIN {{ ref('SRC', 'TTCCOM112525') }} as TTCCOM112
-                  ON trim(tfacr200.T_itbp) = trim(TTCCOM112.T_itbp)
-                LEFT JOIN {{ ref('SRC', 'TTCMCS055525') }} AS tcmcs055
-                  ON 1 = 0
-                LEFT JOIN {{ ref('SRC', 'TTCCOM100525') }} AS tccom100
-                  ON TRIM(tfacr200.T_itbp) = TRIM(tccom100.T_bpid)
-                LEFT JOIN {{ ref('SRC', 'TSICOM100525') }} AS sicom100
-                  ON TRIM(tccom100.T_bpid) = TRIM(sicom100.T_bpid)
-                LEFT JOIN {{ ref('SRC', 'TTFGLD018525') }} AS tfgld018
-                  ON TRIM(tfacr200.t_ttyp) = TRIM(tfgld018.t_ttyp) AND floor(TRIM(tfacr200.t_ninv)) = TRIM(tfgld018.t_docn)
-                LEFT JOIN {{ ref('SRC', 'TTFGLD106525') }} AS tfgld106
-                  ON TRIM(tfacr200.T_ttyp) = TRIM(tfgld106.T_otyp)
-                  AND floor(TRIM(tfacr200.T_ninv)) = floor(TRIM(tfgld106.T_odoc))
-                  AND floor(TRIM(tfacr200.T_line)) = 0 and tfgld106.t_cont = 1
-                LEFT JOIN {{ ref('SRC', 'TTFGLD102525') }} AS tfgld102
-                  ON TRIM(tfacr200.T_TTYP) = TRIM(tfgld102.T_ttyp)
-                  AND floor(TRIM(tfacr200.T_ninv)) = floor(TRIM(tfgld102.T_docn))
-                  AND floor(TRIM(tfacr200.T_line)) = floor(TRIM(tfgld102.T_OLIN))
-                LEFT JOIN (
-                  SELECT CAST(NULL AS VARCHAR) AS SOLD_TO_CUSTOMER_SK, CAST(NULL AS VARCHAR) AS T_OFBP
-                ) cus ON 1 = 0
-                LEFT JOIN (
-                  SELECT CAST(NULL AS VARCHAR) AS CUSTOMER_SK, CAST(NULL AS VARCHAR) AS CUSTOMER_ID
-                ) CUS_SK ON 1 = 0
-                LEFT JOIN (
-                  SELECT CAST(NULL AS VARCHAR) AS SHIP_TO_CUSTOMER_SK, CAST(NULL AS VARCHAR) AS T_STBP
-                ) Ship_cus_sk ON 1 = 0
-                LEFT JOIN (
-                  SELECT CAST(NULL AS VARCHAR) AS BILL_TO_CUSTOMER_SK, CAST(NULL AS VARCHAR) AS T_ITBP
-                ) BILL_TO_CUS ON 1 = 0
-                LEFT JOIN {{ ref('SRC', 'GBL_ADDRESS_DIM') }} AS GBL_ADDRESS_DIM_BILL_TO
-                  ON 1 = 0
-                LEFT JOIN {{ ref('SRC', 'GBL_ADDRESS_DIM') }} AS GBL_ADDRESS_DIM_SHIP_TO
-                  ON 1 = 0
-                LEFT JOIN {{ ref('SRC', 'GBL_ADDRESS_DIM') }} AS GBL_ADDRESS_DIM_SOLD_TO
-                  ON 1 = 0
-                LEFT JOIN (
-                  select distinct '99999' as geo_sk, a.T_CPRJ
-                  from {{ ref('SRC', 'TCISLI235525') }} a
-                ) geo on trim(cisli235.T_CPRJ) = trim(geo.T_CPRJ)
-                LEFT OUTER JOIN {{ ref('SRC', 'GL_ACCOUNT_DIM') }} as GL_ACCOUNT
-                  on trim(tfgld106.T_leac) = trim(GL_ACCOUNT.src_account_cd)
-                  and GL_ACCOUNT.source_system_nm = 'SOURCE_SYSTEM_002' AND GL_ACCOUNT.instance_nm = 'INSTANCE_004'
-                  and GL_ACCOUNT.CURR_FLG = 'Y' and GL_ACCOUNT.ERP_ENTITY_CD = '525'
-                LEFT JOIN {{ ref('SRC', 'ENTITY_DIM') }} entity
-                  on trim(cisli205.T_SFCP) = floor(trim(entity.entity_cd))
-                  and entity.source_system_nm = 'SOURCE_SYSTEM_002' and entity.instance_nm = 'INSTANCE_004' and entity.CURR_FLG = 'Y'
-                LEFT OUTER JOIN (
-                  SELECT SPLIT_PART(CONTRACT_NBR, '-', 1) CONTRACT_NBR, CONTRACT_SK,
-                    ROW_NUMBER() OVER(PARTITION BY SPLIT_PART(CONTRACT_NBR, '-', 1) ORDER BY CONTRACT_SK DESC) RN
-                  FROM {{ ref('SRC', 'INST_CONTRACT_DIM') }}
-                  QUALIFY RN = 1
-                ) T1 on TRIM(SPLIT_PART(T1.CONTRACT_NBR, '-', 1)) = TRIM(cisli235.T_CPRJ)
+            LEFT JOIN {{ ref('SRC', 'TCISLI205525') }} AS cisli205
+              ON TRIM(tfacr200.T_ttyp) = TRIM(cisli205.T_ityp)
+              AND floor(TRIM(tfacr200.T_ninv)) = TRIM(cisli205.T_IDOC)
+              AND trim(tfacr200.T_lino) = 0
+            LEFT OUTER JOIN {{ ref('SRC', 'CURRENCY_DIM') }} cur
+              ON trim(tfacr200.T_CCUR) = trim(cur.source_currency_cd)
+              AND cur.source_system_nm = 'SOURCE_SYSTEM_005'
+              AND cur.instance_nm = 'INSTANCE_002' AND cur.curr_flg = 'Y'
+            LEFT JOIN {{ ref('SRC', 'SOURCE_SYSTEM_DIM') }} AS src_sys_dim
+              ON TRIM(src_sys_dim.SOURCE_COMPANY_CD) = '525'
+              AND TRIM(src_sys_dim.SOURCE_SYSTEM_CD) = 'SOURCE_SYSTEM_002'
+              AND TRIM(src_sys_dim.SITE_REGION_CD) = 'INSTANCE_004'
+              AND TRIM(src_sys_dim.CURR_FLG) = 'Y'
+            LEFT JOIN {{ ref('SRC', 'TCISLI210525') }} as cisli210
+              ON trim(cisli205.T_ityp) = trim(cisli210.T_ityp)
+              AND trim(cisli205.T_idoc) = trim(cisli210.T_idoc)
+            LEFT JOIN {{ ref('SRC', 'TCISLI225525') }} as cisli225
+              ON trim(cisli205.T_ityp) = trim(cisli225.T_ityp)
+              AND trim(cisli205.T_idoc) = trim(cisli225.T_idoc)
+            LEFT JOIN {{ ref('SRC', 'TCISLI265525') }} as cisli265
+              ON trim(cisli205.T_ityp) = trim(cisli265.T_ityp)
+              AND trim(cisli205.T_idoc) = trim(cisli265.T_idoc)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCMCS013525') }} as tcmcs013
+              ON trim(tfacr200.t_cpay) = trim(tcmcs013.T_cpay)
+            LEFT JOIN (
+              select distinct coalesce(TRIM(a.ITEM_NBR_SK), '99999') AS ITEM_SK, c.T_ityp, c.T_IDOC
+              from {{ ref('SRC', 'TCISLI205525') }} c
+              LEFT JOIN {{ ref('SRC', 'TCISLI235525') }} b
+                ON TRIM(c.T_ityp) = TRIM(b.T_ityp) AND TRIM(c.T_IDOC) = TRIM(b.T_IDOC)
+              LEFT JOIN {{ ref('SRC', 'ITEM_DIM') }} a
+                ON TRIM(a.source_item_nbr) = TRIM(b.T_ITEM)
+                AND a.source_system_nm = 'SOURCE_SYSTEM_002' AND a.instance_nm = 'INSTANCE_004'
+                AND a.CURR_FLG = 'Y' AND a.ENTITY_CD = '525'
+            ) item ON TRIM(item.T_ityp) = TRIM(cisli205.T_ityp) AND TRIM(item.T_IDOC) = TRIM(cisli205.T_IDOC)
+            LEFT JOIN {{ ref('SRC', 'TCISLI245525') }} AS cisli245
+              ON TRIM(cisli205.T_ityp) = TRIM(cisli245.T_ityp) AND TRIM(cisli205.T_idoc) = TRIM(cisli245.T_idoc)
+            LEFT JOIN {{ ref('SRC', 'TCISLI235525') }} AS cisli235
+              ON TRIM(cisli205.T_ityp) = TRIM(cisli235.T_ityp) AND TRIM(cisli205.T_idoc) = TRIM(cisli235.T_idoc)
+            LEFT OUTER JOIN {{ ref('SRC', 'TTPPDM600525') }} as TTPPDM600 ON cisli235.T_cprj = TTPPDM600.T_cprj
+            LEFT JOIN {{ ref('SRC', 'TCISLI230525') }} AS cisli230
+              ON TRIM(cisli235.T_cprj) = TRIM(cisli230.T_cprj) and cisli230.T_refa != '                              '
+            LEFT JOIN {{ ref('SRC', 'TCISLI255525') }} AS cisli255
+              ON TRIM(cisli205.T_ityp) = TRIM(cisli255.T_ityp) AND TRIM(cisli205.T_idoc) = TRIM(cisli255.T_idoc)
+            LEFT JOIN {{ ref('SRC', 'TTCCOM112525') }} as TTCCOM112
+              ON trim(tfacr200.T_itbp) = trim(TTCCOM112.T_itbp)
+            LEFT JOIN {{ ref('SRC', 'TTCMCS055525') }} AS tcmcs055
+              ON 1 = 0
+            LEFT JOIN {{ ref('SRC', 'TTCCOM100525') }} AS tccom100
+              ON TRIM(tfacr200.T_itbp) = TRIM(tccom100.T_bpid)
+            LEFT JOIN {{ ref('SRC', 'TSICOM100525') }} AS sicom100
+              ON TRIM(tccom100.T_bpid) = TRIM(sicom100.T_bpid)
+            LEFT JOIN {{ ref('SRC', 'TTFGLD018525') }} AS tfgld018
+              ON TRIM(tfacr200.t_ttyp) = TRIM(tfgld018.t_ttyp) AND floor(TRIM(tfacr200.t_ninv)) = TRIM(tfgld018.t_docn)
+            LEFT JOIN {{ ref('SRC', 'TTFGLD106525') }} AS tfgld106
+              ON TRIM(tfacr200.T_ttyp) = TRIM(tfgld106.T_otyp)
+              AND floor(TRIM(tfacr200.T_ninv)) = floor(TRIM(tfgld106.T_odoc))
+              AND floor(TRIM(tfacr200.T_line)) = 0 and tfgld106.t_cont = 1
+            LEFT JOIN {{ ref('SRC', 'TTFGLD102525') }} AS tfgld102
+              ON TRIM(tfacr200.T_TTYP) = TRIM(tfgld102.T_ttyp)
+              AND floor(TRIM(tfacr200.T_ninv)) = floor(TRIM(tfgld102.T_docn))
+              AND floor(TRIM(tfacr200.T_line)) = floor(TRIM(tfgld102.T_OLIN))
+            LEFT JOIN (
+              SELECT coalesce(T1.CUSTOMER_SK, '99999') AS SOLD_TO_CUSTOMER_SK, T2.T_BPID
+              FROM {{ ref('SRC', 'TTCCOM110525') }} AS T2
+              LEFT JOIN {{ ref('SRC', 'CUSTOMER_DIM') }} AS T1 ON TRIM(T1.CUSTOMER_NUMBER) = TRIM(T2.T_BPID)
+              WHERE T1.source_system_nm = 'SOURCE_SYSTEM_001' AND T1.instance_nm = 'INSTANCE_001'
+                AND T1.CURR_FLG = 'Y' and T1.company_cd = '525'
+            ) cus ON TRIM(cus.T_BPID) = TRIM(tfacr200.T_ITBP)
+            LEFT JOIN (
+              SELECT T1.CUSTOMER_SK, T1.CUSTOMER_NUMBER
+              FROM {{ ref('SRC', 'CUSTOMER_DIM') }} AS T1
+              WHERE T1.source_system_nm = 'SOURCE_SYSTEM_001' AND T1.instance_nm = 'INSTANCE_001'
+                AND T1.CURR_FLG = 'Y' and T1.company_cd = '525'
+            ) CUS_SK ON TRIM(CUS_SK.CUSTOMER_NUMBER) = TRIM(tfacr200.T_ITBP)
+            LEFT JOIN (
+              SELECT coalesce(T1.CUSTOMER_SK, '99999') AS SHIP_TO_CUSTOMER_SK, T2.T_BPID
+              FROM {{ ref('SRC', 'TTCCOM111525') }} AS T2
+              LEFT JOIN {{ ref('SRC', 'CUSTOMER_DIM') }} AS T1 ON TRIM(T1.CUSTOMER_NUMBER) = TRIM(T2.T_BPID)
+              WHERE T1.source_system_nm = 'SOURCE_SYSTEM_001' AND T1.instance_nm = 'INSTANCE_001'
+                AND T1.CURR_FLG = 'Y' and T1.company_cd = '525'
+            ) Ship_cus_sk ON TRIM(Ship_cus_sk.T_BPID) = TRIM(cisli205.T_STBP)
+            LEFT JOIN (
+              SELECT coalesce(T1.CUSTOMER_SK, '99999') AS BILL_TO_CUSTOMER_SK, T2.T_ITBP
+              FROM {{ ref('SRC', 'TTCCOM112525') }} AS T2
+              LEFT JOIN {{ ref('SRC', 'CUSTOMER_DIM') }} AS T1 ON TRIM(T1.CUSTOMER_NUMBER) = TRIM(T2.T_ITBP)
+              WHERE T1.source_system_nm = 'SOURCE_SYSTEM_001' AND T1.instance_nm = 'INSTANCE_001'
+                AND T1.CURR_FLG = 'Y' and T1.company_cd = '525'
+            ) BILL_TO_CUS ON TRIM(BILL_TO_CUS.T_ITBP) = TRIM(cisli205.T_ITBP)
+            LEFT JOIN {{ ref('SRC', 'GBL_ADDRESS_DIM') }} AS GBL_ADDRESS_DIM_BILL_TO
+              ON 1 = 0
+            LEFT JOIN {{ ref('SRC', 'GBL_ADDRESS_DIM') }} AS GBL_ADDRESS_DIM_SHIP_TO
+              ON 1 = 0
+            LEFT JOIN {{ ref('SRC', 'GBL_ADDRESS_DIM') }} AS GBL_ADDRESS_DIM_SOLD_TO
+              ON 1 = 0
+            LEFT JOIN (
+              select coalesce(c.geo_sk, '99999') as geo_sk, a.T_CPRJ
+              from {{ ref('SRC', 'TCISLI235525') }} a
+              LEFT OUTER JOIN {{ ref('SRC', 'TTPPDM600525') }} b on trim(b.T_CPRJ) = trim(a.T_CPRJ)
+              LEFT OUTER JOIN {{ ref('SRC', 'GEOGRAPHY_DIM') }} c on trim(c.BRANCH_CD) = trim(b.T_CREG)
+              where c.source_system_nm = 'SOURCE_SYSTEM_002' AND c.instance_nm = 'INSTANCE_004'
+                and c.CURR_FLG = 'Y' and c.company_cd = '525'
+            ) geo on trim(cisli235.T_CPRJ) = trim(geo.T_CPRJ)
+            LEFT OUTER JOIN {{ ref('SRC', 'GL_ACCOUNT_DIM') }} as GL_ACCOUNT
+              on trim(tfgld106.T_leac) = trim(GL_ACCOUNT.src_account_cd)
+              and GL_ACCOUNT.source_system_nm = 'SOURCE_SYSTEM_002' AND GL_ACCOUNT.instance_nm = 'INSTANCE_004'
+              and GL_ACCOUNT.CURR_FLG = 'Y' and GL_ACCOUNT.ERP_ENTITY_CD = '525'
+            LEFT JOIN {{ ref('SRC', 'ENTITY_DIM') }} entity
+              on trim(cisli205.T_SFCP) = floor(trim(entity.entity_cd))
+              and entity.source_system_nm = 'SOURCE_SYSTEM_002' and entity.instance_nm = 'INSTANCE_004' and entity.CURR_FLG = 'Y'
+            LEFT OUTER JOIN (
+              SELECT DFR_e.target_code AS OS_ENTITY_CD, DFR_e.bos_description AS OS_ENTITY_DSC,
+                DFR_l.bos_description AS OS_PRODUCT_FAMILY_DSC, DFR_l.target_code AS OS_PRODUCT_FAMILY_CD,
+                DFR_c.bos_description AS OS_CONTRACT_TYPE_DSC, DFR_c.target_code AS OS_CONTRACT_TYPE_CD,
+                ttppdm600.T_CPRJ, tsicdb005.T_FAMI
+              FROM {{ ref('SRC', 'TTPPDM600525') }} ttppdm600
+              LEFT OUTER JOIN (
+                SELECT T_PROJ, T_FAMI, T_SSDT, T_SYS, T_DSCA
+                FROM {{ ref('SRC', 'TSICDB005525') }}
+                QUALIFY row_number() over (partition by T_PROJ order by T_TOTS DESC) = 1
+              ) tsicdb005 ON tsicdb005.T_PROJ = ttppdm600.T_CPRJ AND to_date(tsicdb005.T_SSDT) <> '1970-01-01'
+              INNER JOIN {{ ref('SRC', 'DFR_LOOKUP') }} DFR_e
+                ON DFR_e.source_code = TRIM(ttppdm600.T_CREG) AND DFR_e.source_entity_type = '104'
+              LEFT OUTER JOIN {{ ref('SRC', 'DFR_LOOKUP') }} DFR_l
+                ON DFR_l.source_code = TRIM(tsicdb005.T_FAMI) AND DFR_l.source_entity_type = '204'
+              LEFT OUTER JOIN {{ ref('SRC', 'DFR_LOOKUP') }} DFR_c
+                ON 1 = 0
+            ) OS ON TRIM(cisli235.T_CPRJ) = TRIM(OS.T_CPRJ)
+            LEFT OUTER JOIN (
+              SELECT SPLIT_PART(CONTRACT_NBR, '-', 1) CONTRACT_NBR, CONTRACT_SK,
+                ROW_NUMBER() OVER(PARTITION BY SPLIT_PART(CONTRACT_NBR, '-', 1) ORDER BY CONTRACT_SK DESC) RN
+              FROM {{ ref('SRC', 'INST_CONTRACT_DIM') }}
+              QUALIFY RN = 1
+            ) T1 on TRIM(SPLIT_PART(T1.CONTRACT_NBR, '-', 1)) = TRIM(cisli235.T_CPRJ)
+            WHERE coalesce(TTPPDM600.T_CREG, 0) NOT IN ('002')
         name: ERP_DATA
         noLinkRefs: []
   name: ERP_DATA
