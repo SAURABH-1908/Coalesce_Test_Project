@@ -202,16 +202,16 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          SOURCE_SYSTEM_DIM: 928d799e-a8af-4d32-b154-7953f6a87726
+          SOURCE_SYSTEM_DIM: 34a8f8a1-4ed2-490e-af8a-36cbe8567154
         customSQL:
           customSQL: ""
-        dependencies:
+        dependencies: []
+        join:
+          joinCondition: FROM {{ ref_no_link('TARGET', 'SOURCE_SYSTEM_DIM') }} SOURCE_SYSTEM_DIM
+        name: SOURCE_SYSTEM_DIM
+        noLinkRefs:
           - locationName: TARGET
             nodeName: SOURCE_SYSTEM_DIM
-        join:
-          joinCondition: FROM {{ ref('TARGET', 'SOURCE_SYSTEM_DIM') }} SOURCE_SYSTEM_DIM
-        name: SOURCE_SYSTEM_DIM
-        noLinkRefs: []
   name: SOURCE_SYSTEM_DIM
   overrideSQL: false
   schema: ""

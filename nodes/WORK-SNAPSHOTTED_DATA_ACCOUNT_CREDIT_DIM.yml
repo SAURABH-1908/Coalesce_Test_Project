@@ -122,21 +122,21 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          ACCOUNT_CREDIT_DIM: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
+          ACCOUNT_CREDIT_DIM: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
         customSQL:
           customSQL: ""
-        dependencies:
-          - locationName: TARGET
-            nodeName: ACCOUNT_CREDIT_DIM
+        dependencies: []
         join:
           joinCondition: |-
-            FROM {{ ref('TARGET', 'ACCOUNT_CREDIT_DIM') }} ACCOUNT_CREDIT_DIM
+            FROM {{ ref_no_link('TARGET', 'ACCOUNT_CREDIT_DIM') }} ACCOUNT_CREDIT_DIM
             WHERE ACCOUNT_CREDIT_DIM.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_003'
             AND ACCOUNT_CREDIT_DIM.INSTANCE_NM = 'INSTANCE_004'
             AND ACCOUNT_CREDIT_DIM.CURR_FLG = 'Y'
             AND ACCOUNT_CREDIT_DIM.SYS_EXP_TS IS NULL
         name: SNAPSHOTTED_DATA_ACCOUNT_CREDIT_DIM
-        noLinkRefs: []
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: ACCOUNT_CREDIT_DIM
   name: SNAPSHOTTED_DATA_ACCOUNT_CREDIT_DIM
   overrideSQL: false
   schema: ""
