@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 47a54b20-4814-4bad-94dd-b714e23cc684
-name: SNAPSHOT_QUERY
+id: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
+name: SNAPSHOT_QUERY_ACCOUNT_CREDIT_DIM
 operation:
   config:
     insertStrategy: INSERT
@@ -10,7 +10,7 @@ operation:
     truncateBefore: true
   database: ""
   deployEnabled: true
-  description: Snapshot of BAAN V_525 account credit source data joined across TTCCOM100525, TTCCOM112525, TTCMCS064525, SOURCE_SYSTEM_DIM and CUSTOMER_DIM.
+  description: Snapshot of BAAN V_535 account credit source data joined across TTCCOM100535, TTCCOM112535, TTCMCS064535, SOURCE_SYSTEM_DIM and CUSTOMER_DIM.
   isMultisource: false
   locationName: WORK
   materializationType: table
@@ -19,8 +19,8 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-9821269e785c
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f2-e34d02653567
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: VARCHAR
         description: ""
@@ -28,11 +28,11 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CONCAT_WS('~', TRIM(T100.T_BPID), '525', 'SOURCE_SYSTEM_003', 'INSTANCE_004')
+            transform: CONCAT_WS('~', TRIM(T100.T_BPID), '535', 'SOURCE_SYSTEM_003', 'INSTANCE_004')
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-9e67a39f442e
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f2-e530296dd6c2
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: VARCHAR
         description: ""
@@ -43,8 +43,8 @@ operation:
             transform: "'SOURCE_SYSTEM_002'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-a3adba4e0863
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f2-e88dc6dd8a26
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: NUMBER
         description: ""
@@ -55,8 +55,8 @@ operation:
             transform: SD.SOURCE_SYSTEM_SK
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-a73caad3a08e
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f2-ee9de7f25fdd
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: VARCHAR
         description: ""
@@ -67,8 +67,8 @@ operation:
             transform: TRIM(T100.T_BPID)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-a90a238552ec
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f2-f11cc3217ba8
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: VARCHAR
         description: ""
@@ -79,8 +79,8 @@ operation:
             transform: TRIM(T100.T_NAMA)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-ac206eeba641
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f2-f449ab24dda9
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: VARCHAR
         description: ""
@@ -91,8 +91,8 @@ operation:
             transform: TRIM(T100.T_CMID)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-b2dff3061e51
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f2-f9ec625870c3
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: VARCHAR
         description: ""
@@ -103,8 +103,8 @@ operation:
             transform: TRIM(T112.T_CCUR)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-b457e45f4e95
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f2-fec22dd79d4d
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: VARCHAR
         description: ""
@@ -115,8 +115,8 @@ operation:
             transform: CASE WHEN TRIM(T64.T_ACTN) = 1 THEN 'Always hold (Credit)' WHEN TRIM(T64.T_ACTN) = 2 THEN 'Never Credit Hold' WHEN TRIM(T64.T_ACTN) = 3 THEN 'Check Credit' WHEN TRIM(T64.T_ACTN) = 4 THEN 'Always Hold (Overdue Inv)' ELSE NULL END
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-bb867f8ab876
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f3-0377f28a4df2
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: VARCHAR
         description: ""
@@ -127,8 +127,8 @@ operation:
             transform: TRIM(ROUND(T112.T_CRLR, 2))
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-bf0ed1492a70
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f3-061c7ad80ac8
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: VARCHAR
         description: ""
@@ -139,8 +139,8 @@ operation:
             transform: COALESCE(CUD.CUSTOMER_SK, '99999')
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-c05d49eb56a2
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f3-094e73a1bbf4
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: NUMBER
         description: ""
@@ -151,8 +151,8 @@ operation:
             transform: HASH(TRIM(T100.T_BPID), TRIM(T100.T_NAMA), TRIM(T100.T_CMID), TRIM(T112.T_CCUR), TRIM(ROUND(T112.T_CRLR, 2)))
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-c777edb4257c
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f3-0fa888a593d1
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: TIMESTAMP
         description: ""
@@ -163,8 +163,8 @@ operation:
             transform: T100.SNOWFLAKE_INGESTED_TIME
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-c801e3aa6168
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f3-11c08fe20ae7
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: VARCHAR
         description: ""
@@ -175,8 +175,8 @@ operation:
             transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-ccee2896d78e
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f3-15ede1559df6
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: VARCHAR
         description: ""
@@ -187,8 +187,8 @@ operation:
             transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-d2d0450487d3
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f3-1a99658c40ab
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: VARCHAR
         description: ""
@@ -199,8 +199,8 @@ operation:
             transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-d76acae6adbd
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f3-1e506d4f9167
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: VARCHAR
         description: ""
@@ -211,8 +211,8 @@ operation:
             transform: "'Americas'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-dada746fd2c8
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f3-21d6564ab750
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: VARCHAR
         description: ""
@@ -223,8 +223,8 @@ operation:
             transform: "'SOURCE_SYSTEM_003'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06663-5d37-70be-8c89-deb9b23b7032
-          stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
+          columnCounter: 01a07a63-206c-73b1-93f3-2692601fc271
+          stepCounter: 4d4b8f2b-e490-4cf3-8fea-f120eeb94e3d
         config: {}
         dataType: VARCHAR
         description: ""
@@ -240,56 +240,47 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          SD: 928d799e-a8af-4d32-b154-7953f6a87726
-          T100: 5b27c73b-0769-46b8-8265-857c20007df8
-          T112: 9bc57b13-0ac9-4057-946c-a92627f9514d
-          T64: c4ac9752-4715-4f74-9f93-32eab3ead7c1
+          SD: 34a8f8a1-4ed2-490e-af8a-36cbe8567154
+          T100: 879cae06-8720-4ec3-ba3f-f5c75dfc0498
+          T112: 50983f7d-9900-48eb-9899-468a9757bbbb
+          T64: 5be05c61-7d1e-4676-8bf3-658006c08271
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: SRC
-            nodeName: TTCCOM100525
+            nodeName: TTCCOM100535
           - locationName: SRC
-            nodeName: TTCCOM112525
+            nodeName: TTCCOM112535
           - locationName: SRC
-            nodeName: TTCMCS064525
+            nodeName: TTCMCS064535
           - locationName: TARGET
             nodeName: CUSTOMER_DIM
           - locationName: TARGET
             nodeName: SOURCE_SYSTEM_DIM
         join:
           joinCondition: |-
-            FROM {{ ref('SRC', 'TTCCOM100525') }} T100
+            FROM {{ ref('SRC', 'TTCCOM100535') }} T100
 
-            LEFT OUTER JOIN {{ ref('SRC', 'TTCCOM112525') }} T112
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCCOM112535') }} T112
             ON TRIM(T100.T_BPID) = TRIM(T112.T_ITBP)
 
-            LEFT OUTER JOIN {{ ref('SRC', 'TTCMCS064525') }} T64
+            LEFT OUTER JOIN {{ ref('SRC', 'TTCMCS064535') }} T64
             ON TRIM(T112.T_CRAT) = TRIM(T64.T_CRAT)
 
             LEFT OUTER JOIN {{ ref('TARGET', 'SOURCE_SYSTEM_DIM') }} SD
-            ON SD.SOURCE_COMPANY_CD = '525'
+            ON SD.SOURCE_COMPANY_CD = '535'
             AND SD.SOURCE_SYSTEM_CD = 'SOURCE_SYSTEM_002'
             AND SD.SITE_REGION_CD = 'INSTANCE_004'
             AND SD.CURR_FLG = 'Y'
 
             LEFT OUTER JOIN (
-              SELECT CUSTOMER_SK, CUSTOMER_ID, COMPANY_CD
+              SELECT C_CUSTKEY AS CUSTOMER_SK, C_CUSTKEY AS CUSTOMER_ID
               FROM {{ ref('TARGET', 'CUSTOMER_DIM') }}
-              WHERE SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_001'
-              AND INSTANCE_NM = 'INSTANCE_001'
-              AND CURR_FLG = 'Y'
             ) CUD
             ON TRIM(T100.T_BPID) = CUD.CUSTOMER_ID
-            AND CUD.COMPANY_CD = '525'
-
-            QUALIFY ROW_NUMBER() OVER (
-              PARTITION BY CONCAT_WS('~', TRIM(T100.T_BPID), '525', 'SOURCE_SYSTEM_003', 'INSTANCE_004')
-              ORDER BY T112.T_CRLR DESC NULLS LAST
-            ) = 1
-        name: SNAPSHOT_QUERY
+        name: SNAPSHOT_QUERY_ACCOUNT_CREDIT_DIM
         noLinkRefs: []
-  name: SNAPSHOT_QUERY
+  name: SNAPSHOT_QUERY_ACCOUNT_CREDIT_DIM
   overrideSQL: false
   schema: ""
   sqlType: Stage
