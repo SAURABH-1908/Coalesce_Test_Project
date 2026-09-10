@@ -1,0 +1,211 @@
+fileVersion: 1
+id: f5fe3fe0-e45b-424f-bd6c-1c84a56d62c4
+name: STG_TSICDB005525
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Project-level executed/estimated cost and margin amounts derived from TSICDB005525, keyed to the latest change-order sequence from TSIPDM960525. Feeds REVENUE_CONTRACT_FACT.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-9805-7096-9ccd-84399b8dc05c
+          stepCounter: f5fe3fe0-e45b-424f-bd6c-1c84a56d62c4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PROJ_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TS5.T_PROJ)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-9806-732f-a0ed-75499a0f706b
+          stepCounter: f5fe3fe0-e45b-424f-bd6c-1c84a56d62c4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SYS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TS5.T_SYS)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-9806-732f-a0ed-7b4a903e6d08
+          stepCounter: f5fe3fe0-e45b-424f-bd6c-1c84a56d62c4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: T_FAMI
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TS5.T_FAMI
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-9806-732f-a0ed-7f685aa3aa04
+          stepCounter: f5fe3fe0-e45b-424f-bd6c-1c84a56d62c4
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CONTRACT_CHANGE_ORDER_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: FLOOR(TRIM(T960.T_SEQN))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-9806-732f-a0ed-80696407876c
+          stepCounter: f5fe3fe0-e45b-424f-bd6c-1c84a56d62c4
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EXECUTED_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS NUMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-9806-732f-a0ed-86bb9e76e236
+          stepCounter: f5fe3fe0-e45b-424f-bd6c-1c84a56d62c4
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: REVENUE_MTD_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS NUMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-9806-732f-a0ed-8b2af9f9c93c
+          stepCounter: f5fe3fe0-e45b-424f-bd6c-1c84a56d62c4
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: MARGIN_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS NUMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-9806-732f-a0ed-8d19f31a3558
+          stepCounter: f5fe3fe0-e45b-424f-bd6c-1c84a56d62c4
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EST_MATERIAL_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS NUMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-9806-732f-a0ed-91bcfedca407
+          stepCounter: f5fe3fe0-e45b-424f-bd6c-1c84a56d62c4
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EST_LABOR_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS NUMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-9806-732f-a0ed-94712f2bc33e
+          stepCounter: f5fe3fe0-e45b-424f-bd6c-1c84a56d62c4
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EST_SUBCONTRACT_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS NUMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-9806-732f-a0ed-9bd6dd45b246
+          stepCounter: f5fe3fe0-e45b-424f-bd6c-1c84a56d62c4
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EST_OTHER_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS NUMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-9806-732f-a0ed-9e1f82c97f25
+          stepCounter: f5fe3fe0-e45b-424f-bd6c-1c84a56d62c4
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EST_MARGIN_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS NUMBER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-9806-732f-a0ed-a14b261c4111
+          stepCounter: f5fe3fe0-e45b-424f-bd6c-1c84a56d62c4
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACTUAL_CTD_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS NUMBER)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: TSICDB005525
+          - locationName: SRC
+            nodeName: TSIPDM960525
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'TSICDB005525') }} TS5
+
+            LEFT OUTER JOIN (
+                SELECT T_PROJ, T_SYS, MAX(T_SEQN) AS T_SEQN
+                FROM {{ ref('SRC', 'TSIPDM960525') }}
+                GROUP BY 1, 2
+            ) T960
+            ON TRIM(TS5.T_SYS) = TRIM(T960.T_SYS)
+            AND TRIM(TS5.T_PROJ) = TRIM(T960.T_PROJ)
+
+            WHERE TRIM(TS5.T_SYS) <> 'Branch Labor'
+        name: STG_TSICDB005525
+        noLinkRefs: []
+  name: STG_TSICDB005525
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

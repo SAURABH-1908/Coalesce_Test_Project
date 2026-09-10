@@ -1,0 +1,1132 @@
+fileVersion: 1
+id: 85a103df-a6be-447e-9108-67b4ca6a9622
+name: REVENUE_CONTRACT_FACT
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Revenue contract fact built from the insert/update snapshot (STG_SNAPSHOT_QUERY) unioned with delete-detection rows (STG_DELETES), per LOAD_FNL_BAAN_V_525_REVENUE_CONTRACT_FACT.sql.
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6937-7668-9a5a-8fb6e5281e4d
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: false
+        name: REVENUE_CONTRACT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TARGET.SCHEMA_003.REVENUE_CONTRACT_FACT_SEQ.NEXTVAL
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6937-7668-9a5a-90e219c34b36
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: true
+        name: REVENUE_CONTRACT_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"REVENUE_CONTRACT_INTG_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-569e1b752ac9
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: false
+        name: TRANSACTION_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"TRANSACTION_DT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-5a6885fc2bd5
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: REVENUE_PERIOD_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"REVENUE_PERIOD_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-5cb9cdada677
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: CONTRACT_CHANGE_ORDER_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"CONTRACT_CHANGE_ORDER_NBR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-6277a592aa1c
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: ACCOUNT_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"ACCOUNT_NBR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-66053d9ded87
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: LOB_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"LOB_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-68c99fbd5cc2
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: false
+        name: LOB_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"LOB_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-6f897c970096
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: CONTRACT_TYPE_DESC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"CONTRACT_TYPE_DESC\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-72c575ffc2c6
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: CURRENCY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"CURRENCY\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-76488f5aee0f
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"SOURCE_ENTITY_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-7bb5b9b56e0b
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"ENTITY_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-7fbca18a8972
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: false
+        name: ENTITY_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"ENTITY_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-818b180a93c1
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: false
+        name: EMPLOYEE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"EMPLOYEE_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-8470e66e40ad
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: EMPLOYEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"EMPLOYEE_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-8aa5c8bf2e07
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"SOURCE_SYSTEM_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-8f49df45ed8b
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: PROJECT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"PROJECT_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-9125d53c70e3
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: PROJECT_TYPE_DESC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"PROJECT_TYPE_DESC\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-97b46c81f84a
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: PROJECT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"PROJECT_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-98e1167e3389
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: PROJECT_MANGER_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"PROJECT_MANGER_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-9e8fef50b02f
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: PROJECT_MANAGER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"PROJECT_MANAGER_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-a039905c515c
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: CONTRACT_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"CONTRACT_STATUS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-a6f14bfe3bf6
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: CONTRACT_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"CONTRACT_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-ab3bf39eb2ed
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: EXECUTED_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"EXECUTED_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-ae5b9afbdfcc
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: BACKLOG_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"BACKLOG_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-b3bdd8e00abc
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: REVENUE_MTD_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"REVENUE_MTD_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-b70aeae8cb79
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: MATERIAL_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"MATERIAL_COST_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-b845337968c0
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: LABOR_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"LABOR_COST_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-bc91c81919ed
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: SUBCONTRACT_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"SUBCONTRACT_COST_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-c3bfe979b1de
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: OTHER_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"OTHER_COST_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-c695c7841eea
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: TOT_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"TOT_COST_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-caeb4236d191
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: WARRANTY_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"WARRANTY_COST_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-cf82ac08a1b4
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: MARGIN_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"MARGIN_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-d2144c5dbe23
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: EST_MATERIAL_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"EST_MATERIAL_COST_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-d6f205fb8786
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: EST_LABOR_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"EST_LABOR_COST_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-db88c7fdfb5f
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: EST_SUBCONTRACT_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"EST_SUBCONTRACT_COST_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-debc18168125
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: EST_OTHER_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"EST_OTHER_COST_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-e0773d090623
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: EST_TOT_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"EST_TOT_COST_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-e5c43bb91637
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: EST_MARGIN_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"EST_MARGIN_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-e91bf432fc0b
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: DOMAIN_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"DOMAIN_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-eeef0910eabb
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: JOB_TYPE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"JOB_TYPE_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-f26e89f639b8
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: AR_COLLECTED_CTD_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"AR_COLLECTED_CTD_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-f42f88996f9a
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: AR_BILLED_CTD_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"AR_BILLED_CTD_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-f8007ea705c3
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: false
+        name: CONTRACT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"CONTRACT_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46c-fc4e34774b55
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: ACTUAL_CTD_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"ACTUAL_CTD_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-0093c1407644
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: false
+        name: BOOKING_END_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"BOOKING_END_DT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-0763cd863b25
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: ASSOCIATED_ORG_SFDC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"ASSOCIATED_ORG_SFDC_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-0876bf3ee69e
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: false
+        name: FISCAL_PERIOD_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"FISCAL_PERIOD_NBR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-0c9e2fd7d740
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: false
+        name: FISCAL_YEAR_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"FISCAL_YEAR_NBR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-12fdbf9ef688
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: LINE_OF_BUSINESS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"LINE_OF_BUSINESS_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-173507f9c5f3
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        isBusinessKey: false
+        name: REVENUE_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"REVENUE_AMT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-1be5750df2c9
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: false
+        name: GL_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"GL_DT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-1c750beea6da
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: ORDER_TYPE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"ORDER_TYPE_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-201f33dc2b53
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: SFDC_QUOTE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"SFDC_QUOTE_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-245cf1258dff
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: PROJECT_LINE_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"PROJECT_LINE_STATUS_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-2aed0c681202
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: REVENUE_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"REVENUE_TYPE_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-2f340266fda6
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: false
+        name: REV_RECOGN_START_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"REV_RECOGN_START_DT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-3270dcead468
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: false
+        name: REV_RECOGN_END_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"REV_RECOGN_END_DT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-360d9fc821c8
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: false
+        name: CUSTOMER_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"CUSTOMER_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-39563ab303d9
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: false
+        name: GEO_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"GEO_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-3c2fbd3023f5
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: SALES_PERSON_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"SALES_PERSON_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-427d65672d50
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: RESP_SALE_REP2_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"RESP_SALE_REP2_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-4666d1f6bebd
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: false
+        name: CURRENCY_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"CURRENCY_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-4a55da494ca6
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        isBusinessKey: false
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"LAST_UPDATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-4cae0e8bf504
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        isBusinessKey: false
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"CREATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-513b46ffc5cb
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        isBusinessKey: false
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"SYS_EFF_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-54d4744c3b1b
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        isBusinessKey: false
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"SYS_EXP_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-58b1ebea585b
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        isBusinessKey: false
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"INGEST_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-5cfc45183635
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        isBusinessKey: false
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"DL_LAST_UPDATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-624e1a6de4c3
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"CHKSUM_STR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-6730b1ce1ba7
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        isBusinessKey: false
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"LOAD_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-695941c2f434
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        isBusinessKey: false
+        name: DML_ACTION_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"DML_ACTION_TYPE_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-6ed92bed89fb
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"DBT_SCD_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-725a0fc7ebd8
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        isBusinessKey: false
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"CURR_FLG\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-74f4cb1bf11b
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"SOURCE_SYSTEM_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-79099ab7bdb6
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"INSTANCE_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-7fa9f4b89381
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: ROOT_EXECN_PID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"ROOT_EXECN_PID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-8266082c3f85
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: ADF_PIPELINE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"ADF_PIPELINE_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-847e87cb8e8d
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: ADF_TRANSFORMATION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"ADF_TRANSFORMATION_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-8bcbc1e754d6
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: ADF_SCRIPT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"ADF_SCRIPT_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ad6-6938-7392-a46d-8e68742f70ae
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        isBusinessKey: false
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SRC\".\"BUSINESS_SEGMENT_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 98f4c44d-a473-48b4-a3b8-72749a310ea3
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d441c4bf-f272-476c-ad0d-31db2ef0bfc1
+          stepCounter: 85a103df-a6be-447e-9108-67b4ca6a9622
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: STG_DELETES
+          - locationName: WORK
+            nodeName: STG_SNAPSHOT_QUERY
+        join:
+          joinCondition: |-
+            FROM (
+                SELECT DISTINCT * FROM (
+                    SELECT * FROM {{ ref('WORK', 'STG_SNAPSHOT_QUERY') }}
+                    UNION ALL
+                    SELECT * FROM {{ ref('WORK', 'STG_DELETES') }}
+                )
+            ) SRC
+        name: REVENUE_CONTRACT_FACT
+        noLinkRefs: []
+  name: REVENUE_CONTRACT_FACT
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node
