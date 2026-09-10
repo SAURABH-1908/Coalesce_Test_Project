@@ -686,14 +686,18 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          STG: 43c1c3ad-31ad-4bff-b14e-7f92328f63c8
+          STG: c7481bc6-5ecd-4fe3-8e45-2e51d495ef99
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: WORK
+            nodeName: GEOGRAPHY_535_DBT_FINAL
+          - locationName: WORK
             nodeName: GEOGRAPHY_DBT_FINAL
         join:
-          joinCondition: FROM {{ ref('WORK', 'GEOGRAPHY_DBT_FINAL') }} STG
+          joinCondition: |-
+            FROM {{ ref('WORK', 'GEOGRAPHY_535_DBT_FINAL') }} STG
+            --{{ ref('WORK', 'GEOGRAPHY_DBT_FINAL') }}
         name: GEOGRAPHY_DIM
         noLinkRefs: []
   name: GEOGRAPHY_DIM
