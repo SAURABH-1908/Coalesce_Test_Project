@@ -2,6 +2,5 @@ defaultStorageMapping: TARGET
 fileVersion: 1
 locations:
   - SRC
-  - SRC_DUMMY_TGT
   - TARGET
   - WORK

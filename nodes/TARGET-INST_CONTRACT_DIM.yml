@@ -1,0 +1,234 @@
+fileVersion: 1
+id: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+name: INST_CONTRACT_DIM
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Installed contract dimension used for contract surrogate key lookup in the GL Distribution fact load.
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08039-5d20-77dc-b562-b4ecf84fca3d
+          stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: true
+        name: CONTRACT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 35167b8e-7b5c-4f3a-95af-8ecb5a6e5ec4
+                stepCounter: ca72e51c-324c-48a7-982e-522ac95c8d86
+            transform: "\"CONTRACT_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08039-5d20-77dc-b562-b96f71611ac2
+          stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CONTRACT_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c2cd1a58-1b4e-4615-9f29-152e479e3cf4
+                stepCounter: ca72e51c-324c-48a7-982e-522ac95c8d86
+            transform: "\"CONTRACT_NBR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08039-5d20-77dc-b562-bda93ec07478
+          stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08039-5d20-77dc-b562-bda93ec07478
+                stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+            transform: "\"SOURCE_SYSTEM_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08039-5d20-77dc-b562-c07cee7e8ed4
+          stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08039-5d20-77dc-b562-c07cee7e8ed4
+                stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+            transform: "\"INSTANCE_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08039-5d20-77dc-b562-c71d1c8ef238
+          stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08039-5d20-77dc-b562-c71d1c8ef238
+                stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+            transform: "\"CURR_FLG\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08039-5d20-77dc-b562-c9b6e07ae029
+          stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: COUNTRY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08039-5d20-77dc-b562-c9b6e07ae029
+                stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+            transform: "\"COUNTRY_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f308db17-e853-4fdc-8ba4-6ea63dce7ebf
+          stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSurrogateKey: true
+        name: DIM_NODE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 72f274ba-a804-4d07-a445-db7fceed1396
+          stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a5632c8a-92a9-47f1-8c66-055350629caf
+          stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8d5564f2-9979-4263-811e-09290f503154
+          stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f6b79001-f28f-4462-9dec-f46bae68df89
+          stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1405ba2-eee8-4bf8-977b-5dec6691cf83
+          stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f9bc5d6-fa67-489e-a0f0-bd894baea3ca
+          stepCounter: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          INST_CONTRACT_DIM: d94aea47-2117-40c4-a8ad-8c8d69683b3a
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'INST_CONTRACT_DIM') }} INST_CONTRACT_DIM
+        name: INST_CONTRACT_DIM
+        noLinkRefs: []
+  name: INST_CONTRACT_DIM
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

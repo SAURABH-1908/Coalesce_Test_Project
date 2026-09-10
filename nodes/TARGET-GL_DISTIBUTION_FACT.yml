@@ -1,0 +1,934 @@
+fileVersion: 1
+id: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+name: GL_DISTIBUTION_FACT
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: GL Distribution fact table (company 535) loaded via MERGE from the snapshot/deletes union, keyed by GL_DISTR_INTG_ID with sequence-generated GL_DISTR_SK.
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-86c32bb9c7d4
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: GL_DISTR_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "{{ ref('TARGET', 'GL_DISTIBUTION_FACT_SEQ') }}.NEXTVAL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-8adc20b83763
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: true
+        name: GL_DISTR_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.GL_DISTR_INTG_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-8c036fd0c622
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CURRENCY_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.CURRENCY_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-90df8522f8fc
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a227-43bc26231a3b
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"SOURCE_SYSTEM_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-956060c660f8
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: INVOICE_NO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.INVOICE_NO
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-9ae781246368
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CUSTOMER_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.CUSTOMER_NBR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-9c8ed5884460
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: GL_ACCOUNT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a226-f97f30d6ebe7
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"GL_ACCOUNT_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-a34f76d44b1b
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: BRANCH_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.BRANCH_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-a47d298e7056
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: GL_TRANSACTION_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.GL_TRANSACTION_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-ab752d440739
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: GL_TRANSACTION_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.GL_TRANSACTION_DT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-ae1d9e0122cd
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: ACC_PERIOD_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.ACC_PERIOD_YEAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-b307fe08d257
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: GL_PERIOD_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.GL_PERIOD_NBR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-b4537d7c2a19
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: GL_PERIOD_YR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.GL_PERIOD_YR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-b8f9efee7504
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: FISCAL_YEAR_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.FISCAL_YEAR_NBR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-bca07ece32a0
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: COST_CENTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.COST_CENTER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-c286f07dface
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CURRENCY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.CURRENCY_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-c4105f2fb295
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: TRANSACTION_TYPE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.TRANSACTION_TYPE_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-cbb896bc4755
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: LINE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.LINE_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-cd177ba5716d
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ACCOUNTED_CREDIT_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.ACCOUNTED_CREDIT_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-d05313d440b4
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ACCOUNTED_DEBIT_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.ACCOUNTED_DEBIT_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-d7bf234279fc
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: LINE_CREDIT_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.LINE_CREDIT_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-db798e386ff6
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: LINE_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.LINE_STATUS_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-de23e8ca2200
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SHIP_TO_ACC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.SHIP_TO_ACC_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-e348514aef3a
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: BILL_TO_ACC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.BILL_TO_ACC_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-e44cf57661ac
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CUST_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.CUST_STATUS_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-e90d09a29c42
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CONTRACT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.CONTRACT_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-eff6c1753880
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: LEDGER_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.LEDGER_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-f2b7a50a8cc6
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ACCOUNTING_DOC_LINE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.ACCOUNTING_DOC_LINE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-f6bf3b61a909
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ACCOUNTING_DOC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.ACCOUNTING_DOC_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-fade1f2f0573
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: TRANSACTION_REFERENCE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.TRANSACTION_REFERENCE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29a-fcca0630df1c
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.ENTITY_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-01b77da12a96
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: LEDGER_CURRENCY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.LEDGER_CURRENCY_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-0517c739b3f4
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CONTRACT_NBR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.CONTRACT_NBR_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-09fd796fa213
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ENTITY_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.ENTITY_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-0c3069f910f7
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: GL_ACCOUNT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.GL_ACCOUNT_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-11cf9ce4ebcf
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: GL_TRANSACTION_H_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.GL_TRANSACTION_H_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-14622ebfd2e5
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        isBusinessKey: false
+        name: DEBIT_CREDIT_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.DEBIT_CREDIT_FLG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-1845f9b8c0ff
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: LOB_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.LOB_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-1c12b9267a4f
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: GEO_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.GEO_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-226269f2cf51
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: RECURRING_ENTRY_DOC_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.RECURRING_ENTRY_DOC_DT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-25fa1597ebb1
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: POSTING_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.POSTING_DT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-29eabb0f07a5
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: DOCUMENT_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.DOCUMENT_TYPE_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-2ff8eddbf408
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: DOCUMENT_TYPE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.DOCUMENT_TYPE_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-3078eb087f12
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: EMPLOYEE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.EMPLOYEE_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-35223f6f59f0
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: USD_GROSS_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.USD_GROSS_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-39def1aadab8
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: USD_NET_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.USD_NET_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-3caebffdefa2
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a227-5812712c6919
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"BUSINESS_SEGMENT_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-43e028461b57
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        isBusinessKey: false
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a227-4d1c7ea6f078
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"CREATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-4631c36d00b5
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        isBusinessKey: false
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a227-5361823db5f6
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"LAST_UPDATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-4835193dbd4d
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        isBusinessKey: false
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a227-6c4dce117f9c
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"SYS_EFF_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-4df839011f51
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        isBusinessKey: false
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a227-72fcac72bac2
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"SYS_EXP_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-517f8f6cecbb
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        isBusinessKey: false
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a227-4ac3eadf4c4c
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"INGEST_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-570c74dc78f5
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        isBusinessKey: false
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a227-550b465c1104
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"DL_LAST_UPDATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-5be8fb84d469
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a227-44bb890cde28
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"CHKSUM_STR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-5ee75ce42b69
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        isBusinessKey: false
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a227-6a3d1cc01339
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"LOAD_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-63fe323d23cc
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: DML_ACTION_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a226-f1626c4e9c53
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"DML_ACTION_TYPE_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-67c5f03da851
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a227-78a1432bce76
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"DBT_SCD_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-68e969da463f
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a227-740998e3f06d
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"CURR_FLG\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-6e34ba882758
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a227-5c98256fe4fd
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"SOURCE_SYSTEM_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-73bf2bfbf637
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a06b31-0715-720a-a227-60b1fdcf0c61
+                stepCounter: e6ef035a-f7bd-4460-9467-b97cc599b93f
+            transform: "\"INSTANCE_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-77ef220ebb97
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ROOT_EXECN_PID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.ROOT_EXECN_PID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-7aa89554bbfd
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ADF_PIPELINE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.ADF_PIPELINE_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-7ff5ac0860cb
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ADF_TRANSFORMATION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.ADF_TRANSFORMATION_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0803e-e68a-72ed-a29b-83a6c5a41f60
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ADF_SCRIPT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: GL_DBT_FINAL.ADF_SCRIPT_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 24a91ce3-52f0-432f-b7c2-e65ffc59b14b
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b8f7855c-ee48-4817-90f7-924be169c4a6
+          stepCounter: ed698e84-cb79-4baf-9cb9-578c91eb70fe
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isBusinessKey: false
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: DBT_FINAL_535
+        join:
+          joinCondition: FROM {{ ref('WORK', 'DBT_FINAL_535') }} GL_DBT_FINAL
+        name: GL_DISTIBUTION_FACT
+        noLinkRefs: []
+  name: GL_DISTIBUTION_FACT
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node
