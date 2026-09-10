@@ -112,9 +112,9 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 01a06669-82d1-71aa-9ea6-5157aeac7aa6
-                stepCounter: 2ca1da63-7d33-48d7-9b07-00a49bf0b826
-            transform: "\"TARGET_PRIMARY_KEY\""
+              - columnCounter: 01a08106-f425-713d-a21d-312545d21366
+                stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+            transform: ""
     cteString: ""
     description: ""
     destinationName: ""

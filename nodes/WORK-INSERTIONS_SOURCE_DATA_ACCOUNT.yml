@@ -282,7 +282,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-5d37-70be-8c89-9821269e785c
                 stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
-            transform: "\"SOURCE_PRIMARY_KEY\""
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a69-8b40-7737-a0aa-ed4d29e5002e

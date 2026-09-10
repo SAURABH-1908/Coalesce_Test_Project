@@ -283,7 +283,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a06663-5d37-70be-8c89-9821269e785c
                 stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
-            transform: "\"SOURCE_PRIMARY_KEY\""
+            transform: ""
     cteString: ""
     description: ""
     destinationName: ""

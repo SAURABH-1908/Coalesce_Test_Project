@@ -265,14 +265,12 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          STG_CUSTOMER: db4ccf14-cb5e-4f67-b008-1a136ed2a7f9
+          STG_CUSTOMER: 293fd8e5-df47-49be-9e47-7e220129209f
         customSQL:
           customSQL: ""
-        dependencies:
-          - locationName: TARGET
-            nodeName: STG_CUSTOMER
+        dependencies: []
         join:
-          joinCondition: FROM {{ ref('TARGET', 'STG_CUSTOMER') }} STG_CUSTOMER
+          joinCondition: FROM {{ ref('TARGET', 'CUSTOMER_DIM') }} STG_CUSTOMER
         name: CUSTOMER_DIM
         noLinkRefs: []
   name: CUSTOMER_DIM

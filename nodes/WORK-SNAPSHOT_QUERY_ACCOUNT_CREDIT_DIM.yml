@@ -240,7 +240,7 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          SD: 928d799e-a8af-4d32-b154-7953f6a87726
+          SD: 34a8f8a1-4ed2-490e-af8a-36cbe8567154
           T100: 879cae06-8720-4ec3-ba3f-f5c75dfc0498
           T112: 50983f7d-9900-48eb-9899-468a9757bbbb
           T64: 5be05c61-7d1e-4676-8bf3-658006c08271
@@ -274,14 +274,10 @@ operation:
             AND SD.CURR_FLG = 'Y'
 
             LEFT OUTER JOIN (
-              SELECT CUSTOMER_SK, CUSTOMER_ID, COMPANY_CD
+              SELECT C_CUSTKEY AS CUSTOMER_SK, C_CUSTKEY AS CUSTOMER_ID
               FROM {{ ref('TARGET', 'CUSTOMER_DIM') }}
-              WHERE SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_001'
-              AND INSTANCE_NM = 'INSTANCE_001'
-              AND CURR_FLG = 'Y'
             ) CUD
             ON TRIM(T100.T_BPID) = CUD.CUSTOMER_ID
-            AND CUD.COMPANY_CD = '535'
         name: SNAPSHOT_QUERY_ACCOUNT_CREDIT_DIM
         noLinkRefs: []
   name: SNAPSHOT_QUERY_ACCOUNT_CREDIT_DIM
