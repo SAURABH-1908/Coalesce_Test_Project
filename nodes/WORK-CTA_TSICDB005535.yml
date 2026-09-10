@@ -1,0 +1,132 @@
+fileVersion: 1
+id: 1069c322-e792-42ac-bac2-85ccc916eb16
+name: CTA_TSICDB005535
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Deduplicated TSICDB005535 rows, keeping the latest per project/family (T_PROJ, T_FAMI) ordered by T_TOTS desc.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07f94-8110-7112-b13e-1d447a6eaa62
+          stepCounter: 1069c322-e792-42ac-bac2-85ccc916eb16
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: T_PROJ
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 845db9ff-4e3e-41a2-b3c5-70f6758f21c2
+                stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07f94-8110-7112-b13e-2212bf6a2493
+          stepCounter: 1069c322-e792-42ac-bac2-85ccc916eb16
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: T_FAMI
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3e61aa7a-dcc5-46f5-979d-15d32c7d7667
+                stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07f94-8110-7112-b13e-255e98c63b57
+          stepCounter: 1069c322-e792-42ac-bac2-85ccc916eb16
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: T_SSDT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dee52f66-4015-4a19-97fe-f1b58f019f49
+                stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07f94-8110-7112-b13e-2b0db79e6434
+          stepCounter: 1069c322-e792-42ac-bac2-85ccc916eb16
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: T_SYS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 51f618b2-91df-4dca-8a35-4bd223fa8d9c
+                stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07f94-8110-7112-b13e-2f3aa86a8e58
+          stepCounter: 1069c322-e792-42ac-bac2-85ccc916eb16
+        config: {}
+        dataType: VARCHAR(200)
+        description: ""
+        name: T_DSCA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 224e04cc-d4f4-49bc-80b0-8dd001df73bc
+                stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07f94-8110-7112-b13e-3027f719ab32
+          stepCounter: 1069c322-e792-42ac-bac2-85ccc916eb16
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: RN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 845db9ff-4e3e-41a2-b3c5-70f6758f21c2
+                stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+            transform: ROW_NUMBER() OVER (PARTITION BY "TSICDB005535"."T_PROJ", "TSICDB005535"."T_FAMI" ORDER BY "TSICDB005535"."T_TOTS" DESC)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          TSICDB005535: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: TSICDB005535
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'TSICDB005535') }} "TSICDB005535"
+            QUALIFY ROW_NUMBER() OVER (
+              PARTITION BY "TSICDB005535"."T_PROJ", "TSICDB005535"."T_FAMI"
+              ORDER BY "TSICDB005535"."T_TOTS" DESC
+            ) = 1
+        name: CTA_TSICDB005535
+        noLinkRefs: []
+  name: CTA_TSICDB005535
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
