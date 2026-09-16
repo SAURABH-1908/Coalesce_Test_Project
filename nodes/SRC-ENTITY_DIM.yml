@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 2b2036cf-0ec0-4c69-a76d-377f58919f3f
+name: ENTITY_DIM
+operation:
+  database: TESTING_SOURCE
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 31b227a2-8638-42b2-aca3-af61a27341bb
+          stepCounter: 2b2036cf-0ec0-4c69-a76d-377f58919f3f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ENTITY_SK
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 37b849d9-b63f-4e02-9d06-8d155307c0a4
+          stepCounter: 2b2036cf-0ec0-4c69-a76d-377f58919f3f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: ENTITY_CD
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3ba4bd52-ea16-4bb2-87b3-9da1d291dcbf
+          stepCounter: 2b2036cf-0ec0-4c69-a76d-377f58919f3f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a772b954-9533-4f59-a387-7168e661e982
+          stepCounter: 2b2036cf-0ec0-4c69-a76d-377f58919f3f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6aa80f94-2354-4421-85ba-6fed3e747e57
+          stepCounter: 2b2036cf-0ec0-4c69-a76d-377f58919f3f
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: ENTITY_DIM
+  schema: SCHEMA_001
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
