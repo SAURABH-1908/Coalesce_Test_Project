@@ -1,0 +1,17 @@
+fileVersion: 1
+id: "22"
+mappingDefinitions:
+  SRC:
+    database: TESTING_SOURCE
+    schema: SCHEMA_002
+  SRC_DUMMY_TGT:
+    database: TESTING_SOURCE
+    schema: ""
+  TARGET:
+    database: TARGET
+    schema: SCHEMA_003
+  WORK:
+    database: WRK
+    schema: SCHEMA_002
+name: New Environment
+type: Environment

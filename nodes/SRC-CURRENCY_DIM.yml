@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 9e705240-b940-40f2-ae18-dd27e906305e
+name: CURRENCY_DIM
+operation:
+  database: TESTING_SOURCE
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: effcda7e-7c03-4304-b6f2-86f6137a3722
+          stepCounter: 9e705240-b940-40f2-ae18-dd27e906305e
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_CURRENCY_CD
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 881e84fe-ec0e-435a-86af-6e8ee23abe77
+          stepCounter: 9e705240-b940-40f2-ae18-dd27e906305e
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e92df6f-ccb1-43a6-aee9-fb775ef46521
+          stepCounter: 9e705240-b940-40f2-ae18-dd27e906305e
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a0c9f6b7-1446-4694-9c47-e394ae97e74c
+          stepCounter: 9e705240-b940-40f2-ae18-dd27e906305e
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: e3a7dcfa-2d72-441e-9c50-6885d38f7da4
+          stepCounter: 9e705240-b940-40f2-ae18-dd27e906305e
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: CURRENCY_SK
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: CURRENCY_DIM
+  schema: SCHEMA_001
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
