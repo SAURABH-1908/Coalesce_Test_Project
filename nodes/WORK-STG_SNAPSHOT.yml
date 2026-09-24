@@ -1,0 +1,799 @@
+fileVersion: 1
+id: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+name: STG_SNAPSHOT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: "Snapshot CTE: distinct ERP_DATA rows with the HASH-based CHKSUM_STR used for change detection in the GL Distribution fact merge."
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-21ffcfeeaf1f
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GL_DISTR_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.GL_DISTR_INTG_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-24ce899da108
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURRENCY_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.CURRENCY_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-2aa59998a75a
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_NO
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.INVOICE_NO
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-2e33d96bb57c
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.CUSTOMER_NBR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-332b5b18121a
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GL_ACCOUNT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.GL_ACCOUNT_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-378eb730432c
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BRANCH_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.BRANCH_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-386e8b2accd8
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GL_TRANSACTION_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.GL_TRANSACTION_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-3d666d1fb233
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GL_TRANSACTION_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.GL_TRANSACTION_DT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-41e9fa84d5e2
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ACC_PERIOD_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.ACC_PERIOD_YEAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-46f0f1135b29
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GL_PERIOD_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.GL_PERIOD_NBR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-49d4d67ad464
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GL_PERIOD_YR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.GL_PERIOD_YR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-4ed25de5b1f7
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: FISCAL_YEAR_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.FISCAL_YEAR_NBR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-53af7d73f695
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COST_CENTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.COST_CENTER_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-55bc7de7b824
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURRENCY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.CURRENCY_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-583c5336952d
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TRANSACTION_TYPE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.TRANSACTION_TYPE_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-5f66f79aa8fe
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.LINE_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-628a6da5c0de
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNTED_CREDIT_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.ACCOUNTED_CREDIT_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-66099d3629b6
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNTED_DEBIT_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.ACCOUNTED_DEBIT_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-6a01eeb76c64
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINE_CREDIT_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.LINE_CREDIT_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-6f6623e49566
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINE_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.LINE_STATUS_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-7391e7115d97
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SHIP_TO_ACC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.SHIP_TO_ACC_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-7599eb3b515e
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BILL_TO_ACC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.BILL_TO_ACC_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-7868b8b0741f
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUST_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.CUST_STATUS_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-7f4b039f64c1
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTRACT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.CONTRACT_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-82d490f1c5ea
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LEDGER_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.LEDGER_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-84e9c851572e
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNTING_DOC_LINE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.ACCOUNTING_DOC_LINE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-887f28f8d158
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNTING_DOC_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.ACCOUNTING_DOC_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-8fb21b965d5f
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TRANSACTION_REFERENCE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.TRANSACTION_REFERENCE_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-92cfb20e3348
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.ENTITY_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-95f9ae51d5c7
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LEDGER_CURRENCY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.LEDGER_CURRENCY_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-99ed3730e022
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTRACT_NBR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.CONTRACT_NBR_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-9f7daf521ee2
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ENTITY_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.ENTITY_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-a10cf9f606d0
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GL_ACCOUNT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.GL_ACCOUNT_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-a590f1de0e3a
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GL_TRANSACTION_H_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.GL_TRANSACTION_H_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-aaf184eded1a
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR(3)
+        description: ""
+        name: DEBIT_CREDIT_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.DEBIT_CREDIT_FLG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-adfab6e78412
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOB_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.LOB_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-b0277e46c3fa
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GEO_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.GEO_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-b7326eb9e177
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: RECURRING_ENTRY_DOC_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.RECURRING_ENTRY_DOC_DT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-b87424878963
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POSTING_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.POSTING_DT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-bdae2dfce64e
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DOCUMENT_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.DOCUMENT_TYPE_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-c18d5ed27877
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DOCUMENT_TYPE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.DOCUMENT_TYPE_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-c7731b352846
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYEE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.EMPLOYEE_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-c9ce3d8a1deb
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: USD_GROSS_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.USD_GROSS_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-cfc9c4e8403e
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: USD_NET_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.USD_NET_AMT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-d2ea8ac74cbc
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.BUSINESS_SEGMENT_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-d7463c43dcb8
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.SOURCE_SYSTEM_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-d890b23ded8d
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.CREATE_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-dd07113e4f42
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.LAST_UPDATE_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-e237d7a6f827
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.SYS_EFF_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-e64b6baa5233
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.SYS_EXP_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-e87631d74a29
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.INGEST_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-edd58b0431fc
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.DL_LAST_UPDATE_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-f2bc19c151e9
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: HASH(LOWER(TRIM(ERP_DATA.CURRENCY_SK)), LOWER(TRIM(ERP_DATA.SOURCE_SYSTEM_SK)), LOWER(TRIM(ERP_DATA.INVOICE_NO)), LOWER(TRIM(ERP_DATA.CUSTOMER_NBR)), LOWER(TRIM(ERP_DATA.GL_ACCOUNT_SK)), LOWER(TRIM(ERP_DATA.BRANCH_CD)), LOWER(TRIM(ERP_DATA.GL_TRANSACTION_AMT)), LOWER(TRIM(ERP_DATA.GL_TRANSACTION_DT)), LOWER(TRIM(ERP_DATA.ACC_PERIOD_YEAR)), LOWER(TRIM(ERP_DATA.GL_PERIOD_NBR)), LOWER(TRIM(ERP_DATA.GL_PERIOD_YR)), LOWER(TRIM(ERP_DATA.FISCAL_YEAR_NBR)), LOWER(TRIM(ERP_DATA.COST_CENTER_ID)), LOWER(TRIM(ERP_DATA.CURRENCY_CD)), LOWER(TRIM(ERP_DATA.TRANSACTION_TYPE_DSC)), LOWER(TRIM(ERP_DATA.LINE_DSC)), LOWER(TRIM(ERP_DATA.ACCOUNTED_CREDIT_AMT)), LOWER(TRIM(ERP_DATA.ACCOUNTED_DEBIT_AMT)), LOWER(TRIM(ERP_DATA.LINE_CREDIT_AMT)), LOWER(TRIM(ERP_DATA.LINE_STATUS_CD)), LOWER(TRIM(ERP_DATA.SHIP_TO_ACC_ID)), LOWER(TRIM(ERP_DATA.BILL_TO_ACC_ID)), LOWER(TRIM(ERP_DATA.CUST_STATUS_CD)), LOWER(TRIM(ERP_DATA.CONTRACT_SK)), LOWER(TRIM(ERP_DATA.LEDGER_DSC)), LOWER(TRIM(ERP_DATA.ACCOUNTING_DOC_LINE_ID)), LOWER(TRIM(ERP_DATA.ACCOUNTING_DOC_ID)), LOWER(TRIM(ERP_DATA.TRANSACTION_REFERENCE_ID)), LOWER(TRIM(ERP_DATA.ENTITY_CD)), LOWER(TRIM(ERP_DATA.LEDGER_CURRENCY_CD)), LOWER(TRIM(ERP_DATA.CONTRACT_NBR_ID)), LOWER(TRIM(ERP_DATA.ENTITY_SK)), LOWER(TRIM(ERP_DATA.GL_ACCOUNT_CD)), LOWER(TRIM(ERP_DATA.GL_TRANSACTION_H_AMT)), LOWER(TRIM(ERP_DATA.DEBIT_CREDIT_FLG)), LOWER(TRIM(ERP_DATA.LOB_SK)), LOWER(TRIM(ERP_DATA.GEO_SK)), LOWER(TRIM(ERP_DATA.RECURRING_ENTRY_DOC_DT)), LOWER(TRIM(ERP_DATA.POSTING_DT)), LOWER(TRIM(ERP_DATA.DOCUMENT_TYPE_CD)), LOWER(TRIM(ERP_DATA.DOCUMENT_TYPE_DSC)), LOWER(TRIM(ERP_DATA.EMPLOYEE_SK)), LOWER(TRIM(ERP_DATA.USD_GROSS_AMT)), LOWER(TRIM(ERP_DATA.USD_NET_AMT)))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-f432d9719be7
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.LOAD_TS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-fa94a24da859
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ROOT_EXECN_PID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.ROOT_EXECN_PID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a83-fdd2532bb1a2
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DML_ACTION_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.DML_ACTION_TYPE_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a84-008b2a23f4db
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.CURR_FLG
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a84-076740a85ac7
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_PIPELINE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.ADF_PIPELINE_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a84-0bdcf14afee2
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_TRANSFORMATION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.ADF_TRANSFORMATION_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a84-0e4cd4a8bb21
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADF_SCRIPT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.ADF_SCRIPT_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a84-13608aafd499
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.SOURCE_SYSTEM_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a84-177b0e450a3b
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.INSTANCE_NM
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08031-e8b2-75be-9a84-19bd1b42863e
+          stepCounter: 237da2a8-7ba4-40af-86bc-0f654b69c8da
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ERP_DATA.DBT_SCD_ID
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          ERP_DATA: 699e8b43-be34-45fd-a56b-6775a63415d5
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: STG_ERP_DATA
+        join:
+          joinCondition: FROM {{ ref('WORK', 'STG_ERP_DATA') }} ERP_DATA
+        name: STG_SNAPSHOT
+        noLinkRefs: []
+  name: STG_SNAPSHOT
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

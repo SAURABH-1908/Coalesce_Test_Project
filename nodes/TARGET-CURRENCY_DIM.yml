@@ -1,5 +1,5 @@
 fileVersion: 1
-id: a313de21-e096-4a76-b685-21f97b18a44b
+id: c4110f28-2611-4377-957e-6ff129cbe079
 name: CURRENCY_DIM
 operation:
   config:
@@ -8,7 +8,7 @@ operation:
     testsEnabled: true
   database: ""
   deployEnabled: true
-  description: Currency dimension mapping source currency codes to surrogate keys for the GL_DISTIBUTION_FACT load.
+  description: Currency dimension used for currency surrogate key lookup in the GL Distribution fact load.
   isMultisource: false
   locationName: TARGET
   materializationType: table
@@ -17,38 +17,38 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b71-c2a6-77ba-ad42-92d191bf0e08
-          stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
-        config: {}
-        dataType: NUMBER
-        description: ""
-        isBusinessKey: false
-        name: CURRENCY_SK
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 01a06b71-c2a6-77ba-ad42-92d191bf0e08
-                stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
-            transform: "\"CURRENCY_SK\""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b71-c2a6-77ba-ad42-94094112d54c
-          stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
+          columnCounter: 01a08039-4924-76a9-9299-5f5324a3279f
+          stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
         config: {}
         dataType: VARCHAR
         description: ""
         isBusinessKey: true
+        name: CURRENCY_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a08039-4924-76a9-9299-5f5324a3279f
+                stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
+            transform: "\"CURRENCY_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08039-4924-76a9-9299-619ab357ea52
+          stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
         name: SOURCE_CURRENCY_CD
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 01a06b71-c2a6-77ba-ad42-94094112d54c
-                stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
+              - columnCounter: 01a08039-4924-76a9-9299-619ab357ea52
+                stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
             transform: "\"SOURCE_CURRENCY_CD\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b71-c2a6-77ba-ad42-98e9ec3d331a
-          stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
+          columnCounter: 01a08039-4924-76a9-9299-65ea4d66740e
+          stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
         config: {}
         dataType: VARCHAR
         description: ""
@@ -57,13 +57,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 01a06b71-c2a6-77ba-ad42-98e9ec3d331a
-                stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
+              - columnCounter: 01a08039-4924-76a9-9299-65ea4d66740e
+                stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
             transform: "\"SOURCE_SYSTEM_NM\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b71-c2a6-77ba-ad42-9e7f9aadf463
-          stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
+          columnCounter: 01a08039-4924-76a9-9299-6b07470e058f
+          stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
         config: {}
         dataType: VARCHAR
         description: ""
@@ -72,13 +72,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 01a06b71-c2a6-77ba-ad42-9e7f9aadf463
-                stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
+              - columnCounter: 01a08039-4924-76a9-9299-6b07470e058f
+                stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
             transform: "\"INSTANCE_NM\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b71-c2a6-77ba-ad42-a373ed945cb9
-          stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
+          columnCounter: 01a08039-4924-76a9-9299-6c4b8e4171d8
+          stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
         config: {}
         dataType: VARCHAR
         description: ""
@@ -87,13 +87,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 01a06b71-c2a6-77ba-ad42-a373ed945cb9
-                stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
+              - columnCounter: 01a08039-4924-76a9-9299-6c4b8e4171d8
+                stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
             transform: "\"CURR_FLG\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 6e96547f-2edd-4795-9202-04354954120a
-          stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
+          columnCounter: 8615cb73-d736-4bae-a8c2-ffb8582f1855
+          stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
         config: {}
         dataType: NUMBER
         defaultValue: ""
@@ -107,8 +107,8 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: be762f57-b0b7-4336-b247-8907f3308aa6
-          stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
+          columnCounter: 2e89125a-0e24-44e7-9bb7-f931460c67f6
+          stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
         config: {}
         dataType: NUMBER
         defaultValue: ""
@@ -122,8 +122,8 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 1f5d1c3e-2a9a-452b-81b5-cfa700efe0aa
-          stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
+          columnCounter: 6e92b952-3cc7-4785-b2ee-40299f56159a
+          stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
         config: {}
         dataType: VARCHAR
         defaultValue: ""
@@ -137,8 +137,8 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 3668446b-fa27-4b2e-9759-1d91884ab86a
-          stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
+          columnCounter: c25717fa-5adb-48d9-94ab-985f02146123
+          stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
@@ -152,8 +152,8 @@ operation:
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: a6d1a9d5-5ce1-4797-87b4-735f2bad5832
-          stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
+          columnCounter: 4538cba8-f5e3-43ab-b18d-1341c7f0a7a2
+          stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
@@ -167,8 +167,8 @@ operation:
             transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: ee9727e0-6dba-41b7-b2d2-9fed59633cc0
-          stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
+          columnCounter: 368b1fd9-491d-4401-a975-31f3ab08a937
+          stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
@@ -182,8 +182,8 @@ operation:
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 7b4763f1-d458-4970-9dda-abffa8763901
-          stepCounter: a313de21-e096-4a76-b685-21f97b18a44b
+          columnCounter: d5bef1fa-b628-4bf2-8e9f-dbc8dd8cf957
+          stepCounter: c4110f28-2611-4377-957e-6ff129cbe079
         config: {}
         dataType: TIMESTAMP
         defaultValue: ""
@@ -202,12 +202,12 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          CURRENCY_DIM: a313de21-e096-4a76-b685-21f97b18a44b
+          CURRENCY_DIM: c4110f28-2611-4377-957e-6ff129cbe079
         customSQL:
           customSQL: ""
         dependencies: []
         join:
-          joinCondition: FROM {{ ref('TARGET', 'CURRENCY_DIM') }} AS CURRENCY_DIM
+          joinCondition: FROM {{ ref('TARGET', 'CURRENCY_DIM') }} CURRENCY_DIM
         name: CURRENCY_DIM
         noLinkRefs: []
   name: CURRENCY_DIM
