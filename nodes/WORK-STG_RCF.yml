@@ -88,7 +88,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM(T600.T_CCUR)
+            transform: CAST(NULL AS VARCHAR)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07abb-8a5d-73d5-9fb3-6b8609a7a56d
@@ -100,7 +100,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM(FLOOR(T600.T_NCMP))
+            transform: CAST(NULL AS VARCHAR)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07abb-8a5d-73d5-9fb3-6e5bfff4effd
@@ -112,7 +112,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM(FLOOR(T600.T_NCMP))
+            transform: CAST(NULL AS VARCHAR)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07abb-8a5d-73d5-9fb3-71ab5c92fccd
@@ -220,7 +220,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CD.CONTRACT_STATUS
+            transform: CAST(NULL AS VARCHAR)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07abb-8a5d-73d5-9fb3-96ad2825878c
@@ -472,7 +472,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: T600.T_FDDT
+            transform: CAST(NULL AS DATE)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07abb-8a5d-73d5-9fb3-ebe3e38eb19c
@@ -532,7 +532,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM(FLOOR(T600.T_PSTS))
+            transform: CAST(NULL AS VARCHAR)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07abb-8a5d-73d5-9fb3-fc635941f9a8
@@ -544,7 +544,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM(T600.T_STDT::DATE)
+            transform: CAST(NULL AS DATE)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07abb-8a5d-73d5-9fb4-01fbb27c9241
@@ -556,7 +556,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM(T600.T_FDDT::DATE)
+            transform: CAST(NULL AS DATE)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07abb-8a5d-73d5-9fb4-047623d0c8c8
@@ -616,7 +616,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: COALESCE(CUD.CUSTOMER_SK,'99999')
+            transform: COALESCE(TO_VARCHAR(CUD.DIM_NODE_KEY),'99999')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07abb-8a5d-73d5-9fb4-1b0a4588b669
@@ -780,18 +780,18 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          CUD: 481ec2d9-b643-430c-8e03-71ffe3c2f0a3
+          CUD: 293fd8e5-df47-49be-9e47-7e220129209f
           C_DIM: 7e25e97c-ae46-4e74-95e3-4067037de6b1
           ED: c6a6a561-8c09-445d-93ef-2a5c1a2ea496
-          EMP_DIM: dae93bb8-797e-49d0-a7d4-97f901b4bc56
+          EMP_DIM: 29944d48-7951-43bd-9aa1-f847831bee66
           GD: 24b736d1-7443-427f-8415-704dd7d36018
-          LOB: bce8d2f5-5ea6-4579-a84a-346dbf4e1b0c
-          SD: 5913a350-2990-4a9f-a82d-7b2bdef2576e
+          LOB: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
+          SD: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
           T001: f32c9fa5-f185-47d2-ac08-4fb74b38fb6a
           T235: 9e569015-f075-4861-9df1-882f95c203b4
           T441: aa015677-743c-4bd8-a655-69c42d035e65
           T52: 72eed8c1-de24-4765-99ae-e75d225f53e4
-          T600: 59b746f0-dfad-4fee-bc67-b0e08f5695f3
+          T600: 7d473915-ed4a-4e26-85a1-a42546b84abc
           T65: 7d0ddebb-d0d3-474b-93d3-440f12944964
           T740: 8f6b35ba-8695-48df-8dbf-25ccc4909648
           TS2: 2dca72fb-e0a0-43f5-be12-c425a5d4c0ed
@@ -870,14 +870,13 @@ operation:
                 ON TRIM(TS2.T_SALR) = TRIM(T001.T_EMNO)
 
                 LEFT OUTER JOIN {{ ref('TARGET', 'LINE_OF_BUSINESS_DIM') }} LOB
-                ON TRIM(FLOOR(T600.T_NCMP)) = LOB.ERP_ENTITY_CD
+                ON CAST(NULL AS VARCHAR) = LOB.ERP_ENTITY_CD
                 AND LOB.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_002' AND LOB.INSTANCE_NM = 'INSTANCE_004'
                 AND LOB.CURR_FLG = 'Y'
 
                 LEFT OUTER JOIN (
-                    SELECT * FROM {{ ref('TARGET', 'INST_CONTRACT_DIM') }}
-                    WHERE SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_001' AND INSTANCE_NM = 'INSTANCE_001'
-                    AND CURR_FLG = 'Y' AND INTERCOMPANY_CD = '525'
+                    SELECT CONTRACT_SK, CONTRACT_NBR
+                    FROM {{ ref('TARGET', 'INST_CONTRACT_DIM') }}
                 ) CD
                 ON CONCAT_WS('-', TRIM(T600.T_CPRJ), NVL(TRIM(TS5.T_FAMI), '')) = TRIM(CD.CONTRACT_NBR)
 
@@ -887,7 +886,7 @@ operation:
                 AND GD.CURR_FLG = 'Y' AND GD.COMPANY_CD = '525'
 
                 LEFT OUTER JOIN {{ ref('TARGET', 'ENTITY_DIM') }} ED
-                ON TRIM(T600.T_NCMP) = ED.ENTITY_CD
+                ON CAST(NULL AS VARCHAR) = ED.ENTITY_CD
                 AND ED.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_002' AND ED.INSTANCE_NM = 'INSTANCE_004'
                 AND ED.CURR_FLG = 'Y'
 
@@ -897,12 +896,10 @@ operation:
                 AND SD.CURR_FLG = 'Y'
 
                 LEFT OUTER JOIN {{ ref('TARGET', 'CUSTOMER_DIM') }} CUD
-                ON TRIM(T740.T_OFBP) = CUD.CUSTOMER_NUMBER
-                AND CUD.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_001' AND CUD.INSTANCE_NM = 'INSTANCE_001'
-                AND CUD.CURR_FLG = 'Y' AND CUD.COMPANY_CD = '525'
+                ON TRIM(T740.T_OFBP) = TO_VARCHAR(CUD.C_CUSTKEY)
 
                 LEFT OUTER JOIN {{ ref('TARGET', 'CURRENCY_DIM') }} C_DIM
-                ON TRIM(T600.T_CCUR) = C_DIM.SOURCE_CURRENCY_CD
+                ON CAST(NULL AS VARCHAR) = C_DIM.SOURCE_CURRENCY_CD
                 AND C_DIM.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_005' AND C_DIM.INSTANCE_NM = 'INSTANCE_002' AND C_DIM.CURR_FLG = 'Y'
 
                 LEFT OUTER JOIN {{ ref('TARGET', 'EMPLOYEE_DIM') }} EMP_DIM
