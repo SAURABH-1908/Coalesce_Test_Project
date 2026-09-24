@@ -1,0 +1,382 @@
+fileVersion: 1
+id: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+name: GL_SNAPSHOT_QUERY_535
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Snapshot of BAAN V_535 GL account source data joined across TTFGLD008535, aggregated TTFGLD009535 cost centers and SOURCE_SYSTEM_DIM.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-a03b7384e841
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CONCAT_WS('~', COALESCE(TRIM(TFGLD008.T_LEAC), ''), '535', 'INSTANCE_004', 'SOURCE_SYSTEM_003')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-a698cb206c09
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SRC_ACCOUNT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TFGLD008.T_LEAC)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-abbbf760cd43
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SRC_ACCOUNT_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TFGLD008.T_DESC)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-adfda72491de
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TFGLD008.T_LEAC)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-b02d9310d394
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TFGLD008.T_DESC)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-b465072db7d8
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_TYPE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CASE WHEN TO_DECIMAL(TFGLD008.T_ATYP) = 1 THEN 'Balance Sheet' WHEN TO_DECIMAL(TFGLD008.T_ATYP) = 2 THEN 'Profit & Loss Account' WHEN TO_DECIMAL(TFGLD008.T_ATYP) = 3 THEN 'Inter company' WHEN TO_DECIMAL(TFGLD008.T_ATYP) = 4 THEN 'Text' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-bb1b1cb1fd99
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ENABLED_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CASE WHEN TO_DECIMAL(TFGLD008.T_BLOC) = 2 OR TO_DECIMAL(TFGLD008.T_BLOC) = 3 THEN 'N' ELSE 'Y' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-bfa1af887af6
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REVENUE_COST_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-c1551541d87c
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ERP_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'535'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-c6bd4817d50c
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: THIRD_PARTY_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "NULL"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-ca88581057c0
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COST_CENTER_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TFGLD009.COST_CENTER_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-cca6ab4b3f4f
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESS_UNIT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'FIRE'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-d02610807b2a
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DEBIT_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CASE WHEN TO_DECIMAL(TFGLD008.T_DBCR) = 1 THEN 'Y' WHEN TO_DECIMAL(TFGLD008.T_DBCR) = 2 THEN 'N' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-d57ec3c7387f
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TFGLD008.T_ATYP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-d91dc9092b0f
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PARENT_ACCOUNT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TFGLD008.T_PLAC)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-dca90db1a1d1
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(TFGLD008.T_BLOC)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-e3fa011aa9f4
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: STATUS_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CASE WHEN TO_DECIMAL(TFGLD008.T_BLOC) = 1 THEN 'Free' WHEN TO_DECIMAL(TFGLD008.T_BLOC) = 2 THEN 'Blocked for Manual Inputs' WHEN TO_DECIMAL(TFGLD008.T_BLOC) = 3 THEN 'Blocked for all purposes' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-e4e8026630cd
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE(SD.SOURCE_SYSTEM_SK, '99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-e9f2c2890de5
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: HASH(TRIM(LOWER(TFGLD008.T_LEAC)), TRIM(LOWER(TFGLD008.T_DESC)), TRIM(LOWER(TFGLD008.T_ATYP)), TRIM(LOWER(TFGLD008.T_BLOC)), TRIM(LOWER(TFGLD008.T_DBCR)), TRIM(LOWER(TFGLD008.T_PLAC)), TFGLD009.COST_CENTER_CD, TRIM(LOWER(SD.SOURCE_SYSTEM_SK)))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-ed835efb4175
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TFGLD008.SNOWFLAKE_INGESTED_TIME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-f27d848d409e
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-f45c96e51fb2
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-f910c351ed2c
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958a-fca12a72db98
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Americas'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958b-008034cd77b6
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'SOURCE_SYSTEM_003'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08014-1571-71ee-958b-04d586afbf46
+          stepCounter: 5c3d2a34-b751-4a6a-8fe8-dd3ac5b60ccb
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'INSTANCE_004'"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          SD: 395af002-aec7-4616-a82b-e0a4f053159c
+          TFGLD008: 168d81f9-f2dd-4283-94c9-00944a7a7e07
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: SOURCE_SYSTEM_DIM
+          - locationName: SRC
+            nodeName: TTFGLD009535
+          - locationName: WORK
+            nodeName: GL_TFGLD008535
+        join:
+          joinCondition: |-
+            FROM {{ ref('WORK', 'GL_TFGLD008535') }} TFGLD008
+
+            LEFT OUTER JOIN (
+              SELECT DISTINCT
+                LISTAGG(CONCAT_WS('-', TRIM(T_FDIM), TRIM(T_UDIM)), ',') AS COST_CENTER_CD,
+                T_LEAC
+              FROM {{ ref('SRC', 'TTFGLD009535') }}
+              WHERE TRIM(T_DTYP) = '1.0000000000'
+              GROUP BY T_LEAC
+            ) TFGLD009
+            ON TRIM(TFGLD008.T_LEAC) = TRIM(TFGLD009.T_LEAC)
+
+            LEFT OUTER JOIN {{ ref('SRC', 'SOURCE_SYSTEM_DIM') }} SD
+            ON SD.SOURCE_SYSTEM_CD = 'SOURCE_SYSTEM_003'
+            AND SD.SITE_REGION_CD = 'INSTANCE_004'
+            AND SD.CURR_FLG = 'Y'
+            AND TRIM(SD.SOURCE_COMPANY_CD) = TRIM(TFGLD008.COUNTRY_CD)
+
+            QUALIFY ROW_NUMBER() OVER (
+              PARTITION BY CONCAT_WS('~', COALESCE(TRIM(TFGLD008.T_LEAC), ''), '535', 'INSTANCE_004', 'SOURCE_SYSTEM_003')
+              ORDER BY TFGLD008.T_LEAC
+            ) = 1
+        name: GL_SNAPSHOT_QUERY_535
+        noLinkRefs: []
+  name: GL_SNAPSHOT_QUERY_535
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
