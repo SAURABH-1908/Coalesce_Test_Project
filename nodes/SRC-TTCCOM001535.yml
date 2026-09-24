@@ -1,6 +1,6 @@
 fileVersion: 1
-id: fb9b7d32-dd1c-4776-96e3-8a2d8d70d089
-name: CUSTOMER_DIM
+id: 83fccab6-cb8b-41e6-bdcc-8fe07e04fb9d
+name: TTCCOM001535
 operation:
   database: ""
   deployEnabled: true
@@ -13,32 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: fbf3a31b-d9ee-4d12-9d31-4525b434e46d
-          stepCounter: fb9b7d32-dd1c-4776-96e3-8a2d8d70d089
-        config: {}
-        dataType: NUMBER(38,0)
-        defaultValue: ""
-        description: ""
-        name: CUSTOMER_SK
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 6fbf8863-7c5d-4223-beca-60ec7f0ab610
-          stepCounter: fb9b7d32-dd1c-4776-96e3-8a2d8d70d089
+          columnCounter: 2f0f741d-425d-4fd8-a582-32b549047753
+          stepCounter: 83fccab6-cb8b-41e6-bdcc-8fe07e04fb9d
         config: {}
         dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: CUSTOMER_ID
+        name: T_EMNO
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +32,51 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 436257d5-32a9-445d-afb6-d8a791847ffb
-          stepCounter: fb9b7d32-dd1c-4776-96e3-8a2d8d70d089
+          columnCounter: 2166ba60-99d8-4a62-873f-3f3f6c9b55d8
+          stepCounter: 83fccab6-cb8b-41e6-bdcc-8fe07e04fb9d
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: T_INFO
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ebccbdff-fe12-49f5-8d88-f8f5064719d1
+          stepCounter: 83fccab6-cb8b-41e6-bdcc-8fe07e04fb9d
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: T_NAMA
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c4def6c1-0999-4afa-9f2e-918f01578272
+          stepCounter: 83fccab6-cb8b-41e6-bdcc-8fe07e04fb9d
         config: {}
         dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: COMPANY_CD
+        name: T_SDTE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +89,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 6d2d53da-3324-4101-a1db-8a8e05b9199f
-          stepCounter: fb9b7d32-dd1c-4776-96e3-8a2d8d70d089
+          columnCounter: 369cf8af-4a44-412b-8c7d-6c426e1662ed
+          stepCounter: 83fccab6-cb8b-41e6-bdcc-8fe07e04fb9d
         config: {}
-        dataType: VARCHAR(100)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_NM
+        name: T_EDTE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -84,45 +103,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 642c966f-cdd7-44b7-8b6e-4dfc0de93a06
-          stepCounter: fb9b7d32-dd1c-4776-96e3-8a2d8d70d089
-        config: {}
-        dataType: VARCHAR(100)
-        defaultValue: ""
-        description: ""
-        name: INSTANCE_NM
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: ab7be9ba-d790-440e-b618-4e8ccb8bc0fd
-          stepCounter: fb9b7d32-dd1c-4776-96e3-8a2d8d70d089
-        config: {}
-        dataType: VARCHAR(1)
-        defaultValue: ""
-        description: ""
-        name: CURR_FLG
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-  name: CUSTOMER_DIM
+  name: TTCCOM001535
   schema: ""
   sqlType: Source
   type: sourceInput

@@ -1,5 +1,5 @@
 fileVersion: 1
-id: 43e70a2e-d428-4b8c-bfb3-69c91d097609
+id: 11b0e3db-f213-4dce-ad5a-843aaf4a04b7
 name: TTCCOM130535
 operation:
   database: ""
@@ -13,184 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 6ae46cfd-a612-4f9b-b4ee-58087d7d795c
-          stepCounter: 43e70a2e-d428-4b8c-bfb3-69c91d097609
+          columnCounter: cf680a89-ef9b-436f-9605-4606987eff0b
+          stepCounter: 11b0e3db-f213-4dce-ad5a-843aaf4a04b7
         config: {}
-        dataType: VARCHAR(50)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
         name: T_CADR
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: c97940ee-3317-4f6c-80d0-54d727dfb4e7
-          stepCounter: 43e70a2e-d428-4b8c-bfb3-69c91d097609
-        config: {}
-        dataType: VARCHAR(50)
-        defaultValue: ""
-        description: ""
-        name: T_CSTE
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 41539aa8-3f64-455c-b1a7-b54112221e30
-          stepCounter: 43e70a2e-d428-4b8c-bfb3-69c91d097609
-        config: {}
-        dataType: VARCHAR(20)
-        defaultValue: ""
-        description: ""
-        name: T_PSTC
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: bde2b4f2-b5a4-49bb-844b-36654bd6be80
-          stepCounter: 43e70a2e-d428-4b8c-bfb3-69c91d097609
-        config: {}
-        dataType: VARCHAR(50)
-        defaultValue: ""
-        description: ""
-        name: T_CCTY
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 1301800e-83b6-4702-80ae-1ca8da0c517c
-          stepCounter: 43e70a2e-d428-4b8c-bfb3-69c91d097609
-        config: {}
-        dataType: VARCHAR(200)
-        defaultValue: ""
-        description: ""
-        name: T_NAME
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 7601aca3-bfc5-4812-8c58-cb8de5876893
-          stepCounter: 43e70a2e-d428-4b8c-bfb3-69c91d097609
-        config: {}
-        dataType: VARCHAR(500)
-        defaultValue: ""
-        description: ""
-        name: T_NAMC
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 528b22f8-3e35-47c8-9ac5-a2b5e41d88db
-          stepCounter: 43e70a2e-d428-4b8c-bfb3-69c91d097609
-        config: {}
-        dataType: VARCHAR(100)
-        defaultValue: ""
-        description: ""
-        name: T_HONO
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: e4b8108b-8191-472b-9ab0-c369467e5ba5
-          stepCounter: 43e70a2e-d428-4b8c-bfb3-69c91d097609
-        config: {}
-        dataType: VARCHAR(500)
-        defaultValue: ""
-        description: ""
-        name: T_NAMD
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: ae0993de-1874-4e66-bc20-c2780f81f51c
-          stepCounter: 43e70a2e-d428-4b8c-bfb3-69c91d097609
-        config: {}
-        dataType: VARCHAR(100)
-        defaultValue: ""
-        description: ""
-        name: T_POBN
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: e6f3810d-b3df-47a5-945c-dcc41a6f01ed
-          stepCounter: 43e70a2e-d428-4b8c-bfb3-69c91d097609
-        config: {}
-        dataType: TIMESTAMP_NTZ(9)
-        defaultValue: ""
-        description: ""
-        name: SNOWFLAKE_INGESTED_TIME
         nullable: true
         primaryKey: false
         sourceColumnReferences:

@@ -1,0 +1,99 @@
+fileVersion: 1
+id: 35e6e67c-3b48-4166-9c5f-2aa3c3936b7a
+name: STG_TTCCOM112525
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Pass-through stage for source TTCCOM112525.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-f51c-714d-9d9b-ded715628cf4
+          stepCounter: 35e6e67c-3b48-4166-9c5f-2aa3c3936b7a
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: T_ITBP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 925d6314-4cdf-489c-b9c8-c3083d12d374
+                stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-f51c-714d-9d9b-e27aec65c21f
+          stepCounter: 35e6e67c-3b48-4166-9c5f-2aa3c3936b7a
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        name: T_CCUR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fa474f74-4c19-4bbd-b571-a1277a8abc6e
+                stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-f51c-714d-9d9b-e41accfd6c36
+          stepCounter: 35e6e67c-3b48-4166-9c5f-2aa3c3936b7a
+        config: {}
+        dataType: NUMBER(18,2)
+        description: ""
+        name: T_CRLR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3fc3cd9d-fec8-4471-8e4e-84ccab86ee49
+                stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a066e5-f51c-714d-9d9b-e94dc906627d
+          stepCounter: 35e6e67c-3b48-4166-9c5f-2aa3c3936b7a
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: T_CRAT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 21612aca-d9f8-4b5d-8b2c-796cc366452b
+                stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          TTCCOM112525: b9cb9644-21d6-42ac-875e-489d6c2accfb
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: TTCCOM112525
+        join:
+          joinCondition: FROM {{ ref('SRC', 'TTCCOM112525') }} TTCCOM112525
+        name: STG_TTCCOM112525
+        noLinkRefs: []
+  name: STG_TTCCOM112525
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
