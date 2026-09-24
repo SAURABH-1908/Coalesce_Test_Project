@@ -1,0 +1,15 @@
+fileVersion: 1
+id: 0a0a34d9-008c-4fd3-97ab-830f94f350ce
+name: LOAD_FNL_BAAN_V_525_LINE_OF_BUSINESS_DIM
+steps:
+  - 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
+  - 00a02641-d462-465d-b89e-27e544585c1e
+  - 2c729337-7fc3-49fa-aad0-c54607c96661
+  - 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+  - 6af0041c-99ca-4dea-b8d2-946a47aa8937
+  - 928d799e-a8af-4d32-b154-7953f6a87726
+  - aa71596b-151b-4840-8ca0-4be4478262a6
+  - ac8a190f-b7d5-4b43-a6bd-e3311308647e
+  - c0f29846-ed79-4a03-ba97-9e46d6928f66
+  - e7316a2c-ddb0-4f36-8264-dbb29c3664a3
+type: Subgraph

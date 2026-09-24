@@ -1,0 +1,130 @@
+fileVersion: 1
+id: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+name: TSICDB005535
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 845db9ff-4e3e-41a2-b3c5-70f6758f21c2
+          stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_PROJ
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3e61aa7a-dcc5-46f5-979d-15d32c7d7667
+          stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_FAMI
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: dee52f66-4015-4a19-97fe-f1b58f019f49
+          stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: T_SSDT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 51f618b2-91df-4dca-8a35-4bd223fa8d9c
+          stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_SYS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 224e04cc-d4f4-49bc-80b0-8dd001df73bc
+          stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_DSCA
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e41441f-a9e2-4bc0-9780-b1dafb7bf250
+          stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: T_TOTS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TSICDB005535
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
