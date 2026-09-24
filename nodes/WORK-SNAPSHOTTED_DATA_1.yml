@@ -1,0 +1,131 @@
+fileVersion: 1
+id: 0119705a-3247-4d72-8a18-e17bccad0926
+name: SNAPSHOTTED_DATA_1
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Latest current records from the EMPLOYEE_DIM final table for this source system/instance, used as the merge target snapshot.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-53a6-7132-a769-2815a6237320
+          stepCounter: 0119705a-3247-4d72-8a18-e17bccad0926
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYEE_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"EMPLOYEE_DIM\".\"EMPLOYEE_INTG_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-53a6-7132-a769-2cf43db3e5ba
+          stepCounter: 0119705a-3247-4d72-8a18-e17bccad0926
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EMPLOYEE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"EMPLOYEE_DIM\".\"EMPLOYEE_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-53a6-7132-a769-3059e780dd26
+          stepCounter: 0119705a-3247-4d72-8a18-e17bccad0926
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"EMPLOYEE_DIM\".\"CHKSUM_STR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-53a6-7132-a769-362f1d2ebaf1
+          stepCounter: 0119705a-3247-4d72-8a18-e17bccad0926
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"EMPLOYEE_DIM\".\"LOAD_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-53a6-7132-a769-394b6b5275c6
+          stepCounter: 0119705a-3247-4d72-8a18-e17bccad0926
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"EMPLOYEE_DIM\".\"SYS_EFF_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-53a6-7132-a769-3d3e22f0b40b
+          stepCounter: 0119705a-3247-4d72-8a18-e17bccad0926
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"EMPLOYEE_DIM\".\"DBT_SCD_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-53a6-7132-a769-41ce1fcb17ec
+          stepCounter: 0119705a-3247-4d72-8a18-e17bccad0926
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TARGET_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"EMPLOYEE_DIM\".\"EMPLOYEE_INTG_ID\""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: |-
+            FROM {{ ref_no_link('TARGET', 'EMPLOYEE_DIM') }} EMPLOYEE_DIM
+            WHERE EMPLOYEE_DIM.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_003'
+            AND EMPLOYEE_DIM.INSTANCE_NM = 'INSTANCE_004'
+            AND EMPLOYEE_DIM.CURR_FLG = 'Y'
+            AND EMPLOYEE_DIM.SYS_EXP_TS IS NULL
+        name: SNAPSHOTTED_DATA_1
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: EMPLOYEE_DIM
+  name: SNAPSHOTTED_DATA_1
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

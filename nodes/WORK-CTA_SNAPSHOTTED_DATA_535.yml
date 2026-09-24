@@ -1,0 +1,131 @@
+fileVersion: 1
+id: 6ce545d6-0b99-4afe-bcd5-a6c47d1a8756
+name: CTA_SNAPSHOTTED_DATA_535
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Latest current records from the CONTRACT_TO_ADDRESS_BRIDGE final table for this source system/instance, used as the merge target snapshot.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07f94-cfbf-738a-abc8-03b23f357d16
+          stepCounter: 6ce545d6-0b99-4afe-bcd5-a6c47d1a8756
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: CONTRACT_TO_ADDRESS_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"BRIDGE\".\"CONTRACT_TO_ADDRESS_INTG_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07f94-cfbf-738a-abc8-044b1596009c
+          stepCounter: 6ce545d6-0b99-4afe-bcd5-a6c47d1a8756
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CONTRACT_TO_ADDRESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"BRIDGE\".\"CONTRACT_TO_ADDRESS_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07f94-cfbf-738a-abc8-0ba4f4b6b73c
+          stepCounter: 6ce545d6-0b99-4afe-bcd5-a6c47d1a8756
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"BRIDGE\".\"CHKSUM_STR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07f94-cfc0-755d-8294-13279054b357
+          stepCounter: 6ce545d6-0b99-4afe-bcd5-a6c47d1a8756
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"BRIDGE\".\"LOAD_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07f94-cfc0-755d-8294-15847d406e77
+          stepCounter: 6ce545d6-0b99-4afe-bcd5-a6c47d1a8756
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"BRIDGE\".\"SYS_EFF_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07f94-cfc0-755d-8294-1aad81166495
+          stepCounter: 6ce545d6-0b99-4afe-bcd5-a6c47d1a8756
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"BRIDGE\".\"DBT_SCD_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07f94-cfc0-755d-8294-1ff23edca1f3
+          stepCounter: 6ce545d6-0b99-4afe-bcd5-a6c47d1a8756
+        config: {}
+        dataType: VARCHAR(500)
+        description: ""
+        name: TARGET_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"BRIDGE\".\"CONTRACT_TO_ADDRESS_INTG_ID\""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: |-
+            FROM {{ ref_no_link('TARGET', 'CONTRACT_TO_ADDRESS_BRIDGE') }} BRIDGE
+            WHERE BRIDGE.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_003'
+            AND BRIDGE.INSTANCE_NM = 'INSTANCE_004'
+            AND BRIDGE.CURR_FLG = 'Y'
+            AND BRIDGE.SYS_EXP_TS IS NULL
+        name: CTA_SNAPSHOTTED_DATA_535
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: CONTRACT_TO_ADDRESS_BRIDGE
+  name: CTA_SNAPSHOTTED_DATA_535
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

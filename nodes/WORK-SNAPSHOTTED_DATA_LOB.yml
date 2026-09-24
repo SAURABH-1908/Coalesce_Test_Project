@@ -1,0 +1,132 @@
+fileVersion: 1
+id: ac8a190f-b7d5-4b43-a6bd-e3311308647e
+name: SNAPSHOTTED_DATA_LOB
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Latest current records from the LINE_OF_BUSINESS_DIM final table for this source system/instance, used as the merge target snapshot.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-c306-744b-94da-0c13be8250a4
+          stepCounter: ac8a190f-b7d5-4b43-a6bd-e3311308647e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINE_OF_BUSINESS_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LINE_OF_BUSINESS_DIM\".\"LINE_OF_BUSINESS_INTG_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-c306-744b-94da-124f66fbba42
+          stepCounter: ac8a190f-b7d5-4b43-a6bd-e3311308647e
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: LINE_OF_BUSINESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LINE_OF_BUSINESS_DIM\".\"LINE_OF_BUSINESS_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-c306-744b-94da-1402f785128c
+          stepCounter: ac8a190f-b7d5-4b43-a6bd-e3311308647e
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LINE_OF_BUSINESS_DIM\".\"CHKSUM_STR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-c306-744b-94da-1835ab0e7c95
+          stepCounter: ac8a190f-b7d5-4b43-a6bd-e3311308647e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LINE_OF_BUSINESS_DIM\".\"LOAD_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-c306-744b-94da-1fc51259442b
+          stepCounter: ac8a190f-b7d5-4b43-a6bd-e3311308647e
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LINE_OF_BUSINESS_DIM\".\"SYS_EFF_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-c306-744b-94da-235e9281479b
+          stepCounter: ac8a190f-b7d5-4b43-a6bd-e3311308647e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LINE_OF_BUSINESS_DIM\".\"DBT_SCD_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a42-c306-744b-94da-242d5d5400fb
+          stepCounter: ac8a190f-b7d5-4b43-a6bd-e3311308647e
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TARGET_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LINE_OF_BUSINESS_DIM\".\"LINE_OF_BUSINESS_INTG_ID\""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          LINE_OF_BUSINESS_DIM: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: |-
+            FROM {{ ref_no_link('TARGET', 'LINE_OF_BUSINESS_DIM') }} LINE_OF_BUSINESS_DIM
+            WHERE LINE_OF_BUSINESS_DIM.SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_003'
+            AND LINE_OF_BUSINESS_DIM.INSTANCE_NM = 'INSTANCE_004'
+            AND LINE_OF_BUSINESS_DIM.CURR_FLG = 'Y'
+            AND LINE_OF_BUSINESS_DIM.SYS_EXP_TS IS NULL
+        name: SNAPSHOTTED_DATA_LOB
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: LINE_OF_BUSINESS_DIM
+  name: SNAPSHOTTED_DATA_LOB
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
