@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
-name: ACCOUNT_CREDIT_DIM
+id: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
+name: LINE_OF_BUSINESS_DIM
 operation:
   config:
     postSQL: ""
@@ -8,7 +8,7 @@ operation:
     testsEnabled: true
   database: ""
   deployEnabled: true
-  description: Account credit dimension for BAAN V_525, loaded via SCD merge of insert/update/delete action rows.
+  description: Line of business dimension for BAAN V_525, loaded via SCD merge of insert/update/delete action rows.
   isMultisource: false
   locationName: TARGET
   materializationType: table
@@ -17,47 +17,86 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-2f4e94747a34
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37d-dbaee1dec70e
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: NUMBER
         description: ""
         isBusinessKey: false
-        name: ACCOUNT_CREDIT_SK
+        name: LINE_OF_BUSINESS_SK
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TO_NUMBER("LOAD_FNL"."ACCOUNT_CREDIT_SK")
+            transform: TO_NUMBER("LOAD_FNL"."LINE_OF_BUSINESS_SK")
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-312545d21366
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37d-dd2808445cc5
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
         isBusinessKey: true
-        name: ACCOUNT_CREDIT_INTG_ID
+        name: LINE_OF_BUSINESS_INTG_ID
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "\"LOAD_FNL\".\"ACCOUNT_CREDIT_INTG_ID\""
+            transform: "\"LOAD_FNL\".\"LINE_OF_BUSINESS_INTG_ID\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-363159b3aab6
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37d-e151bb354492
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
         isBusinessKey: false
-        name: SOURCE_SYSTEM_CD
+        name: SOURCE_LINE_OF_BUSINESS_CD
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "\"LOAD_FNL\".\"SOURCE_SYSTEM_CD\""
+            transform: "\"LOAD_FNL\".\"SOURCE_LINE_OF_BUSINESS_CD\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-3ab86a1ad03b
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37d-e73f600dc4cf
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: LINE_OF_BUSINESS_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"LINE_OF_BUSINESS_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-bf8e-7308-b37d-e950a30da7ea
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: LINE_OF_BUSINESS_TYPE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"LINE_OF_BUSINESS_TYPE_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-bf8e-7308-b37d-ef7e01429005
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: ERP_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"ERP_ENTITY_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-bf8e-7308-b37d-f23789978a0e
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: NUMBER
         description: ""
@@ -69,99 +108,8 @@ operation:
             transform: "\"LOAD_FNL\".\"SOURCE_SYSTEM_SK\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-3cf1c3971ab9
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        isBusinessKey: false
-        name: ACCOUNT_CD
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: "\"LOAD_FNL\".\"ACCOUNT_CD\""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-412a3a48c511
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        isBusinessKey: false
-        name: ACCOUNT_NM
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: "\"LOAD_FNL\".\"ACCOUNT_NM\""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-444c8ade6fa6
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        isBusinessKey: false
-        name: GLOBAL_DUNS_NBR_TXT
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: "\"LOAD_FNL\".\"GLOBAL_DUNS_NBR_TXT\""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-4b4d3a0e3552
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        isBusinessKey: false
-        name: CURRENCY_CD
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: "\"LOAD_FNL\".\"CURRENCY_CD\""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-4c328cb1130b
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        isBusinessKey: false
-        name: CREDIT_LIMIT_LC_NBR
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: "\"LOAD_FNL\".\"CREDIT_LIMIT_LC_NBR\""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-5170cad050ad
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        isBusinessKey: false
-        name: CREDIT_STATUS_CD
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: "\"LOAD_FNL\".\"CREDIT_STATUS_CD\""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-55560287323d
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        isBusinessKey: false
-        name: CUSTOMER_SK
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: "\"LOAD_FNL\".\"CUSTOMER_SK\""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-5985d03d88ac
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37d-f4e962040bef
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
@@ -173,8 +121,8 @@ operation:
             transform: "\"LOAD_FNL\".\"CREATE_TS\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-5ed63fe02c29
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37d-fb7259c26216
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
@@ -186,8 +134,8 @@ operation:
             transform: "\"LOAD_FNL\".\"LAST_UPDATE_TS\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-6012b9bdff1e
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37d-ffe353fe91f9
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: TIMESTAMP
         description: ""
@@ -199,8 +147,8 @@ operation:
             transform: "\"LOAD_FNL\".\"SYS_EFF_TS\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-67be393bb726
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37e-02d7c8c5aa4c
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
@@ -212,8 +160,8 @@ operation:
             transform: "\"LOAD_FNL\".\"SYS_EXP_TS\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-6ac1843289e7
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37e-05c3f38c6a56
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: TIMESTAMP
         description: ""
@@ -225,8 +173,8 @@ operation:
             transform: "\"LOAD_FNL\".\"INGEST_TS\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-6dfe1cbe8301
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37e-0aeceb7844a4
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
@@ -238,8 +186,8 @@ operation:
             transform: "\"LOAD_FNL\".\"DL_LAST_UPDATE_TS\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-7134a2390b9c
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37e-0e9562bc01ed
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: NUMBER
         description: ""
@@ -251,8 +199,8 @@ operation:
             transform: "\"LOAD_FNL\".\"CHKSUM_STR\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-746f62935202
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37e-12923537d49f
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
@@ -264,8 +212,8 @@ operation:
             transform: "\"LOAD_FNL\".\"LOAD_TS\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-79d423273c8e
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37e-15813ff4e1ff
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
@@ -277,8 +225,8 @@ operation:
             transform: "\"LOAD_FNL\".\"DML_ACTION_TYPE_CD\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-7d2cbbd3be37
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37e-1b12d252c494
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
@@ -290,8 +238,8 @@ operation:
             transform: "\"LOAD_FNL\".\"DBT_SCD_ID\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-823919c0d47a
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37e-1f7225dccc2b
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
@@ -303,8 +251,8 @@ operation:
             transform: "\"LOAD_FNL\".\"CURR_FLG\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-8753f290293a
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37e-2345aee0e1fb
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
@@ -316,8 +264,8 @@ operation:
             transform: "\"LOAD_FNL\".\"SOURCE_SYSTEM_NM\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-8b181b2a8f98
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37e-26041c6ace19
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
@@ -329,8 +277,8 @@ operation:
             transform: "\"LOAD_FNL\".\"INSTANCE_NM\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-8ec76af0df50
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37e-2815591e524d
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
@@ -342,8 +290,8 @@ operation:
             transform: "'${adf_pipeline_nm}'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-90500d590514
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37e-2cbb878e0179
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
@@ -355,8 +303,8 @@ operation:
             transform: "'${adf_datafactory_nm}'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-9518a61765b6
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37e-3031b796d6bf
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
@@ -365,11 +313,11 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "'otc-finance/NA/BAAN_V_525/LOAD_FNL_BAAN_V_525_ACCOUNT_CREDIT_DIM.sql'"
+            transform: "'otc-finance/NA/BAAN_V_525/LOAD_FNL_BAAN_V_525_LINE_OF_BUSINESS_DIM.sql'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-980f86db8253
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37e-36a3683753f5
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
@@ -381,8 +329,8 @@ operation:
             transform: "\"LOAD_FNL\".\"BUSINESS_SEGMENT_NM\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-9d41af97a9ba
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 01a07a44-bf8e-7308-b37e-3aa819a87678
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
         description: ""
@@ -394,51 +342,59 @@ operation:
             transform: "NULL"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-a337eac99313
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 66ef6ea8-88d4-4129-9137-c628a0e1f923
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: NUMBER
+        defaultValue: ""
         description: ""
         isBusinessKey: false
+        isSurrogateKey: true
         name: DIM_NODE_KEY
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "NULL"
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-a6d7cc520d6b
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 836d4f0e-b2ef-4f3b-a1a0-4091bc115ac7
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: NUMBER
+        defaultValue: ""
         description: ""
         isBusinessKey: false
+        isSystemVersion: true
         name: SYSTEM_VERSION
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "NULL"
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-aa85f378f2a0
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: bcdb6677-964b-4aef-ab6d-2639a7369c0a
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: VARCHAR
+        defaultValue: ""
         description: ""
         isBusinessKey: false
+        isSystemCurrentFlag: true
         name: SYSTEM_CURRENT_FLAG
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "NULL"
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-afb0c68a8737
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 8ba60231-c8e6-4cef-9c8e-0879f5e46280
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: TIMESTAMP
+        defaultValue: ""
         description: ""
         isBusinessKey: false
+        isSystemStartDate: true
         name: SYSTEM_START_DATE
         nullable: true
         sourceColumnReferences:
@@ -446,12 +402,14 @@ operation:
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-b26b9716cc68
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 1b88dc9d-c296-4b31-9ef3-ae1ec5043f4a
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: TIMESTAMP
+        defaultValue: ""
         description: ""
         isBusinessKey: false
+        isSystemEndDate: true
         name: SYSTEM_END_DATE
         nullable: true
         sourceColumnReferences:
@@ -459,12 +417,14 @@ operation:
             transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-b790ac343f41
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 8e7d316f-5c0d-4e24-8f38-f715c46aea56
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: TIMESTAMP
+        defaultValue: ""
         description: ""
         isBusinessKey: false
+        isSystemCreateDate: true
         name: SYSTEM_CREATE_DATE
         nullable: true
         sourceColumnReferences:
@@ -472,12 +432,14 @@ operation:
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a08106-f425-713d-a21d-bb5d774aa821
-          stepCounter: 4c24a6e4-1e79-4095-a01c-263d23c8ad87
+          columnCounter: 0b97f92e-16ce-4237-8e06-f53527f33ce8
+          stepCounter: 0098f236-3a7c-44f0-b7ef-2ea4dfcd3153
         config: {}
         dataType: TIMESTAMP
+        defaultValue: ""
         description: ""
         isBusinessKey: false
+        isSystemUpdateDate: true
         name: SYSTEM_UPDATE_DATE
         nullable: true
         sourceColumnReferences:
@@ -489,19 +451,19 @@ operation:
     enabledColumnTestIDs: []
     materializationOption: ""
     sourceMapping:
-      - aliases: {}
+      - aliases:
+          LOAD_FNL: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: WORK
-            nodeName: DBT_FINAL_ACCOUNT
+            nodeName: DBT_FINAL_LOB
         join:
-          joinCondition: |-
-            FROM {{ ref('WORK', 'DBT_FINAL_ACCOUNT') }} LOAD_FNL
-            WHERE LOAD_FNL.DML_ACTION_TYPE_CD = 'I'
-        name: ACCOUNT_CREDIT_DIM
+          joinCondition: |
+            FROM {{ ref('WORK', 'DBT_FINAL_LOB') }} LOAD_FNL
+        name: LINE_OF_BUSINESS_DIM
         noLinkRefs: []
-  name: ACCOUNT_CREDIT_DIM
+  name: LINE_OF_BUSINESS_DIM
   overrideSQL: false
   schema: ""
   sqlType: Dimension

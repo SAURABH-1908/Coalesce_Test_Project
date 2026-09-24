@@ -1,11 +1,11 @@
 fileVersion: 1
-id: b9cb9644-21d6-42ac-875e-489d6c2accfb
-name: TTCCOM112525
+id: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
+name: SOURCE_SYSTEM_DIM
 operation:
   database: ""
   deployEnabled: true
   description: ""
-  locationName: SRC
+  locationName: TARGET
   metadata:
     columns:
       - acceptedValues:
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 925d6314-4cdf-489c-b9c8-c3083d12d374
-          stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
+          columnCounter: 7cb033fc-5b75-49a7-8c12-16946ee8852e
+          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
         config: {}
-        dataType: VARCHAR(50)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_ITBP
+        name: SOURCE_SYSTEM_SK
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: fa474f74-4c19-4bbd-b571-a1277a8abc6e
-          stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
+          columnCounter: 623502bd-ef99-4a5a-9f8c-358fd00ca461
+          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
         config: {}
-        dataType: VARCHAR(10)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_CCUR
+        name: SOURCE_SYSTEM_CD
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 3fc3cd9d-fec8-4471-8e4e-84ccab86ee49
-          stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
+          columnCounter: aefa5814-5db9-4cca-b18a-bda1a3390413
+          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
         config: {}
-        dataType: NUMBER(18,2)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_CRLR
+        name: SITE_REGION_CD
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 21612aca-d9f8-4b5d-8b2c-796cc366452b
-          stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
+          columnCounter: 7d8eb6a6-ae5c-4f9c-8eae-7507cb419ba8
+          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
         config: {}
-        dataType: VARCHAR(50)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_CRAT
+        name: SOURCE_COMPANY_CD
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -84,7 +84,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: TTCCOM112525
+  name: SOURCE_SYSTEM_DIM
   schema: ""
   sqlType: Source
   type: sourceInput

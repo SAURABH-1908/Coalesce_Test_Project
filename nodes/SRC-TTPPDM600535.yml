@@ -1,6 +1,6 @@
 fileVersion: 1
-id: b9cb9644-21d6-42ac-875e-489d6c2accfb
-name: TTCCOM112525
+id: 6ccbe67e-1529-4856-9019-d20d2e0a6e71
+name: TTPPDM600535
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 925d6314-4cdf-489c-b9c8-c3083d12d374
-          stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
+          columnCounter: 5f28f114-a985-4740-81b1-93436da6e7a4
+          stepCounter: 6ccbe67e-1529-4856-9019-d20d2e0a6e71
         config: {}
-        dataType: VARCHAR(50)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_ITBP
+        name: T_PADR
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: fa474f74-4c19-4bbd-b571-a1277a8abc6e
-          stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
+          columnCounter: 437a65a8-a0cb-4193-a0c6-9e1e6e425929
+          stepCounter: 6ccbe67e-1529-4856-9019-d20d2e0a6e71
         config: {}
-        dataType: VARCHAR(10)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_CCUR
+        name: T_CPRJ
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 3fc3cd9d-fec8-4471-8e4e-84ccab86ee49
-          stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
+          columnCounter: dcc5dfd5-bbda-4a78-8ef3-08d1c7416052
+          stepCounter: 6ccbe67e-1529-4856-9019-d20d2e0a6e71
         config: {}
-        dataType: NUMBER(18,2)
+        dataType: TIMESTAMP_NTZ(9)
         defaultValue: ""
         description: ""
-        name: T_CRLR
+        name: SNOWFLAKE_INGESTED_TIME
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -65,26 +65,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 21612aca-d9f8-4b5d-8b2c-796cc366452b
-          stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
-        config: {}
-        dataType: VARCHAR(50)
-        defaultValue: ""
-        description: ""
-        name: T_CRAT
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-  name: TTCCOM112525
+  name: TTPPDM600535
   schema: ""
   sqlType: Source
   type: sourceInput

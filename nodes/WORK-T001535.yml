@@ -1,0 +1,171 @@
+fileVersion: 1
+id: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+name: T001535
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Base BAAN V_535 employee source rows from TTCCOM001535 joined to SOURCE_SYSTEM_DIM for the source system surrogate key.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-34a1-716c-91d3-736bda14ee99
+          stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYEE_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CONCAT_WS('~', COALESCE(TRIM("A"."T_EMNO"), ''), '535', 'SOURCE_SYSTEM_002', 'INSTANCE_004')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-34a1-716c-91d3-7691a1e0032c
+          stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("A"."T_EMNO")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-34a1-716c-91d3-794879044dfd
+          stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OFFICIAL_EMAIL_TXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("A"."T_INFO")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-34a1-716c-91d3-7f64f477bb96
+          stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COALESCE("B"."SOURCE_SYSTEM_SK", '99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-34a1-716c-91d3-827ef1a3c8a3
+          stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYEE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("A"."T_NAMA")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-34a1-716c-91d3-8691bad0c6ab
+          stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UTILIZATION_START_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("A"."T_SDTE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-34a1-716c-91d3-89df4915e9c7
+          stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UTILIZATION_END_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("A"."T_EDTE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-34a1-716c-91d3-8db98878a9e6
+          stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: START_DATE_IN_CURRENT_JOB_CODE_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("A"."T_SDTE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-34a1-716c-91d3-918f5662bf54
+          stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: END_DATE_IN_CURRENT_FUNCTION_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("A"."T_EDTE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08062-34a1-716c-91d3-941829a15f1a
+          stepCounter: 58bc2c66-7a93-4b4b-9edf-fe7cf2f280cc
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ERP_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'535'"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: SOURCE_SYSTEM_DIM
+          - locationName: SRC
+            nodeName: TTCCOM001535
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'TTCCOM001535') }} A
+
+            LEFT JOIN {{ ref('SRC', 'SOURCE_SYSTEM_DIM') }} B
+            ON B.SOURCE_COMPANY_CD = '535'
+            AND B.SOURCE_SYSTEM_CD = 'SOURCE_SYSTEM_002'
+            AND B.SITE_REGION_CD = 'INSTANCE_004'
+            AND B.CURR_FLG = 'Y'
+        name: T001535
+        noLinkRefs: []
+  name: T001535
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,6 +1,6 @@
 fileVersion: 1
-id: b9cb9644-21d6-42ac-875e-489d6c2accfb
-name: TTCCOM112525
+id: fe68cee9-03a8-4f62-b511-9fb4a0437b3c
+name: TTCCOM110525
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 925d6314-4cdf-489c-b9c8-c3083d12d374
-          stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
+          columnCounter: a8506371-daa4-4608-82a0-354ada76ef07
+          stepCounter: fe68cee9-03a8-4f62-b511-9fb4a0437b3c
         config: {}
-        dataType: VARCHAR(50)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_ITBP
+        name: T_CADR
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: fa474f74-4c19-4bbd-b571-a1277a8abc6e
-          stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
+          columnCounter: feb4db10-9761-4a87-8588-e7fbbad296ce
+          stepCounter: fe68cee9-03a8-4f62-b511-9fb4a0437b3c
         config: {}
-        dataType: VARCHAR(10)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_CCUR
+        name: T_CREG
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 3fc3cd9d-fec8-4471-8e4e-84ccab86ee49
-          stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
+          columnCounter: 25ab6dcb-bb5c-45ab-b266-063ecf65136a
+          stepCounter: fe68cee9-03a8-4f62-b511-9fb4a0437b3c
         config: {}
-        dataType: NUMBER(18,2)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_CRLR
+        name: T_OFBP
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -65,26 +65,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 21612aca-d9f8-4b5d-8b2c-796cc366452b
-          stepCounter: b9cb9644-21d6-42ac-875e-489d6c2accfb
-        config: {}
-        dataType: VARCHAR(50)
-        defaultValue: ""
-        description: ""
-        name: T_CRAT
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-  name: TTCCOM112525
+  name: TTCCOM110525
   schema: ""
   sqlType: Source
   type: sourceInput
