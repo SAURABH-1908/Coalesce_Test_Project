@@ -1,5 +1,5 @@
 fileVersion: 1
-id: a81e0da4-906b-4d86-a0af-ab53edd5fc01
+id: 7705bfd3-cadf-4221-bc4d-e9a3e23026ce
 name: TTCCOM121535
 operation:
   database: ""
@@ -13,8 +13,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: b5a3f943-8321-4393-b3e3-f2a2d2eae31c
-          stepCounter: a81e0da4-906b-4d86-a0af-ab53edd5fc01
+          columnCounter: d5348c75-967b-4177-9701-d4f04a4d8239
+          stepCounter: 7705bfd3-cadf-4221-bc4d-e9a3e23026ce
         config: {}
         dataType: VARCHAR(50)
         defaultValue: ""

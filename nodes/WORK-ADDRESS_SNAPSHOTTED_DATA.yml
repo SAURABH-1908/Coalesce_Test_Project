@@ -66,7 +66,7 @@ operation:
           - columnReferences:
               - columnCounter: 23693968-78e1-4568-b2a3-bee6e16c6531
                 stepCounter: 6306db80-1423-4714-add0-3cefe56abf1b
-            transform: GBL_ADDRESS_DIM.a
+            transform: GBL_ADDRESS_DIM.ADDRESS_SK
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07fe6-6dff-718c-af2c-8a67ce29209b
@@ -104,7 +104,7 @@ operation:
           - columnReferences:
               - columnCounter: d64af7cf-67c3-423e-ba49-01d2524fcf1c
                 stepCounter: 6306db80-1423-4714-add0-3cefe56abf1b
-            transform: ""
+            transform: GBL_ADDRESS_DIM.CURR_FLG
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07fe6-6dff-718c-af2c-94c44d95e49c
@@ -142,15 +142,13 @@ operation:
         dependencies: []
         join:
           joinCondition: |-
-            FROM {{ ref_no_link('TARGET', 'GBL_ADDRESS_DIM') }} GBL_ADDRESS_DIM
+            FROM {{ ref('TARGET', 'GBL_ADDRESS_DIM') }} GBL_ADDRESS_DIM
             WHERE SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_003'
               AND INSTANCE_NM = 'INSTANCE_004'
               AND CURR_FLG = 'Y'
               AND SYS_EXP_TS IS NULL
         name: ADDRESS_SNAPSHOTTED_DATA
-        noLinkRefs:
-          - locationName: TARGET
-            nodeName: GBL_ADDRESS_DIM
+        noLinkRefs: []
   name: ADDRESS_SNAPSHOTTED_DATA
   overrideSQL: false
   schema: ""

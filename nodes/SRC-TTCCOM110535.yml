@@ -1,5 +1,5 @@
 fileVersion: 1
-id: d8b15236-4394-46cb-8efb-a6a72394e3f2
+id: b09165b3-25d9-4110-affd-7430a3bde368
 name: TTCCOM110535
 operation:
   database: ""
@@ -13,8 +13,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: fadca9d4-9824-4275-a199-fbc5e98887d4
-          stepCounter: d8b15236-4394-46cb-8efb-a6a72394e3f2
+          columnCounter: 59e670de-8084-4266-90b9-73c35cde53a1
+          stepCounter: b09165b3-25d9-4110-affd-7430a3bde368
         config: {}
         dataType: VARCHAR(50)
         defaultValue: ""
@@ -32,8 +32,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 652a828c-3c2a-4388-bb0a-c9f704de59c5
-          stepCounter: d8b15236-4394-46cb-8efb-a6a72394e3f2
+          columnCounter: bec4c1b4-41c8-4d00-8794-bee644b96654
+          stepCounter: b09165b3-25d9-4110-affd-7430a3bde368
         config: {}
         dataType: VARCHAR(50)
         defaultValue: ""
@@ -51,10 +51,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9c51ea18-7b55-4788-a369-c45af8c99b13
-          stepCounter: d8b15236-4394-46cb-8efb-a6a72394e3f2
+          columnCounter: c0480c37-6a33-45ee-bb3a-715dc8bd4ab1
+          stepCounter: b09165b3-25d9-4110-affd-7430a3bde368
         config: {}
-        dataType: VARCHAR(50)
+        dataType: VARCHAR(100)
         defaultValue: ""
         description: ""
         name: T_OFBP

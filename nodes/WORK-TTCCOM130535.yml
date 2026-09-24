@@ -30,7 +30,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a07fd9-cbef-7796-9e33-4ee3be2a2967
                 stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
-            transform: ""
+            transform: TTCCOM130535."T_CADR"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07fd9-cbef-7796-9e33-512a1b59e9c5
@@ -44,7 +44,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a07fd9-cbef-7796-9e33-512a1b59e9c5
                 stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
-            transform: ""
+            transform: TTCCOM130535."T_CSTE"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07fd9-cbef-7796-9e33-57dd2d582eab
@@ -58,7 +58,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a07fd9-cbef-7796-9e33-57dd2d582eab
                 stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
-            transform: ""
+            transform: TTCCOM130535."T_PSTC"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07fd9-cbef-7796-9e33-5a2292ac8560
@@ -72,7 +72,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a07fd9-cbef-7796-9e33-5a2292ac8560
                 stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
-            transform: ""
+            transform: TTCCOM130535."T_CCTY"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07fd9-cbef-7796-9e33-5cbf246e2ef3
@@ -86,7 +86,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a07fd9-cbef-7796-9e33-5cbf246e2ef3
                 stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
-            transform: ""
+            transform: TTCCOM130535."T_NAME"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07fd9-cbef-7796-9e33-6374abfe9ad8
@@ -100,7 +100,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a07fd9-cbef-7796-9e33-6374abfe9ad8
                 stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
-            transform: ""
+            transform: TTCCOM130535."T_NAMC"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07fd9-cbef-7796-9e33-674ba53cd463
@@ -114,7 +114,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a07fd9-cbef-7796-9e33-674ba53cd463
                 stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
-            transform: ""
+            transform: TTCCOM130535."T_HONO"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07fd9-cbef-7796-9e33-6b2d00151a30
@@ -128,7 +128,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a07fd9-cbef-7796-9e33-6b2d00151a30
                 stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
-            transform: ""
+            transform: TTCCOM130535."T_NAMD"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07fd9-cbef-7796-9e33-6d171802093b
@@ -142,7 +142,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a07fd9-cbef-7796-9e33-6d171802093b
                 stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
-            transform: ""
+            transform: TTCCOM130535."T_POBN"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07fd9-cbef-7796-9e33-73d27c2aea63
@@ -168,7 +168,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a07fd9-cbef-7796-9e33-76d266f3e368
                 stepCounter: 9e59ee67-5eb5-4b64-bf2b-7836b60b5439
-            transform: ""
+            transform: TTCCOM130535."SNOWFLAKE_INGESTED_TIME"
     cteString: ""
     description: ""
     destinationName: ""

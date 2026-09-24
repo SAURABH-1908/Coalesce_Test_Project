@@ -1,5 +1,5 @@
 fileVersion: 1
-id: b62533e9-98b6-4633-890d-4f21f99dcacb
+id: 395aba4c-409b-47ac-9eb0-b04c6cc7d898
 name: TTCCOM111535
 operation:
   database: ""
@@ -13,8 +13,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 38e33770-73b0-446b-a23a-0215bed94fa7
-          stepCounter: b62533e9-98b6-4633-890d-4f21f99dcacb
+          columnCounter: 5559d6c8-a0f5-4762-90c7-596df4f88da5
+          stepCounter: 395aba4c-409b-47ac-9eb0-b04c6cc7d898
         config: {}
         dataType: VARCHAR(50)
         defaultValue: ""
@@ -32,10 +32,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 62e91d6c-6aef-4734-841f-224e18d9dae0
-          stepCounter: b62533e9-98b6-4633-890d-4f21f99dcacb
+          columnCounter: 8c34e69c-59db-4486-b5a5-b09a3172de54
+          stepCounter: 395aba4c-409b-47ac-9eb0-b04c6cc7d898
         config: {}
-        dataType: VARCHAR(50)
+        dataType: VARCHAR(100)
         defaultValue: ""
         description: ""
         name: T_STBP

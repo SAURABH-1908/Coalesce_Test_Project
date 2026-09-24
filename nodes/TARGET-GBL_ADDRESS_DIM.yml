@@ -809,7 +809,7 @@ operation:
           - locationName: WORK
             nodeName: ADDRESS_DBT_FINAL
         join:
-          joinCondition: FROM {{ ref('WORK', 'ADDRESS_DBT_FINAL') }} "ADDRESS_DBT_FINAL"
+          joinCondition: FROM {{ ref_link('WORK', 'ADDRESS_DBT_FINAL') }} "ADDRESS_DBT_FINAL"
         name: GBL_ADDRESS_DIM
         noLinkRefs: []
   name: GBL_ADDRESS_DIM

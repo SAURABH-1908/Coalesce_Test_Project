@@ -1,5 +1,5 @@
 fileVersion: 1
-id: 1cadb405-01d0-42f0-9d8f-9c47364ea3cb
+id: 819c127e-7743-4049-9bf9-ea5816f01c88
 name: TTCMCS143535
 operation:
   database: ""
@@ -13,8 +13,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 6bb28bf2-cd10-4545-9f29-1dd3b4360b88
-          stepCounter: 1cadb405-01d0-42f0-9d8f-9c47364ea3cb
+          columnCounter: a3b76e2f-a420-4651-bbde-026bfc7a45dc
+          stepCounter: 819c127e-7743-4049-9bf9-ea5816f01c88
         config: {}
         dataType: VARCHAR(50)
         defaultValue: ""
@@ -32,10 +32,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 97757d0f-ba7f-4297-a3bc-e076d3ded575
-          stepCounter: 1cadb405-01d0-42f0-9d8f-9c47364ea3cb
+          columnCounter: beea3799-879d-49f2-9596-089afdd01133
+          stepCounter: 819c127e-7743-4049-9bf9-ea5816f01c88
         config: {}
-        dataType: VARCHAR(255)
+        dataType: VARCHAR(200)
         defaultValue: ""
         description: ""
         name: T_DSCA
