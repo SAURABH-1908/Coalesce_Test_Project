@@ -445,7 +445,7 @@ operation:
             LEFT JOIN {{ ref('TARGET', 'UPDATES_SOURCE_DATA_NXGEN') }} SRCD
             ON SNAP.TARGET_PRIMARY_KEY = SRCD.SOURCE_PRIMARY_KEY
             WHERE SRCD.SOURCE_PRIMARY_KEY IS NULL
-        name: STG_NODE
+        name: DELETES_NXGEN
         noLinkRefs: []
   name: DELETES_NXGEN
   overrideSQL: false
