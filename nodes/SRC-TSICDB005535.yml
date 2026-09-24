@@ -1,11 +1,11 @@
 fileVersion: 1
-id: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
-name: SOURCE_SYSTEM_DIM
+id: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+name: TSICDB005535
 operation:
   database: ""
   deployEnabled: true
   description: ""
-  locationName: TARGET
+  locationName: SRC
   metadata:
     columns:
       - acceptedValues:
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 7cb033fc-5b75-49a7-8c12-16946ee8852e
-          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
+          columnCounter: 845db9ff-4e3e-41a2-b3c5-70f6758f21c2
+          stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_SK
+        name: T_PROJ
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 623502bd-ef99-4a5a-9f8c-358fd00ca461
-          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
+          columnCounter: 3e61aa7a-dcc5-46f5-979d-15d32c7d7667
+          stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_CD
+        name: T_FAMI
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: aefa5814-5db9-4cca-b18a-bda1a3390413
-          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
+          columnCounter: dee52f66-4015-4a19-97fe-f1b58f019f49
+          stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: DATE
         defaultValue: ""
         description: ""
-        name: SITE_REGION_CD
+        name: T_SSDT
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 7d8eb6a6-ae5c-4f9c-8eae-7507cb419ba8
-          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
+          columnCounter: 51f618b2-91df-4dca-8a35-4bd223fa8d9c
+          stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: SOURCE_COMPANY_CD
+        name: T_SYS
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -84,7 +84,45 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: SOURCE_SYSTEM_DIM
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 224e04cc-d4f4-49bc-80b0-8dd001df73bc
+          stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_DSCA
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e41441f-a9e2-4bc0-9780-b1dafb7bf250
+          stepCounter: 7f29d2d5-ebfb-4ae7-85c0-fe5ac1928bbb
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: T_TOTS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TSICDB005535
   schema: ""
   sqlType: Source
   type: sourceInput

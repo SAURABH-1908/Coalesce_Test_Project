@@ -1,11 +1,11 @@
 fileVersion: 1
-id: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
-name: SOURCE_SYSTEM_DIM
+id: 83fccab6-cb8b-41e6-bdcc-8fe07e04fb9d
+name: TTCCOM001535
 operation:
   database: ""
   deployEnabled: true
   description: ""
-  locationName: TARGET
+  locationName: SRC
   metadata:
     columns:
       - acceptedValues:
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 7cb033fc-5b75-49a7-8c12-16946ee8852e
-          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
+          columnCounter: 2f0f741d-425d-4fd8-a582-32b549047753
+          stepCounter: 83fccab6-cb8b-41e6-bdcc-8fe07e04fb9d
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_SK
+        name: T_EMNO
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 623502bd-ef99-4a5a-9f8c-358fd00ca461
-          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
+          columnCounter: 2166ba60-99d8-4a62-873f-3f3f6c9b55d8
+          stepCounter: 83fccab6-cb8b-41e6-bdcc-8fe07e04fb9d
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(255)
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_CD
+        name: T_INFO
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: aefa5814-5db9-4cca-b18a-bda1a3390413
-          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
+          columnCounter: ebccbdff-fe12-49f5-8d88-f8f5064719d1
+          stepCounter: 83fccab6-cb8b-41e6-bdcc-8fe07e04fb9d
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(255)
         defaultValue: ""
         description: ""
-        name: SITE_REGION_CD
+        name: T_NAMA
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 7d8eb6a6-ae5c-4f9c-8eae-7507cb419ba8
-          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
+          columnCounter: c4def6c1-0999-4afa-9f2e-918f01578272
+          stepCounter: 83fccab6-cb8b-41e6-bdcc-8fe07e04fb9d
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: SOURCE_COMPANY_CD
+        name: T_SDTE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -84,7 +84,26 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: SOURCE_SYSTEM_DIM
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 369cf8af-4a44-412b-8c7d-6c426e1662ed
+          stepCounter: 83fccab6-cb8b-41e6-bdcc-8fe07e04fb9d
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_EDTE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTCCOM001535
   schema: ""
   sqlType: Source
   type: sourceInput

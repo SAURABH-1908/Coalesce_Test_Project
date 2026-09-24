@@ -1,11 +1,11 @@
 fileVersion: 1
-id: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
-name: SOURCE_SYSTEM_DIM
+id: 6ccbe67e-1529-4856-9019-d20d2e0a6e71
+name: TTPPDM600535
 operation:
   database: ""
   deployEnabled: true
   description: ""
-  locationName: TARGET
+  locationName: SRC
   metadata:
     columns:
       - acceptedValues:
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 7cb033fc-5b75-49a7-8c12-16946ee8852e
-          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
+          columnCounter: 5f28f114-a985-4740-81b1-93436da6e7a4
+          stepCounter: 6ccbe67e-1529-4856-9019-d20d2e0a6e71
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_SK
+        name: T_PADR
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 623502bd-ef99-4a5a-9f8c-358fd00ca461
-          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
+          columnCounter: 437a65a8-a0cb-4193-a0c6-9e1e6e425929
+          stepCounter: 6ccbe67e-1529-4856-9019-d20d2e0a6e71
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_CD
+        name: T_CPRJ
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: aefa5814-5db9-4cca-b18a-bda1a3390413
-          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
+          columnCounter: dcc5dfd5-bbda-4a78-8ef3-08d1c7416052
+          stepCounter: 6ccbe67e-1529-4856-9019-d20d2e0a6e71
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: TIMESTAMP_NTZ(9)
         defaultValue: ""
         description: ""
-        name: SITE_REGION_CD
+        name: SNOWFLAKE_INGESTED_TIME
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -65,26 +65,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 7d8eb6a6-ae5c-4f9c-8eae-7507cb419ba8
-          stepCounter: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
-        config: {}
-        dataType: VARCHAR(16777216)
-        defaultValue: ""
-        description: ""
-        name: SOURCE_COMPANY_CD
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-  name: SOURCE_SYSTEM_DIM
+  name: TTPPDM600535
   schema: ""
   sqlType: Source
   type: sourceInput
