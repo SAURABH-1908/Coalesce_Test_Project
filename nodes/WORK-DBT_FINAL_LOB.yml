@@ -1,0 +1,361 @@
+fileVersion: 1
+id: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+name: DBT_FINAL_LOB
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: |-
+      MERGE INTO {{ ref('TARGET', 'LINE_OF_BUSINESS_DIM') }} AS DBT_INTERNAL_DEST
+      USING {{ ref('WORK', 'DBT_FINAL_LOB') }} AS DBT_INTERNAL_SOURCE
+          ON TO_VARCHAR(DBT_INTERNAL_SOURCE.TARGET_PRIMARY_KEY) = TO_VARCHAR(DBT_INTERNAL_DEST.LINE_OF_BUSINESS_INTG_ID)
+         AND TO_VARCHAR(TO_NUMBER(DBT_INTERNAL_SOURCE.LINE_OF_BUSINESS_SK)) = DBT_INTERNAL_DEST.LINE_OF_BUSINESS_SK
+         AND DBT_INTERNAL_SOURCE.SYS_EFF_TS = DBT_INTERNAL_DEST.SYS_EFF_TS
+
+      WHEN MATCHED
+           AND DBT_INTERNAL_DEST.SYS_EXP_TS IS NULL
+           AND DBT_INTERNAL_SOURCE.DML_ACTION_TYPE_CD IN ('D','U')
+      THEN UPDATE SET
+          SYS_EXP_TS         = TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP())),
+          CURR_FLG           = DBT_INTERNAL_SOURCE.CURR_FLG,
+          DML_ACTION_TYPE_CD = DBT_INTERNAL_SOURCE.DML_ACTION_TYPE_CD
+
+      WHEN NOT MATCHED
+           AND DBT_INTERNAL_SOURCE.DML_ACTION_TYPE_CD = 'I'
+      THEN INSERT (
+          LINE_OF_BUSINESS_SK, LINE_OF_BUSINESS_INTG_ID, SOURCE_LINE_OF_BUSINESS_CD,
+          LINE_OF_BUSINESS_NM, LINE_OF_BUSINESS_TYPE_NM, ERP_ENTITY_CD, SOURCE_SYSTEM_SK,
+          CREATE_TS, LAST_UPDATE_TS, SYS_EFF_TS, SYS_EXP_TS, INGEST_TS, DL_LAST_UPDATE_TS,
+          CHKSUM_STR, LOAD_TS, DML_ACTION_TYPE_CD, DBT_SCD_ID, CURR_FLG, SOURCE_SYSTEM_NM,
+          INSTANCE_NM, ADF_PIPELINE_NM, ADF_TRANSFORMATION_NM, ADF_SCRIPT_NM,
+          BUSINESS_SEGMENT_NM, ROOT_EXECN_PID
+      )
+      VALUES (
+          TO_NUMBER(DBT_INTERNAL_SOURCE.LINE_OF_BUSINESS_SK), DBT_INTERNAL_SOURCE.LINE_OF_BUSINESS_INTG_ID, DBT_INTERNAL_SOURCE.SOURCE_LINE_OF_BUSINESS_CD,
+          DBT_INTERNAL_SOURCE.LINE_OF_BUSINESS_NM, DBT_INTERNAL_SOURCE.LINE_OF_BUSINESS_TYPE_NM, DBT_INTERNAL_SOURCE.ERP_ENTITY_CD, DBT_INTERNAL_SOURCE.SOURCE_SYSTEM_SK,
+          DBT_INTERNAL_SOURCE.CREATE_TS, DBT_INTERNAL_SOURCE.LAST_UPDATE_TS, DBT_INTERNAL_SOURCE.SYS_EFF_TS, DBT_INTERNAL_SOURCE.SYS_EXP_TS, DBT_INTERNAL_SOURCE.INGEST_TS, DBT_INTERNAL_SOURCE.DL_LAST_UPDATE_TS,
+          DBT_INTERNAL_SOURCE.CHKSUM_STR, DBT_INTERNAL_SOURCE.LOAD_TS, DBT_INTERNAL_SOURCE.DML_ACTION_TYPE_CD, DBT_INTERNAL_SOURCE.DBT_SCD_ID, DBT_INTERNAL_SOURCE.CURR_FLG, DBT_INTERNAL_SOURCE.SOURCE_SYSTEM_NM,
+          DBT_INTERNAL_SOURCE.INSTANCE_NM, '${adf_pipeline_nm}', '${adf_datafactory_nm}', 'otc-finance/NA/BAAN_V_525/LOAD_FNL_BAAN_V_525_LINE_OF_BUSINESS_DIM.sql',
+          'Americas', NULL
+      );
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Final union of insertion, update and delete action rows for BAAN V_525 line of business, feeding the LINE_OF_BUSINESS_DIM merge.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-5490d7f630eb
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DML_ACTION_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"DML_ACTION_TYPE_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-592d0d70a50d
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TARGET_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"TARGET_PRIMARY_KEY\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-5d42160b1889
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: LINE_OF_BUSINESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"LINE_OF_BUSINESS_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-6003b6a7b57a
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINE_OF_BUSINESS_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"LINE_OF_BUSINESS_INTG_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-65a6be83589f
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_LINE_OF_BUSINESS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"SOURCE_LINE_OF_BUSINESS_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-6a861c4dac76
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINE_OF_BUSINESS_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"LINE_OF_BUSINESS_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-6ebee2d532e1
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINE_OF_BUSINESS_TYPE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"LINE_OF_BUSINESS_TYPE_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-7169aa3582c4
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ERP_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"ERP_ENTITY_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-75c6921103ac
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"SOURCE_SYSTEM_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-7a9878a7c58c
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"CHKSUM_STR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-7cdfdf57c7bf
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"INGEST_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-839869a139dc
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"CREATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-8510907fc83a
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"LAST_UPDATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-89673c31c299
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"DL_LAST_UPDATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-8e134e20dc23
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"BUSINESS_SEGMENT_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-9124d5d47b7b
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"SOURCE_SYSTEM_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-97fdcb31aff1
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"INSTANCE_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-985e42626763
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"SOURCE_PRIMARY_KEY\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-9fad5c70dc2f
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"LOAD_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-a386c2acb008
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"SYS_EFF_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-a50aad07dd7b
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"SYS_EXP_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-a85d3d123982
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"CURR_FLG\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a44-61ef-7418-aadb-acaa73260f27
+          stepCounter: 499ea02b-14af-4ca4-8d1c-2d53f5f8842b
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"DBT_INTERNAL_SOURCE\".\"DBT_SCD_ID\""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: DELETES_LOB
+          - locationName: WORK
+            nodeName: INSERTIONS_LOB
+          - locationName: WORK
+            nodeName: UPDATES_LOB
+        join:
+          joinCondition: |-
+            FROM (
+              SELECT * FROM {{ ref('WORK', 'INSERTIONS_LOB') }}
+              UNION ALL
+              SELECT * FROM {{ ref('WORK', 'UPDATES_LOB') }}
+              UNION ALL
+              SELECT * FROM {{ ref('WORK', 'DELETES_LOB') }}
+            ) DBT_INTERNAL_SOURCE
+        name: DBT_FINAL_LOB
+        noLinkRefs: []
+  name: DBT_FINAL_LOB
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

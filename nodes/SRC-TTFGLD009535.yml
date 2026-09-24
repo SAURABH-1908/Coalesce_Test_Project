@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 6ccbe67e-1529-4856-9019-d20d2e0a6e71
-name: TTPPDM600535
+id: 3ea2f8ae-90c7-49cf-ae01-815f97851165
+name: TTFGLD009535
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 5f28f114-a985-4740-81b1-93436da6e7a4
-          stepCounter: 6ccbe67e-1529-4856-9019-d20d2e0a6e71
+          columnCounter: 7a765671-1c52-4f45-91cc-c3f4cc4c123a
+          stepCounter: 3ea2f8ae-90c7-49cf-ae01-815f97851165
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: T_PADR
+        name: T_FDIM
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 437a65a8-a0cb-4193-a0c6-9e1e6e425929
-          stepCounter: 6ccbe67e-1529-4856-9019-d20d2e0a6e71
+          columnCounter: b9d730b8-c812-47b3-97e6-8d13b214fe05
+          stepCounter: 3ea2f8ae-90c7-49cf-ae01-815f97851165
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: T_CPRJ
+        name: T_UDIM
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: dcc5dfd5-bbda-4a78-8ef3-08d1c7416052
-          stepCounter: 6ccbe67e-1529-4856-9019-d20d2e0a6e71
+          columnCounter: bfe80d27-e876-4700-9eae-89d005776eb2
+          stepCounter: 3ea2f8ae-90c7-49cf-ae01-815f97851165
         config: {}
-        dataType: TIMESTAMP_NTZ(9)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: SNOWFLAKE_INGESTED_TIME
+        name: T_LEAC
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -65,7 +65,26 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: TTPPDM600535
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c584a81-8091-45dd-a899-7240a7575ba8
+          stepCounter: 3ea2f8ae-90c7-49cf-ae01-815f97851165
+        config: {}
+        dataType: VARCHAR(30)
+        defaultValue: ""
+        description: ""
+        name: T_DTYP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTFGLD009535
   schema: ""
   sqlType: Source
   type: sourceInput

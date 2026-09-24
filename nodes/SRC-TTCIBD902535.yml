@@ -1,6 +1,6 @@
 fileVersion: 1
-id: d1b9b5fb-05ba-4202-b685-53c1345ba4ba
-name: TTFGLD008535
+id: e6daf388-ed32-4253-b7dd-1924eecb79d7
+name: TTCIBD902535
 operation:
   database: ""
   deployEnabled: true
@@ -13,51 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 3751afb5-f10b-406e-990c-8184142eb4c5
-          stepCounter: d1b9b5fb-05ba-4202-b685-53c1345ba4ba
-        config: {}
-        dataType: VARCHAR(200)
-        defaultValue: ""
-        description: ""
-        name: T_DESC
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: bee8d48a-ea33-4a6b-ab17-3923263a05ab
-          stepCounter: d1b9b5fb-05ba-4202-b685-53c1345ba4ba
-        config: {}
-        dataType: VARCHAR(50)
-        defaultValue: ""
-        description: ""
-        name: T_LEAC
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 6a3116ff-7165-4447-9e4a-1978e3b38495
-          stepCounter: d1b9b5fb-05ba-4202-b685-53c1345ba4ba
+          columnCounter: fd64ef20-9ae6-4b4c-ac2f-92d403d3bd26
+          stepCounter: e6daf388-ed32-4253-b7dd-1924eecb79d7
         config: {}
         dataType: VARCHAR(20)
         defaultValue: ""
         description: ""
-        name: T_ATYP
+        name: T_BRCH
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +32,32 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 02a1599f-e4a4-4850-ba19-76370a2da382
-          stepCounter: d1b9b5fb-05ba-4202-b685-53c1345ba4ba
+          columnCounter: 708acef1-2f3f-4e9b-aa7a-c57f031ea697
+          stepCounter: e6daf388-ed32-4253-b7dd-1924eecb79d7
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: T_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ff42fc7a-f308-4f0e-9c11-080b3b6c8a04
+          stepCounter: e6daf388-ed32-4253-b7dd-1924eecb79d7
         config: {}
         dataType: VARCHAR(20)
         defaultValue: ""
         description: ""
-        name: T_BLOC
+        name: T_REGN
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,13 +70,32 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: b5a87522-cedf-41fd-90cd-874336ff0f94
-          stepCounter: d1b9b5fb-05ba-4202-b685-53c1345ba4ba
+          columnCounter: d08a31df-ed81-44a0-8e35-55a51bc47cbe
+          stepCounter: e6daf388-ed32-4253-b7dd-1924eecb79d7
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: T_CITY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9b2eb949-b161-454c-8fe2-a362d030ccdc
+          stepCounter: e6daf388-ed32-4253-b7dd-1924eecb79d7
         config: {}
         dataType: VARCHAR(20)
         defaultValue: ""
         description: ""
-        name: T_DBCR
+        name: T_STAT
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -108,70 +108,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 1933a4c9-a037-4b17-897d-4bef774ccf47
-          stepCounter: d1b9b5fb-05ba-4202-b685-53c1345ba4ba
-        config: {}
-        dataType: VARCHAR(50)
-        defaultValue: ""
-        description: ""
-        name: T_LOCO
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 1cd7277d-f3be-44fa-9984-7dcaeeb9c7fd
-          stepCounter: d1b9b5fb-05ba-4202-b685-53c1345ba4ba
-        config: {}
-        dataType: VARCHAR(50)
-        defaultValue: ""
-        description: ""
-        name: T_PLAC
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: ebb66fd9-4c7f-4623-b00c-681555a733e7
-          stepCounter: d1b9b5fb-05ba-4202-b685-53c1345ba4ba
-        config: {}
-        dataType: VARCHAR(50)
-        defaultValue: ""
-        description: ""
-        name: T_SUBL
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: dbdd637a-ea34-48b7-aa65-a67670462020
-          stepCounter: d1b9b5fb-05ba-4202-b685-53c1345ba4ba
+          columnCounter: a4ec18de-1e43-491b-a78d-8346d559f973
+          stepCounter: e6daf388-ed32-4253-b7dd-1924eecb79d7
         config: {}
         dataType: VARCHAR(20)
         defaultValue: ""
         description: ""
-        name: COUNTRY_CD
+        name: T_ZIP
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -184,8 +127,27 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 4b5c0204-c579-4aa5-a702-cf6d8cd387b8
-          stepCounter: d1b9b5fb-05ba-4202-b685-53c1345ba4ba
+          columnCounter: e0b6e535-de30-44da-b98d-938e9890aefc
+          stepCounter: e6daf388-ed32-4253-b7dd-1924eecb79d7
+        config: {}
+        dataType: VARCHAR(5)
+        defaultValue: ""
+        description: ""
+        name: T_ACTB
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6dde3b5b-3c1e-4a39-86cc-2f3f8ce1738a
+          stepCounter: e6daf388-ed32-4253-b7dd-1924eecb79d7
         config: {}
         dataType: TIMESTAMP_NTZ(9)
         defaultValue: ""
@@ -198,7 +160,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: TTFGLD008535
+  name: TTCIBD902535
   schema: ""
   sqlType: Source
   type: sourceInput
