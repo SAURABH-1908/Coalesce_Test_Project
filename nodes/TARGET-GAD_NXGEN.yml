@@ -1,0 +1,296 @@
+fileVersion: 1
+id: 945d6079-f0f5-4eb7-b967-c81f926e9556
+name: GAD_NXGEN
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: "Global address detail for NxGen: S_ADDR_PER joined to Bill-To customer and Region reference sets; derives integration id, address attributes, ERP entity, reference/account/region codes and source system SK."
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72a-7748-a626-1c4285d1cf41
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GBL_ADDRESS_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CONCAT_WS('~',COALESCE(CAST(TRIM("SA"."ROW_ID") AS VARCHAR),''),'SOURCE_SYSTEM_001','INSTANCE_004')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-73a19bd73cd0
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_ADDRESS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("SA"."ROW_ID")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-75e88f9456a6
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REFERENCE_TYPE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'CUSTOMER'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-78bd9a1110fd
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_LINE_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("SA"."ADDR")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-7ea6b3346026
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_LINE_2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("SA"."X_ADDR_LINE2")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-81a87f0372e4
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_LINE_3
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("SA"."X_ADDR_LINE3")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-870b8a2f0bea
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_CITY_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("SA"."CITY")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-89c60f5a31fc
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_STATE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("SA"."STATE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-8f64bbb5b7c6
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_COUNTRY_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("SA"."COUNTRY")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-9303be334844
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_POSTAL_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("SA"."ZIPCODE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-94517325d798
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ERP_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CASE WHEN TRIM("SA"."COUNTRY") = 'USA' THEN '150' WHEN TRIM("SA"."COUNTRY") = 'Canada' THEN '151' ELSE NULL END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-98bab0422b10
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REFERENCE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SO_CUST\".\"REFERENCE_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-9fb6e1ceb144
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SO_CUST\".\"ACCOUNT_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-a34b97ffd32e
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_REGION_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("SO_REGION"."OU_NUM")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-a6475710f7dc
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_REGION_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("SO_REGION"."NAME")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-a8dcb2a6be73
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_TYPE_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SO_CUST\".\"ADDRESS_TYPE_FLG\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-add0ea91ea87
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM("SA"."SNOWFLAKE_INGESTED_TIME")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-b17a447dd085
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SA\".\"CREATED\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-b44bc6e4be26
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SA\".\"LAST_UPD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-d72b-77cd-b656-bb1476bb8900
+          stepCounter: 945d6079-f0f5-4eb7-b967-c81f926e9556
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SSD\".\"SOURCE_SYSTEM_SK\""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: S_ADDR_PER
+          - locationName: SRC
+            nodeName: SOURCE_SYSTEM_DIM
+          - locationName: TARGET
+            nodeName: SO_CUST_NXGEN
+          - locationName: TARGET
+            nodeName: SO_REGION_NXGEN
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'S_ADDR_PER') }} SA
+            LEFT OUTER JOIN {{ ref('TARGET', 'SO_CUST_NXGEN') }} SO_CUST
+            ON SA.ROW_ID = TRIM(SO_CUST.PR_ADDR_ID)
+            LEFT OUTER JOIN {{ ref('TARGET', 'SO_REGION_NXGEN') }} SO_REGION
+            ON TRIM(SA.ROW_ID) = TRIM(SO_REGION.PR_ADDR_ID)
+            LEFT OUTER JOIN {{ ref('SRC', 'SOURCE_SYSTEM_DIM') }} SSD
+            ON SSD.SOURCE_SYSTEM_CD = 'SOURCE_SYSTEM_001'
+            AND SSD.SITE_REGION_CD = 'INSTANCE_004'
+        name: STG_NODE
+        noLinkRefs: []
+  name: GAD_NXGEN
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

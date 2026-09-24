@@ -1,0 +1,93 @@
+fileVersion: 1
+id: 9997d78b-0708-457d-ae9d-1ff74f200b59
+name: SO_CUST_NXGEN
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Active Bill-To organizations from S_ORG_EXT; supplies reference/account codes and address-type flag keyed by primary address id.
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-760b-737b-8808-48c2e454ca4e
+          stepCounter: 9997d78b-0708-457d-ae9d-1ff74f200b59
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REFERENCE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"A\".\"LOC\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-760c-724b-b244-700b57ece9c4
+          stepCounter: 9997d78b-0708-457d-ae9d-1ff74f200b59
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ACCOUNT_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"A\".\"LOC\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-760c-724b-b244-77ecee13ca4f
+          stepCounter: 9997d78b-0708-457d-ae9d-1ff74f200b59
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS_TYPE_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'Bill To'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-760c-724b-b244-7bdb642b61fb
+          stepCounter: 9997d78b-0708-457d-ae9d-1ff74f200b59
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PR_ADDR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"A\".\"PR_ADDR_ID\""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: S_ORG_EXT
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'S_ORG_EXT') }} A
+            WHERE A.OU_TYPE_CD = 'Bill To'
+            AND A.CUST_STAT_CD = 'Active'
+        name: STG_NODE
+        noLinkRefs: []
+  name: SO_CUST_NXGEN
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

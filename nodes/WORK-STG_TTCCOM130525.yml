@@ -30,7 +30,7 @@ operation:
           - columnReferences:
               - columnCounter: e6ec4500-b186-4c88-b96f-4cab17a5161f
                 stepCounter: 16af9719-d833-4715-a016-ef84f607088d
-            transform: ""
+            transform: "'T_CADR'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a066e5-a135-76ee-a1c3-bb6360561c53
@@ -44,7 +44,7 @@ operation:
           - columnReferences:
               - columnCounter: c6a3970b-fac6-4f41-8db8-61db2d066c59
                 stepCounter: 16af9719-d833-4715-a016-ef84f607088d
-            transform: ""
+            transform: "'T_CSTE'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a066e5-a135-76ee-a1c3-bdf2b0b5b724
@@ -58,7 +58,7 @@ operation:
           - columnReferences:
               - columnCounter: 24885acc-3997-44f5-8f3d-75b55a363002
                 stepCounter: 16af9719-d833-4715-a016-ef84f607088d
-            transform: ""
+            transform: "'T_PSTC'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a066e5-a135-76ee-a1c3-c0ca4e4e218b
@@ -72,7 +72,7 @@ operation:
           - columnReferences:
               - columnCounter: 4ab68b7f-66c2-4b9b-a7d4-5253501e9849
                 stepCounter: 16af9719-d833-4715-a016-ef84f607088d
-            transform: ""
+            transform: "'T_CCTY'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a066e5-a135-76ee-a1c3-c57fe2657c96
@@ -86,7 +86,7 @@ operation:
           - columnReferences:
               - columnCounter: f1763e75-75ab-4723-ad91-228010a65777
                 stepCounter: 16af9719-d833-4715-a016-ef84f607088d
-            transform: ""
+            transform: "'T_NAME'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a066e5-a135-76ee-a1c3-c8c8dc5d8c98
@@ -100,7 +100,7 @@ operation:
           - columnReferences:
               - columnCounter: 687ba9a8-992e-491f-b5fb-32494fb880d6
                 stepCounter: 16af9719-d833-4715-a016-ef84f607088d
-            transform: ""
+            transform: "'T_NAMC'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a066e5-a135-76ee-a1c3-cf421f47f610
@@ -114,7 +114,7 @@ operation:
           - columnReferences:
               - columnCounter: 3a073ce8-9b1c-410a-9f5f-c978c7d382fd
                 stepCounter: 16af9719-d833-4715-a016-ef84f607088d
-            transform: ""
+            transform: "'T_HONO'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a066e5-a135-76ee-a1c3-d16db80e9358
@@ -128,7 +128,7 @@ operation:
           - columnReferences:
               - columnCounter: a4d65c67-c438-4755-90a7-252d3a37640a
                 stepCounter: 16af9719-d833-4715-a016-ef84f607088d
-            transform: ""
+            transform: "'T_NAMD'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a066e5-a135-76ee-a1c3-d7ac18059312
@@ -142,7 +142,7 @@ operation:
           - columnReferences:
               - columnCounter: 3f67c2dd-2b2d-4b34-991e-26ec61317a70
                 stepCounter: 16af9719-d833-4715-a016-ef84f607088d
-            transform: ""
+            transform: "'T_POBN'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a066e5-a135-76ee-a1c3-dacc2a44f666
@@ -156,7 +156,7 @@ operation:
           - columnReferences:
               - columnCounter: 870ee68d-be7c-4cbe-8584-e03552271142
                 stepCounter: 16af9719-d833-4715-a016-ef84f607088d
-            transform: ""
+            transform: "'SNOWFLAKE_INGESTED_TIME'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a0865b-670f-744d-b30c-a4a9d62764be

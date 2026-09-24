@@ -639,6 +639,138 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2fa-91e5-70cc-8565-92f068129b1e
+          stepCounter: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+        config: {}
+        dataType: NUMBER
+        description: Surrogate key for the address dimension row.
+        name: ADDRESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"ADDRESS_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2fa-91e5-70cc-8565-958b5ccfec44
+          stepCounter: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"CREATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2fa-91e5-70cc-8565-9bdbf2021e4e
+          stepCounter: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"LAST_UPDATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2fa-91e5-70cc-8565-9eae73352eac
+          stepCounter: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+        config: {}
+        dataType: TIMESTAMP
+        description: SCD2 effective timestamp for the row version.
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"SYS_EFF_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2fa-91e5-70cc-8565-a1b5e26dfd9c
+          stepCounter: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+        config: {}
+        dataType: TIMESTAMP
+        description: SCD2 expiration timestamp; NULL for the current row version.
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"SYS_EXP_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2fa-91e5-70cc-8565-a4a91a0b1bdb
+          stepCounter: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: DL_LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"DL_LAST_UPDATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2fa-91e5-70cc-8565-aaec60032d33
+          stepCounter: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"LOAD_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2fa-91e5-70cc-8565-ad872c96c0b1
+          stepCounter: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+        config: {}
+        dataType: VARCHAR
+        description: "Change action driving the SCD2 merge: I=insert, U=update, D=delete."
+        name: DML_ACTION_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"DML_ACTION_TYPE_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2fa-91e5-70cc-8565-b1153a68bea1
+          stepCounter: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"DBT_SCD_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2fa-91e5-70cc-8565-b786c77b0cef
+          stepCounter: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+        config: {}
+        dataType: VARCHAR
+        description: Current-row indicator for the SCD2 version.
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"LOAD_FNL\".\"CURR_FLG\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2fa-91e5-70cc-8565-bb6d42a5c2a8
+          stepCounter: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ROOT_EXECN_PID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
     cteString: ""
     description: ""
     destinationName: ""
@@ -649,6 +781,8 @@ operation:
         customSQL:
           customSQL: ""
         dependencies:
+          - locationName: TARGET
+            nodeName: DBT_FINAL_NXGEN
           - locationName: WORK
             nodeName: DBT_FINAL_GBL
         join:
@@ -658,6 +792,7 @@ operation:
               FROM {{ ref('WORK', 'DBT_FINAL_GBL') }}
               WHERE DML_ACTION_TYPE_CD = 'I'
             ) LOAD_FNL
+            {{ ref_link('TARGET', 'DBT_FINAL_NXGEN') }}
         name: GBL_ADDRESS_DIM
         noLinkRefs: []
   name: GBL_ADDRESS_DIM

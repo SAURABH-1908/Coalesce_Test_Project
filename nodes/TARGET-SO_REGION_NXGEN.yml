@@ -1,0 +1,90 @@
+fileVersion: 1
+id: 49b72440-e1c2-4dae-9902-dbfcb43ebee4
+name: SO_REGION_NXGEN
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Active Region organizations from S_ORG_EXT via three-level parent-division self-join; supplies region number/name keyed by primary address id.
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-8bed-76af-8c31-085810c3f5ba
+          stepCounter: 49b72440-e1c2-4dae-9902-dbfcb43ebee4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"T1\".\"NAME\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-8bee-704a-917f-685d107cf522
+          stepCounter: 49b72440-e1c2-4dae-9902-dbfcb43ebee4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OU_NUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"T1\".\"OU_NUM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a0d2e8-8bee-704a-917f-6ca1cab01fe6
+          stepCounter: 49b72440-e1c2-4dae-9902-dbfcb43ebee4
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PR_ADDR_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"T1\".\"PR_ADDR_ID\""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: S_ORG_EXT
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'S_ORG_EXT') }} T1
+            LEFT OUTER JOIN {{ ref('SRC', 'S_ORG_EXT') }} T2
+            ON T1.ROW_ID = T2.PAR_DIVN_ID
+            LEFT OUTER JOIN {{ ref('SRC', 'S_ORG_EXT') }} T3
+            ON T2.ROW_ID = T3.PAR_DIVN_ID
+            WHERE T1.DIVN_TYPE_CD = 'Region'
+            AND T1.NAME LIKE '%Region%'
+            AND T1.NAME NOT LIKE 'Retired%'
+            AND T1.NAME NOT LIKE '%PCOTH%'
+            AND T1.CUST_STAT_CD = 'Active'
+            AND T2.CUST_STAT_CD = 'Active'
+            AND T3.CUST_STAT_CD = 'Active'
+        name: STG_NODE
+        noLinkRefs: []
+  name: SO_REGION_NXGEN
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

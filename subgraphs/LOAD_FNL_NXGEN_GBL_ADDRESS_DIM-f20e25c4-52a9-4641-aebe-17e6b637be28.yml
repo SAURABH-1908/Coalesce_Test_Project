@@ -1,0 +1,20 @@
+fileVersion: 1
+id: f20e25c4-52a9-4641-aebe-17e6b637be28
+name: LOAD_FNL_NXGEN_GBL_ADDRESS_DIM
+steps:
+  - 344191f0-d75c-44e4-860d-f6dd61ec6dd2
+  - 49b72440-e1c2-4dae-9902-dbfcb43ebee4
+  - 536131e8-e830-4ee2-bca9-6fd1c76c506a
+  - 70e1099c-229f-4d1c-b865-5f7282ecb28d
+  - 928118b6-6715-4233-a13d-44020894fe52
+  - 945d6079-f0f5-4eb7-b967-c81f926e9556
+  - 9997d78b-0708-457d-ae9d-1ff74f200b59
+  - c2a77b87-b7da-44f1-8fd3-0f451fe42f7d
+  - d26c7388-f3b6-4521-be2b-d009f71a9639
+  - d4a3b11b-dd06-42d2-aa3b-503c433f2f69
+  - d82da4cc-8098-4a5d-b8ab-8a128a923b48
+  - e0f7abdb-3e14-477e-8f13-099a787638fd
+  - e136c619-9d10-4a23-b2b2-14279d3bf8a3
+  - e8e96110-c9ee-410a-b06e-e3c8757b4102
+  - ebf17f79-bf1e-4404-ade0-8e1ad95d7676
+type: Subgraph

@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 928118b6-6715-4233-a13d-44020894fe52
+name: SOURCE_SYSTEM_DIM
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c3e54340-3322-483a-a41b-1ba22c35fd10
+          stepCounter: 928118b6-6715-4233-a13d-44020894fe52
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_COMPANY_CD
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 529b370c-97c5-40c1-9ade-54d7e55ccd15
+          stepCounter: 928118b6-6715-4233-a13d-44020894fe52
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_CD
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1834206d-bb8c-4b64-a443-18453c73cc0c
+          stepCounter: 928118b6-6715-4233-a13d-44020894fe52
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SITE_REGION_CD
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 863149e0-4bfb-478c-8b7b-d21e5bd418a2
+          stepCounter: 928118b6-6715-4233-a13d-44020894fe52
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c936fd2-32ec-4a50-af0e-206e1ff058b2
+          stepCounter: 928118b6-6715-4233-a13d-44020894fe52
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: SOURCE_SYSTEM_DIM
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

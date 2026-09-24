@@ -390,7 +390,7 @@ operation:
           - columnReferences:
               - columnCounter: 870ee68d-be7c-4cbe-8584-e03552271142
                 stepCounter: 16af9719-d833-4715-a016-ef84f607088d
-            transform: ""
+            transform: "'INGEST_TS'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a06748-b3e3-7319-8f7b-87ebd3bed19a

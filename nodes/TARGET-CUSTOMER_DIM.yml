@@ -31,7 +31,7 @@ operation:
           - columnReferences:
               - columnCounter: b6fe694a-4614-4e54-98aa-9a273d5ec2b8
                 stepCounter: db4ccf14-cb5e-4f67-b008-1a136ed2a7f9
-            transform: ""
+            transform: "'C_CUSTKEY'"
       - appliedColumnTests:
           hasNull: false
           isDistinct: false
@@ -48,7 +48,7 @@ operation:
           - columnReferences:
               - columnCounter: 2022cddd-3cfb-4b3c-83fb-1614e4227b01
                 stepCounter: db4ccf14-cb5e-4f67-b008-1a136ed2a7f9
-            transform: ""
+            transform: "'C_NAME'"
       - appliedColumnTests:
           hasNull: false
           isDistinct: false
@@ -65,7 +65,7 @@ operation:
           - columnReferences:
               - columnCounter: 0cf2e611-00f5-4b9c-b76e-af2c4b3fb163
                 stepCounter: db4ccf14-cb5e-4f67-b008-1a136ed2a7f9
-            transform: ""
+            transform: "'C_ADDRESS'"
       - appliedColumnTests:
           hasNull: false
           isDistinct: false
@@ -82,7 +82,7 @@ operation:
           - columnReferences:
               - columnCounter: 8e625e62-d21e-4f7f-8c23-d41ac3cd50af
                 stepCounter: db4ccf14-cb5e-4f67-b008-1a136ed2a7f9
-            transform: ""
+            transform: "'C_NATIONKEY'"
       - appliedColumnTests:
           hasNull: false
           isDistinct: false
@@ -99,7 +99,7 @@ operation:
           - columnReferences:
               - columnCounter: b1bafebe-ffdd-45e6-a98f-f5ff0d8ec4c5
                 stepCounter: db4ccf14-cb5e-4f67-b008-1a136ed2a7f9
-            transform: ""
+            transform: "'C_PHONE'"
       - appliedColumnTests:
           hasNull: false
           isDistinct: false
@@ -116,7 +116,7 @@ operation:
           - columnReferences:
               - columnCounter: f4f6148c-a9d1-4832-ad46-ed67e9230795
                 stepCounter: db4ccf14-cb5e-4f67-b008-1a136ed2a7f9
-            transform: ""
+            transform: "'C_ACCTBAL'"
       - appliedColumnTests:
           hasNull: false
           isDistinct: false
@@ -133,7 +133,7 @@ operation:
           - columnReferences:
               - columnCounter: ffde073d-ce24-4fbd-ab3d-c55a0007f9f7
                 stepCounter: db4ccf14-cb5e-4f67-b008-1a136ed2a7f9
-            transform: ""
+            transform: "'C_MKTSEGMENT'"
       - appliedColumnTests:
           hasNull: false
           isDistinct: false
@@ -150,7 +150,7 @@ operation:
           - columnReferences:
               - columnCounter: 091d03ea-8ba0-4e7b-83b2-56296318b12e
                 stepCounter: db4ccf14-cb5e-4f67-b008-1a136ed2a7f9
-            transform: ""
+            transform: "'C_COMMENT'"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 3dbe8fa8-8dbb-4394-8760-dd3f8f5c1007
