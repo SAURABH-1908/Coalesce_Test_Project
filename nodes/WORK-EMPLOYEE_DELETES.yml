@@ -1,0 +1,380 @@
+fileVersion: 1
+id: c4759993-88aa-4169-b8e2-65491f684a8c
+name: EMPLOYEE_DELETES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: "Snapshot employee records with no matching source key: expired ('D') as logical deletes."
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0c-dd51bc7e1175
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DML_ACTION_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'D'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0c-e236562c7301
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TARGET_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: SNAPSHOTTED_DATA."TARGET_PRIMARY_KEY"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0c-e51d6ba6bbc5
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: EMPLOYEE_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SNAPSHOTTED_DATA\".\"EMPLOYEE_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0c-ebf0e3560806
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYEE_INTG_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"EMPLOYEE_INTG_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0c-ec60a899aa33
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYEE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"EMPLOYEE_ID\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0c-f1afe260e6c3
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OFFICIAL_EMAIL_TXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"OFFICIAL_EMAIL_TXT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0c-f51774c58fe4
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"SOURCE_SYSTEM_SK\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0c-fb1242362639
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMPLOYEE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"EMPLOYEE_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0c-fdfe39b237fe
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UTILIZATION_START_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"UTILIZATION_START_DT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-03e55cbf1531
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UTILIZATION_END_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"UTILIZATION_END_DT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-0642cbeb9fb1
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: START_DATE_IN_CURRENT_JOB_CODE_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"START_DATE_IN_CURRENT_JOB_CODE_DT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-0ab70f1d17d2
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: END_DATE_IN_CURRENT_FUNCTION_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"END_DATE_IN_CURRENT_FUNCTION_DT\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-0dcf4a133de4
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ERP_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"ERP_ENTITY_CD\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-13517f9bde9a
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CHKSUM_STR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"CHKSUM_STR\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-16d0cadee5f3
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INGEST_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"ingest_ts\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-1b7be081da2f
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CREATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"CREATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-1c147bbe8979
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LAST_UPDATE_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"LAST_UPDATE_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-22545b9fcd69
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DL_LAST_UPDT_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"DL_LAST_UPDT_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-242261160ee3
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BUSINESS_SEGMENT_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"BUSINESS_SEGMENT_NM\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-2bc5e919935b
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"source_system_nm\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-2f13aad506bc
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INSTANCE_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"instance_nm\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-3251e9699681
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_PRIMARY_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "\"SOURCE_DATA\".\"Source_Primary_Key\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-37687d85f587
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: LOAD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 880e1bc3-b846-4190-b3d0-4329913b30f1
+                stepCounter: 8584ff49-d309-4276-aa36-09c76a1fa137
+            transform: "\"SNAPSHOTTED_DATA\".\"LOAD_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-3b48153cfd27
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: SYS_EFF_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 012ebafa-2c5e-4a93-b3a6-3026de3a1a29
+                stepCounter: 8584ff49-d309-4276-aa36-09c76a1fa137
+            transform: "\"SNAPSHOTTED_DATA\".\"SYS_EFF_TS\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-3f940600c537
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: SYS_EXP_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP()))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-432dfa6b12f0
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'N'"
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a06af7-908a-7226-bc0d-44979b4efd77
+          stepCounter: c4759993-88aa-4169-b8e2-65491f684a8c
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DBT_SCD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 89f5d5cc-94f5-42c2-9e41-ac3bbb23d49a
+                stepCounter: 8584ff49-d309-4276-aa36-09c76a1fa137
+            transform: "\"SNAPSHOTTED_DATA\".\"DBT_SCD_ID\""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          SNAPSHOTTED_DATA: 8584ff49-d309-4276-aa36-09c76a1fa137
+          SOURCE_DATA: 565402ec-cf59-487e-9cf7-2b8ac543f599
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: Employee_SNAPSHOTTED_DATA
+          - locationName: WORK
+            nodeName: EMPLOYEE_UPDATES_SOURCE_DATA
+        join:
+          joinCondition: |-
+            FROM {{ ref('WORK', 'Employee_SNAPSHOTTED_DATA') }} "SNAPSHOTTED_DATA"
+            LEFT JOIN {{ ref('WORK', 'EMPLOYEE_UPDATES_SOURCE_DATA') }} "SOURCE_DATA"
+              ON "SNAPSHOTTED_DATA"."TARGET_PRIMARY_KEY" = "SOURCE_DATA"."Source_Primary_Key"
+            WHERE "SOURCE_DATA"."Source_Primary_Key" IS NULL
+        name: EMPLOYEE_DELETES
+        noLinkRefs: []
+  name: EMPLOYEE_DELETES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 376b0c53-b73a-42cc-a3d6-86557a6e8953
-name: TCISLI235525
+id: f849ec0d-726e-45b5-a7e4-a850375e7bba
+name: TCISLI205525
 operation:
   database: ""
   deployEnabled: true
@@ -13,48 +13,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 654ca968-9d7f-4777-9833-b8d64da9e78a
-          stepCounter: 376b0c53-b73a-42cc-a3d6-86557a6e8953
+          columnCounter: 426c7665-3fba-4557-aae4-147bdd998678
+          stepCounter: f849ec0d-726e-45b5-a7e4-a850375e7bba
         config: {}
-        dataType: VARCHAR(16777216)
-        defaultValue: ""
-        description: ""
-        name: T_ITEM
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01ef90db-8042-4b3f-9ebd-ec67373553e8
-          stepCounter: 376b0c53-b73a-42cc-a3d6-86557a6e8953
-        config: {}
-        dataType: VARCHAR(16777216)
-        defaultValue: ""
-        description: ""
-        name: T_QUAN
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 4d00c92b-31d8-4f65-a15c-daf122606a15
-          stepCounter: 376b0c53-b73a-42cc-a3d6-86557a6e8953
-        config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
         name: T_ITYP
@@ -70,10 +32,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 37911a7c-6b4b-4a39-b603-3b6130b1f9a9
-          stepCounter: 376b0c53-b73a-42cc-a3d6-86557a6e8953
+          columnCounter: aa61ab07-81a2-4c9e-a784-3793673c606b
+          stepCounter: f849ec0d-726e-45b5-a7e4-a850375e7bba
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
         name: T_IDOC
@@ -89,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f4bbf70f-f210-4187-8814-a6753b8092ee
-          stepCounter: 376b0c53-b73a-42cc-a3d6-86557a6e8953
+          columnCounter: b8a1f35c-bcc1-40ad-abe8-65f83745e360
+          stepCounter: f849ec0d-726e-45b5-a7e4-a850375e7bba
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
-        name: T_CPRJ
+        name: T_SFCP
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -103,7 +65,45 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: TCISLI235525
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9da5cb3a-31a1-4456-95ad-b9a8edc9c99c
+          stepCounter: f849ec0d-726e-45b5-a7e4-a850375e7bba
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_STBP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3adc7277-1938-45ae-8a13-bd73f8e2f2b4
+          stepCounter: f849ec0d-726e-45b5-a7e4-a850375e7bba
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_ITBP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TCISLI205525
   schema: ""
   sqlType: Source
   type: sourceInput

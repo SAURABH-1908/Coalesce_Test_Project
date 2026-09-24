@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 376b0c53-b73a-42cc-a3d6-86557a6e8953
-name: TCISLI235525
+id: c8a54f2f-454d-4ccc-9f8e-17e18916c2b6
+name: TCISLI235535
 operation:
   database: ""
   deployEnabled: true
@@ -13,46 +13,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 654ca968-9d7f-4777-9833-b8d64da9e78a
-          stepCounter: 376b0c53-b73a-42cc-a3d6-86557a6e8953
-        config: {}
-        dataType: VARCHAR(16777216)
-        defaultValue: ""
-        description: ""
-        name: T_ITEM
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01ef90db-8042-4b3f-9ebd-ec67373553e8
-          stepCounter: 376b0c53-b73a-42cc-a3d6-86557a6e8953
-        config: {}
-        dataType: VARCHAR(16777216)
-        defaultValue: ""
-        description: ""
-        name: T_QUAN
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 4d00c92b-31d8-4f65-a15c-daf122606a15
-          stepCounter: 376b0c53-b73a-42cc-a3d6-86557a6e8953
+          columnCounter: 9672e6e9-4503-4e14-aa46-eba8ec7c4002
+          stepCounter: c8a54f2f-454d-4ccc-9f8e-17e18916c2b6
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
@@ -70,10 +32,10 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 37911a7c-6b4b-4a39-b603-3b6130b1f9a9
-          stepCounter: 376b0c53-b73a-42cc-a3d6-86557a6e8953
+          columnCounter: 971117cd-b1ae-405d-8b3a-63f8f10d6071
+          stepCounter: c8a54f2f-454d-4ccc-9f8e-17e18916c2b6
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
         name: T_IDOC
@@ -89,8 +51,27 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f4bbf70f-f210-4187-8814-a6753b8092ee
-          stepCounter: 376b0c53-b73a-42cc-a3d6-86557a6e8953
+          columnCounter: 5cfec70a-eb24-4208-b5ec-f6cd42cb88ca
+          stepCounter: c8a54f2f-454d-4ccc-9f8e-17e18916c2b6
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: T_SFCP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f57c76cc-e86e-41dd-a05a-6e582e951499
+          stepCounter: c8a54f2f-454d-4ccc-9f8e-17e18916c2b6
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
@@ -103,7 +84,26 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: TCISLI235525
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4516f5c7-3d7d-4e67-ab2c-73c95e35939d
+          stepCounter: c8a54f2f-454d-4ccc-9f8e-17e18916c2b6
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SNOWFLAKE_INGESTED_TIME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TCISLI235535
   schema: ""
   sqlType: Source
   type: sourceInput

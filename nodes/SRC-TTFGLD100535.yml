@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 376b0c53-b73a-42cc-a3d6-86557a6e8953
-name: TCISLI235525
+id: 561313e7-3103-4d1d-92e0-850fa52d984d
+name: TTFGLD100535
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 654ca968-9d7f-4777-9833-b8d64da9e78a
-          stepCounter: 376b0c53-b73a-42cc-a3d6-86557a6e8953
+          columnCounter: 30d90be6-51ed-4faa-8151-42b5ef7594bf
+          stepCounter: 561313e7-3103-4d1d-92e0-850fa52d984d
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: NUMBER(38,0)
         defaultValue: ""
         description: ""
-        name: T_ITEM
+        name: T_YEAR
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 01ef90db-8042-4b3f-9ebd-ec67373553e8
-          stepCounter: 376b0c53-b73a-42cc-a3d6-86557a6e8953
+          columnCounter: 36415953-92f4-4254-9201-81ad3888fbe4
+          stepCounter: 561313e7-3103-4d1d-92e0-850fa52d984d
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_QUAN
+        name: T_BTNO
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 4d00c92b-31d8-4f65-a15c-daf122606a15
-          stepCounter: 376b0c53-b73a-42cc-a3d6-86557a6e8953
+          columnCounter: 8bef95de-316e-4cd1-88d2-c26d41414f66
+          stepCounter: 561313e7-3103-4d1d-92e0-850fa52d984d
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_ITYP
+        name: T_STAT
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 37911a7c-6b4b-4a39-b603-3b6130b1f9a9
-          stepCounter: 376b0c53-b73a-42cc-a3d6-86557a6e8953
+          columnCounter: 408f5636-340a-4b9a-9c1d-80c278bb24f2
+          stepCounter: 561313e7-3103-4d1d-92e0-850fa52d984d
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_IDOC
+        name: T_USER
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,13 +89,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f4bbf70f-f210-4187-8814-a6753b8092ee
-          stepCounter: 376b0c53-b73a-42cc-a3d6-86557a6e8953
+          columnCounter: 3d7ca297-5eca-47de-93d4-77cb28b6d695
+          stepCounter: 561313e7-3103-4d1d-92e0-850fa52d984d
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: TIMESTAMP_NTZ(9)
         defaultValue: ""
         description: ""
-        name: T_CPRJ
+        name: SNOWFLAKE_INGESTED_TIME
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -103,7 +103,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: TCISLI235525
+  name: TTFGLD100535
   schema: ""
   sqlType: Source
   type: sourceInput
