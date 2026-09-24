@@ -1,0 +1,35 @@
+fileVersion: 1
+id: 17932fcd-a8e3-45b6-bc64-d0985c35d436
+name: TTCCOM114535
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fab6a5b2-3e67-4188-a32b-189e3deba93e
+          stepCounter: 17932fcd-a8e3-45b6-bc64-d0985c35d436
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_CADR
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTCCOM114535
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
