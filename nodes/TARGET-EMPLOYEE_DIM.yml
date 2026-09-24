@@ -510,10 +510,13 @@ operation:
         dependencies:
           - locationName: WORK
             nodeName: DBT_FINAL_1
+          - locationName: WORK
+            nodeName: EMPLOYEE_DBT_FINAL
         join:
           joinCondition: |-
             FROM {{ ref('WORK', 'DBT_FINAL_1') }} LOAD_FNL
             WHERE LOAD_FNL.DML_ACTION_TYPE_CD = 'I'
+            {{ ref_link('WORK', 'EMPLOYEE_DBT_FINAL') }}
         name: EMPLOYEE_DIM
         noLinkRefs: []
   name: EMPLOYEE_DIM
