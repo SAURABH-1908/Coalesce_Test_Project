@@ -1,0 +1,135 @@
+fileVersion: 1
+id: aa015677-743c-4bd8-a655-69c42d035e65
+name: STG_TTPPPC441525
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Project cost amounts (material, labor, subcontract, other and total) aggregated from TTPPPC441525 cost-type rows joined to TTPPDM600525. Feeds REVENUE_CONTRACT_FACT.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-c18b-7386-a153-8858c396a967
+          stepCounter: aa015677-743c-4bd8-a655-69c42d035e65
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PROJ_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: T6.T_CPRJ
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-c18b-7386-a153-8f8859841e00
+          stepCounter: aa015677-743c-4bd8-a655-69c42d035e65
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: MATERIAL_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ROUND(SUM(TRIM(T441_MCA.T_AMAC)),2)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-c18b-7386-a153-93dd5060ed78
+          stepCounter: aa015677-743c-4bd8-a655-69c42d035e65
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: LABOR_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ROUND(SUM(TRIM(T441_LCA.T_AMAC)),2)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-c18b-7386-a153-955de1cb2fc3
+          stepCounter: aa015677-743c-4bd8-a655-69c42d035e65
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SUBCONTRACT_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ROUND(SUM(TRIM(T441_SCA.T_AMAC)),2)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-c18b-7386-a153-9805540168a2
+          stepCounter: aa015677-743c-4bd8-a655-69c42d035e65
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: OTHER_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ROUND(SUM(TRIM(T441_OCA.T_AMAC)),2)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ab9-c18b-7386-a153-9edd6c81474c
+          stepCounter: aa015677-743c-4bd8-a655-69c42d035e65
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: TOT_COST_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: (COALESCE(ROUND(SUM(TRIM(T441_MCA.T_AMAC)),2),0)+COALESCE(ROUND(SUM(TRIM(T441_LCA.T_AMAC)),2),0)+COALESCE(ROUND(SUM(TRIM(T441_SCA.T_AMAC)),2),0)+COALESCE(ROUND(SUM(TRIM(T441_OCA.T_AMAC)),2),0))
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: TTPPDM600525
+          - locationName: SRC
+            nodeName: TTPPPC441525
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'TTPPDM600525') }} T6
+
+            LEFT OUTER JOIN {{ ref('SRC', 'TTPPPC441525') }} T441_MCA
+            ON TRIM(T6.T_CPRJ) = TRIM(T441_MCA.T_CPRJ) AND TRIM(T441_MCA.T_CACT) = '000000'
+            AND TRIM(T441_MCA.T_MPTO) = 2 AND TRIM(T441_MCA.T_COTP) = 2
+
+            LEFT OUTER JOIN {{ ref('SRC', 'TTPPPC441525') }} T441_LCA
+            ON TRIM(T6.T_CPRJ) = TRIM(T441_LCA.T_CPRJ) AND TRIM(T441_LCA.T_CACT) = '000000'
+            AND TRIM(T441_LCA.T_MPTO) = 2 AND TRIM(T441_LCA.T_COTP) = 1
+
+            LEFT OUTER JOIN {{ ref('SRC', 'TTPPPC441525') }} T441_SCA
+            ON TRIM(T6.T_CPRJ) = TRIM(T441_SCA.T_CPRJ) AND TRIM(T441_SCA.T_CACT) = '000000'
+            AND TRIM(T441_SCA.T_MPTO) = 2 AND TRIM(T441_SCA.T_COTP) = 4
+
+            LEFT OUTER JOIN {{ ref('SRC', 'TTPPPC441525') }} T441_OCA
+            ON TRIM(T6.T_CPRJ) = TRIM(T441_OCA.T_CPRJ) AND TRIM(T441_OCA.T_CACT) = '000000'
+            AND TRIM(T441_OCA.T_MPTO) = 2 AND TRIM(T441_OCA.T_COTP) = 5
+
+            GROUP BY 1
+        name: STG_TTPPPC441525
+        noLinkRefs: []
+  name: STG_TTPPPC441525
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
