@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 24c5ea65-94f8-4989-9853-6de5cdcf432c
+name: TCISLI205525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ff6798b6-0ce0-47a3-bcf5-17a9d89d9f40
+          stepCounter: 24c5ea65-94f8-4989-9853-6de5cdcf432c
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_ITYP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 33a59b45-d702-42b2-9262-f9d54090e8e5
+          stepCounter: 24c5ea65-94f8-4989-9853-6de5cdcf432c
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: T_IDOC
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a931ec9-4d62-44d0-98b7-7da7eb32a0b8
+          stepCounter: 24c5ea65-94f8-4989-9853-6de5cdcf432c
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: T_SFCP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0338fa94-12a9-42af-9aa5-4c4f0cbcfe20
+          stepCounter: 24c5ea65-94f8-4989-9853-6de5cdcf432c
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_STBP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6113b1fe-96ff-4fbc-804a-ba046e42fa0d
+          stepCounter: 24c5ea65-94f8-4989-9853-6de5cdcf432c
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_ITBP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TCISLI205525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
