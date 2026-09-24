@@ -772,7 +772,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: T600.SNOWFLAKE_INGESTED_TIME
+            transform: "'INGEST_TS'"
     cteString: ""
     description: ""
     destinationName: ""
