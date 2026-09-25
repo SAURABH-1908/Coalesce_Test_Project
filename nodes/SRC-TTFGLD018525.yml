@@ -1,0 +1,92 @@
+fileVersion: 1
+id: a2066f4a-e1b1-471c-aa5b-632ffd58a924
+name: TTFGLD018525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b7490886-8261-4de7-936d-25544fd824cf
+          stepCounter: a2066f4a-e1b1-471c-aa5b-632ffd58a924
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_TTYP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 714692a8-5c7b-4d9e-9d5f-d95444aef463
+          stepCounter: a2066f4a-e1b1-471c-aa5b-632ffd58a924
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_DOCN
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: acafdca3-a8cc-42e7-a6a1-cecec05293dd
+          stepCounter: a2066f4a-e1b1-471c-aa5b-632ffd58a924
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_USER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 65634133-637e-420e-acc1-f1d1d08b1a03
+          stepCounter: a2066f4a-e1b1-471c-aa5b-632ffd58a924
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTFGLD018525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

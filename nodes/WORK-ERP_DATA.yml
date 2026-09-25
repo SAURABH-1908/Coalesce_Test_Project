@@ -1,5 +1,5 @@
 fileVersion: 1
-id: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+id: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
 name: ERP_DATA
 operation:
   config:
@@ -10,7 +10,7 @@ operation:
     truncateBefore: true
   database: ""
   deployEnabled: true
-  description: "GL distribution source join: ttfgld106525 enriched with dimension surrogate keys and derived attributes for the BAAN 525 GL_DISTIBUTION_FACT load."
+  description: Base ERP invoice AR dataset assembled from TFACR200/TCISLI and related dimension lookups for BAAN company 525.
   isMultisource: false
   locationName: WORK
   materializationType: table
@@ -19,488 +19,248 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-51148afa14f5
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-632a7be12ec9
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: GL_DISTR_INTG_ID
+        name: INVOICE_AR_INTG_ID
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CONCAT_WS('~', "tfgld106"."T_OTYP", FLOOR("tfgld106"."T_ODOC"), FLOOR("tfgld106"."T_OLIN"), FLOOR("tfgld106"."T_OSRL"), FLOOR("tfgld106"."T_OSRN"), '525', 'INSTANCE_004', 'SOURCE_SYSTEM_002')
+            transform: CONCAT_WS('~',tfacr200.T_TTYP, floor(tfacr200.T_NINV), floor(tfacr200.T_LINE),'525','INSTANCE_004','SOURCE_SYSTEM_002')
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-5417afd65e75
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-657eb3f7aa15
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: CURRENCY_SK
+        name: INVOICE_NUMBER_ID
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: COALESCE("cur"."CURRENCY_SK",'99999')
+            transform: TRIM(CONCAT_WS('/',tfacr200.T_TTYP,FLOOR(tfacr200.T_NINV)))
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-5b048927fe13
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-6af54a876af2
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
-        dataType: VARCHAR
+        dataType: NUMBER
         description: ""
-        name: SOURCE_SYSTEM_SK
+        name: INVOICE_LINE_ITEM_NBR
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: COALESCE("src_sys_dim"."SOURCE_SYSTEM_SK",'99999')
+            transform: floor(TRIM(tfacr200.T_line))
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-5dc90614d2f5
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-6e9d50129b15
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
-        dataType: VARCHAR
+        dataType: NUMBER(12,2)
         description: ""
-        name: INVOICE_NO
+        name: INVOICE_TOTAL_AMOUNT_AMT
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CONCAT_WS('~', TRIM("tfgld106"."T_OTYP"), TRIM(FLOOR("tfgld106"."T_ODOC")))
+            transform: to_number(TRIM(tfacr200.T_amnt),12,2)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-62daa5df84f0
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-71f16c5a4810
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
-        dataType: VARCHAR
+        dataType: NUMBER(12,2)
         description: ""
-        name: CUSTOMER_NBR
+        name: INVOICE_TAX_AMOUNT_AMT
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM("tfgld106"."T_BPID")
+            transform: to_number(TRIM(tfacr200.T_vati),12,2)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-67d9d044357a
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-756aa19c4993
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
-        dataType: VARCHAR
+        dataType: NUMBER(12,2)
         description: ""
-        name: GL_ACCOUNT_SK
+        name: LOCAL_CURR_TO_DOLLAR_AMT
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: COALESCE("c"."GL_ACCOUNT_SK",'99999')
+            transform: to_number(TRIM(tfacr200.T_rate_1),12,2)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-6845d846194e
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-788f06a76997
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
-        dataType: VARCHAR
+        dataType: NUMBER(12,2)
         description: ""
-        name: BRANCH_CD
+        name: DOLLAR_TO_LOCAL_CURR_AMT
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM("tppdm600"."T_CREG")
+            transform: to_number(TRIM(tfacr200.T_rate_1),12,2)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-6e36ec4fe085
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-7e0d8bbfb03e
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: GL_TRANSACTION_AMT
+        name: CUSTOMER_NUMBER_ID
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM("tfgld106"."T_AMNT")
+            transform: TRIM(tfacr200.T_itbp)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-7007edcd9888
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-8248f7a36901
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: GL_TRANSACTION_DT
+        name: INVOICE_DT
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM("tfgld106"."T_DCDT")
+            transform: TRIM(tfacr200.T_docd)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-77ffa7d49567
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-84c0844b2a95
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: ACC_PERIOD_YEAR
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 01a06b71-9725-7073-ac9f-4fd31c4e7936
-                stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
-            transform: TRIM("date_dim"."FISCAL_YEAR_NBR")
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-78adafdcf1e8
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: GL_PERIOD_NBR
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 01a06b71-9725-7073-ac9f-5194ff58aac5
-                stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
-            transform: TRIM("date_dim"."FISCAL_PERIOD_NBR")
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-7c8a1f824984
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: GL_PERIOD_YR
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 01a06b71-9725-7073-ac9f-4fd31c4e7936
-                stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
-            transform: TRIM("date_dim"."FISCAL_YEAR_NBR")
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-81fc766a9607
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: FISCAL_YEAR_NBR
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 01a06b71-9725-7073-ac9f-4fd31c4e7936
-                stepCounter: 7069c486-33c5-44f0-80a1-4e0487bc8769
-            transform: TRIM("date_dim"."FISCAL_YEAR_NBR")
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-8766d33dcc3f
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: COST_CENTER_ID
+        name: ACCOUNTING_DATE_SK
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM("tfgld106"."T_DIM1")
+            transform: TRIM(tfacr200.T_docd)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-8b904c600cd9
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-8a60df60747b
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: CURRENCY_CD
+        name: TRANSACTION_NBR
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM("tfgld106"."T_CCUR")
+            transform: TRIM(CONCAT_WS('/',tfacr200.T_TTYP,FLOOR(tfacr200.T_NINV)))
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-8fa195bf6a77
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-8f9c9728609a
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: TRANSACTION_TYPE_DSC
+        name: PAYMENT_TERM_CD
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM("tfgld011"."T_DESC")
+            transform: TRIM(tfacr200.T_cpay)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-9356188b8717
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-9058c69d7fd4
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
-        dataType: VARCHAR
+        dataType: NUMBER(12,2)
         description: ""
-        name: LINE_DSC
+        name: TRANSACTIONAL_NET_AMT
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM("tfgld106"."T_REFR")
+            transform: to_number(TRIM(tfacr200.T_amnt),12,2)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-970cc4517065
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-95a0a02052aa
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
-        dataType: VARCHAR
+        dataType: NUMBER(12,2)
         description: ""
-        name: ACCOUNTED_CREDIT_AMT
+        name: TRANSACTIONAL_TAX_AMT
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CASE WHEN "tfgld106"."T_DBCR" = 2 THEN TRIM("tfgld106"."T_AMTH_1") ELSE NULL END
+            transform: to_number(TRIM(tfacr200.T_vati),12,2)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-9994eebc400a
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-98d926945ccf
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: ACCOUNTED_DEBIT_AMT
+        name: INVOICE_DUE_DT
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CASE WHEN "tfgld106"."T_DBCR" = 1 THEN TRIM("tfgld106"."T_AMTH_1") ELSE NULL END
+            transform: TRIM(tfacr200.T_dued)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-9d8a8e3cd1b6
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-9e09c3060185
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
-        dataType: VARCHAR
+        dataType: NUMBER(12,2)
         description: ""
-        name: LINE_CREDIT_AMT
+        name: INVOICE_GROSS_LC_AMT
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CASE WHEN "tfgld106"."T_DBCR" = 2 THEN TRIM("tfgld106"."T_AMNT") ELSE NULL END
+            transform: to_number(TRIM(tfacr200.T_amth_1+tfacr200.T_vati),12,2)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-a38fc1dfe6d7
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-a07c0b68c7d3
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: LINE_STATUS_CD
+        name: TRANS_CURRENCY_CD
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM("tfgld100"."T_STAT")
+            transform: TRIM(tfacr200.T_ccur)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-a7864776af4c
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-a6ed064f5102
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: SHIP_TO_ACC_ID
+        name: TRANSACTION_TYPE_CD
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM("cisli205"."T_STBP")
+            transform: TRIM(tfacr200.T_ttyp)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-a9fd603e6a62
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-aaf8e7968b79
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
-        dataType: VARCHAR
+        dataType: NUMBER
         description: ""
-        name: BILL_TO_ACC_ID
+        name: PARENT_INVOICE_NBR_ID
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM("cisli205"."T_ITBP")
+            transform: TRY_TO_NUMBER(TRIM(CONCAT(tfacr200.T_otyp, tfacr200.T_oinv)))
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-ad8ce54a43b2
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-ac0543b25ba3
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: CUST_STATUS_CD
+        name: REFERENCE_TXT
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM("tccom100"."T_PRST")
+            transform: TRIM(tfacr200.T_refr)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-b01ca04fa8e7
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: CONTRACT_SK
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 01a06b71-d953-758b-bc2d-e47e61e446fe
-                stepCounter: 209d8516-6866-4609-a9ad-1f8ebad21ad2
-            transform: COALESCE("inst_contract_dim"."CONTRACT_SK",'99999')
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-b7637dd86344
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: LEDGER_DSC
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: TRIM("tfgld008"."T_DESC")
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-ba54561e1199
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: ACCOUNTING_DOC_LINE_ID
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: CONCAT_WS('-', "tfgld106"."T_OTYP", FLOOR("tfgld106"."T_ODOC"), FLOOR("tfgld106"."T_OLIN"))
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-bd6d0b283109
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: ACCOUNTING_DOC_ID
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: CONCAT_WS('-', "tfgld106"."T_OTYP", FLOOR("tfgld106"."T_ODOC"))
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-c2f7582ef44f
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: TRANSACTION_REFERENCE_ID
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: TRIM("tfgld106"."T_REFR")
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-c68fc679c165
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: ENTITY_CD
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: "'525'"
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-ca38b4c26f49
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: LEDGER_CURRENCY_CD
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: TRIM("tfgld106"."T_CCUR")
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-cdda04ab4f9b
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: CONTRACT_NBR_ID
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: TRIM("cisli235"."T_CPRJ")
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-d0ad873df4cf
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: ENTITY_SK
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 01a06b72-0131-72ff-bc19-8e3d728b1607
-                stepCounter: 6eb20f3f-ebb6-4e66-89a4-2fa91ae624f2
-            transform: COALESCE("entity_dim"."ENTITY_SK",'99999')
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-d79eeaf7faf9
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: GL_ACCOUNT_CD
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: CASE WHEN "tfgld106"."T_CONT" = 1 THEN "tfgld106"."T_LEAC" ELSE NULL END
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-d9175007bd8b
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: GL_TRANSACTION_H_AMT
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: TRIM("tfgld106"."T_AMTH_1")
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-de6613e617e6
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR(3)
-        description: ""
-        name: DEBIT_CREDIT_FLG
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST(FLOOR("tfgld106"."T_DBCR") AS VARCHAR(3))
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-e2669311ec74
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: LOB_SK
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: COALESCE("lob_dim"."LINE_OF_BUSINESS_SK",'99999')
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-e77df570ebd3
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: GEO_SK
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: COALESCE("geo_dim"."GEO_SK",'99999')
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-ea694b53f08f
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: RECURRING_ENTRY_DOC_DT
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: CASE WHEN "tfgld106"."T_CATG" = 2 THEN "tfgld106"."T_DATE" ELSE NULL END
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-ed790f649231
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-b1a016e8d761
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
@@ -508,71 +268,551 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM("tfgld106"."T_DATE")
+            transform: TRIM(tfacr200.T_docd)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-f18c98d5c53b
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-b60914291047
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: DOCUMENT_TYPE_CD
+        name: RELEASE_DT
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM("tfgld106"."T_CATG")
+            transform: TRIM(tfacr200.T_docd)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-f54abc609d00
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-bb04435448c7
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: DOCUMENT_TYPE_DSC
+        name: LAST_BILLING_DT
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CASE WHEN "tfgld106"."T_CATG" = 1 THEN 'Journal Vouchers' WHEN "tfgld106"."T_CATG" = 2 THEN 'Recurring/Reversing Jrnl' WHEN "tfgld106"."T_CATG" = 3 THEN 'Sales Invoices' WHEN "tfgld106"."T_CATG" = 4 THEN 'Sales Credit Notes' WHEN "tfgld106"."T_CATG" = 5 THEN 'Sales Corrections' WHEN "tfgld106"."T_CATG" = 6 THEN 'Purchase Invoices' WHEN "tfgld106"."T_CATG" = 7 THEN 'Purchase Credit Notes' WHEN "tfgld106"."T_CATG" = 8 THEN 'Purchase Corrections' WHEN "tfgld106"."T_CATG" = 9 THEN 'Opening Balance' WHEN "tfgld106"."T_CATG" = 10 THEN 'Cash' ELSE 'Null' END
+            transform: CAST(NULL AS VARCHAR)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-fbddf7dca564
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-bd53006dee90
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: EMPLOYEE_SK
+        name: INVOICE_TYPE_FLG
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: COALESCE("tfgld100"."T_USER",'99999')
+            transform: CAST(NULL AS VARCHAR)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4b-ffe83235fb45
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-c20988d162f9
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: USD_GROSS_AMT
+        name: REVENUE_RECOGNITION_DT_SK
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: TRIM("tfgld106"."T_AMTH_1")
+            transform: CAST(NULL AS VARCHAR)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-0032a5e14f71
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-c6feb0daca82
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
-        name: USD_NET_AMT
+        name: INVOICE_CREATION_DT_SK
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: ("tfgld106"."T_AMTH_1" - "tfgld106"."T_VAMH_1")
+            transform: CAST(NULL AS VARCHAR)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-06d7012aac10
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f7-cae36959b82a
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_STATUS_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f7-ce0ef3e02a6a
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_STATUS_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f7-d0b685e5e9f0
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f7-d57c1d5ab417
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BILLTO_CUST_NUMBER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(cisli205.T_itbp)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f7-d9f4a079eed3
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SHIPTO_CUST_NUMBER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(cisli205.T_stbp)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f7-de0c487cc690
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOLDTO_CUST_NUMBER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f7-e309d18d7d11
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BILL_TO_ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f7-e7e238fcd5a5
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SHIP_TO_ADDRESS_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f7-e98dbcad707a
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_TYPE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f7-ef61449f27f7
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ERP_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_NUMBER(TRIM(cisli205.T_sfcp))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f7-f10208cf9fc1
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: ITEM_LINE_AMOUNT_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS NUMBER(12,2))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f7-f474ef2ffa24
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ITEM_QUANTITY_ORDERED_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f7-f8d09732bb83
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PURCHASE_ORDER_NO_TXT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f7-ff81d968db77
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ITEM_QUANTITY_INVOICED_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-018068e81ec8
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAYMENT_METHOD_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-05d8f656beb1
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAYMENT_METHOD_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(NULL AS VARCHAR)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-0bd53a332c21
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(sicom100.T_ctcd)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-0ed87424de07
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_TYPE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(sicom100.T_catg)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-10cbdfd11d71
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: INVOICE_CREATED_USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(tfgld018.T_USER)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-14df1df90a04
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BILLER_NM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TRIM(tfgld018.T_user)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-1af8c41ca371
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: COST_CENTER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CASE when tfgld106.T_cont=1 then tfgld106.T_dim1 else null end
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-1f5314913683
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ITEM_LOCAL_CURRENCY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tfacr200.T_ccur
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-211f522bd60d
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PAYMENT_TERM_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: tcmcs013.T_dsca
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-2409da28b1d7
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CURRENCY_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: coalesce(cur.currency_sk,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-2e74065c718d
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: coalesce(CUS_SK.CUSTOMER_SK,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-34eec6e11483
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BILL_TO_CUSTOMER_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: coalesce(BILL_TO_CUS.BILL_TO_CUSTOMER_SK,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-3bdf87140fc7
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ENTITY_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: coalesce(entity.entity_sk,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-3ea005f44eeb
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: BILL_TO_ADDRESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: coalesce(GBL_ADDRESS_DIM_BILL_TO.DIM_NODE_KEY,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-4378a21296f1
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SHIP_TO_ADDRESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: coalesce(GBL_ADDRESS_DIM_SHIP_TO.DIM_NODE_KEY,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-449c9ef586eb
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOLD_TO_ADDRESS_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: coalesce(GBL_ADDRESS_DIM_SOLD_TO.DIM_NODE_KEY,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-48932570c782
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GEO_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: coalesce(geo.geo_sk,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-4cb51c51bf48
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ITEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: coalesce(item.ITEM_SK,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-52a90e5e3425
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: GL_ACCOUNT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: coalesce(GL_ACCOUNT.GL_ACCOUNT_SK,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-550c20f90f97
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONTRACT_DIM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: coalesce(T1.CONTRACT_SK,'99999')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-58d9689e1d84
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OS_ENTITY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: OS.OS_ENTITY_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-5d0076c3d143
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OS_ENTITY_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: OS.OS_ENTITY_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-60855c0b5f56
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OS_PRODUCT_FAMILY_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: OS.OS_PRODUCT_FAMILY_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-6417772c12bf
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OS_PRODUCT_FAMILY_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: OS.OS_PRODUCT_FAMILY_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-689ab17edf09
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OS_CONTRACT_TYPE_DSC
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: OS.OS_CONTRACT_TYPE_DSC
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-6d244d3b8950
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: OS_CONTRACT_TYPE_CD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: OS.OS_CONTRACT_TYPE_CD
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-735c6fd8997f
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
@@ -583,8 +823,20 @@ operation:
             transform: "'Americas'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-09e7ef9ba3db
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f8-7655daaa33f7
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: src_sys_dim.SOURCE_SYSTEM_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07a12-e952-7270-a9f8-789de32ae27e
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: TIMESTAMP
         description: ""
@@ -592,23 +844,23 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CURRENT_TIMESTAMP
+            transform: current_timestamp
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-0ccd606830b0
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f8-7f88e4885b4e
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: TIMESTAMP
         description: ""
-        name: LAST_UPDATE_TS
+        name: LAST_UPDT_TS
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CURRENT_TIMESTAMP
+            transform: current_timestamp
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-126398e1f7ee
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f8-8029d43e9b4b
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: TIMESTAMP
         description: ""
@@ -616,11 +868,11 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CURRENT_TIMESTAMP
+            transform: current_timestamp
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-17574fc27e20
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f8-8548f3bd955f
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: TIMESTAMP
         description: ""
@@ -631,8 +883,8 @@ operation:
             transform: TO_TIMESTAMP('99990101000000','yyyyMMddHHmiss')
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-1a31b51d0905
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f8-88344bba76f3
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: TIMESTAMP
         description: ""
@@ -640,11 +892,11 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "\"tfgld106\".\"SNOWFLAKE_INGESTED_TIME\""
+            transform: tfacr200.SNOWFLAKE_INGESTED_TIME
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-1f7a60cf846e
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f8-8fa0cffb6382
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: TIMESTAMP
         description: ""
@@ -652,11 +904,11 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CURRENT_TIMESTAMP
+            transform: current_timestamp
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-2341e28da6f9
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f8-90c6e1becfd2
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: TIMESTAMP
         description: ""
@@ -664,11 +916,11 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CURRENT_TIMESTAMP
+            transform: current_timestamp
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-2700b9b6cc86
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f8-9557f43f13e7
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
@@ -679,8 +931,8 @@ operation:
             transform: "NULL"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-2bfa8ca54d96
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e952-7270-a9f8-9823fdc74187
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
@@ -691,8 +943,8 @@ operation:
             transform: "'I'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-2e8b0c60088e
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e953-72ff-ba93-773071a6b603
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
@@ -703,8 +955,8 @@ operation:
             transform: "'Y'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-331ab840f1e4
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e953-72ff-ba93-7a0badc2a97a
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
@@ -715,8 +967,8 @@ operation:
             transform: "'PL_Trans_OTC_Finance_Main'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-3471dd44dde9
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e953-72ff-ba93-7eb908548036
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
@@ -727,8 +979,8 @@ operation:
             transform: "'adf-dev-edp-finance'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-3a97ff02e6d0
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e953-72ff-ba93-837023b7c83b
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
@@ -736,11 +988,11 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "'otc-finance/NA/BAAN_V_525/LOAD_FNL_BAAN_V_525_GL_DISTIBUTION_FACT.sql'"
+            transform: "'otc-finance/NA/BAAN_V_525/LOAD_FNL_BAAN_V_525_INVOICE_AR_FACT.sql'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-3e84287d16fa
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e953-72ff-ba93-84389ac30753
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
@@ -751,8 +1003,8 @@ operation:
             transform: "'SOURCE_SYSTEM_003'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-42a8ab201bdb
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e953-72ff-ba93-884b502afd8e
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
@@ -763,8 +1015,8 @@ operation:
             transform: "'INSTANCE_004'"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a06b4c-7f34-761b-af4c-468c1048b328
-          stepCounter: 44f2c59f-3cd2-481f-b2f4-f84f30787b4d
+          columnCounter: 01a07a12-e953-72ff-ba93-8c624d59687b
+          stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
         config: {}
         dataType: VARCHAR
         description: ""
@@ -772,7 +1024,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: MD5(COALESCE(CAST(CONCAT_WS('~', "tfgld106"."T_OTYP", FLOOR("tfgld106"."T_ODOC"), FLOOR("tfgld106"."T_OLIN"), FLOOR("tfgld106"."T_OSRL"), FLOOR("tfgld106"."T_OSRN"), '525', 'INSTANCE_004', 'SOURCE_SYSTEM_002') AS VARCHAR),'') || '|' || COALESCE(CAST(TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', CURRENT_TIMESTAMP())) AS VARCHAR),''))
+            transform: md5(coalesce(cast(CONCAT_WS('~',floor(tfacr200.T_NINV),'525','INSTANCE_004','SOURCE_SYSTEM_002') as varchar),'') || '|' || coalesce(cast(to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as varchar), ''))
     cteString: ""
     description: ""
     destinationName: ""
@@ -780,148 +1032,230 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          c: 2a245958-0dcd-4da5-9f40-9ce20315a1ec
-          cisli205: f849ec0d-726e-45b5-a7e4-a850375e7bba
-          cur: a313de21-e096-4a76-b685-21f97b18a44b
-          date_dim: 7069c486-33c5-44f0-80a1-4e0487bc8769
-          entity_dim: 6eb20f3f-ebb6-4e66-89a4-2fa91ae624f2
-          lob_dim: 29816227-4bb4-4990-bab3-b1ec440fe8a0
-          src_sys_dim: 06f1fa9c-e5ac-49df-8373-b0c21907224d
-          tccom100: 5b27c73b-0769-46b8-8265-857c20007df8
-          tfgld008: 11fba8e8-9c27-48bd-817f-5b7432528e8c
-          tfgld011: 78635e8c-898f-49e6-b223-a423c67660c3
-          tfgld100: b8ef9181-a7f2-45f0-b32e-d4cedaa2867b
-          tfgld106: 4335d776-7bcf-4c47-9e29-ba79a3bc49dc
-          tppdm600: 82d67e14-471a-465a-b4b5-2f0835aae506
+          CISLI205: f849ec0d-726e-45b5-a7e4-a850375e7bba
+          CISLI210: 0ca5712c-c12d-4f54-974f-6f0d53897b3d
+          CISLI225: d4d153ac-1807-4c43-abea-5762f68b713b
+          CISLI230: a06a95ed-c3e4-491f-906c-4b0447802feb
+          CISLI235: 376b0c53-b73a-42cc-a3d6-86557a6e8953
+          CISLI245: 11bc7176-a6e7-4125-92d2-74f214891a76
+          CISLI255: 5d85a7f5-9d97-4010-8f1d-e17ded5bcf4c
+          CISLI265: a4986316-18cb-42e3-a437-0ced8342c78d
+          CUR: 0a139cff-1dcc-4788-a513-473d1080b09d
+          ENTITY: 852316c4-fae0-426b-82fa-b32fbb6ed79c
+          GBL_ADDRESS_DIM_BILL_TO: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+          GBL_ADDRESS_DIM_SHIP_TO: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+          GBL_ADDRESS_DIM_SOLD_TO: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+          GL_ACCOUNT: b99b3a57-0e8f-4ff9-8970-76600c400a6f
+          SICOM100: beb49404-1eae-4e52-9ce9-ea0f6949f92b
+          SRC_SYS_DIM: 928d799e-a8af-4d32-b154-7953f6a87726
+          TCMCS013: 1bf353a6-ae88-4924-a07b-bcb3a44bc4cc
+          TCMCS055: f3c4a2d5-f2a7-4600-8eae-ad73814cc486
+          TFACR200: 59ca0b27-07c9-4d2f-a5fb-7842df80a136
+          TFGLD018: a2066f4a-e1b1-471c-aa5b-632ffd58a924
+          TFGLD102: 37aea07e-552f-4b7d-bfc3-df287bd9536d
+          TFGLD106: 4335d776-7bcf-4c47-9e29-ba79a3bc49dc
+          TTCCOM112: b9cb9644-21d6-42ac-875e-489d6c2accfb
+          TTPPDM600: 7d473915-ed4a-4e26-85a1-a42546b84abc
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: SRC
+            nodeName: CURRENCY_DIM
+          - locationName: SRC
+            nodeName: CUSTOMER_DIM
+          - locationName: SRC
+            nodeName: DFR_LOOKUP
+          - locationName: SRC
+            nodeName: ENTITY_DIM
+          - locationName: SRC
+            nodeName: GEOGRAPHY_DIM
+          - locationName: SRC
+            nodeName: GL_ACCOUNT_DIM
+          - locationName: SRC
+            nodeName: INST_CONTRACT_DIM
+          - locationName: SRC
+            nodeName: ITEM_DIM
+          - locationName: SRC
+            nodeName: SOURCE_SYSTEM_DIM
+          - locationName: SRC
             nodeName: TCISLI205525
+          - locationName: SRC
+            nodeName: TCISLI210525
+          - locationName: SRC
+            nodeName: TCISLI225525
+          - locationName: SRC
+            nodeName: TCISLI230525
           - locationName: SRC
             nodeName: TCISLI235525
           - locationName: SRC
+            nodeName: TCISLI245525
+          - locationName: SRC
+            nodeName: TCISLI255525
+          - locationName: SRC
+            nodeName: TCISLI265525
+          - locationName: SRC
+            nodeName: TSICDB005525
+          - locationName: SRC
+            nodeName: TSICOM100525
+          - locationName: SRC
             nodeName: TTCCOM100525
           - locationName: SRC
-            nodeName: TTFGLD008525
+            nodeName: TTCCOM111525
           - locationName: SRC
-            nodeName: TTFGLD011525
+            nodeName: TTCCOM112525
           - locationName: SRC
-            nodeName: TTFGLD100525
+            nodeName: TTCMCS013525
+          - locationName: SRC
+            nodeName: TTCMCS055525
+          - locationName: SRC
+            nodeName: TTFACR200525
+          - locationName: SRC
+            nodeName: TTFGLD018525
+          - locationName: SRC
+            nodeName: TTFGLD102525
           - locationName: SRC
             nodeName: TTFGLD106525
           - locationName: SRC
             nodeName: TTPPDM600525
           - locationName: TARGET
-            nodeName: CURRENCY_DIM
-          - locationName: TARGET
-            nodeName: DATE_DIM
-          - locationName: TARGET
-            nodeName: ENTITY_DIM
-          - locationName: TARGET
-            nodeName: GEOGRAPHY_DIM
-          - locationName: TARGET
-            nodeName: GL_ACCOUNT_DIM
-          - locationName: TARGET
-            nodeName: INST_CONTRACT_DIM
-          - locationName: TARGET
-            nodeName: LINE_OF_BUSINESS_DIM
-          - locationName: TARGET
-            nodeName: SOURCE_SYSTEM_DIM
+            nodeName: GBL_ADDRESS_DIM
         join:
           joinCondition: |-
-            FROM {{ ref('SRC', 'TTFGLD106525') }} AS "tfgld106"
-
-            LEFT JOIN {{ ref('TARGET', 'SOURCE_SYSTEM_DIM') }} AS "src_sys_dim"
-              ON TRIM("src_sys_dim".SOURCE_COMPANY_CD) = '525'
-              AND TRIM("src_sys_dim".SOURCE_SYSTEM_CD) = 'SOURCE_SYSTEM_002'
-              AND TRIM("src_sys_dim".SITE_REGION_CD) = 'INSTANCE_004'
-              AND TRIM("src_sys_dim".CURR_FLG) = 'Y'
-
-            LEFT JOIN {{ ref('TARGET', 'DATE_DIM') }} AS "date_dim"
-              ON "tfgld106".T_DCDT = TO_DATE(TO_CHAR("date_dim".DATE_SK), 'YYYYMMDD')
-
-            LEFT JOIN {{ ref('SRC', 'TTFGLD011525') }} AS "tfgld011"
-              ON TRIM("tfgld106".T_OTYP) = TRIM("tfgld011".T_TTYP)
-
-            LEFT JOIN {{ ref('SRC', 'TTFGLD100525') }} AS "tfgld100"
-              ON TRIM("tfgld106".T_OYER) = TRIM("tfgld100".T_YEAR)
-              AND TRIM("tfgld106".T_OBAT) = TRIM("tfgld100".T_BTNO)
-
-            LEFT JOIN {{ ref('SRC', 'TCISLI205525') }} AS "cisli205"
-              ON TRIM("tfgld106".T_OTYP) = TRIM("cisli205".T_ITYP)
-              AND FLOOR(TRIM("tfgld106".T_ODOC)) = FLOOR(TRIM("cisli205".T_IDOC))
-              AND FLOOR(TRIM("tfgld106".T_OCMP)) = FLOOR(TRIM("cisli205".T_SFCP))
-
-            LEFT JOIN {{ ref('SRC', 'TTCCOM100525') }} AS "tccom100"
-              ON TRIM("tfgld106".T_BPID) = TRIM("tccom100".T_BPID)
-
-            LEFT JOIN {{ ref('SRC', 'TTFGLD008525') }} AS "tfgld008"
-              ON TRIM("tfgld106".T_LEAC) = TRIM("tfgld008".T_LEAC)
-
-            LEFT OUTER JOIN {{ ref('TARGET', 'GL_ACCOUNT_DIM') }} AS "c"
-              ON TRIM("tfgld106".T_LEAC) = TRIM("c".SRC_ACCOUNT_CD)
-              AND "c".SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_002'
-              AND "c".INSTANCE_NM = 'INSTANCE_004'
-              AND "c".CURR_FLG = 'Y'
-              AND "c".ERP_ENTITY_CD = '525'
-
-            LEFT JOIN (
-              SELECT DISTINCT T_ITYP, T_IDOC, T_CPRJ
-              FROM {{ ref('SRC', 'TCISLI235525') }}
-            ) AS "cisli235"
-              ON TRIM("tfgld106".T_OTYP) = TRIM("cisli235".T_ITYP)
-              AND FLOOR(TRIM("tfgld106".T_ODOC)) = FLOOR(TRIM("cisli235".T_IDOC))
-
-            LEFT JOIN {{ ref('SRC', 'TTPPDM600525') }} AS "tppdm600"
-              ON TRIM("cisli235".T_CPRJ) = TRIM("tppdm600".T_CPRJ)
-
-            LEFT OUTER JOIN {{ ref('TARGET', 'CURRENCY_DIM') }} AS "cur"
-              ON "tfgld106".T_CCUR = "cur".SOURCE_CURRENCY_CD
-              AND "cur".SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_005'
-              AND "cur".INSTANCE_NM = 'INSTANCE_002'
-              AND "cur".CURR_FLG = 'Y'
-
-            LEFT JOIN (
-              SELECT TRIM(SPLIT_PART(inst_contract_dim.CONTRACT_NBR, '-', 1)) AS CONTRACT_NBR, CONTRACT_SK
-              FROM {{ ref('TARGET', 'INST_CONTRACT_DIM') }} AS inst_contract_dim
-              WHERE TRIM(SPLIT_PART(inst_contract_dim.CONTRACT_NBR, '-', 1)) IN (
-                  SELECT DISTINCT TRIM(T_CPRJ) FROM {{ ref('SRC', 'TTPPDM600525') }}
-                )
-                AND TRIM(inst_contract_dim.SOURCE_SYSTEM_NM) = 'SOURCE_SYSTEM_002'
-                AND TRIM(inst_contract_dim.INSTANCE_NM) = 'INSTANCE_004'
-                AND TRIM(inst_contract_dim.CURR_FLG) = 'Y'
-                AND inst_contract_dim.COUNTRY_CD = 'CA'
-            ) AS "inst_contract_dim"
-              ON TRIM("inst_contract_dim".CONTRACT_NBR) = TRIM("tppdm600".T_CPRJ)
-
-            LEFT JOIN {{ ref('TARGET', 'ENTITY_DIM') }} AS "entity_dim"
-              ON CAST(TRIM("tfgld106".T_OCMP) AS INT) = FLOOR(TRIM("entity_dim".ENTITY_CD))
-              AND TRIM("entity_dim".SOURCE_SYSTEM_NM) = 'SOURCE_SYSTEM_002'
-              AND TRIM("entity_dim".INSTANCE_NM) = 'INSTANCE_004'
-              AND TRIM("entity_dim".CURR_FLG) = 'Y'
-
-            LEFT JOIN {{ ref('TARGET', 'LINE_OF_BUSINESS_DIM') }} AS "lob_dim"
-              ON CAST(TRIM("tfgld106".T_OCMP) AS INT) = FLOOR(TRIM("lob_dim".ERP_ENTITY_CD))
-              AND "lob_dim".SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_002'
-              AND "lob_dim".INSTANCE_NM = 'INSTANCE_004'
-              AND "lob_dim".CURR_FLG = 'Y'
-              AND "lob_dim".ERP_ENTITY_CD = '525'
-
-            LEFT JOIN (
-              SELECT BRANCH_CD, GEO_SK
-              FROM {{ ref('TARGET', 'GEOGRAPHY_DIM') }}
-              WHERE SOURCE_SYSTEM_NM = 'SOURCE_SYSTEM_002'
-                AND INSTANCE_NM = 'INSTANCE_004'
-                AND CURR_FLG = 'Y'
-                AND BRANCH_CD IN (
-                  SELECT DISTINCT TRIM(T_CREG) FROM {{ ref('SRC', 'TTPPDM600525') }}
-                )
-                AND COMPANY_CD = '525'
-            ) AS "geo_dim"
-              ON CAST(TRIM("tppdm600".T_CREG) AS VARCHAR(30)) = CAST(TRIM("geo_dim".BRANCH_CD) AS VARCHAR(30))
+            FROM {{ ref('SRC', 'TTFACR200525') }} AS tfacr200
+                LEFT JOIN {{ ref('SRC', 'TCISLI205525') }} AS cisli205
+                  ON TRIM(tfacr200.T_ttyp) = TRIM(cisli205.T_ityp)
+                  AND floor(TRIM(tfacr200.T_ninv)) = TRIM(cisli205.T_IDOC)
+                  AND trim(tfacr200.T_lino) = 0
+                LEFT OUTER JOIN {{ ref('SRC', 'CURRENCY_DIM') }} cur
+                  ON trim(tfacr200.T_CCUR) = trim(cur.source_currency_cd)
+                  AND cur.source_system_nm = 'SOURCE_SYSTEM_005'
+                  AND cur.instance_nm = 'INSTANCE_002' AND cur.curr_flg = 'Y'
+                LEFT JOIN {{ ref('SRC', 'SOURCE_SYSTEM_DIM') }} AS src_sys_dim
+                  ON TRIM(src_sys_dim.SOURCE_COMPANY_CD) = '525'
+                  AND TRIM(src_sys_dim.SOURCE_SYSTEM_CD) = 'SOURCE_SYSTEM_002'
+                  AND TRIM(src_sys_dim.SITE_REGION_CD) = 'INSTANCE_004'
+                  AND TRIM(src_sys_dim.CURR_FLG) = 'Y'
+                LEFT JOIN {{ ref('SRC', 'TCISLI210525') }} as cisli210
+                  ON trim(cisli205.T_ityp) = trim(cisli210.T_ityp)
+                  AND trim(cisli205.T_idoc) = trim(cisli210.T_idoc)
+                LEFT JOIN {{ ref('SRC', 'TCISLI225525') }} as cisli225
+                  ON trim(cisli205.T_ityp) = trim(cisli225.T_ityp)
+                  AND trim(cisli205.T_idoc) = trim(cisli225.T_idoc)
+                LEFT JOIN {{ ref('SRC', 'TCISLI265525') }} as cisli265
+                  ON trim(cisli205.T_ityp) = trim(cisli265.T_ityp)
+                  AND trim(cisli205.T_idoc) = trim(cisli265.T_idoc)
+                LEFT OUTER JOIN {{ ref('SRC', 'TTCMCS013525') }} as tcmcs013
+                  ON trim(tfacr200.t_cpay) = trim(tcmcs013.T_cpay)
+                LEFT JOIN (
+                  select distinct coalesce(TRIM(a.ITEM_NBR_SK), '99999') AS ITEM_SK, c.T_ityp, c.T_IDOC
+                  from {{ ref('SRC', 'TCISLI205525') }} c
+                  LEFT JOIN {{ ref('SRC', 'TCISLI235525') }} b235
+                    ON TRIM(c.T_ityp) = TRIM(b235.T_ityp) AND TRIM(c.T_IDOC) = TRIM(b235.T_IDOC)
+                  LEFT JOIN {{ ref('SRC', 'TCISLI245525') }} b245
+                    ON TRIM(c.T_ityp) = TRIM(b245.T_ityp) AND TRIM(c.T_IDOC) = TRIM(b245.T_IDOC)
+                  LEFT JOIN {{ ref('SRC', 'TCISLI255525') }} b255
+                    ON TRIM(c.T_ityp) = TRIM(b255.T_ityp) AND TRIM(c.T_IDOC) = TRIM(b255.T_IDOC)
+                  LEFT JOIN {{ ref('SRC', 'ITEM_DIM') }} a
+                    ON TRIM(a.source_item_nbr) = TRIM(COALESCE(b235.T_ITEM, b245.T_ITEM, b255.T_ITEM))
+                    AND a.source_system_nm = 'SOURCE_SYSTEM_002' AND a.instance_nm = 'INSTANCE_004'
+                    AND a.CURR_FLG = 'Y' AND a.ENTITY_CD = '525'
+                ) item ON TRIM(item.T_ityp) = TRIM(cisli205.T_ityp) AND TRIM(item.T_IDOC) = TRIM(cisli205.T_IDOC)
+                LEFT JOIN {{ ref('SRC', 'TCISLI245525') }} AS cisli245
+                  ON TRIM(cisli205.T_ityp) = TRIM(cisli245.T_ityp) AND TRIM(cisli205.T_idoc) = TRIM(cisli245.T_idoc)
+                LEFT JOIN {{ ref('SRC', 'TCISLI235525') }} AS cisli235
+                  ON TRIM(cisli205.T_ityp) = TRIM(cisli235.T_ityp) AND TRIM(cisli205.T_idoc) = TRIM(cisli235.T_idoc)
+                LEFT OUTER JOIN {{ ref('SRC', 'TTPPDM600525') }} as TTPPDM600 ON cisli235.T_cprj = TTPPDM600.T_cprj
+                LEFT JOIN {{ ref('SRC', 'TCISLI230525') }} AS cisli230
+                  ON TRIM(cisli235.T_cprj) = TRIM(cisli230.T_cprj) and cisli230.T_refa != '                              '
+                LEFT JOIN {{ ref('SRC', 'TCISLI255525') }} AS cisli255
+                  ON TRIM(cisli205.T_ityp) = TRIM(cisli255.T_ityp) AND TRIM(cisli205.T_idoc) = TRIM(cisli255.T_idoc)
+                LEFT JOIN {{ ref('SRC', 'TTCCOM112525') }} as TTCCOM112
+                  ON trim(tfacr200.T_itbp) = trim(TTCCOM112.T_itbp)
+                LEFT JOIN {{ ref('SRC', 'TTCMCS055525') }} AS tcmcs055
+                  ON 1 = 0
+                LEFT JOIN {{ ref('SRC', 'TTCCOM100525') }} AS tccom100
+                  ON TRIM(tfacr200.T_itbp) = TRIM(tccom100.T_bpid)
+                LEFT JOIN {{ ref('SRC', 'TSICOM100525') }} AS sicom100
+                  ON TRIM(tccom100.T_bpid) = TRIM(sicom100.T_bpid)
+                LEFT JOIN {{ ref('SRC', 'TTFGLD018525') }} AS tfgld018
+                  ON TRIM(tfacr200.t_ttyp) = TRIM(tfgld018.t_ttyp) AND floor(TRIM(tfacr200.t_ninv)) = TRIM(tfgld018.t_docn)
+                LEFT JOIN {{ ref('SRC', 'TTFGLD106525') }} AS tfgld106
+                  ON TRIM(tfacr200.T_ttyp) = TRIM(tfgld106.T_otyp)
+                  AND floor(TRIM(tfacr200.T_ninv)) = floor(TRIM(tfgld106.T_odoc))
+                  AND floor(TRIM(tfacr200.T_line)) = 0 and tfgld106.t_cont = 1
+                LEFT JOIN {{ ref('SRC', 'TTFGLD102525') }} AS tfgld102
+                  ON TRIM(tfacr200.T_TTYP) = TRIM(tfgld102.T_ttyp)
+                  AND floor(TRIM(tfacr200.T_ninv)) = floor(TRIM(tfgld102.T_docn))
+                  AND floor(TRIM(tfacr200.T_line)) = floor(TRIM(tfgld102.T_OLIN))
+                LEFT JOIN (
+                  SELECT T1.CUSTOMER_SK, T1.CUSTOMER_NUMBER
+                  FROM {{ ref('SRC', 'CUSTOMER_DIM') }} AS T1
+                  WHERE T1.source_system_nm = 'SOURCE_SYSTEM_001' AND T1.instance_nm = 'INSTANCE_001'
+                    AND T1.CURR_FLG = 'Y' and T1.company_cd = '525'
+                ) CUS_SK ON TRIM(CUS_SK.CUSTOMER_NUMBER) = TRIM(tfacr200.T_ITBP)
+                LEFT JOIN (
+                  SELECT coalesce(T1.CUSTOMER_SK, '99999') AS SHIP_TO_CUSTOMER_SK, T2.T_STBP
+                  FROM {{ ref('SRC', 'TTCCOM111525') }} AS T2
+                  LEFT JOIN {{ ref('SRC', 'CUSTOMER_DIM') }} AS T1 ON TRIM(T1.CUSTOMER_NUMBER) = TRIM(T2.T_STBP)
+                  WHERE T1.source_system_nm = 'SOURCE_SYSTEM_001' AND T1.instance_nm = 'INSTANCE_001'
+                    AND T1.CURR_FLG = 'Y' and T1.company_cd = '525'
+                ) Ship_cus_sk ON TRIM(Ship_cus_sk.T_STBP) = TRIM(cisli205.T_STBP)
+                LEFT JOIN (
+                  SELECT coalesce(T1.CUSTOMER_SK, '99999') AS BILL_TO_CUSTOMER_SK, T2.T_ITBP
+                  FROM {{ ref('SRC', 'TTCCOM112525') }} AS T2
+                  LEFT JOIN {{ ref('SRC', 'CUSTOMER_DIM') }} AS T1 ON TRIM(T1.CUSTOMER_NUMBER) = TRIM(T2.T_ITBP)
+                  WHERE T1.source_system_nm = 'SOURCE_SYSTEM_001' AND T1.instance_nm = 'INSTANCE_001'
+                    AND T1.CURR_FLG = 'Y' and T1.company_cd = '525'
+                ) BILL_TO_CUS ON TRIM(BILL_TO_CUS.T_ITBP) = TRIM(cisli205.T_ITBP)
+                LEFT JOIN {{ ref('TARGET', 'GBL_ADDRESS_DIM') }} AS GBL_ADDRESS_DIM_BILL_TO
+                  ON 1 = 0
+                LEFT JOIN {{ ref_no_link('TARGET', 'GBL_ADDRESS_DIM') }} AS GBL_ADDRESS_DIM_SHIP_TO
+                  ON 1 = 0
+                LEFT JOIN {{ ref_no_link('TARGET', 'GBL_ADDRESS_DIM') }} AS GBL_ADDRESS_DIM_SOLD_TO
+                  ON 1 = 0
+                LEFT JOIN (
+                  select coalesce(c.geo_sk, '99999') as geo_sk, a.T_CPRJ
+                  from {{ ref('SRC', 'TCISLI235525') }} a
+                  LEFT OUTER JOIN {{ ref('SRC', 'TTPPDM600525') }} b on trim(b.T_CPRJ) = trim(a.T_CPRJ)
+                  LEFT OUTER JOIN {{ ref('SRC', 'GEOGRAPHY_DIM') }} c on trim(c.BRANCH_CD) = trim(b.T_CREG)
+                  where c.source_system_nm = 'SOURCE_SYSTEM_002' AND c.instance_nm = 'INSTANCE_004'
+                    and c.CURR_FLG = 'Y' and c.company_cd = '525'
+                ) geo on trim(cisli235.T_CPRJ) = trim(geo.T_CPRJ)
+                LEFT OUTER JOIN {{ ref('SRC', 'GL_ACCOUNT_DIM') }} as GL_ACCOUNT
+                  on trim(tfgld106.T_leac) = trim(GL_ACCOUNT.src_account_cd)
+                  and GL_ACCOUNT.source_system_nm = 'SOURCE_SYSTEM_002' AND GL_ACCOUNT.instance_nm = 'INSTANCE_004'
+                  and GL_ACCOUNT.CURR_FLG = 'Y' and GL_ACCOUNT.ERP_ENTITY_CD = '525'
+                LEFT JOIN {{ ref('SRC', 'ENTITY_DIM') }} entity
+                  on trim(cisli205.T_SFCP) = floor(trim(entity.entity_cd))
+                  and entity.source_system_nm = 'SOURCE_SYSTEM_002' and entity.instance_nm = 'INSTANCE_004' and entity.CURR_FLG = 'Y'
+                LEFT OUTER JOIN (
+                  SELECT DFR_e.target_code AS OS_ENTITY_CD, DFR_e.bos_description AS OS_ENTITY_DSC,
+                    DFR_l.bos_description AS OS_PRODUCT_FAMILY_DSC, DFR_l.target_code AS OS_PRODUCT_FAMILY_CD,
+                    DFR_c.bos_description AS OS_CONTRACT_TYPE_DSC, DFR_c.target_code AS OS_CONTRACT_TYPE_CD,
+                    ttppdm600.T_CPRJ
+                  FROM {{ ref('SRC', 'TTPPDM600525') }} ttppdm600
+                  LEFT OUTER JOIN (
+                    SELECT DISTINCT T_PROJ
+                    FROM {{ ref('SRC', 'TSICDB005525') }}
+                  ) tsicdb005 ON tsicdb005.T_PROJ = ttppdm600.T_CPRJ
+                  INNER JOIN {{ ref('SRC', 'DFR_LOOKUP') }} DFR_e
+                    ON DFR_e.source_code = TRIM(ttppdm600.T_CREG) AND DFR_e.source_entity_type = '104'
+                  LEFT OUTER JOIN {{ ref('SRC', 'DFR_LOOKUP') }} DFR_l
+                    ON 1 = 0
+                  LEFT OUTER JOIN {{ ref('SRC', 'DFR_LOOKUP') }} DFR_c
+                    ON 1 = 0
+                ) OS ON TRIM(cisli235.T_CPRJ) = TRIM(OS.T_CPRJ)
+                LEFT OUTER JOIN (
+                  SELECT SPLIT_PART(CONTRACT_NBR, '-', 1) CONTRACT_NBR, CONTRACT_SK,
+                    ROW_NUMBER() OVER(PARTITION BY SPLIT_PART(CONTRACT_NBR, '-', 1) ORDER BY CONTRACT_SK DESC) RN
+                  FROM {{ ref('SRC', 'INST_CONTRACT_DIM') }}
+                  QUALIFY RN = 1
+                ) T1 on TRIM(SPLIT_PART(T1.CONTRACT_NBR, '-', 1)) = TRIM(cisli235.T_CPRJ)
+                WHERE coalesce(TTPPDM600.T_CREG, 0) NOT IN ('002')
         name: ERP_DATA
-        noLinkRefs: []
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: GBL_ADDRESS_DIM
   name: ERP_DATA
   overrideSQL: false
   schema: ""
