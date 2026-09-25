@@ -1,11 +1,11 @@
 fileVersion: 1
-id: 43fc997e-a1cb-4d71-806b-d8671bb922f9
-name: SOURCE_SYSTEM_DIM
+id: 49265f8c-4ff6-409e-b5dd-9d42bf023e47
+name: TSICDB002525
 operation:
   database: ""
   deployEnabled: true
   description: ""
-  locationName: TARGET
+  locationName: SRC
   metadata:
     columns:
       - acceptedValues:
@@ -13,51 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 83486e63-c75a-45da-b002-14c64d5acb39
-          stepCounter: 43fc997e-a1cb-4d71-806b-d8671bb922f9
-        config: {}
-        dataType: NUMBER(38,0)
-        defaultValue: ""
-        description: ""
-        name: SOURCE_SYSTEM_SK
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 228e509f-c7c5-448f-ab9b-33462e9a8824
-          stepCounter: 43fc997e-a1cb-4d71-806b-d8671bb922f9
-        config: {}
-        dataType: VARCHAR(10)
-        defaultValue: ""
-        description: ""
-        name: SOURCE_COMPANY_CD
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: bcb4644f-a7b5-4e34-90e6-ad6fa5a0a64b
-          stepCounter: 43fc997e-a1cb-4d71-806b-d8671bb922f9
+          columnCounter: 84d95131-9143-4ad2-a09a-30bab520699b
+          stepCounter: 49265f8c-4ff6-409e-b5dd-9d42bf023e47
         config: {}
         dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_CD
+        name: T_PROJ
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +32,32 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9ad7ee67-47ab-4d66-94eb-03bb82c66288
-          stepCounter: 43fc997e-a1cb-4d71-806b-d8671bb922f9
+          columnCounter: 8518cdcb-9957-45d7-afa3-6c3977c33b9c
+          stepCounter: 49265f8c-4ff6-409e-b5dd-9d42bf023e47
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: T_BDTE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 55b809c5-c024-4952-a986-e4f44f4353ef
+          stepCounter: 49265f8c-4ff6-409e-b5dd-9d42bf023e47
         config: {}
         dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: SITE_REGION_CD
+        name: T_SALR
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 54a565da-f584-4e3f-8259-af183ab7f803
-          stepCounter: 43fc997e-a1cb-4d71-806b-d8671bb922f9
+          columnCounter: 49c1d9c5-0c96-414d-9d65-9495510677f4
+          stepCounter: 49265f8c-4ff6-409e-b5dd-9d42bf023e47
         config: {}
-        dataType: VARCHAR(1)
+        dataType: TIMESTAMP_NTZ(9)
         defaultValue: ""
         description: ""
-        name: CURR_FLG
+        name: SNOWFLAKE_INGESTED_TIME
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -103,7 +84,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: SOURCE_SYSTEM_DIM
+  name: TSICDB002525
   schema: ""
   sqlType: Source
   type: sourceInput
