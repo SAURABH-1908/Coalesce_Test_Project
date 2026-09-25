@@ -714,7 +714,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 01a07a12-e952-7270-a9f8-2a4d6d3c323f
+              - columnCounter: 01a07a12-e952-7270-a9f7-de0c487cc690
                 stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
             transform: ""
       - appliedColumnTests: {}
@@ -742,7 +742,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 01a07a12-e952-7270-a9f8-3153b530a5f1
+              - columnCounter: 01a07a12-e952-7270-a9f7-d9f4a079eed3
                 stepCounter: 654afc4e-4d82-45a2-ab99-a6dfba8730d3
             transform: ""
       - appliedColumnTests: {}

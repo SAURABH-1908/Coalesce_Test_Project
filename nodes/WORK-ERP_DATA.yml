@@ -664,7 +664,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "'99999'"
+            transform: coalesce(GBL_ADDRESS_DIM_BILL_TO.DIM_NODE_KEY,'99999')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a12-e952-7270-a9f8-4378a21296f1
@@ -676,7 +676,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "'99999'"
+            transform: coalesce(GBL_ADDRESS_DIM_SHIP_TO.DIM_NODE_KEY,'99999')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a12-e952-7270-a9f8-449c9ef586eb
@@ -688,7 +688,7 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: "'99999'"
+            transform: coalesce(GBL_ADDRESS_DIM_SOLD_TO.DIM_NODE_KEY,'99999')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a07a12-e952-7270-a9f8-48932570c782
@@ -1041,12 +1041,16 @@ operation:
           CISLI255: 5d85a7f5-9d97-4010-8f1d-e17ded5bcf4c
           CISLI265: a4986316-18cb-42e3-a437-0ced8342c78d
           CUR: 0a139cff-1dcc-4788-a513-473d1080b09d
-          ENTITY: 6242b082-a5f6-4295-98ba-db74bcaa3354
+          ENTITY: 852316c4-fae0-426b-82fa-b32fbb6ed79c
+          GBL_ADDRESS_DIM_BILL_TO: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+          GBL_ADDRESS_DIM_SHIP_TO: d82da4cc-8098-4a5d-b8ab-8a128a923b48
+          GBL_ADDRESS_DIM_SOLD_TO: d82da4cc-8098-4a5d-b8ab-8a128a923b48
           GL_ACCOUNT: b99b3a57-0e8f-4ff9-8970-76600c400a6f
           SICOM100: beb49404-1eae-4e52-9ce9-ea0f6949f92b
           SRC_SYS_DIM: 928d799e-a8af-4d32-b154-7953f6a87726
           TCCOM100: 5b27c73b-0769-46b8-8265-857c20007df8
           TCMCS013: 1bf353a6-ae88-4924-a07b-bcb3a44bc4cc
+          TCMCS055: f3c4a2d5-f2a7-4600-8eae-ad73814cc486
           TFACR200: 59ca0b27-07c9-4d2f-a5fb-7842df80a136
           TFGLD018: a2066f4a-e1b1-471c-aa5b-632ffd58a924
           TFGLD102: 37aea07e-552f-4b7d-bfc3-df287bd9536d
@@ -1103,6 +1107,8 @@ operation:
           - locationName: SRC
             nodeName: TTCMCS013525
           - locationName: SRC
+            nodeName: TTCMCS055525
+          - locationName: SRC
             nodeName: TTFACR200525
           - locationName: SRC
             nodeName: TTFGLD018525
@@ -1112,6 +1118,8 @@ operation:
             nodeName: TTFGLD106525
           - locationName: SRC
             nodeName: TTPPDM600525
+          - locationName: TARGET
+            nodeName: GBL_ADDRESS_DIM
         join:
           joinCondition: |-
             FROM {{ ref('SRC', 'TTFACR200525') }} AS tfacr200
@@ -1164,6 +1172,8 @@ operation:
                   ON TRIM(cisli205.T_ityp) = TRIM(cisli255.T_ityp) AND TRIM(cisli205.T_idoc) = TRIM(cisli255.T_idoc)
                 LEFT JOIN {{ ref('SRC', 'TTCCOM112525') }} as TTCCOM112
                   ON trim(tfacr200.T_itbp) = trim(TTCCOM112.T_itbp)
+                LEFT JOIN {{ ref('SRC', 'TTCMCS055525') }} AS tcmcs055
+                  ON 1 = 0
                 LEFT JOIN {{ ref('SRC', 'TTCCOM100525') }} AS tccom100
                   ON TRIM(tfacr200.T_itbp) = TRIM(tccom100.T_bpid)
                 LEFT JOIN {{ ref('SRC', 'TSICOM100525') }} AS sicom100
@@ -1198,6 +1208,12 @@ operation:
                   WHERE T1.source_system_nm = 'SOURCE_SYSTEM_001' AND T1.instance_nm = 'INSTANCE_001'
                     AND T1.CURR_FLG = 'Y' and T1.company_cd = '525'
                 ) BILL_TO_CUS ON TRIM(BILL_TO_CUS.T_ITBP) = TRIM(cisli205.T_ITBP)
+                LEFT JOIN {{ ref('TARGET', 'GBL_ADDRESS_DIM') }} AS GBL_ADDRESS_DIM_BILL_TO
+                  ON 1 = 0
+                LEFT JOIN {{ ref_no_link('TARGET', 'GBL_ADDRESS_DIM') }} AS GBL_ADDRESS_DIM_SHIP_TO
+                  ON 1 = 0
+                LEFT JOIN {{ ref_no_link('TARGET', 'GBL_ADDRESS_DIM') }} AS GBL_ADDRESS_DIM_SOLD_TO
+                  ON 1 = 0
                 LEFT JOIN (
                   select coalesce(c.geo_sk, '99999') as geo_sk, a.T_CPRJ
                   from {{ ref('SRC', 'TCISLI235525') }} a
@@ -1217,17 +1233,16 @@ operation:
                   SELECT DFR_e.target_code AS OS_ENTITY_CD, DFR_e.bos_description AS OS_ENTITY_DSC,
                     DFR_l.bos_description AS OS_PRODUCT_FAMILY_DSC, DFR_l.target_code AS OS_PRODUCT_FAMILY_CD,
                     DFR_c.bos_description AS OS_CONTRACT_TYPE_DSC, DFR_c.target_code AS OS_CONTRACT_TYPE_CD,
-                    ttppdm600.T_CPRJ, tsicdb005.T_FAMI
+                    ttppdm600.T_CPRJ
                   FROM {{ ref('SRC', 'TTPPDM600525') }} ttppdm600
                   LEFT OUTER JOIN (
-                    SELECT T_PROJ, T_FAMI, T_SSDT, T_SYS, T_DSCA
+                    SELECT DISTINCT T_PROJ
                     FROM {{ ref('SRC', 'TSICDB005525') }}
-                    QUALIFY row_number() over (partition by T_PROJ order by T_TOTS DESC) = 1
-                  ) tsicdb005 ON tsicdb005.T_PROJ = ttppdm600.T_CPRJ AND to_date(tsicdb005.T_SSDT) <> '1970-01-01'
+                  ) tsicdb005 ON tsicdb005.T_PROJ = ttppdm600.T_CPRJ
                   INNER JOIN {{ ref('SRC', 'DFR_LOOKUP') }} DFR_e
                     ON DFR_e.source_code = TRIM(ttppdm600.T_CREG) AND DFR_e.source_entity_type = '104'
                   LEFT OUTER JOIN {{ ref('SRC', 'DFR_LOOKUP') }} DFR_l
-                    ON DFR_l.source_code = TRIM(tsicdb005.T_FAMI) AND DFR_l.source_entity_type = '204'
+                    ON 1 = 0
                   LEFT OUTER JOIN {{ ref('SRC', 'DFR_LOOKUP') }} DFR_c
                     ON 1 = 0
                 ) OS ON TRIM(cisli235.T_CPRJ) = TRIM(OS.T_CPRJ)
@@ -1239,7 +1254,9 @@ operation:
                 ) T1 on TRIM(SPLIT_PART(T1.CONTRACT_NBR, '-', 1)) = TRIM(cisli235.T_CPRJ)
                 WHERE coalesce(TTPPDM600.T_CREG, 0) NOT IN ('002')
         name: ERP_DATA
-        noLinkRefs: []
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: GBL_ADDRESS_DIM
   name: ERP_DATA
   overrideSQL: false
   schema: ""
