@@ -1,11 +1,11 @@
 fileVersion: 1
-id: 43fc997e-a1cb-4d71-806b-d8671bb922f9
-name: SOURCE_SYSTEM_DIM
+id: 500a00c3-79b3-49da-97ab-bf7dd32a60f4
+name: TTPPDM740525
 operation:
   database: ""
   deployEnabled: true
   description: ""
-  locationName: TARGET
+  locationName: SRC
   metadata:
     columns:
       - acceptedValues:
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 83486e63-c75a-45da-b002-14c64d5acb39
-          stepCounter: 43fc997e-a1cb-4d71-806b-d8671bb922f9
+          columnCounter: 5294add4-4df1-4560-b31f-b834380736af
+          stepCounter: 500a00c3-79b3-49da-97ab-bf7dd32a60f4
         config: {}
-        dataType: NUMBER(38,0)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_SK
+        name: T_CPRJ
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 228e509f-c7c5-448f-ab9b-33462e9a8824
-          stepCounter: 43fc997e-a1cb-4d71-806b-d8671bb922f9
+          columnCounter: 59ce2ac1-7e9c-4397-a2cd-a2e849462ee9
+          stepCounter: 500a00c3-79b3-49da-97ab-bf7dd32a60f4
         config: {}
-        dataType: VARCHAR(10)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: SOURCE_COMPANY_CD
+        name: T_CPAY
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: bcb4644f-a7b5-4e34-90e6-ad6fa5a0a64b
-          stepCounter: 43fc997e-a1cb-4d71-806b-d8671bb922f9
+          columnCounter: 911cbae3-c3da-4047-a7bd-96f974e56155
+          stepCounter: 500a00c3-79b3-49da-97ab-bf7dd32a60f4
         config: {}
-        dataType: VARCHAR(50)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: SOURCE_SYSTEM_CD
+        name: T_REFE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 9ad7ee67-47ab-4d66-94eb-03bb82c66288
-          stepCounter: 43fc997e-a1cb-4d71-806b-d8671bb922f9
+          columnCounter: 07141319-37fd-4f91-887a-440c485f1aea
+          stepCounter: 500a00c3-79b3-49da-97ab-bf7dd32a60f4
         config: {}
-        dataType: VARCHAR(50)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: SITE_REGION_CD
+        name: T_REFB
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,13 +89,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 54a565da-f584-4e3f-8259-af183ab7f803
-          stepCounter: 43fc997e-a1cb-4d71-806b-d8671bb922f9
+          columnCounter: 7fa8669a-8052-4d31-812b-8ca8c7f163f1
+          stepCounter: 500a00c3-79b3-49da-97ab-bf7dd32a60f4
         config: {}
-        dataType: VARCHAR(1)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: CURR_FLG
+        name: T_OFBP
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -103,7 +103,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: SOURCE_SYSTEM_DIM
+  name: TTPPDM740525
   schema: ""
   sqlType: Source
   type: sourceInput

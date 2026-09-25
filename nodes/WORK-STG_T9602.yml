@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 11eaf7e4-8fe5-4abe-80a6-5ae0b95c3dcf
+name: STG_T9602
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Latest change order number per project from TSIPDM960525.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-4028-719f-bafd-b4c08c312ef8
+          stepCounter: 11eaf7e4-8fe5-4abe-80a6-5ae0b95c3dcf
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PROJ_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d9605b12-e0bc-413d-8531-d360c92f02cd
+                stepCounter: a73e3393-164d-49c9-b619-944907db80a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a07ac8-4028-719f-bafd-b96e89beee57
+          stepCounter: 11eaf7e4-8fe5-4abe-80a6-5ae0b95c3dcf
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CHANGE_ORDER_NBR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 13dba31e-bfbc-4a8e-af00-aa499d700c9f
+                stepCounter: a73e3393-164d-49c9-b619-944907db80a3
+            transform: MAX("TSIPDM960525"."T_SEQN")
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          TSIPDM960525: a73e3393-164d-49c9-b619-944907db80a3
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: TSIPDM960525
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'TSIPDM960525') }} "TSIPDM960525"
+            GROUP BY "TSIPDM960525"."T_PROJ"
+        name: STG_T9602
+        noLinkRefs: []
+  name: STG_T9602
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
