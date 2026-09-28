@@ -1,0 +1,111 @@
+fileVersion: 1
+id: 928d799e-a8af-4d32-b154-7953f6a87726
+name: SOURCE_SYSTEM_DIM
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: da2bd9aa-cbc1-46f3-9f1c-5a0a3aef52bf
+          stepCounter: 928d799e-a8af-4d32-b154-7953f6a87726
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_SK
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c9702247-d9d6-48c1-b1f9-4984b5981d43
+          stepCounter: 928d799e-a8af-4d32-b154-7953f6a87726
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_COMPANY_CD
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 48121ccc-7066-4e36-8b59-9ebe157955ea
+          stepCounter: 928d799e-a8af-4d32-b154-7953f6a87726
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_CD
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b69eaabf-a99b-4e48-9034-549cecbf0d3c
+          stepCounter: 928d799e-a8af-4d32-b154-7953f6a87726
+        config: {}
+        dataType: VARCHAR(100)
+        defaultValue: ""
+        description: ""
+        name: SITE_REGION_CD
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 720f9209-2369-4e05-b8d4-7e67b51a5401
+          stepCounter: 928d799e-a8af-4d32-b154-7953f6a87726
+        config: {}
+        dataType: VARCHAR(1)
+        defaultValue: ""
+        description: ""
+        name: CURR_FLG
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: SOURCE_SYSTEM_DIM
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

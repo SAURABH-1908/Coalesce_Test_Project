@@ -1,0 +1,130 @@
+fileVersion: 1
+id: 5d85a7f5-9d97-4010-8f1d-e17ded5bcf4c
+name: TCISLI255525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 31c3d1ad-e0b5-4431-8678-30a1151c7abf
+          stepCounter: 5d85a7f5-9d97-4010-8f1d-e17ded5bcf4c
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_ITYP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 68da355f-1787-4213-ad96-dc7adb122a13
+          stepCounter: 5d85a7f5-9d97-4010-8f1d-e17ded5bcf4c
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_IDOC
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f9eaaf86-e48e-4913-83b9-d4c9f347afed
+          stepCounter: 5d85a7f5-9d97-4010-8f1d-e17ded5bcf4c
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_AMTH_1
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3547472f-7239-4a68-95df-b6971cc7d212
+          stepCounter: 5d85a7f5-9d97-4010-8f1d-e17ded5bcf4c
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_QUAN
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5701819b-6a75-4183-8483-e870c06443ae
+          stepCounter: 5d85a7f5-9d97-4010-8f1d-e17ded5bcf4c
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_DQUA
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 07b7e8a0-dbf9-47fc-b6de-613fbec15f43
+          stepCounter: 5d85a7f5-9d97-4010-8f1d-e17ded5bcf4c
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_ITEM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TCISLI255525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
