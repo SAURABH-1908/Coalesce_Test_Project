@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 8896645a-6515-420f-a323-29d0b7584f75
-name: TTPPDM740525
+id: a2066f4a-e1b1-471c-aa5b-632ffd58a924
+name: TTFGLD018525
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 11d591b7-d9dd-4f47-8b3a-172f60eff61f
-          stepCounter: 8896645a-6515-420f-a323-29d0b7584f75
+          columnCounter: b7490886-8261-4de7-936d-25544fd824cf
+          stepCounter: a2066f4a-e1b1-471c-aa5b-632ffd58a924
         config: {}
-        dataType: VARCHAR(50)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_CPRJ
+        name: T_TTYP
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 7a09c939-6bcc-4c14-9087-357fd558993d
-          stepCounter: 8896645a-6515-420f-a323-29d0b7584f75
+          columnCounter: 714692a8-5c7b-4d9e-9d5f-d95444aef463
+          stepCounter: a2066f4a-e1b1-471c-aa5b-632ffd58a924
         config: {}
-        dataType: VARCHAR(20)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_CPAY
+        name: T_DOCN
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 3a3c691d-ce59-4fc0-b87f-94765b5c4d00
-          stepCounter: 8896645a-6515-420f-a323-29d0b7584f75
+          columnCounter: acafdca3-a8cc-42e7-a6a1-cecec05293dd
+          stepCounter: a2066f4a-e1b1-471c-aa5b-632ffd58a924
         config: {}
-        dataType: VARCHAR(50)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_OFBP
+        name: T_USER
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 110e087a-ef86-4f81-bfb6-821101d24818
-          stepCounter: 8896645a-6515-420f-a323-29d0b7584f75
+          columnCounter: 65634133-637e-420e-acc1-f1d1d08b1a03
+          stepCounter: a2066f4a-e1b1-471c-aa5b-632ffd58a924
         config: {}
-        dataType: TIMESTAMP_NTZ(9)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: SNOWFLAKE_INGESTED_TIME
+        name: T_DATE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -84,7 +84,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: TTPPDM740525
+  name: TTFGLD018525
   schema: ""
   sqlType: Source
   type: sourceInput
