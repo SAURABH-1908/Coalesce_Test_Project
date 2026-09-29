@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 8896645a-6515-420f-a323-29d0b7584f75
-name: TTPPDM740525
+id: 59c0b9d9-5cd8-40dd-92eb-9fce14ee9a0c
+name: DFR_LOOKUP
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 11d591b7-d9dd-4f47-8b3a-172f60eff61f
-          stepCounter: 8896645a-6515-420f-a323-29d0b7584f75
+          columnCounter: 925fa7cf-875a-404f-8e2f-2792e0fd7bb5
+          stepCounter: 59c0b9d9-5cd8-40dd-92eb-9fce14ee9a0c
         config: {}
-        dataType: VARCHAR(50)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_CPRJ
+        name: SOURCE_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 7a09c939-6bcc-4c14-9087-357fd558993d
-          stepCounter: 8896645a-6515-420f-a323-29d0b7584f75
+          columnCounter: e6e30f30-14b1-4d60-8e04-46fe0ad7fd97
+          stepCounter: 59c0b9d9-5cd8-40dd-92eb-9fce14ee9a0c
         config: {}
-        dataType: VARCHAR(20)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_CPAY
+        name: SOURCE_ENTITY_TYPE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 3a3c691d-ce59-4fc0-b87f-94765b5c4d00
-          stepCounter: 8896645a-6515-420f-a323-29d0b7584f75
+          columnCounter: c121b2a2-517b-4ee6-af9e-e403862bcbce
+          stepCounter: 59c0b9d9-5cd8-40dd-92eb-9fce14ee9a0c
         config: {}
-        dataType: VARCHAR(50)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_OFBP
+        name: TARGET_CODE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 110e087a-ef86-4f81-bfb6-821101d24818
-          stepCounter: 8896645a-6515-420f-a323-29d0b7584f75
+          columnCounter: 13f020c2-66b9-4b5b-8dc3-d391d4581fef
+          stepCounter: 59c0b9d9-5cd8-40dd-92eb-9fce14ee9a0c
         config: {}
-        dataType: TIMESTAMP_NTZ(9)
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: SNOWFLAKE_INGESTED_TIME
+        name: BOS_DESCRIPTION
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -84,7 +84,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: TTPPDM740525
+  name: DFR_LOOKUP
   schema: ""
   sqlType: Source
   type: sourceInput

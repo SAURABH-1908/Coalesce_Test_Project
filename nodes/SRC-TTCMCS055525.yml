@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 1bf353a6-ae88-4924-a07b-bcb3a44bc4cc
-name: TTCMCS013525
+id: f3c4a2d5-f2a7-4600-8eae-ad73814cc486
+name: TTCMCS055525
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 441456c7-68b8-4fd8-9c85-2312dbac3571
-          stepCounter: 1bf353a6-ae88-4924-a07b-bcb3a44bc4cc
+          columnCounter: 62893680-097d-43e2-80a2-17d6ced9e065
+          stepCounter: f3c4a2d5-f2a7-4600-8eae-ad73814cc486
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_CPAY
+        name: T_CINM
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,8 +32,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 2f4b067f-dc7e-4290-897e-b59aa4c3a978
-          stepCounter: 1bf353a6-ae88-4924-a07b-bcb3a44bc4cc
+          columnCounter: 050a9140-fc9b-478b-a5ac-696c5987e1cf
+          stepCounter: f3c4a2d5-f2a7-4600-8eae-ad73814cc486
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
@@ -46,7 +46,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: TTCMCS013525
+  name: TTCMCS055525
   schema: ""
   sqlType: Source
   type: sourceInput

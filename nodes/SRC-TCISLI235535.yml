@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 8896645a-6515-420f-a323-29d0b7584f75
-name: TTPPDM740525
+id: c8a54f2f-454d-4ccc-9f8e-17e18916c2b6
+name: TCISLI235535
 operation:
   database: ""
   deployEnabled: true
@@ -13,10 +13,67 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 11d591b7-d9dd-4f47-8b3a-172f60eff61f
-          stepCounter: 8896645a-6515-420f-a323-29d0b7584f75
+          columnCounter: 9672e6e9-4503-4e14-aa46-eba8ec7c4002
+          stepCounter: c8a54f2f-454d-4ccc-9f8e-17e18916c2b6
         config: {}
-        dataType: VARCHAR(50)
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: T_ITYP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 971117cd-b1ae-405d-8b3a-63f8f10d6071
+          stepCounter: c8a54f2f-454d-4ccc-9f8e-17e18916c2b6
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: T_IDOC
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5cfec70a-eb24-4208-b5ec-f6cd42cb88ca
+          stepCounter: c8a54f2f-454d-4ccc-9f8e-17e18916c2b6
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: T_SFCP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f57c76cc-e86e-41dd-a05a-6e582e951499
+          stepCounter: c8a54f2f-454d-4ccc-9f8e-17e18916c2b6
+        config: {}
+        dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
         name: T_CPRJ
@@ -32,46 +89,8 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 7a09c939-6bcc-4c14-9087-357fd558993d
-          stepCounter: 8896645a-6515-420f-a323-29d0b7584f75
-        config: {}
-        dataType: VARCHAR(20)
-        defaultValue: ""
-        description: ""
-        name: T_CPAY
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 3a3c691d-ce59-4fc0-b87f-94765b5c4d00
-          stepCounter: 8896645a-6515-420f-a323-29d0b7584f75
-        config: {}
-        dataType: VARCHAR(50)
-        defaultValue: ""
-        description: ""
-        name: T_OFBP
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 110e087a-ef86-4f81-bfb6-821101d24818
-          stepCounter: 8896645a-6515-420f-a323-29d0b7584f75
+          columnCounter: 4516f5c7-3d7d-4e67-ab2c-73c95e35939d
+          stepCounter: c8a54f2f-454d-4ccc-9f8e-17e18916c2b6
         config: {}
         dataType: TIMESTAMP_NTZ(9)
         defaultValue: ""
@@ -84,7 +103,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: TTPPDM740525
+  name: TCISLI235535
   schema: ""
   sqlType: Source
   type: sourceInput

@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 1bf353a6-ae88-4924-a07b-bcb3a44bc4cc
-name: TTCMCS013525
+id: a06a95ed-c3e4-491f-906c-4b0447802feb
+name: TCISLI230525
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 441456c7-68b8-4fd8-9c85-2312dbac3571
-          stepCounter: 1bf353a6-ae88-4924-a07b-bcb3a44bc4cc
+          columnCounter: 246caee9-70c3-4cf3-9e32-e943da1a21da
+          stepCounter: a06a95ed-c3e4-491f-906c-4b0447802feb
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_CPAY
+        name: T_CPRJ
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 2f4b067f-dc7e-4290-897e-b59aa4c3a978
-          stepCounter: 1bf353a6-ae88-4924-a07b-bcb3a44bc4cc
+          columnCounter: 2f15f479-0bb1-4372-9e53-7b0bd163dabd
+          stepCounter: a06a95ed-c3e4-491f-906c-4b0447802feb
         config: {}
         dataType: VARCHAR(16777216)
         defaultValue: ""
         description: ""
-        name: T_DSCA
+        name: T_REFA
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -46,7 +46,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-  name: TTCMCS013525
+  name: TCISLI230525
   schema: ""
   sqlType: Source
   type: sourceInput
