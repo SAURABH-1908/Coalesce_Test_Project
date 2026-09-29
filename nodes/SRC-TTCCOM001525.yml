@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 1cf3abd8-1c7a-4cb3-840a-efefb4debc62
+name: TTCCOM001525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5298f834-268a-450b-83eb-86e98d0b1228
+          stepCounter: 1cf3abd8-1c7a-4cb3-840a-efefb4debc62
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_EMNO
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 47ec738f-e0c3-4065-9ba4-4c3186dcc869
+          stepCounter: 1cf3abd8-1c7a-4cb3-840a-efefb4debc62
+        config: {}
+        dataType: VARCHAR(255)
+        defaultValue: ""
+        description: ""
+        name: T_NAMA
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b7925603-4b74-4cab-ba8d-e694f79c904d
+          stepCounter: 1cf3abd8-1c7a-4cb3-840a-efefb4debc62
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SNOWFLAKE_INGESTED_TIME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TTCCOM001525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

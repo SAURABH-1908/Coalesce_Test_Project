@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 7d473915-ed4a-4e26-85a1-a42546b84abc
-name: TTPPDM600525
+id: 8fc1c32b-215a-44a9-9f7b-0a25d863b023
+name: TSICDB015525
 operation:
   database: ""
   deployEnabled: true
@@ -13,13 +13,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 5bd75a0f-fcc1-41b8-9854-f8142ef04571
-          stepCounter: 7d473915-ed4a-4e26-85a1-a42546b84abc
+          columnCounter: e096fe92-5d40-4e57-8c5a-9b8f666c05fc
+          stepCounter: 8fc1c32b-215a-44a9-9f7b-0a25d863b023
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: T_KOPR
+        name: T_PROJ
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -32,13 +32,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 7189e3eb-3589-4c87-bed7-4b8270823094
-          stepCounter: 7d473915-ed4a-4e26-85a1-a42546b84abc
+          columnCounter: 6eaa3528-8d98-4fe5-b5de-0633648fff3e
+          stepCounter: 8fc1c32b-215a-44a9-9f7b-0a25d863b023
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(100)
         defaultValue: ""
         description: ""
-        name: T_PSTS
+        name: T_SYS
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -51,13 +51,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: bda3f62b-eddb-4ade-acc4-f8f3c1943f7a
-          stepCounter: 7d473915-ed4a-4e26-85a1-a42546b84abc
+          columnCounter: 5656a01d-c2f0-4b7f-b7e5-89d11f4e3862
+          stepCounter: 8fc1c32b-215a-44a9-9f7b-0a25d863b023
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: T_COPR
+        name: T_GRUP
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -70,13 +70,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: a8396c36-d973-4ef8-a339-f7eb95b126fd
-          stepCounter: 7d473915-ed4a-4e26-85a1-a42546b84abc
+          columnCounter: 0c2bae39-f0cf-4314-adfa-0987336315bc
+          stepCounter: 8fc1c32b-215a-44a9-9f7b-0a25d863b023
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: T_DLDT
+        name: T_BLIN
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -89,13 +89,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 2d838b38-e912-4447-b402-0d11f85325cd
-          stepCounter: 7d473915-ed4a-4e26-85a1-a42546b84abc
+          columnCounter: c827420f-f5dd-4e59-af01-89ae784ebe29
+          stepCounter: 8fc1c32b-215a-44a9-9f7b-0a25d863b023
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: VARCHAR(100)
         defaultValue: ""
         description: ""
-        name: T_BTDT
+        name: T_COST
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -108,13 +108,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 85d55adb-da7d-4d39-838f-3a1ed7fc5400
-          stepCounter: 7d473915-ed4a-4e26-85a1-a42546b84abc
+          columnCounter: f4b0cfc7-9d15-4427-957c-c4f4ee4345a7
+          stepCounter: 8fc1c32b-215a-44a9-9f7b-0a25d863b023
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: NUMBER(18,4)
         defaultValue: ""
         description: ""
-        name: T_NCMP
+        name: T_QUAN
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -127,13 +127,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 20770718-8319-4683-9900-7a348e9a5ad0
-          stepCounter: 7d473915-ed4a-4e26-85a1-a42546b84abc
+          columnCounter: cf5f38e6-3f3d-4797-864b-dbab1b932665
+          stepCounter: 8fc1c32b-215a-44a9-9f7b-0a25d863b023
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: NUMBER(18,2)
         defaultValue: ""
         description: ""
-        name: T_CCOT
+        name: T_ESPR
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -146,13 +146,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 4985bfee-7e50-413f-98e0-c3d91a633802
-          stepCounter: 7d473915-ed4a-4e26-85a1-a42546b84abc
+          columnCounter: bf8508e7-ebfe-4ddf-a57d-ff2c33a335fa
+          stepCounter: 8fc1c32b-215a-44a9-9f7b-0a25d863b023
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: DATE
         defaultValue: ""
         description: ""
-        name: T_CCUR
+        name: T_RDTE
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -165,13 +165,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: e3c03f34-7a2a-439e-b5e3-b39b7376ecec
-          stepCounter: 7d473915-ed4a-4e26-85a1-a42546b84abc
+          columnCounter: 80c302a8-5cfa-44be-9cfb-7db6abfc12d2
+          stepCounter: 8fc1c32b-215a-44a9-9f7b-0a25d863b023
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: NUMBER(18,4)
         defaultValue: ""
         description: ""
-        name: COUNTRY_CD
+        name: T_SQUA
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -184,13 +184,13 @@ operation:
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: 56a008a0-0401-4beb-a35b-6052d51d125a
-          stepCounter: 7d473915-ed4a-4e26-85a1-a42546b84abc
+          columnCounter: e6842894-8628-43e0-9580-e66d0e68e208
+          stepCounter: 8fc1c32b-215a-44a9-9f7b-0a25d863b023
         config: {}
-        dataType: TIMESTAMP_NTZ(9)
+        dataType: VARCHAR(50)
         defaultValue: ""
         description: ""
-        name: SNOWFLAKE_INGESTED_TIME
+        name: T_STBP
         nullable: true
         primaryKey: false
         sourceColumnReferences:
@@ -198,45 +198,7 @@ operation:
             transform: ""
         transform: ""
         uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 44fbb60f-9aa4-470e-b51c-c0a1ae3a8467
-          stepCounter: 7d473915-ed4a-4e26-85a1-a42546b84abc
-        config: {}
-        dataType: VARCHAR(16777216)
-        defaultValue: ""
-        description: ""
-        name: T_CPRJ
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: fabcf767-7c3f-4702-a2d9-db533160acf4
-          stepCounter: 7d473915-ed4a-4e26-85a1-a42546b84abc
-        config: {}
-        dataType: VARCHAR(16777216)
-        defaultValue: ""
-        description: ""
-        name: T_CREG
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
-  name: TTPPDM600525
+  name: TSICDB015525
   schema: ""
   sqlType: Source
   type: sourceInput

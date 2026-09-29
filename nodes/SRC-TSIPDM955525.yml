@@ -1,0 +1,54 @@
+fileVersion: 1
+id: 9bbac06a-2c13-41d5-a160-4932c44fe19e
+name: TSIPDM955525
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f7df3468-d667-4ca1-a9a6-49d6a1977a79
+          stepCounter: 9bbac06a-2c13-41d5-a160-4932c44fe19e
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: PROJ_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8fa265db-eb7d-47c0-a353-5904f24cce2d
+          stepCounter: 9bbac06a-2c13-41d5-a160-4932c44fe19e
+        config: {}
+        dataType: VARCHAR(50)
+        defaultValue: ""
+        description: ""
+        name: T_TOTS
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: TSIPDM955525
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
