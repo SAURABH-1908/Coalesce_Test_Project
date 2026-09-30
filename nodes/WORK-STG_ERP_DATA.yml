@@ -138,7 +138,7 @@ operation:
           - columnReferences:
               - columnCounter: 01a08039-3698-746d-a1b2-541f73d8d607
                 stepCounter: b4f5502f-8889-4886-8272-e7a4e49142a1
-            transform: ""
+            transform: "\"ACC_PERIOD_YEAR\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 01a0802e-4239-7748-90da-b4bab1c3bd28
