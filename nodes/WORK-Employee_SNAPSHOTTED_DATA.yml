@@ -19,20 +19,6 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: bb9df431-2652-4405-919b-67d8fe231cae
-          stepCounter: 8584ff49-d309-4276-aa36-09c76a1fa137
-        config: {}
-        dataType: NUMBER
-        description: ""
-        name: DIM_EMPLOYEE_DBT_FINAL_KEY
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 97c41dd8-aea1-407d-9685-3e820146fa24
-                stepCounter: 1aaa540d-2768-46a1-86d0-44f506c8b337
-            transform: "\"EMPLOYEE_DIM\".\"DIM_EMPLOYEE_DBT_FINAL_KEY\""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: eb0964e8-e2eb-499e-be33-2a5ab07466b0
           stepCounter: 8584ff49-d309-4276-aa36-09c76a1fa137
         config: {}
@@ -56,9 +42,9 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 4c1bf497-ef02-4725-a90c-4f3fb564699f
-                stepCounter: 1aaa540d-2768-46a1-86d0-44f506c8b337
-            transform: "\"EMPLOYEE_DIM\".\"TARGET_PRIMARY_KEY\""
+              - columnCounter: 01a0806a-026a-71ec-886a-1d112634012d
+                stepCounter: 29944d48-7951-43bd-9aa1-f847831bee66
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: a7fbbd22-afb0-4511-9c8b-9544ef88e366
@@ -325,20 +311,6 @@ operation:
               - columnCounter: 01a0806a-026a-71ec-886a-7651b4f80d92
                 stepCounter: 29944d48-7951-43bd-9aa1-f847831bee66
             transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: d18ac812-4e31-49db-80b2-7b5ed22ff467
-          stepCounter: 8584ff49-d309-4276-aa36-09c76a1fa137
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: SOURCE_PRIMARY_KEY
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: e88f3133-5893-449a-9d65-c93a708828f2
-                stepCounter: 1aaa540d-2768-46a1-86d0-44f506c8b337
-            transform: "\"EMPLOYEE_DIM\".\"SOURCE_PRIMARY_KEY\""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 880e1bc3-b846-4190-b3d0-4329913b30f1
