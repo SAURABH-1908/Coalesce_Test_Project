@@ -460,24 +460,24 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          SSD: 395af002-aec7-4616-a82b-e0a4f053159c
+          SSD: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
           T_901: 18bacb04-d7ec-449d-9abb-4046d65df32e
           T_902: e6daf388-ed32-4253-b7dd-1924eecb79d7
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: SRC
-            nodeName: SOURCE_SYSTEM_DIM
-          - locationName: SRC
             nodeName: TTCIBD901535
           - locationName: SRC
             nodeName: TTCIBD902535
+          - locationName: TARGET
+            nodeName: SOURCE_SYSTEM_DIM
         join:
           joinCondition: |-
             FROM {{ ref('SRC', 'TTCIBD902535') }} T_902
             LEFT OUTER JOIN {{ ref('SRC', 'TTCIBD901535') }} T_901
                 ON T_902.T_REGN = T_901.T_REGN
-            LEFT OUTER JOIN {{ ref('SRC', 'SOURCE_SYSTEM_DIM') }} SSD
+            LEFT OUTER JOIN {{ ref('TARGET', 'SOURCE_SYSTEM_DIM') }} SSD
                 ON SSD.SOURCE_SYSTEM_CD = 'SOURCE_SYSTEM_003'
                 AND SSD.SITE_REGION_CD = 'INSTANCE_004'
                 AND SSD.SOURCE_COMPANY_CD = '535'

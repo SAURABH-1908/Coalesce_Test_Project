@@ -264,13 +264,14 @@ operation:
       - isDistinct
     materializationOption: ""
     sourceMapping:
-      - aliases:
-          STG_CUSTOMER: 293fd8e5-df47-49be-9e47-7e220129209f
+      - aliases: {}
         customSQL:
           customSQL: ""
-        dependencies: []
+        dependencies:
+          - locationName: TARGET
+            nodeName: STG_CUSTOMER
         join:
-          joinCondition: FROM {{ ref('TARGET', 'CUSTOMER_DIM') }} STG_CUSTOMER
+          joinCondition: FROM {{ ref('TARGET', 'STG_CUSTOMER') }} STG_CUSTOMER
         name: CUSTOMER_DIM
         noLinkRefs: []
   name: CUSTOMER_DIM

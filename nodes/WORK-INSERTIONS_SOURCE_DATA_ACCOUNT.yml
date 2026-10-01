@@ -271,20 +271,6 @@ operation:
             transform: "\"INSTANCE_NM\""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 01a07a69-8b40-7737-a0aa-e8da6848af20
-          stepCounter: e5838730-ebde-441c-b530-f1d03b2a188a
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: SOURCE_PRIMARY_KEY
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 01a06663-5d37-70be-8c89-9821269e785c
-                stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: 01a07a69-8b40-7737-a0aa-ed4d29e5002e
           stepCounter: e5838730-ebde-441c-b530-f1d03b2a188a
         config: {}

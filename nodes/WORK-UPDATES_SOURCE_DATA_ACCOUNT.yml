@@ -270,20 +270,6 @@ operation:
               - columnCounter: 01a06663-5d37-70be-8c89-deb9b23b7032
                 stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
             transform: "\"INSTANCE_NM\""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 01a07a69-bdc8-7601-adf3-fa7262077142
-          stepCounter: 15b10303-cd20-4877-87ab-4681db5a14cf
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: SOURCE_PRIMARY_KEY
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 01a06663-5d37-70be-8c89-9821269e785c
-                stepCounter: 47a54b20-4814-4bad-94dd-b714e23cc684
-            transform: ""
     cteString: ""
     description: ""
     destinationName: ""

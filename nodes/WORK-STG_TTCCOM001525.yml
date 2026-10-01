@@ -17,10 +17,7 @@ operation:
   metadata:
     appliedNodeTests: []
     columns:
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: dc094bc7-3825-4d5b-bf94-af23d943f3ad
           stepCounter: b1d17d2c-9298-4def-a0f5-641e662f316b
@@ -150,19 +147,19 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          a: 477c1367-de00-469a-bdfc-28ab07e1f999
-          b: 928d799e-a8af-4d32-b154-7953f6a87726
+          a: a2b20e2e-17e3-4f36-bbf3-e76ba9dbee6e
+          b: 8391c9b7-bad3-4a84-a580-ed5c4dafc9a6
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: SRC
-            nodeName: SOURCE_SYSTEM_DIM
-          - locationName: SRC
             nodeName: TTCCOM001525
+          - locationName: TARGET
+            nodeName: SOURCE_SYSTEM_DIM
         join:
           joinCondition: |-
             FROM {{ ref('SRC', 'TTCCOM001525') }} "a"
-            LEFT JOIN {{ ref('SRC', 'SOURCE_SYSTEM_DIM') }} "b"
+            LEFT JOIN {{ ref('TARGET', 'SOURCE_SYSTEM_DIM') }} "b"
             	ON "b".SOURCE_COMPANY_CD = '525'
             	AND "b".SOURCE_SYSTEM_CD = 'SOURCE_SYSTEM_002'
             	AND "b".SITE_REGION_CD = 'INSTANCE_004'
